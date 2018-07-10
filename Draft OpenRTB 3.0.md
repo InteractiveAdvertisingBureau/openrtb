@@ -1,10 +1,10 @@
 ![image alt text](image_0.png)
 
-**OpenRTB ****Specification ****v3.0**
+# **OpenRTB Specification v3.0**
 
-DRAFT-4
+DRAFT FOR BETA AND PUBLIC COMMENT
 
-May 22, 2018
+July, 2018
 
 **About the IAB Technology Lab**
 
@@ -303,7 +303,8 @@ The "Request" object contains a globally unique bid request ID.  This “id” a
   </tr>
   <tr>
     <td>test</td>
-    <td>integer;default 0</td>
+    <td>integer;
+default 0</td>
     <td>Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.</td>
   </tr>
   <tr>
@@ -313,7 +314,8 @@ The "Request" object contains a globally unique bid request ID.  This “id” a
   </tr>
   <tr>
     <td>at</td>
-    <td>integer;default 2</td>
+    <td>integer;
+default 2</td>
     <td>Auction type, where 1 = First Price, 2 = Second Price Plus.  Values greater than 500 can be used for exchange-specific auction types.</td>
   </tr>
   <tr>
@@ -425,7 +427,8 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td>qty</td>
-    <td>integer;default 1</td>
+    <td>integer;
+default 1</td>
     <td>The number of instances (i.e., "quantity") of this item being offered (e.g., multiple identical impressions in a digital out-of-home scenario).</td>
   </tr>
   <tr>
@@ -435,7 +438,8 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td>flrcur</td>
-    <td>string;default “USD”</td>
+    <td>string;
+default “USD”</td>
     <td>Currency of the “flr” attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -455,7 +459,8 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td>dlvy</td>
-    <td>integer;default 0</td>
+    <td>integer;
+default 0</td>
     <td>Item (e.g., an Ad object) delivery method required, where 0 = either method, 1 = the item must be sent as part of the transaction (e.g., by value in the bid itself, fetched by URL included in the bid), and 2 = an item previously uploaded to the exchange must be referenced by its ID.  Note that if an exchange does not supported prior upload, then the default of 0 is effectively the same as 1 since there can be no items to reference.</td>
   </tr>
   <tr>
@@ -470,7 +475,8 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td>private</td>
-    <td>integer;default 0</td>
+    <td>integer;
+default 0</td>
     <td>Indicator of auction eligibility to seats named in “Deal” objects, where 0 = all bids are accepted, 1 = bids are restricted to the deals specified and the terms thereof.</td>
   </tr>
   <tr>
@@ -509,7 +515,8 @@ This object constitutes a specific deal that was struck *a priori* between a sel
   </tr>
   <tr>
     <td>flrcur</td>
-    <td>string;default "USD"</td>
+    <td>string;
+default "USD"</td>
     <td>Currency of the “flr” attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -641,7 +648,8 @@ A bid response can contain multiple "Seatbid" objects, each on behalf of a diffe
   </tr>
   <tr>
     <td>package</td>
-    <td>integer;default 0</td>
+    <td>integer;
+default 0</td>
     <td>For offers with multiple items, this flag Indicates if the bidder is willing to accept wins on a subset of bids or requires the full group as a package, where 0 = individual wins accepted; 1 = package win or loss only.</td>
   </tr>
   <tr>
@@ -1125,7 +1133,42 @@ The following are examples of Layer-3 request/response payloads expressed using 
 
 The following is an example of Layer-3 of a bid request with a single item offered for sale and a single private marketplace deal associated with it.  Some optional attributes have been omitted for brevity.
 
-{	"openrtb": {		“ver”: “3.0”,		“domainspec”: “adcom”,		“domainver”: “1.0”,		“request”: {			“id”: “0123456789ABCDEF”,			“tmax”: 150,			“at”: 2,			“cur”: [ “USD”, “EUR” ],			“source”: {				“ds”: “AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF”,				“hb”: 1,				“fd”: 1,				“tid”: “FEDCBA9876543210”,				“pchain”: “...”			},			“package”: 0,			“item”: [				{					“id”: “1”,					“qty”: “1”,					“private”: 0,					“deal”: [						{							“id”: “1234”,							“flr”: “1.50”						}					],					“spec”: { **AdCOM Top-Level Objects:  AdSpec, Placement**** **}				}			]			“context”: {  **AdCOM Top-Level Objects:  Site or App, Device, User, Regs ** }		}	}}
+{
+	"openrtb": {
+		“ver”: “3.0”,
+		“domainspec”: “adcom”,
+		“domainver”: “1.0”,
+		“request”: {
+			“id”: “0123456789ABCDEF”,
+			“tmax”: 150,
+			“at”: 2,
+			“cur”: [ “USD”, “EUR” ],
+			“source”: {
+				“ds”: “AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF”,
+				“hb”: 1,
+				“fd”: 1,
+				“tid”: “FEDCBA9876543210”,
+				“pchain”: “...”
+			},
+			“package”: 0,
+			“item”: [
+				{
+					“id”: “1”,
+					“qty”: “1”,
+					“private”: 0,
+					“deal”: [
+						{
+							“id”: “1234”,
+							“flr”: “1.50”
+						}
+					],
+					“spec”: { **AdCOM Top-Level Objects:  AdSpec, Placement**** **}
+				}
+			]
+			“context”: {  **AdCOM Top-Level Objects:  Site or App, Device, User, Regs ** }
+		}
+	}
+}
 
 ## Bid Response
 
@@ -1133,27 +1176,69 @@ The following is an example of Layer-3 of a bid response, which refers to the pr
 
 For illustration purposes, this example shows both the "mid" parameter to reference previously uploaded media with some macros for dynamic values and a “domain” object reference.  In practice, media would be pass either by value (i.e., details included as domain objects) or pass by reference (i.e., using the media ID and optional macros).
 
-{	"openrtb": {		“ver”: “3.0”,		“domainspec”: “adcom”,		“domainver”: “1.0”,		“response”: {			“id”: “0123456789ABCDEF”,			“bidid”: “0011223344AABBCC”,			“seatbid”: [				{					“seat”: “XYZ”,					“bid”: [						{							“id”: “yaddayadda”,							“item”: “1”,							“deal”: “1234”,							“price”: “1.50”,							“tactic”: “...”,							“purl”: “...”,							“burl”: “...”,							“lurl”: “...”,							“mid”: “...”,							“macro”: [								{ “$TIMESTAMP”, “1127987134” },								{ “$CLICKTOKEN”, “A7D800F2716DB” }							],							“media”: { **AdCOM Top-Level Objects:  Ad**** **}						}					]				}			]		}	}}
+{
+	"openrtb": {
+		“ver”: “3.0”,
+		“domainspec”: “adcom”,
+		“domainver”: “1.0”,
+		“response”: {
+			“id”: “0123456789ABCDEF”,
+			“bidid”: “0011223344AABBCC”,
+			“seatbid”: [
+				{
+					“seat”: “XYZ”,
+					“bid”: [
+						{
+							“id”: “yaddayadda”,
+							“item”: “1”,
+							“deal”: “1234”,
+							“price”: “1.50”,
+							“tactic”: “...”,
+							“purl”: “...”,
+							“burl”: “...”,
+							“lurl”: “...”,
+							“mid”: “...”,
+							“macro”: [
+								{ “$TIMESTAMP”, “1127987134” },
+								{ “$CLICKTOKEN”, “A7D800F2716DB” }
+							],
+							“media”: { **AdCOM Top-Level Objects:  Ad**** **}
+						}
+					]
+				}
+			]
+		}
+	}
+}
 
 # Appendix A:  Additional Resources
 
-Interactive Advertising Bureau (IAB)[www.iab.com](https://www.iab.com)
+Interactive Advertising Bureau (IAB)
+[www.iab.com](https://www.iab.com)
 
-OpenRTB Project on Github[github.com/openrtb/OpenRTB](https://github.com/openrtb/OpenRTB)
+OpenRTB Project on Github
+[github.com/openrtb/OpenRTB](https://github.com/openrtb/OpenRTB)
 
-Development Community Mailing List[groups.google.com/forum/#!forum/openrtb-dev](https://groups.google.com/forum/#!forum/openrtb-dev)
+Development Community Mailing List
+[groups.google.com/forum/#!forum/openrtb-dev](https://groups.google.com/forum/#!forum/openrtb-dev)
 
-User Community Mailing List[groups.google.com/forum/#!forum/openrtb-user](https://groups.google.com/forum/#!forum/openrtb-user)
+User Community Mailing List
+[groups.google.com/forum/#!forum/openrtb-user](https://groups.google.com/forum/#!forum/openrtb-user)
 
-AdCOM Specification**TODO**
+AdCOM Specification
+**TODO**
 
-Creative Commons / Attribution License[creativecommons.org/licenses/by/3.0](https://creativecommons.org/licenses/by/3.0)
+Creative Commons / Attribution License
+[creativecommons.org/licenses/by/3.0](https://creativecommons.org/licenses/by/3.0)
 
-JavaScript Object Notation (JSON)[www.json.org](www.json.org)
+JavaScript Object Notation (JSON)
+[www.json.org](www.json.org)
 
-Apache Avro[Avro.apache.org](http://avro.apache.org)
+Apache Avro
+[Avro.apache.org](http://avro.apache.org)
 
-Protocol Buffers (Protobuf)[github.com/google/protobuf](https://github.com/google/protobuf)
+Protocol Buffers (Protobuf)
+[github.com/google/protobuf](https://github.com/google/protobuf)
 
 # Appendix B:  Change Log
 
