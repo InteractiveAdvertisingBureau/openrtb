@@ -19,7 +19,7 @@ import (
 )
 
 func main() {
-	private, public, err := loadKeys()
+	privateKey, publicKey, err := loadKeys()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -36,12 +36,12 @@ func main() {
 		"",                                     // device.ua
 		"",                                     // ad.video player size?
 	}, ":")
-	signature, err := sign(private, sha256.New(), msg)
+	signature, err := sign(privateKey, sha256.New(), msg)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Printf("publisher signature: %s\n", base64.StdEncoding.EncodeToString(signature))
-	verified, err := verify(public, sha256.New(), msg, signature)
+	verified, err := verify(publicKey, sha256.New(), msg, signature)
 	if err != nil || !verified {
 		fmt.Println("it didn't work :(")
 	} else {
@@ -49,7 +49,7 @@ func main() {
 	}
 }
 
-func loadKeys() (private *ecdsa.PrivateKey, public *ecdsa.PublicKey, err error) {
+func loadKeys() (privateKey *ecdsa.PrivateKey, publicKey *ecdsa.PublicKey, err error) {
 	if len(os.Args) < 3 {
 		return nil, nil, errors.New("invalid argument length")
 	}
@@ -61,7 +61,7 @@ func loadKeys() (private *ecdsa.PrivateKey, public *ecdsa.PublicKey, err error) 
 	if err != nil {
 		return nil, nil, err
 	}
-	private = priv.(*ecdsa.PrivateKey)
+	privateKey = priv.(*ecdsa.PrivateKey)
 	b, err = ioutil.ReadFile(os.Args[2])
 	if err != nil {
 		return nil, nil, err
@@ -70,22 +70,22 @@ func loadKeys() (private *ecdsa.PrivateKey, public *ecdsa.PublicKey, err error) 
 	if err != nil {
 		return nil, nil, err
 	}
-	public = pub.(*ecdsa.PublicKey)
-	return private, public, err
+	publicKey = pub.(*ecdsa.PublicKey)
+	return privateKey, publicKey, err
 }
 
-func sign(private *ecdsa.PrivateKey, digest hash.Hash, msg string) ([]byte, error) {
+func sign(privateKey *ecdsa.PrivateKey, digest hash.Hash, msg string) ([]byte, error) {
 	if _, err := digest.Write([]byte(msg)); err != nil {
 		return nil, err
 	}
-	out, err := private.Sign(rand.Reader, digest.Sum(nil), nil)
+	out, err := privateKey.Sign(rand.Reader, digest.Sum(nil), nil)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func verify(public *ecdsa.PublicKey, digest hash.Hash, msg string, signature []byte) (bool, error) {
+func verify(publicKey *ecdsa.PublicKey, digest hash.Hash, msg string, signature []byte) (bool, error) {
 	if _, err := digest.Write([]byte(msg)); err != nil {
 		return false, err
 	}
@@ -93,7 +93,7 @@ func verify(public *ecdsa.PublicKey, digest hash.Hash, msg string, signature []b
 	if _, err := asn1.Unmarshal(signature, ecdsaSig); err != nil {
 		return false, err
 	}
-	if !ecdsa.Verify(public, digest.Sum(nil), ecdsaSig.R, ecdsaSig.S) {
+	if !ecdsa.Verify(publicKey, digest.Sum(nil), ecdsaSig.R, ecdsaSig.S) {
 		return false, fmt.Errorf("failed ECDSA signature validation")
 	}
 	return true, nil
