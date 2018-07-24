@@ -61,7 +61,7 @@ public class Main {
 
     private static void loadKeys(String[] args) throws RuntimeException {
         if (args.length < 2) {
-            throw new RuntimeException("invalid argument length");
+            throw new IllegalArgumentException("invalid argument length");
         }
         try {
             // load private key
