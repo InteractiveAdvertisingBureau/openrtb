@@ -1191,37 +1191,37 @@ The following is an example of Layer-3 of a bid request with a single item offer
 ```
 {
 	"openrtb": {
-		“ver”: “3.0”,
-		“domainspec”: “adcom”,
-		“domainver”: “1.0”,
-		“request”: {
-			“id”: “0123456789ABCDEF”,
-			“tmax”: 150,
-			“at”: 2,
-			“cur”: [ “USD”, “EUR” ],
-			“source”: {
-				“ds”: “AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF”,
-				“hb”: 1,
-				“fd”: 1,
-				“tid”: “FEDCBA9876543210”,
-				“pchain”: “...”
+		"ver": "3.0",
+		"domainspec": "adcom",
+		"domainver": "1.0",
+		"request": {
+			"id": "0123456789ABCDEF",
+			"tmax": 150,
+			"at": 2,
+			"cur": [ "USD", "EUR" ],
+			"source": {
+				"ds": "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
+				"hb": 1,
+				"fd": 1,
+				"tid": "FEDCBA9876543210",
+				"pchain": "..."
 			},
-			“package”: 0,
-			“item”: [
+			"package": 0,
+			"item": [
 				{
-					“id”: “1”,
-					“qty”: 1,
-					“private”: 0,
-					“deal”: [
+					"id": "1",
+					"qty": 1,
+					"private": 0,
+					"deal": [
 						{
-							“id”: “1234”,
-							“flr”: 1.50
+							"id": "1234",
+							"flr": 1.50
 						}
 					],
-					“spec”: { **AdCOM Top-Level Objects:  Placement**** **}
+					"spec": { AdCOM Top-Level Objects:  Placement }
 				}
 			],
-			“context”: {  **AdCOM Top-Level Objects:  Site/App/Dooh, Device, User, Regs ** }
+			"context": {  AdCOM Top-Level Objects:  Site/App/Dooh, Device, User, Regs }
 		}
 	}
 }
@@ -1236,31 +1236,31 @@ For illustration purposes, this example shows both the "mid" parameter to refere
 ```
 {
 	"openrtb": {
-		“ver”: “3.0”,
-		“domainspec”: “adcom”,
-		“domainver”: “1.0”,
-		“response”: {
-			“id”: “0123456789ABCDEF”,
-			“bidid”: “0011223344AABBCC”,
-			“seatbid”: [
+		"ver": "3.0",
+		"domainspec": "adcom",
+		"domainver": "1.0",
+		"response": {
+			"id": "0123456789ABCDEF",
+			"bidid": "0011223344AABBCC",
+			"seatbid": [
 				{
-					“seat”: “XYZ”,
-					“bid”: [
+					"seat": "XYZ",
+					"bid": [
 						{
-							“id”: “yaddayadda”,
-							“item”: “1”,
-							“deal”: “1234”,
-							“price”: 1.50,
-							“tactic”: “...”,
-							“purl”: “...”,
-							“burl”: “...”,
-							“lurl”: “...”,
-							“mid”: “...”,
-							“macro”: [
-								{ “TIMESTAMP”: “1127987134” },
-								{ “CLICKTOKEN”: “A7D800F2716DB” }
+							"id": "yaddayadda",
+							"item": "1",
+							"deal": "1234",
+							"price": 1.50,
+							"tactic": "...",
+							"purl": "...",
+							"burl": "...",
+							"lurl": "...",
+							"mid": "...",
+							"macro": [
+								{ "TIMESTAMP": "1127987134" },
+								{ "CLICKTOKEN": "A7D800F2716DB" }
 							],
-							“media”: { **AdCOM Top-Level Objects:  Ad**** **}
+							"media": { AdCOM Top-Level Objects:  Ad }
 						}
 					]
 				}
