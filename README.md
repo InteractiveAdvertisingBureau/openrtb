@@ -19,7 +19,7 @@ https://iabtechlab.com/openrtb
 https://iabtechlab.com/openmedia 
 
 #### AdCOM
-https://raw.githubusercontent.com/InteractiveAdvertisingBureau/AdCOM
+https://github.com/InteractiveAdvertisingBureau/AdCOM
 
 #### OpenRTB 
 https://github.com/InteractiveAdvertisingBureau/openrtb
