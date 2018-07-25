@@ -1,4 +1,5 @@
 ## Run
+Usage:
 ```
 cargo build && ./target/debug/adcert-rust [private file] [public file]
 ```

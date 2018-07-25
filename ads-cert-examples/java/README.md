@@ -1,4 +1,5 @@
 ## Run
+Usage:
 ```
 mvn -q clean package && mvn -q exec:java -Dexec.args="[private file] [public file]"
 ```

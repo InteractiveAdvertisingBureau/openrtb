@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.PrivateKey;
@@ -89,7 +90,7 @@ public class Main {
     private static byte[] sign(Signature digest, String message) throws RuntimeException {
         try {
             digest.initSign(privateKey);
-            digest.update(message.getBytes("UTF-8"));
+            digest.update(message.getBytes(StandardCharsets.UTF_8));
             return digest.sign();
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -99,7 +100,7 @@ public class Main {
     private static boolean verify(Signature digest, String message, byte[] signature) throws RuntimeException {
         try {
             digest.initVerify(publicKey);
-            digest.update(message.getBytes("UTF-8"));
+            digest.update(message.getBytes(StandardCharsets.UTF_8));
             return digest.verify(signature);
         } catch (Exception e) {
             throw new RuntimeException(e);
