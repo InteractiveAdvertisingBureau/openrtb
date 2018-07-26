@@ -19,7 +19,6 @@ object Main {
   Security.addProvider(new BouncyCastleProvider())
 
   def main(args: Array[String]): Unit = {
-
     val message = Seq(
       "2824f5d3-a2dc-49ec-8358-dbe92bd01ec2", // source.tid
       "a:180720yz:1807241326", // ad.pcv
