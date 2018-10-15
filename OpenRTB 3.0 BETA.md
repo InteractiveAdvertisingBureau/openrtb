@@ -1257,8 +1257,14 @@ For illustration purposes, this example shows both the "mid" parameter to refere
 							"lurl": "...",
 							"mid": "...",
 							"macro": [
-								{ "TIMESTAMP": "1127987134" },
-								{ "CLICKTOKEN": "A7D800F2716DB" }
+								{
+									"key": "TIMESTAMP",
+									"value": "1127987134"
+								},
+								{
+									"key": "CLICKTOKEN",
+									"value": "A7D800F2716DB"
+								}
 							],
 							"media": { AdCOM Top-Level Objects:  Ad }
 						}
