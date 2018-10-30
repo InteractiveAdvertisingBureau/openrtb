@@ -268,7 +268,7 @@ The Domain Layer defines the objects on which the Transaction Layer operates; th
 
 Since the version of the Domain Layer specification can vary independent of the Transaction Layer, the root object in the Transaction Layer includes domain specification and version information. This is also critical since support for different versions will vary over time by exchange and/or demand source.
 
-For OpenRTB, the [Advertising Common Object Model (AdCOM)](https://raw.githubusercontent.com/InteractiveAdvertisingBureau/AdCOM) is the default Domain Layer.
+For OpenRTB, the [Advertising Common Object Model (AdCOM)](https://github.com/InteractiveAdvertisingBureau/AdCOM) is the default Domain Layer.
 
 # SPECIFICATION <a name="specification"></a>
 
