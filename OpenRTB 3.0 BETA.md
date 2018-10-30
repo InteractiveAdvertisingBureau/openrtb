@@ -1201,8 +1201,6 @@ The following is an example of Layer-3 of a bid request with a single item offer
 			"cur": [ "USD", "EUR" ],
 			"source": {
 				"ds": "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
-				"hb": 1,
-				"fd": 1,
 				"tid": "FEDCBA9876543210",
 				"pchain": "..."
 			},
