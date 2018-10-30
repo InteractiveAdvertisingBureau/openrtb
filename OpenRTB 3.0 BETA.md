@@ -422,6 +422,8 @@ For AdCOM v1.x, the objects allowed here all of which are optional are one of th
 
 This object carries data about the source of the transaction including the unique ID of the transaction itself, source authentication information, and the chain of custody.
 
+NOTE:  Attributes "ds", "dsgver", "digest", and "cert" support digitally signed bid requests as defined by the Ads.cert specification.  Ad the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
+
 <table>
   <tr>
     <td>Attribute</td>
