@@ -1188,7 +1188,7 @@ The following are examples of Layer-3 request/response payloads expressed using 
 
 ## Bid Request <a name="bidrequest"></a>
 
-The following is an example of Layer-3 of a bid request with a single item offered for sale and a single private marketplace deal associated with it.  Some optional attributes have been omitted for brevity.
+The following is an example of Layer-3 of a bid request with a single item offered for sale and a single private marketplace deal associated with it.  Some optional attributes have been omitted for brevity.  Notice that "spec" and "context" are the interfaces to domain objects specified in AdCOM.  The "spec" object should have one "placement" object that carries the details of the impression being offered under this item.  The "context" object can have any of "device", "user", and "regs" and at most one of "site" (shown in the example), "app", or "dooh".
 
 ```
 {
@@ -1218,10 +1218,17 @@ The following is an example of Layer-3 of a bid request with a single item offer
                      "flr": 1.50
                   }
                ],
-               "spec": { AdCOM Top-Level Objects:  Placement }
+               "spec": {
+                  "placement": {  Refer to the AdCOM Specification.  }
+               }
             }
          ],
-         "context": {  AdCOM Top-Level Objects:  Site/App/Dooh, Device, User, Regs }
+         "context": {
+            "site": {  Refer to the AdCOM Specification.  },
+            "user": {  Refer to the AdCOM Specification.  },
+            "regs": {  Refer to the AdCOM Specification.  },
+            "device": {  Refer to the AdCOM Specification.  }
+         }
       }
    }
 }
@@ -1229,7 +1236,7 @@ The following is an example of Layer-3 of a bid request with a single item offer
 
 ## Bid Response <a name="bidresponse"></a>
 
-The following is an example of Layer-3 of a bid response, which refers to the previous bid request example in terms of "response.id" matching “request.id”, the “bid.item” attribute in the bid referring to request “item.id”, and the deal reference in “bid.deal” pointing to the offered deal “deal.id” in the request.
+The following is an example of Layer-3 of a bid response, which refers to the previous bid request example in terms of "response.id" matching “request.id”, the “bid.item” attribute in the bid referring to request “item.id”, and the deal reference in “bid.deal” pointing to the offered deal “deal.id” in the request.  Notice that "media" is the interface to domain objects specified in AdCOM.  The "media" object should have one "ad" object that carries the details of the ad to be served if the bid wins.
 
 For illustration purposes, this example shows both the "mid" parameter to reference previously uploaded media with some macros for dynamic values and a “domain” object reference.  In practice, media would be pass either by value (i.e., details included as domain objects) or pass by reference (i.e., using the media ID and optional macros).
 
@@ -1266,7 +1273,9 @@ For illustration purposes, this example shows both the "mid" parameter to refere
                            "value": "A7D800F2716DB"
                         }
                      ],
-                     "media": { AdCOM Top-Level Objects:  Ad }
+                     "media": {
+                        "ad": {  Refer to the AdCOM Specification.  }
+                     }
                   }
                ]
             }
