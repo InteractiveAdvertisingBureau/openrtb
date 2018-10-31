@@ -821,7 +821,7 @@ This object constitutes a buyer defined key/value pair used to inject dynamic va
   <tr>
     <td>key</td>
     <td>string; required</td>
-    <td>Name of a buyer specific macro.</td>
+    <td>Name of a buyer specific macro.  The full form of the macro to be substituted at runtime is `${CUSTOM_KEY}`, where "`KEY`" is the name supplied in this field.  This ensures no conflict with standard OpenRTB macros.</td>
   </tr>
   <tr>
     <td>value</td>
