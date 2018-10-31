@@ -1235,44 +1235,44 @@ For illustration purposes, this example shows both the "mid" parameter to refere
 
 ```
 {
-	"openrtb": {
-		"ver": "3.0",
-		"domainspec": "adcom",
-		"domainver": "1.0",
-		"response": {
-			"id": "0123456789ABCDEF",
-			"bidid": "0011223344AABBCC",
-			"seatbid": [
-				{
-					"seat": "XYZ",
-					"bid": [
-						{
-							"id": "yaddayadda",
-							"item": "1",
-							"deal": "1234",
-							"price": 1.50,
-							"tactic": "...",
-							"purl": "...",
-							"burl": "...",
-							"lurl": "...",
-							"mid": "...",
-							"macro": [
-								{
-									"key": "TIMESTAMP",
-									"value": "1127987134"
-								},
-								{
-									"key": "CLICKTOKEN",
-									"value": "A7D800F2716DB"
-								}
-							],
-							"media": { AdCOM Top-Level Objects:  Ad }
-						}
-					]
-				}
-			]
-		}
-	}
+   "openrtb": {
+      "ver": "3.0",
+      "domainspec": "adcom",
+      "domainver": "1.0",
+      "response": {
+         "id": "0123456789ABCDEF",
+         "bidid": "0011223344AABBCC",
+         "seatbid": [
+            {
+               "seat": "XYZ",
+               "bid": [
+                  {
+                     "id": "yaddayadda",
+                     "item": "1",
+                     "deal": "1234",
+                     "price": 1.50,
+                     "tactic": "...",
+                     "purl": "...",
+                     "burl": "...",
+                     "lurl": "...",
+                     "mid": "...",
+                     "macro": [
+                        {
+                           "key": "TIMESTAMP",
+                           "value": "1127987134"
+                        },
+                        {
+                           "key": "CLICKTOKEN",
+                           "value": "A7D800F2716DB"
+                        }
+                     ],
+                     "media": { AdCOM Top-Level Objects:  Ad }
+                  }
+               ]
+            }
+         ]
+      }
+   }
 }
 ```
 
