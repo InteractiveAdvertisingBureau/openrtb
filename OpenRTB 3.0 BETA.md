@@ -1192,38 +1192,38 @@ The following is an example of Layer-3 of a bid request with a single item offer
 
 ```
 {
-	"openrtb": {
-		"ver": "3.0",
-		"domainspec": "adcom",
-		"domainver": "1.0",
-		"request": {
-			"id": "0123456789ABCDEF",
-			"tmax": 150,
-			"at": 2,
-			"cur": [ "USD", "EUR" ],
-			"source": {
-				"ds": "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
-				"tid": "FEDCBA9876543210",
-				"pchain": "..."
-			},
-			"package": 0,
-			"item": [
-				{
-					"id": "1",
-					"qty": 1,
-					"private": 0,
-					"deal": [
-						{
-							"id": "1234",
-							"flr": 1.50
-						}
-					],
-					"spec": { AdCOM Top-Level Objects:  Placement }
-				}
-			],
-			"context": {  AdCOM Top-Level Objects:  Site/App/Dooh, Device, User, Regs }
-		}
-	}
+   "openrtb": {
+      "ver": "3.0",
+      "domainspec": "adcom",
+      "domainver": "1.0",
+      "request": {
+         "id": "0123456789ABCDEF",
+         "tmax": 150,
+         "at": 2,
+         "cur": [ "USD", "EUR" ],
+         "source": {
+            "ds": "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
+            "tid": "FEDCBA9876543210",
+            "pchain": "..."
+         },
+         "package": 0,
+         "item": [
+            {
+               "id": "1",
+               "qty": 1,
+               "private": 0,
+               "deal": [
+                  {
+                     "id": "1234",
+                     "flr": 1.50
+                  }
+               ],
+               "spec": { AdCOM Top-Level Objects:  Placement }
+            }
+         ],
+         "context": {  AdCOM Top-Level Objects:  Site/App/Dooh, Device, User, Regs }
+      }
+   }
 }
 ```
 
