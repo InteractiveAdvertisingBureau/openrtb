@@ -408,7 +408,7 @@ default 2</td>
     <td>context</td>
     <td>object; recommended</td>
     <td>Layer-4 domain object structure that provides context for the items being offered conforming to the specification and version referenced in “openrtb.domainspec” and “openrtb.domainver”. <br />
-For AdCOM v1.x, the objects allowed here all of which are optional are one of the “DistributionChannel” subtypes (i.e., “Site”, “App”, or “Dooh”), “User”, “Device”, “Regs”, and any objects subordinate to these as specified by AdCOM.</td>
+For AdCOM v1.x, the objects allowed here all of which are optional are one of the “DistributionChannel” subtypes (i.e., “Site”, “App”, or “Dooh”), “User”, “Device”, “Regs”, “Restrictions”, and any objects subordinate to these as specified by AdCOM.</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -1188,7 +1188,7 @@ The following are examples of Layer-3 request/response payloads expressed using 
 
 ## Bid Request <a name="bidrequest"></a>
 
-The following is an example of Layer-3 of a bid request with a single item offered for sale and a single private marketplace deal associated with it.  Some optional attributes have been omitted for brevity.  Notice that "spec" and "context" are the interfaces to domain objects specified in AdCOM.  The "spec" object should have one "placement" object that carries the details of the impression being offered under this item.  The "context" object can have any of "device", "user", and "regs" and at most one of "site" (shown in the example), "app", or "dooh".
+The following is an example of Layer-3 of a bid request with a single item offered for sale and a single private marketplace deal associated with it.  Some optional attributes have been omitted for brevity.  Notice that "spec" and "context" are the interfaces to domain objects specified in AdCOM.  The "spec" object should have one "placement" object that carries the details of the impression being offered under this item.  The "context" object can have any of "device", "user", "regs", "restrictions", and at most one of "site" (shown in the example), "app", or "dooh".
 
 ```
 {
@@ -1226,8 +1226,9 @@ The following is an example of Layer-3 of a bid request with a single item offer
          "context": {
             "site": {  Refer to the AdCOM Specification.  },
             "user": {  Refer to the AdCOM Specification.  },
+            "device": {  Refer to the AdCOM Specification.  },
             "regs": {  Refer to the AdCOM Specification.  },
-            "device": {  Refer to the AdCOM Specification.  }
+            "restrictions": {  Refer to the AdCOM Specification.  }
          }
       }
    }
