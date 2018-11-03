@@ -280,7 +280,7 @@ The UML class diagram that follows illustrates the overall payload structure inc
 
 ![](https://drive.google.com/uc?id=1rgYOt4fVn5tkamh4hqrkeW6b6Ueam277)
 
-Throughout the object model subsections, attributes may be indicated as "Required" or “Recommended”.  Attributes are deemed *required* only if their omission would break the protocol and is not necessarily an indicator of business value otherwise.  Attributes are *recommended* when their omission would not break the protocol but would dramatically diminish business value.
+Throughout the object model subsections, attributes may be indicated as “Required” or “Recommended”.  Attributes are deemed *required* only if their omission would break the protocol and is not necessarily an indicator of business value otherwise.  Attributes are *recommended* when their omission would not break the protocol but would dramatically diminish business value.
 
 From a specification compliance perspective, any attribute not denoted *required* is optional, whether *recommended* or not. An optional attribute may have a default value to be assumed if omitted.  If no default is indicated, then by convention its absence should be interpreted as *unknown*, unless otherwise specified. Empty strings or null values should be interpreted the same as omitted (i.e., the default if one is specified or *unknown* otherwise).
 
@@ -317,12 +317,13 @@ Note: As a convention in this document, objects being defined are denoted with u
     <td>request</td>
     <td>object; required *</td>
     <td>Bid request container. <br />
-    * Required only for request payloads. Refer to Object: Request.</td>
+    * Required only for request payloads. Refer to [Object: Request](#object_request).</td>
   </tr>
   <tr>
     <td>response</td>
     <td>object; required *</td>
-    <td>Bid response container.  * Required only for response payloads. Refer to Object: Response</td>
+    <td>Bid response container. <br />
+    * Required only for response payloads. Refer to Object: Response</td>
   </tr>
 </table>
 
