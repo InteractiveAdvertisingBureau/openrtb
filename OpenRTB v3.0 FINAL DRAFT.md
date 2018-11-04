@@ -238,7 +238,7 @@ The bid request specifies the representation as a mime type using the Content-Ty
 
 If alternative binary representations are used, the exchange or SSP should specify the Content-Type appropriately. For example:  `avro/binary` or `application/x-protobuf`.  If the content-type is missing, the bidder should assume the type is `application/json`, unless a different default has been selected by an exchange.
 
-#### Encoding <a name="encoding"></a>
+#### *Encoding* <a name="encoding"></a>
 
 Compressing data sent between exchanges and demand sources can be very beneficial. Compression greatly reduces the size of data transferred and thus saves network bandwidth for both exchanges and demand sources. To realize this savings fully, compression should be enabled for both the bid request sent by the exchange and the bid response returned by the demand source.
 
@@ -316,14 +316,12 @@ Note: As a convention in this document, objects being defined are denoted with u
   <tr>
     <td>request</td>
     <td>object; required *</td>
-    <td>Bid request container. <br />
-    * Required only for request payloads. Refer to [Object: Request](#object_request).</td>
+    <td>Bid request container.  * Required only for request payloads. Refer to <a href="#object_request">Object: Request</a>.</td>
   </tr>
   <tr>
     <td>response</td>
     <td>object; required *</td>
-    <td>Bid response container. <br />
-    * Required only for response payloads. Refer to Object: Response</td>
+    <td>Bid response container.  * Required only for response payloads. Refer to <a href="#object_response">Object: Response</a>.</td>
   </tr>
 </table>
 
@@ -362,7 +360,7 @@ default 0</td>
   <tr>
     <td>tmax</td>
     <td>integer</td>
-    <td>Maximum time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any a priori guidance from the exchange.  If an exchange acts as an intermediary, it should decrease the outbound "tmax" value from what it received to account for its latency and the additional internet hop.</td>
+    <td>Maximum time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any <em>a priori</em> guidance from the exchange.  If an exchange acts as an intermediary, it should decrease the outbound "tmax" value from what it received to account for its latency and the additional internet hop.</td>
   </tr>
   <tr>
     <td>at</td>
@@ -378,7 +376,7 @@ default 2</td>
   <tr>
     <td>seat</td>
     <td>string array</td>
-    <td>Restriction list of buyer seats for bidding on this item.  Knowledge of buyer’s customers and their seat IDs must be coordinated between parties a priori. Omission implies no restrictions.</td>
+    <td>Restriction list of buyer seats for bidding on this item.  Knowledge of buyer’s customers and their seat IDs must be coordinated between parties <em>a priori</em>. Omission implies no restrictions.</td>
   </tr>
   <tr>
     <td>wseat</td>
@@ -388,17 +386,17 @@ default 2</td>
   <tr>
     <td>cdata</td>
     <td>string</td>
-    <td>Allows bidder to retrieve data set on its behalf in the exchange’s cookie (refer to “cdata” in Object: Response) if supported by the exchange. The string must be in base85 cookie-safe characters.</td>
+    <td>Allows bidder to retrieve data set on its behalf in the exchange’s cookie (refer to “cdata” in <a href="#object_response">Object: Response</a>) if supported by the exchange. The string must be in base85 cookie-safe characters.</td>
   </tr>
   <tr>
     <td>source</td>
     <td>object</td>
-    <td>A “Source” object that provides data about the inventory source and which entity makes the final decision. Refer to Object: Source.</td>
+    <td>A “Source” object that provides data about the inventory source and which entity makes the final decision. Refer to <a href="#object_sourcee">Object: Source</a>.</td>
   </tr>
   <tr>
     <td>item</td>
     <td>object array; required</td>
-    <td>Array of “Item” objects (at least one) that constitute the set of goods being offered for sale. Refer to Object: Item.</td>
+    <td>Array of “Item” objects (at least one) that constitute the set of goods being offered for sale. Refer to <a href="#object_item">Object: Item</a>.</td>
   </tr>
   <tr>
     <td>package</td>
@@ -423,7 +421,7 @@ For AdCOM v1.x, the objects allowed here all of which are optional are one of th
 
 This object carries data about the source of the transaction including the unique ID of the transaction itself, source authentication information, and the chain of custody.
 
-NOTE:  Attributes "ds", "dsgver", "digest", and "cert" support digitally signed bid requests as defined by the Ads.cert specification.  Ad the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
+NOTE:  Attributes `ds`, `dsgver`, `digest`, and `cert` support digitally signed bid requests as defined by the Ads.cert specification.  Ad the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
 
 <table>
   <tr>
@@ -439,23 +437,23 @@ NOTE:  Attributes "ds", "dsgver", "digest", and "cert" support digitally signed 
   <tr>
     <td>ds</td>
     <td>string; recommended</td>
-    <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string "tid:digest", where ‘tid’ matches the "tid" attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “Inventory Authentication” for more details.</td>
+    <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string "tid:digest", where ‘tid’ matches the "tid" attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td>dsgver</td>
     <td>integer; recommended</td>
-    <td>Format version of the digest string that was digitally signed to produce “ds”. Refer to Section “Inventory Authentication” for more details.</td>
+    <td>Format version of the digest string that was digitally signed to produce “ds”. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td>digest</td>
     <td>string</td>
-    <td>The full transaction digest string that was signed to produce the digital signature. Refer to Section “Inventory Authentication” for more details.
+    <td>The full transaction digest string that was signed to produce the digital signature. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.
 NOTE:  This is only intended for debugging purposes as needed. It is not intended for normal Production traffic due to the bandwidth impact.</td>
   </tr>
   <tr>
     <td>cert</td>
     <td>string; recommended</td>
-    <td>File name of the certificate (i.e., the public key) used to generate the digital signature in “ds” attribute. Refer to Section “Inventory Authentication” for more details.</td>
+    <td>File name of the certificate (i.e., the public key) used to generate the digital signature in “ds” attribute. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td>pchain</td>
@@ -526,12 +524,12 @@ default 0</td>
   <tr>
     <td>metric</td>
     <td>object array</td>
-    <td>An array of “Metric” objects.  Refer to Object: Metric.</td>
+    <td>An array of “Metric” objects.  Refer to <a href="#object_metric">Object: Metric</a>.</td>
   </tr>
   <tr>
     <td>deal</td>
     <td>object array</td>
-    <td>Array of “Deal” objects that convey special terms applicable to this item.  Refer to Object: Deal.</td>
+    <td>Array of “Deal” objects that convey special terms applicable to this item.  Refer to <a href="#object_deal">Object: Deal</a>.</td>
   </tr>
   <tr>
     <td>private</td>
@@ -587,7 +585,7 @@ default "USD"</td>
   <tr>
     <td>wseat</td>
     <td>string array</td>
-    <td>Whitelist of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange a priori.  Omission implies no restrictions.</td>
+    <td>Whitelist of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange <em>a priori</em>.  Omission implies no restrictions.</td>
   </tr>
   <tr>
     <td>wadomain</td>
@@ -615,7 +613,7 @@ This object is associated with an item as an array of metrics. These metrics can
   <tr>
     <td>type</td>
     <td>string; required</td>
-    <td>Type of metric being presented using exchange curated string names which should be published to bidders a priori.</td>
+    <td>Type of metric being presented using exchange curated string names which should be published to bidders <em>a priori</em>.</td>
   </tr>
   <tr>
     <td>value</td>
@@ -625,7 +623,7 @@ This object is associated with an item as an array of metrics. These metrics can
   <tr>
     <td>vendor</td>
     <td>string; recommended</td>
-    <td>Source of the value using exchange curated string names which should be published to bidders a priori.  If the exchange itself is the source versus a third party, "EXCHANGE" is recommended.</td>
+    <td>Source of the value using exchange curated string names which should be published to bidders <em>a priori</em>.  If the exchange itself is the source versus a third party, "EXCHANGE" is recommended.</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -645,7 +643,7 @@ The individual bid references the item in the request to which it pertains and b
 
 This object is the bid response object under the `Openrtb` root.  Its `id` attribute is a reflection of the bid request ID.  The `bidid` attribute is an optional response tracking ID for bidders.  If specified, it will be available for use in substitution macros placed in markup and notification URLs.  At least one `Seatbid` object is required, which contains at least one `Bid` for an item.  Other attributes are optional.
 
-To express a "no-bid", the most compact option is simply to return an empty response with HTTP 204.  However, if the bidder wishes to convey a reason for not bidding, a `Response` object can be returned with just a reason code in the `nbr` attribute.
+To express a “no-bid”, the most compact option is simply to return an empty response with HTTP 204.  However, if the bidder wishes to convey a reason for not bidding, a `Response` object can be returned with just a reason code in the `nbr` attribute.
 
 <table>
   <tr>
@@ -656,7 +654,7 @@ To express a "no-bid", the most compact option is simply to return an empty resp
   <tr>
     <td>id</td>
     <td>string; required</td>
-    <td>ID of the bid request to which this is a response; must match the "request.id" attribute.</td>
+    <td>ID of the bid request to which this is a response; must match the “request.id” attribute.</td>
   </tr>
   <tr>
     <td>bidid</td>
@@ -666,7 +664,7 @@ To express a "no-bid", the most compact option is simply to return an empty resp
   <tr>
     <td>nbr</td>
     <td>integer</td>
-    <td>Reason for not bidding if applicable (see List: No-Bid Reason Codes).  Note that while many exchanges prefer a simple HTTP 204 response to indicate a no-bid, responses indicating a reason code can be useful in debugging scenarios.</td>
+    <td>Reason for not bidding if applicable (see <a href="#list_nobidreasoncodes">List: No-Bid Reason Codes</a>).  Note that while many exchanges prefer a simple HTTP 204 response to indicate a no-bid, responses indicating a reason code can be useful in debugging scenarios.</td>
   </tr>
   <tr>
     <td>cur</td>
@@ -676,12 +674,12 @@ To express a "no-bid", the most compact option is simply to return an empty resp
   <tr>
     <td>cdata</td>
     <td>string</td>
-    <td>Allows bidder to set data in the exchange’s cookie, which can be retrieved on bid requests (refer to “cdata” in Object: Request) if supported by the exchange.  The string must be in base85 cookie-safe characters.</td>
+    <td>Allows bidder to set data in the exchange’s cookie, which can be retrieved on bid requests (refer to “cdata” in <a href="#object_request">Object: Request</a>) if supported by the exchange.  The string must be in base85 cookie-safe characters.</td>
   </tr>
   <tr>
     <td>seatbid</td>
     <td>object array</td>
-    <td>Array of “Seatbid” objects; 1+ required if a bid is to be made.  Refer to Object: Seatbid.</td>
+    <td>Array of “Seatbid” objects; 1+ required if a bid is to be made.  Refer to <a href="#object_seatbid">Object: Seatbid</a>.</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -715,7 +713,7 @@ default 0</td>
   <tr>
     <td>bid</td>
     <td>object array; required</td>
-    <td>Array of 1+ "Bid" objects each related to an item.  Multiple bids can relate to the same item.  Refer to Object: Bid.</td>
+    <td>Array of 1+ "Bid" objects each related to an item.  Multiple bids can relate to the same item.  Refer to <a href="#object_bid">Object: Bid</a>.</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -763,7 +761,7 @@ A `Seatbid` object contains one or more `Bid` objects, each of which relates to 
   <tr>
     <td>tactic</td>
     <td>string</td>
-    <td>Tactic ID to enable buyers to label bids for reporting to the exchange the tactic through which their bid was submitted.  The specific usage and meaning of the tactic ID should be communicated between buyer and exchanges a priori.</td>
+    <td>Tactic ID to enable buyers to label bids for reporting to the exchange the tactic through which their bid was submitted.  The specific usage and meaning of the tactic ID should be communicated between buyer and exchanges <em>a priori</em>.</td>
   </tr>
   <tr>
     <td>purl</td>
@@ -793,7 +791,7 @@ A `Seatbid` object contains one or more `Bid` objects, each of which relates to 
   <tr>
     <td>macro</td>
     <td>object array</td>
-    <td>Array of “Macro” objects that enable bid specific values to be substituted into markup; especially useful for previously uploaded media referenced via the “mid” attribute.  Refer to Object: Macro.</td>
+    <td>Array of “Macro” objects that enable bid specific values to be substituted into markup; especially useful for previously uploaded media referenced via the “mid” attribute.  Refer to <a href="#object_macro">Object: Macro</a>.</td>
   </tr>
   <tr>
     <td>media</td>
@@ -811,7 +809,7 @@ For AdCOM v1.x, the objects allowed here are “Ad” and any objects subordinat
 
 ### Object:  Macro <a name="object_macro"></a>
 
-This object constitutes a buyer defined key/value pair used to inject dynamic values into media markup.  While they apply to any media markup irrespective of how it is conveyed, the principle use case is for media that was uploaded to the exchange prior to the transaction (e.g., pre-registered for creative quality review) and referenced in bid.  The full form of the macro to be substituted at runtime is `${CUSTOM_KEY}`, where "`KEY`" is the name supplied in the `key` attribute.  This ensures no conflict with standard OpenRTB macros.
+This object constitutes a buyer defined key/value pair used to inject dynamic values into media markup.  While they apply to any media markup irrespective of how it is conveyed, the principle use case is for media that was uploaded to the exchange prior to the transaction (e.g., pre-registered for creative quality review) and referenced in bid.  The full form of the macro to be substituted at runtime is `${CUSTOM_KEY}`, where “`KEY`” is the name supplied in the `key` attribute.  This ensures no conflict with standard OpenRTB macros.
 
 <table>
   <tr>
@@ -854,7 +852,7 @@ The following table defines the standard substitution macros.  Note that OpenRTB
   </tr>
   <tr>
     <td>${OPENRTB_ID}</td>
-    <td>ID of the bid request; from "request.id" attribute.</td>
+    <td>ID of the bid request; from “request.id” attribute.</td>
   </tr>
   <tr>
     <td>${OPENRTB_BID_ID}</td>
@@ -886,7 +884,7 @@ The following table defines the standard substitution macros.  Note that OpenRTB
   </tr>
   <tr>
     <td>${OPENRTB_LOSS}</td>
-    <td>Loss reason codes (see List: Loss Reason Codes).</td>
+    <td>Loss reason codes (see <a href="#list_lossreasoncodes">List: Loss Reason Codes</a>).</td>
   </tr>
 </table>
 
@@ -927,7 +925,7 @@ For VAST Video, the IAB prescribes that the VAST impression event is the officia
 
 ### Event:  Loss <a name="event_loss"></a>
 
-A loss event is when an exchange determines that a bid has no chance of winning.  At this point, an exchange may invoke the URL provided by the demand source in the "bid.lurl" attribute.
+A loss event is when an exchange determines that a bid has no chance of winning.  At this point, an exchange may invoke the URL provided by the demand source in the `bid.lurl` attribute.
 
 **NOTE:**  Absence of a loss notice does not imply a win.
 
@@ -945,7 +943,7 @@ To perform interception of an event on a given bid, an intermediary would resolv
 
 The capability to sign a bid request is to provide assurance to the buyer that this unit of inventory is what it claims to be (e.g., to prevent `domain-spoofer.com` from posing as `domain.com`).  This practice becomes particularly important in complex supply chains where a buyer may not have a trust relationship with all intermediaries.  This feature referred to as "ads.cert" can be used on its own, but is most effective in conjunction with the IAB ads.txt specification (refer to [iabtechlab.com/ads-txt](https://iabtechlab.com/ads-txt)).
 
-When used together, an exchange can present a bid request to buyers with the assurances "*I am authorized to sell inventory for the publisher of `domain.com` AND this unit of inventory is in fact from `domain.com`.*"
+When used together, an exchange can present a bid request to buyers with the assurances *"I am authorized to sell inventory for the publisher of `domain.com` AND this unit of inventory is in fact from `domain.com`."*
 
 ### Ads.cert Primer <a name="adscertprimer"></a>
 
@@ -965,7 +963,7 @@ Any intermediary receiving a bid request with this attribute is obligated to inc
 
 To put these concepts into practice, publishers or their trusted agents must know how to generate their public/private key pairs, how to sign transaction digest strings, and how to communicate this and related information to their immediate exchange partners.  Both publishers and those vendors wishing to authenticate requests must know the precise method of creating a digest string from bid request attributes and how to validate a signature given a public key.
 
-For these details, please refer to [ads.cert beta specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md).
+For these details, please refer to [ads.cert Beta Specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md).
 
 ## Enumerations <a name="enumerations"></a>
 
@@ -1178,7 +1176,7 @@ The following table lists the options for an exchange to inform a bidder as to t
   </tr>
   <tr>
     <td>500+</td>
-    <td>Exchange specific values; should be communicated with buyers a priori.</td>
+    <td>Exchange specific values; should be communicated with buyers <em>a priori</em>.</td>
   </tr>
 </table>
 
@@ -1189,7 +1187,7 @@ The following are examples of Layer-3 request/response payloads expressed using 
 
 ## Bid Request <a name="bidrequest"></a>
 
-The following is an example of Layer-3 of a bid request with a single item offered for sale and a single private marketplace deal associated with it.  Some optional attributes have been omitted for brevity.  Notice that "spec" and "context" are the interfaces to domain objects specified in AdCOM.  The "spec" object should have one "placement" object that carries the details of the impression being offered under this item.  The "context" object can have any of "device", "user", "regs", "restrictions", and at most one of "site" (shown in the example), "app", or "dooh".
+The following is an example of Layer-3 of a bid request with a single item offered for sale and a single private marketplace deal associated with it.  Some optional attributes have been omitted for brevity.  Notice that “spec” and “context” are the interfaces to domain objects specified in AdCOM.  The “spec” object should have one “placement" object that carries the details of the impression being offered under this item.  The “context” object can have any of “device”, “user”, “regs”, “restrictions”, and at most one of “site” (shown in the example), “app”, or “dooh”.
 
 ```
 {
@@ -1238,9 +1236,9 @@ The following is an example of Layer-3 of a bid request with a single item offer
 
 ## Bid Response <a name="bidresponse"></a>
 
-The following is an example of Layer-3 of a bid response, which refers to the previous bid request example in terms of "response.id" matching “request.id”, the “bid.item” attribute in the bid referring to request “item.id”, and the deal reference in “bid.deal” pointing to the offered deal “deal.id” in the request.  Notice that "media" is the interface to domain objects specified in AdCOM.  The "media" object should have one "ad" object that carries the details of the ad to be served if the bid wins.
+The following is an example of Layer-3 of a bid response, which refers to the previous bid request example in terms of “response.id” matching “request.id”, the “bid.item” attribute in the bid referring to request “item.id”, and the deal reference in “bid.deal” pointing to the offered deal “deal.id” in the request.  Notice that “media” is the interface to domain objects specified in AdCOM.  The “media" object should have one “ad” object that carries the details of the ad to be served if the bid wins.
 
-For illustration purposes, this example shows both the "mid" parameter to reference previously uploaded media with some macros for dynamic values and a “domain” object reference.  In practice, media would be pass either by value (i.e., details included as domain objects) or pass by reference (i.e., using the media ID and optional macros).
+For illustration purposes, this example shows both the “mid” parameter to reference previously uploaded media with some macros for dynamic values and a “domain” object reference.  In practice, media would be pass either by value (i.e., details included as domain objects) or pass by reference (i.e., using the media ID and optional macros).
 
 ```
 {
