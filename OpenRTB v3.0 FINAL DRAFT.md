@@ -294,8 +294,8 @@ Note: As a convention in this document, objects being defined are denoted with u
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -342,8 +342,8 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -423,8 +423,8 @@ NOTE:  Attributes `ds`, `dsgver`, `digest`, and `cert` support digitally signed 
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -472,8 +472,8 @@ This object represents a unit of goods being offered for sale either on the open
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -551,8 +551,8 @@ This object constitutes a specific deal that was struck *a priori* between a sel
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -599,8 +599,8 @@ This object is associated with an item as an array of metrics. These metrics can
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -640,8 +640,8 @@ To express a “no-bid”, the most compact option is simply to return an empty 
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -688,9 +688,9 @@ A bid response can contain multiple `Seatbid` objects, each on behalf of a diffe
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
-    <td><strong>Definition</strong></td>
+     <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+   <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>seat</code></td>
@@ -721,8 +721,8 @@ A `Seatbid` object contains one or more `Bid` objects, each of which relates to 
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
@@ -805,8 +805,8 @@ This object constitutes a buyer defined key/value pair used to inject dynamic va
 
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
     <td><strong>Definition</strong></td>
   </tr>
   <tr>
