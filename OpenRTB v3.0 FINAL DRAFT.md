@@ -623,7 +623,7 @@ This object is associated with an item as an array of metrics. These metrics can
   <tr>
     <td>vendor</td>
     <td>string; recommended</td>
-    <td>Source of the value using exchange curated string names which should be published to bidders <em>a priori</em>.  If the exchange itself is the source versus a third party, "EXCHANGE" is recommended.</td>
+    <td>Source of the value using exchange curated string names which should be published to bidders <em>a priori</em>.  If the exchange itself is the source versus a third party, “EXCHANGE” is recommended.</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -713,7 +713,7 @@ default 0</td>
   <tr>
     <td>bid</td>
     <td>object array; required</td>
-    <td>Array of 1+ "Bid" objects each related to an item.  Multiple bids can relate to the same item.  Refer to <a href="#object_bid">Object: Bid</a>.</td>
+    <td>Array of 1+ “Bid” objects each related to an item.  Multiple bids can relate to the same item.  Refer to <a href="#object_bid">Object: Bid</a>.</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -741,7 +741,7 @@ A `Seatbid` object contains one or more `Bid` objects, each of which relates to 
   <tr>
     <td>item</td>
     <td>string; required</td>
-    <td>ID of the item object in the related bid request; specifically "item.id".</td>
+    <td>ID of the item object in the related bid request; specifically “item.id”.</td>
   </tr>
   <tr>
     <td>price</td>
@@ -941,7 +941,7 @@ To perform interception of an event on a given bid, an intermediary would resolv
 
 ## Inventory Authentication <a name="inventoryauthentication"></a>
 
-The capability to sign a bid request is to provide assurance to the buyer that this unit of inventory is what it claims to be (e.g., to prevent `domain-spoofer.com` from posing as `domain.com`).  This practice becomes particularly important in complex supply chains where a buyer may not have a trust relationship with all intermediaries.  This feature referred to as "ads.cert" can be used on its own, but is most effective in conjunction with the IAB ads.txt specification (refer to [iabtechlab.com/ads-txt](https://iabtechlab.com/ads-txt)).
+The capability to sign a bid request is to provide assurance to the buyer that this unit of inventory is what it claims to be (e.g., to prevent `domain-spoofer.com` from posing as `domain.com`).  This practice becomes particularly important in complex supply chains where a buyer may not have a trust relationship with all intermediaries.  This feature referred to as “ads.cert” can be used on its own, but is most effective in conjunction with the IAB ads.txt specification (refer to [iabtechlab.com/ads-txt](https://iabtechlab.com/ads-txt)).
 
 When used together, an exchange can present a bid request to buyers with the assurances *"I am authorized to sell inventory for the publisher of `domain.com` AND this unit of inventory is in fact from `domain.com`."*
 
