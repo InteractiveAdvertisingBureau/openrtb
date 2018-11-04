@@ -391,7 +391,7 @@ default 2</td>
   <tr>
     <td>source</td>
     <td>object</td>
-    <td>A “Source” object that provides data about the inventory source and which entity makes the final decision. Refer to <a href="#object_sourcee">Object: Source</a>.</td>
+    <td>A “Source” object that provides data about the inventory source and which entity makes the final decision. Refer to <a href="#object_source">Object: Source</a>.</td>
   </tr>
   <tr>
     <td>item</td>
