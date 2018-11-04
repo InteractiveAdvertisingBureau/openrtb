@@ -299,27 +299,27 @@ Note: As a convention in this document, objects being defined are denoted with u
     <td>Definition</td>
   </tr>
   <tr>
-    <td>ver</td>
+    <td><code>ver</code></td>
     <td>string</td>
     <td>Version of the Layer-3 OpenRTB specification (e.g., "3.0").</td>
   </tr>
   <tr>
-    <td>domainspec</td>
+    <td><code>domainspec</code></td>
     <td>string; default “adcom”</td>
     <td>Identifier of the Layer-4 domain model used to define items for sale, media associated with bids, etc.</td>
   </tr>
   <tr>
-    <td>domainver</td>
+    <td><code>domainver</code></td>
     <td>string; required</td>
-    <td>Specification version of the Layer-4 domain model referenced in the “domainspec” attribute.</td>
+    <td>Specification version of the Layer-4 domain model referenced in the <code>domainspec</code> attribute.</td>
   </tr>
   <tr>
-    <td>request</td>
+    <td><code>request</code></td>
     <td>object; required *</td>
     <td>Bid request container.  * Required only for request payloads. Refer to <a href="#object_request">Object: Request</a>.</td>
   </tr>
   <tr>
-    <td>response</td>
+    <td><code>response</code></td>
     <td>object; required *</td>
     <td>Bid response container.  * Required only for response payloads. Refer to <a href="#object_response">Object: Response</a>.</td>
   </tr>
@@ -347,70 +347,70 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
     <td>Definition</td>
   </tr>
   <tr>
-    <td>id</td>
+    <td><code>id</code></td>
     <td>string; required</td>
     <td>Unique ID of the bid request; provided by the exchange.</td>
   </tr>
   <tr>
-    <td>test</td>
+    <td><code>test</code></td>
     <td>integer;
 default 0</td>
     <td>Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.</td>
   </tr>
   <tr>
-    <td>tmax</td>
+    <td><code>tmax</code></td>
     <td>integer</td>
-    <td>Maximum time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any <em>a priori</em> guidance from the exchange.  If an exchange acts as an intermediary, it should decrease the outbound "tmax" value from what it received to account for its latency and the additional internet hop.</td>
+    <td>Maximum time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any <em>a priori</em> guidance from the exchange.  If an exchange acts as an intermediary, it should decrease the outbound <code>tmax</code> value from what it received to account for its latency and the additional internet hop.</td>
   </tr>
   <tr>
-    <td>at</td>
+    <td><code>at</code></td>
     <td>integer;
 default 2</td>
     <td>Auction type, where 1 = First Price, 2 = Second Price Plus.  Values greater than 500 can be used for exchange-specific auction types.</td>
   </tr>
   <tr>
-    <td>cur</td>
+    <td><code>cur</code></td>
     <td>string array, default [“USD”]</td>
     <td>Array of accepted currencies for bids on this bid request using ISO-4217 alpha codes. Recommended if the exchange accepts multiple currencies. If omitted, the single currency of “USD” is assumed.</td>
   </tr>
   <tr>
-    <td>seat</td>
+    <td><code>seat</code></td>
     <td>string array</td>
     <td>Restriction list of buyer seats for bidding on this item.  Knowledge of buyer’s customers and their seat IDs must be coordinated between parties <em>a priori</em>. Omission implies no restrictions.</td>
   </tr>
   <tr>
-    <td>wseat</td>
+    <td><code>wseat</code></td>
     <td>integer; default 1</td>
-    <td>Flag that determines the restriction interpretation of the “seat” array, where 0 = block list, 1 = whitelist.</td>
+    <td>Flag that determines the restriction interpretation of the <code>seat</code> array, where 0 = block list, 1 = whitelist.</td>
   </tr>
   <tr>
-    <td>cdata</td>
+    <td><code>cdata</code></td>
     <td>string</td>
-    <td>Allows bidder to retrieve data set on its behalf in the exchange’s cookie (refer to “cdata” in <a href="#object_response">Object: Response</a>) if supported by the exchange. The string must be in base85 cookie-safe characters.</td>
+    <td>Allows bidder to retrieve data set on its behalf in the exchange’s cookie (refer to <code>cdata</code> in <a href="#object_response">Object: Response</a>) if supported by the exchange. The string must be in base85 cookie-safe characters.</td>
   </tr>
   <tr>
-    <td>source</td>
+    <td><code>source</code></td>
     <td>object</td>
-    <td>A “Source” object that provides data about the inventory source and which entity makes the final decision. Refer to <a href="#object_source">Object: Source</a>.</td>
+    <td>A <code>Source</code> object that provides data about the inventory source and which entity makes the final decision. Refer to <a href="#object_source">Object: Source</a>.</td>
   </tr>
   <tr>
-    <td>item</td>
+    <td><code>item</code></td>
     <td>object array; required</td>
-    <td>Array of “Item” objects (at least one) that constitute the set of goods being offered for sale. Refer to <a href="#object_item">Object: Item</a>.</td>
+    <td>Array of <code>Item</code> objects (at least one) that constitute the set of goods being offered for sale. Refer to <a href="#object_item">Object: Item</a>.</td>
   </tr>
   <tr>
-    <td>package</td>
+    <td><code>package</code></td>
     <td>integer</td>
     <td>Flag to indicate if the Exchange can verify that the items offered represent all of the items available in context (e.g., all impressions on a web page, all video spots such as pre/mid/post roll) to support road-blocking, where 0 = no, 1 = yes.</td>
   </tr>
   <tr>
-    <td>context</td>
+    <td><code>context</code></td>
     <td>object; recommended</td>
-    <td>Layer-4 domain object structure that provides context for the items being offered conforming to the specification and version referenced in “openrtb.domainspec” and “openrtb.domainver”. <br />
-For AdCOM v1.x, the objects allowed here all of which are optional are one of the “DistributionChannel” subtypes (i.e., “Site”, “App”, or “Dooh”), “User”, “Device”, “Regs”, “Restrictions”, and any objects subordinate to these as specified by AdCOM.</td>
+    <td>Layer-4 domain object structure that provides context for the items being offered conforming to the specification and version referenced in <code>openrtb.domainspec</code> and <code>openrtb.domainver</code>. <br />
+For AdCOM v1.x, the objects allowed here all of which are optional are one of the <code>DistributionChannel</code> subtypes (i.e., <code>Site</code>, <code>App</code>, or <code>Dooh</code>), <code>User</code>, <code>Device</code>, <code>Regs</code>, <code>Restrictions</code>, and any objects subordinate to these as specified by AdCOM.</td>
   </tr>
   <tr>
-    <td>ext</td>
+    <td><code>ext</code></td>
     <td>object</td>
     <td>Optional exchange-specific extensions.</td>
   </tr>
@@ -430,38 +430,38 @@ NOTE:  Attributes `ds`, `dsgver`, `digest`, and `cert` support digitally signed 
     <td>Definition</td>
   </tr>
   <tr>
-    <td>tid</td>
+    <td><code>tid</code></td>
     <td>string; recommended</td>
     <td>Transaction ID that must be common across all participants throughout the entire supply chain of this transaction.  This also applies across all participating exchanges in a header bidding or similar publisher-centric broadcast scenario.</td>
   </tr>
   <tr>
-    <td>ds</td>
+    <td><code>ds</code></td>
     <td>string; recommended</td>
-    <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string “tid:digest”, where ‘tid’ matches the “tid” attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string “tid:digest”, where ‘tid’ matches the <code>tid</code> attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
-    <td>dsgver</td>
+    <td><code>dsgver</code></td>
     <td>integer; recommended</td>
-    <td>Format version of the digest string that was digitally signed to produce “ds”. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td>Format version of the digest string that was digitally signed to produce <code>ds</code>. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
-    <td>digest</td>
+    <td><code>digest</code></td>
     <td>string</td>
     <td>The full transaction digest string that was signed to produce the digital signature. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.
 NOTE:  This is only intended for debugging purposes as needed. It is not intended for normal Production traffic due to the bandwidth impact.</td>
   </tr>
   <tr>
-    <td>cert</td>
+    <td><code>cert</code></td>
     <td>string; recommended</td>
-    <td>File name of the certificate (i.e., the public key) used to generate the digital signature in “ds” attribute. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td>File name of the certificate (i.e., the public key) used to generate the digital signature in <code>ds</code> attribute. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
-    <td>pchain</td>
+    <td><code>pchain</code></td>
     <td>string</td>
     <td>Payment ID chain string containing embedded syntax described in the TAG Payment ID Protocol. NOTE that the authentication features in this Source object combined with the “ads.txt” specification may lead to the future deprecation of this attribute.</td>
   </tr>
   <tr>
-    <td>ext</td>
+    <td><code>ext</code></td>
     <td>object</td>
     <td>Optional exchange-specific extensions.</td>
   </tr>
@@ -479,72 +479,72 @@ This object represents a unit of goods being offered for sale either on the open
     <td>Definition</td>
   </tr>
   <tr>
-    <td>id</td>
+    <td><code>id</code></td>
     <td>string; required</td>
     <td>A unique identifier for this item within the context of the offer (typically starts with 1 and increments).</td>
   </tr>
   <tr>
-    <td>qty</td>
+    <td><code>qty</code></td>
     <td>integer;
 default 1</td>
     <td>The number of instances (i.e., “quantity”) of this item being offered (e.g., multiple identical impressions in a digital out-of-home scenario).</td>
   </tr>
   <tr>
-    <td>seq</td>
+    <td><code>seq</code></td>
     <td>integer</td>
     <td>If multiple items are offered in the same bid request, the sequence number allows for the coordinated delivery.</td>
   </tr>
   <tr>
-    <td>flr</td>
+    <td><code>flr</code></td>
     <td>float</td>
     <td>Minimum bid price for this item expressed in CPM.</td>
   </tr>
   <tr>
-    <td>flrcur</td>
+    <td><code>flrcur</code></td>
     <td>string;
 default “USD”</td>
-    <td>Currency of the “flr” attribute specified using ISO-4217 alpha codes.</td>
+    <td>Currency of the <code>flr</code> attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
-    <td>exp</td>
+    <td><code>exp</code></td>
     <td>integer</td>
     <td>Advisory as to the number of seconds that may elapse between auction and fulfilment.</td>
   </tr>
   <tr>
-    <td>dt</td>
+    <td><code>dt</code></td>
     <td>string</td>
     <td>Date/time when the item is expected to be fulfilled (e.g. when a DOOH impression will be displayed) using the W3C-defined ISO-8601 format.</td>
   </tr>
   <tr>
-    <td>dlvy</td>
+    <td><code>dlvy</code></td>
     <td>integer;
 default 0</td>
     <td>Item (e.g., an Ad object) delivery method required, where 0 = either method, 1 = the item must be sent as part of the transaction (e.g., by value in the bid itself, fetched by URL included in the bid), and 2 = an item previously uploaded to the exchange must be referenced by its ID.  Note that if an exchange does not supported prior upload, then the default of 0 is effectively the same as 1 since there can be no items to reference.</td>
   </tr>
   <tr>
-    <td>metric</td>
+    <td><code>metric</code></td>
     <td>object array</td>
-    <td>An array of “Metric” objects.  Refer to <a href="#object_metric">Object: Metric</a>.</td>
+    <td>An array of <code>Metric</code> objects.  Refer to <a href="#object_metric">Object: Metric</a>.</td>
   </tr>
   <tr>
-    <td>deal</td>
+    <td><code>deal</code></td>
     <td>object array</td>
-    <td>Array of “Deal” objects that convey special terms applicable to this item.  Refer to <a href="#object_deal">Object: Deal</a>.</td>
+    <td>Array of <code>Deal</code> objects that convey special terms applicable to this item.  Refer to <a href="#object_deal">Object: Deal</a>.</td>
   </tr>
   <tr>
-    <td>private</td>
+    <td><code>private</code></td>
     <td>integer;
 default 0</td>
-    <td>Indicator of auction eligibility to seats named in “Deal” objects, where 0 = all bids are accepted, 1 = bids are restricted to the deals specified and the terms thereof.</td>
+    <td>Indicator of auction eligibility to seats named in <code>Deal</code> objects, where 0 = all bids are accepted, 1 = bids are restricted to the deals specified and the terms thereof.</td>
   </tr>
   <tr>
-    <td>spec</td>
+    <td><code>spec</code></td>
     <td>object; required</td>
-    <td>Layer-4 domain object structure that provides specifies the item being offered conforming to the specification and version referenced in “openrtb.domainspec” and “openrtb.domainver”. <br />
-For AdCOM v1.x, the objects allowed here are “Placement” and any objects subordinate to these as specified by AdCOM.</td>
+    <td>Layer-4 domain object structure that provides specifies the item being offered conforming to the specification and version referenced in <code>openrtb.domainspec</code> and <code>openrtb.domainver</code>. <br />
+For AdCOM v1.x, the objects allowed here are <code>Placement</code> and any objects subordinate to these as specified by AdCOM.</td>
   </tr>
   <tr>
-    <td>ext</td>
+    <td><code>ext</code></td>
     <td>object</td>
     <td>Optional exchange-specific extensions.</td>
   </tr>
@@ -562,38 +562,38 @@ This object constitutes a specific deal that was struck *a priori* between a sel
     <td>Definition</td>
   </tr>
   <tr>
-    <td>id</td>
+    <td><code>id</code></td>
     <td>string; required</td>
     <td>A unique identifier for the deal.</td>
   </tr>
   <tr>
-    <td>flr</td>
+    <td><code>flr</code></td>
     <td>float</td>
     <td>Minimum deal price for this item expressed in CPM.</td>
   </tr>
   <tr>
-    <td>flrcur</td>
+    <td><code>flrcur</code></td>
     <td>string;
 default "USD"</td>
-    <td>Currency of the “flr” attribute specified using ISO-4217 alpha codes.</td>
+    <td>Currency of the <code>flr</code> attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
-    <td>at</td>
+    <td><code>at</code></td>
     <td>integer</td>
-    <td>Optional override of the overall auction type of the request, where 1 = First Price, 2 = Second Price Plus, 3 = the value passed in “flr” is the agreed upon deal price.  Additional auction types can be defined by the exchange using 500+ values.</td>
+    <td>Optional override of the overall auction type of the request, where 1 = First Price, 2 = Second Price Plus, 3 = the value passed in <code>flr<c/ode> is the agreed upon deal price.  Additional auction types can be defined by the exchange using 500+ values.</td>
   </tr>
   <tr>
-    <td>wseat</td>
+    <td><code>wseat</code></td>
     <td>string array</td>
     <td>Whitelist of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange <em>a priori</em>.  Omission implies no restrictions.</td>
   </tr>
   <tr>
-    <td>wadomain</td>
+    <td><code>wadomain</code></td>
     <td>string array</td>
     <td>Array of advertiser domains (e.g., advertiser.com) allowed to bid on this deal.  Omission implies no restrictions.</td>
   </tr>
   <tr>
-    <td>ext</td>
+    <td><code>ext</code></td>
     <td>object</td>
     <td>Optional exchange-specific extensions.</td>
   </tr>
@@ -611,22 +611,22 @@ This object is associated with an item as an array of metrics. These metrics can
     <td>Definition</td>
   </tr>
   <tr>
-    <td>type</td>
+    <td><code>type</code></td>
     <td>string; required</td>
     <td>Type of metric being presented using exchange curated string names which should be published to bidders <em>a priori</em>.</td>
   </tr>
   <tr>
-    <td>value</td>
+    <td><code>value</code></td>
     <td>float; required</td>
     <td>Number representing the value of the metric.  Probabilities must be in the range 0.0 – 1.0.</td>
   </tr>
   <tr>
-    <td>vendor</td>
+    <td><code>vendor</code></td>
     <td>string; recommended</td>
     <td>Source of the value using exchange curated string names which should be published to bidders <em>a priori</em>.  If the exchange itself is the source versus a third party, “EXCHANGE” is recommended.</td>
   </tr>
   <tr>
-    <td>ext</td>
+    <td><code>ext</code></td>
     <td>object</td>
     <td>Optional exchange-specific extensions.</td>
   </tr>
