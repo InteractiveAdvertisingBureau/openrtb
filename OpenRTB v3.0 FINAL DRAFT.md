@@ -140,7 +140,7 @@ The following terms are used throughout this document specifically in the contex
     <td>Bidding for individual items in real-time or near real-time.</td>
   </tr>
   <tr>
-    <td>Supply Source</td>
+    <td>Supply&nbsp;Source</td>
     <td>The publisher or other audience source selling inventory.</td>
   </tr>
   <tr>
@@ -152,11 +152,11 @@ The following terms are used throughout this document specifically in the contex
     <td>An entity in the path between supply and demand sources (e.g., an exchange).</td>
   </tr>
   <tr>
-    <td>Supply Chain</td>
+    <td>Supply&nbsp;Chain</td>
     <td>A set of 1+ intermediaries between the ultimate supply and demand sources.</td>
   </tr>
   <tr>
-    <td>Demand Source</td>
+    <td>Demand&nbsp;Source</td>
     <td>An entity (e.g., a DSP) that bids for items into an auction.</td>
   </tr>
   <tr>
@@ -305,22 +305,22 @@ Note: As a convention in this document, objects being defined are denoted with u
   </tr>
   <tr>
     <td><code>domainspec</code></td>
-    <td>string; default “adcom”</td>
+    <td>string;<br/>default “adcom”</td>
     <td>Identifier of the Layer-4 domain model used to define items for sale, media associated with bids, etc.</td>
   </tr>
   <tr>
     <td><code>domainver</code></td>
-    <td>string; required</td>
+    <td>string;&nbsp;required</td>
     <td>Specification version of the Layer-4 domain model referenced in the <code>domainspec</code> attribute.</td>
   </tr>
   <tr>
     <td><code>request</code></td>
-    <td>object; required *</td>
+    <td>object;&nbsp;required&nbsp;*</td>
     <td>Bid request container.  * Required only for request payloads. Refer to <a href="#object_request">Object: Request</a>.</td>
   </tr>
   <tr>
     <td><code>response</code></td>
-    <td>object; required *</td>
+    <td>object;&nbsp;required&nbsp;*</td>
     <td>Bid response container.  * Required only for response payloads. Refer to <a href="#object_response">Object: Response</a>.</td>
   </tr>
 </table>
@@ -348,13 +348,12 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
   </tr>
   <tr>
     <td><code>id</code></td>
-    <td>string; required</td>
+    <td>string;&nbsp;required</td>
     <td>Unique ID of the bid request; provided by the exchange.</td>
   </tr>
   <tr>
     <td><code>test</code></td>
-    <td>integer;
-default 0</td>
+    <td>integer;&nbsp;default 0</td>
     <td>Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.</td>
   </tr>
   <tr>
@@ -364,23 +363,22 @@ default 0</td>
   </tr>
   <tr>
     <td><code>at</code></td>
-    <td>integer;
-default 2</td>
+    <td>integer;<br/>default 2</td>
     <td>Auction type, where 1 = First Price, 2 = Second Price Plus.  Values greater than 500 can be used for exchange-specific auction types.</td>
   </tr>
   <tr>
     <td><code>cur</code></td>
-    <td>string array, default [“USD”]</td>
+    <td>string&nbsp;array;<br/>default [“USD”]</td>
     <td>Array of accepted currencies for bids on this bid request using ISO-4217 alpha codes. Recommended if the exchange accepts multiple currencies. If omitted, the single currency of “USD” is assumed.</td>
   </tr>
   <tr>
     <td><code>seat</code></td>
-    <td>string array</td>
+    <td>string&nbsp;array</td>
     <td>Restriction list of buyer seats for bidding on this item.  Knowledge of buyer’s customers and their seat IDs must be coordinated between parties <em>a priori</em>. Omission implies no restrictions.</td>
   </tr>
   <tr>
     <td><code>wseat</code></td>
-    <td>integer; default 1</td>
+    <td>integer;<br/>default 1</td>
     <td>Flag that determines the restriction interpretation of the <code>seat</code> array, where 0 = block list, 1 = whitelist.</td>
   </tr>
   <tr>
@@ -395,7 +393,7 @@ default 2</td>
   </tr>
   <tr>
     <td><code>item</code></td>
-    <td>object array; required</td>
+    <td>object&nbsp;array; required</td>
     <td>Array of <code>Item</code> objects (at least one) that constitute the set of goods being offered for sale. Refer to <a href="#object_item">Object: Item</a>.</td>
   </tr>
   <tr>
@@ -485,8 +483,7 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td><code>qty</code></td>
-    <td>integer;
-default 1</td>
+    <td>integer;<br/>default 1</td>
     <td>The number of instances (i.e., “quantity”) of this item being offered (e.g., multiple identical impressions in a digital out-of-home scenario).</td>
   </tr>
   <tr>
@@ -501,8 +498,7 @@ default 1</td>
   </tr>
   <tr>
     <td><code>flrcur</code></td>
-    <td>string;
-default “USD”</td>
+    <td>string;<br/>default “USD”</td>
     <td>Currency of the <code>flr</code> attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -517,24 +513,22 @@ default “USD”</td>
   </tr>
   <tr>
     <td><code>dlvy</code></td>
-    <td>integer;
-default 0</td>
+    <td>integer;<br/>default 0</td>
     <td>Item (e.g., an Ad object) delivery method required, where 0 = either method, 1 = the item must be sent as part of the transaction (e.g., by value in the bid itself, fetched by URL included in the bid), and 2 = an item previously uploaded to the exchange must be referenced by its ID.  Note that if an exchange does not supported prior upload, then the default of 0 is effectively the same as 1 since there can be no items to reference.</td>
   </tr>
   <tr>
     <td><code>metric</code></td>
-    <td>object array</td>
+    <td>object&nbsp;array</td>
     <td>An array of <code>Metric</code> objects.  Refer to <a href="#object_metric">Object: Metric</a>.</td>
   </tr>
   <tr>
     <td><code>deal</code></td>
-    <td>object array</td>
+    <td>object&nbsp;array</td>
     <td>Array of <code>Deal</code> objects that convey special terms applicable to this item.  Refer to <a href="#object_deal">Object: Deal</a>.</td>
   </tr>
   <tr>
     <td><code>private</code></td>
-    <td>integer;
-default 0</td>
+    <td>integer;<br/>default 0</td>
     <td>Indicator of auction eligibility to seats named in <code>Deal</code> objects, where 0 = all bids are accepted, 1 = bids are restricted to the deals specified and the terms thereof.</td>
   </tr>
   <tr>
@@ -573,8 +567,7 @@ This object constitutes a specific deal that was struck *a priori* between a sel
   </tr>
   <tr>
     <td><code>flrcur</code></td>
-    <td>string;
-default "USD"</td>
+    <td>string;<br/>default "USD"</td>
     <td>Currency of the <code>flr</code> attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -584,12 +577,12 @@ default "USD"</td>
   </tr>
   <tr>
     <td><code>wseat</code></td>
-    <td>string array</td>
+    <td>string&nbsp;array</td>
     <td>Whitelist of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange <em>a priori</em>.  Omission implies no restrictions.</td>
   </tr>
   <tr>
     <td><code>wadomain</code></td>
-    <td>string array</td>
+    <td>string&nbsp;array</td>
     <td>Array of advertiser domains (e.g., advertiser.com) allowed to bid on this deal.  Omission implies no restrictions.</td>
   </tr>
   <tr>
@@ -668,7 +661,7 @@ To express a “no-bid”, the most compact option is simply to return an empty 
   </tr>
   <tr>
     <td><code>cur</code></td>
-    <td>string; default “USD”</td>
+    <td>string;<br/>default “USD”</td>
     <td>Bid currency using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -678,7 +671,7 @@ To express a “no-bid”, the most compact option is simply to return an empty 
   </tr>
   <tr>
     <td><code>seatbid</code></td>
-    <td>object array</td>
+    <td>object&nbsp;array</td>
     <td>Array of <code>Seatbid</code> objects; 1+ required if a bid is to be made.  Refer to <a href="#object_seatbid">Object: Seatbid</a>.</td>
   </tr>
   <tr>
@@ -706,13 +699,12 @@ A bid response can contain multiple `Seatbid` objects, each on behalf of a diffe
   </tr>
   <tr>
     <td><code>package</code></td>
-    <td>integer;
-default 0</td>
+    <td>integer;<br/>default 0</td>
     <td>For offers with multiple items, this flag Indicates if the bidder is willing to accept wins on a subset of bids or requires the full group as a package, where 0 = individual wins accepted; 1 = package win or loss only.</td>
   </tr>
   <tr>
     <td><code>bid</code></td>
-    <td>object array; required</td>
+    <td>object&nbsp;array; required</td>
     <td>Array of 1+ <code>Bid</code> objects each related to an item.  Multiple bids can relate to the same item.  Refer to <a href="#object_bid">Object: Bid</a>.</td>
   </tr>
   <tr>
@@ -790,7 +782,7 @@ A `Seatbid` object contains one or more `Bid` objects, each of which relates to 
   </tr>
   <tr>
     <td><code>macro</code></td>
-    <td>object array</td>
+    <td>object&nbsp;array</td>
     <td>Array of <code>Macro</code> objects that enable bid specific values to be substituted into markup; especially useful for previously uploaded media referenced via the <code>mid</code> attribute.  Refer to <a href="#object_macro">Object: Macro</a>.</td>
   </tr>
   <tr>
