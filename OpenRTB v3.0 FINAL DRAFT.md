@@ -132,8 +132,8 @@ The following terms are used throughout this document specifically in the contex
 
 <table>
   <tr>
-    <td>Term</td>
-    <td>Definition</td>
+    <td><strong>Term</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td>RTB</td>
@@ -294,9 +294,9 @@ Note: As a convention in this document, objects being defined are denoted with u
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>ver</code></td>
@@ -342,9 +342,9 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>id</code></td>
@@ -425,9 +425,9 @@ NOTE:  Attributes `ds`, `dsgver`, `digest`, and `cert` support digitally signed 
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>tid</code></td>
@@ -474,9 +474,9 @@ This object represents a unit of goods being offered for sale either on the open
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>id</code></td>
@@ -557,9 +557,9 @@ This object constitutes a specific deal that was struck *a priori* between a sel
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>id</code></td>
@@ -606,9 +606,9 @@ This object is associated with an item as an array of metrics. These metrics can
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>type</code></td>
@@ -647,9 +647,9 @@ To express a “no-bid”, the most compact option is simply to return an empty 
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>id</code></td>
@@ -695,9 +695,9 @@ A bid response can contain multiple `Seatbid` objects, each on behalf of a diffe
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>seat</code></td>
@@ -729,9 +729,9 @@ A `Seatbid` object contains one or more `Bid` objects, each of which relates to 
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>id</code></td>
@@ -813,9 +813,9 @@ This object constitutes a buyer defined key/value pair used to inject dynamic va
 
 <table>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Definition</td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>key</code></td>
@@ -847,8 +847,8 @@ The following table defines the standard substitution macros.  Note that OpenRTB
 
 <table>
   <tr>
-    <td>Macro</td>
-    <td>Definition</td>
+    <td><strong>Macro</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td><code>${OPENRTB_ID}</code></td>
@@ -975,8 +975,8 @@ The following table lists the options for a bidder to signal the exchange as to 
 
 <table>
   <tr>
-    <td>Value</td>
-    <td>Definition</td>
+    <td><strong>Value</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td>0</td>
@@ -1055,8 +1055,8 @@ The following table lists the options for an exchange to inform a bidder as to t
 
 <table>
   <tr>
-    <td>Value</td>
-    <td>Definition</td>
+    <td><strong>Value</strong></td>
+    <td><strong>Definition</strong></td>
   </tr>
   <tr>
     <td>0</td>
