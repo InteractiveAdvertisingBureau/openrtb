@@ -437,7 +437,7 @@ NOTE:  Attributes `ds`, `dsgver`, `digest`, and `cert` support digitally signed 
   <tr>
     <td>ds</td>
     <td>string; recommended</td>
-    <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string "tid:digest", where ‘tid’ matches the "tid" attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string “tid:digest”, where ‘tid’ matches the “tid” attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td>dsgver</td>
@@ -487,7 +487,7 @@ This object represents a unit of goods being offered for sale either on the open
     <td>qty</td>
     <td>integer;
 default 1</td>
-    <td>The number of instances (i.e., "quantity") of this item being offered (e.g., multiple identical impressions in a digital out-of-home scenario).</td>
+    <td>The number of instances (i.e., “quantity”) of this item being offered (e.g., multiple identical impressions in a digital out-of-home scenario).</td>
   </tr>
   <tr>
     <td>seq</td>
