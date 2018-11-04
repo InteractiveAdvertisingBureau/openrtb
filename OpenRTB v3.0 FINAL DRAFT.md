@@ -353,7 +353,7 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
   </tr>
   <tr>
     <td><code>test</code></td>
-    <td>integer;&nbsp;default 0</td>
+    <td>integer;<br/>default&nbsp;0</td>
     <td>Indicator of test mode in which auctions are not billable, where 0 = live mode, 1 = test mode.</td>
   </tr>
   <tr>
@@ -363,12 +363,12 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
   </tr>
   <tr>
     <td><code>at</code></td>
-    <td>integer;<br/>default 2</td>
+    <td>integer;<br/>default&nbsp;2</td>
     <td>Auction type, where 1 = First Price, 2 = Second Price Plus.  Values greater than 500 can be used for exchange-specific auction types.</td>
   </tr>
   <tr>
     <td><code>cur</code></td>
-    <td>string&nbsp;array;<br/>default [“USD”]</td>
+    <td>string&nbsp;array;<br/>default&nbsp;[“USD”]</td>
     <td>Array of accepted currencies for bids on this bid request using ISO-4217 alpha codes. Recommended if the exchange accepts multiple currencies. If omitted, the single currency of “USD” is assumed.</td>
   </tr>
   <tr>
@@ -378,7 +378,7 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
   </tr>
   <tr>
     <td><code>wseat</code></td>
-    <td>integer;<br/>default 1</td>
+    <td>integer;<br/>default&nbsp;1</td>
     <td>Flag that determines the restriction interpretation of the <code>seat</code> array, where 0 = block list, 1 = whitelist.</td>
   </tr>
   <tr>
@@ -483,7 +483,7 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td><code>qty</code></td>
-    <td>integer;<br/>default 1</td>
+    <td>integer;<br/>default&nbsp;1</td>
     <td>The number of instances (i.e., “quantity”) of this item being offered (e.g., multiple identical impressions in a digital out-of-home scenario).</td>
   </tr>
   <tr>
@@ -498,7 +498,7 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td><code>flrcur</code></td>
-    <td>string;<br/>default “USD”</td>
+    <td>string;<br/>default&nbsp;“USD”</td>
     <td>Currency of the <code>flr</code> attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -513,7 +513,7 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td><code>dlvy</code></td>
-    <td>integer;<br/>default 0</td>
+    <td>integer;<br/>default&nbsp;0</td>
     <td>Item (e.g., an Ad object) delivery method required, where 0 = either method, 1 = the item must be sent as part of the transaction (e.g., by value in the bid itself, fetched by URL included in the bid), and 2 = an item previously uploaded to the exchange must be referenced by its ID.  Note that if an exchange does not supported prior upload, then the default of 0 is effectively the same as 1 since there can be no items to reference.</td>
   </tr>
   <tr>
@@ -528,7 +528,7 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td><code>private</code></td>
-    <td>integer;<br/>default 0</td>
+    <td>integer;<br/>default&nbsp;0</td>
     <td>Indicator of auction eligibility to seats named in <code>Deal</code> objects, where 0 = all bids are accepted, 1 = bids are restricted to the deals specified and the terms thereof.</td>
   </tr>
   <tr>
@@ -567,7 +567,7 @@ This object constitutes a specific deal that was struck *a priori* between a sel
   </tr>
   <tr>
     <td><code>flrcur</code></td>
-    <td>string;<br/>default "USD"</td>
+    <td>string;<br/>default&nbsp;"USD"</td>
     <td>Currency of the <code>flr</code> attribute specified using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -661,7 +661,7 @@ To express a “no-bid”, the most compact option is simply to return an empty 
   </tr>
   <tr>
     <td><code>cur</code></td>
-    <td>string;<br/>default “USD”</td>
+    <td>string;<br/>default&nbsp;“USD”</td>
     <td>Bid currency using ISO-4217 alpha codes.</td>
   </tr>
   <tr>
@@ -699,7 +699,7 @@ A bid response can contain multiple `Seatbid` objects, each on behalf of a diffe
   </tr>
   <tr>
     <td><code>package</code></td>
-    <td>integer;<br/>default 0</td>
+    <td>integer;<br/>default&nbsp;0</td>
     <td>For offers with multiple items, this flag Indicates if the bidder is willing to accept wins on a subset of bids or requires the full group as a package, where 0 = individual wins accepted; 1 = package win or loss only.</td>
   </tr>
   <tr>
