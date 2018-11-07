@@ -419,7 +419,7 @@ For AdCOM v1.x, the objects allowed here all of which are optional are one of th
 
 This object carries data about the source of the transaction including the unique ID of the transaction itself, source authentication information, and the chain of custody.
 
-NOTE:  Attributes `ds`, `dsgver`, `digest`, and `cert` support digitally signed bid requests as defined by the Ads.cert specification.  Ad the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
+NOTE:  Attributes `ds`, `digest`, and `cert` support digitally signed bid requests as defined by the [Ads.cert: Signed Bid Requests specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md).  Ad the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
 
 <table>
   <tr>
@@ -436,11 +436,6 @@ NOTE:  Attributes `ds`, `dsgver`, `digest`, and `cert` support digitally signed 
     <td><code>ds</code></td>
     <td>string; recommended</td>
     <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string “tid:digest”, where ‘tid’ matches the <code>tid</code> attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
-  </tr>
-  <tr>
-    <td><code>dsgver</code></td>
-    <td>integer; recommended</td>
-    <td>Format version of the digest string that was digitally signed to produce <code>ds</code>. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td><code>digest</code></td>
