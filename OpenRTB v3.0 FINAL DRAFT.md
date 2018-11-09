@@ -435,17 +435,17 @@ NOTE:  Attributes `ds`, `dsmap`, `cert`, and `digest` support digitally signed b
   <tr>
     <td><code>ts</code></td>
     <td>integer; recommended</td>
-    <td>Timestamp when request originated at the beginning of the supply chain in Unix format (i.e., milliseconds since the epoch).  This value must be held as immutable throughout subsequent intermediaries.</td>
+    <td>Timestamp when the request originated at the beginning of the supply chain in Unix format (i.e., milliseconds since the epoch).  This value must be held as immutable throughout subsequent intermediaries.</td>
   </tr>
   <tr>
     <td><code>ds</code></td>
     <td>string; recommended</td>
-    <td>Digital signature used to authenticate this origin of request computed by the publisher or its trusted agent from a digest string composed of a set of immutable attributes found in the bid request.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td>Digital signature used to authenticate the origin of this request computed by the publisher or its trusted agent from a digest string composed of a set of immutable attributes found in the bid request.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td><code>dsmap</code></td>
     <td>string</td>
-    <td>An ordered list of identifiers that indicates the attributes used to create digest.  This map provides the essential instructions for recreating the digest from the bid request, which is a necessary step in validating the digital signature in the <code>ds</code> attribute.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td>An ordered list of identifiers that indicates the attributes used to create the digest.  This map provides the essential instructions for recreating the digest from the bid request, which is a necessary step in validating the digital signature in the <code>ds</code> attribute.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td><code>cert</code></td>
@@ -462,7 +462,7 @@ NOTE:  This is only intended for debugging purposes as needed. It is not intende
     <td><code>pchain</code></td>
     <td>string</td>
     <td>Payment ID chain string containing embedded syntax described in the TAG Payment ID Protocol.<br/>
-NOTE that the authentication features in this Source object combined with the “ads.txt” specification may lead to the future deprecation of this attribute.</td>
+NOTE: Authentication features in this Source object combined with the “ads.txt” specification may lead to the deprecation of this attribute.</td>
   </tr>
   <tr>
     <td><code>ext</code></td>
