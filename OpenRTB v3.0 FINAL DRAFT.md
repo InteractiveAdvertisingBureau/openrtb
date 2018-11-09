@@ -419,7 +419,7 @@ For AdCOM v1.x, the objects allowed here all of which are optional are one of th
 
 This object carries data about the source of the transaction including the unique ID of the transaction itself, source authentication information, and the chain of custody.
 
-NOTE:  Attributes `ds`, `digest`, and `cert` support digitally signed bid requests as defined by the [Ads.cert: Signed Bid Requests specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md).  Ad the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
+NOTE:  Attributes `ds`, `dsmap`, `cert`, and `digest` support digitally signed bid requests as defined by the [Ads.cert: Signed Bid Requests specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md).  As the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
 
 <table>
   <tr>
@@ -433,25 +433,36 @@ NOTE:  Attributes `ds`, `digest`, and `cert` support digitally signed bid reques
     <td>Transaction ID that must be common across all participants throughout the entire supply chain of this transaction.  This also applies across all participating exchanges in a header bidding or similar publisher-centric broadcast scenario.</td>
   </tr>
   <tr>
-    <td><code>ds</code></td>
-    <td>string; recommended</td>
-    <td>Digital signature used to authenticate this request computed by the publisher or its trusted agent from the transaction digest string “tid:digest”, where ‘tid’ matches the <code>tid</code> attribute and ‘digest’ is a string composed of an immutable portion of domain objects as defined in the domain specification used for this request. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td><code>ts</code></td>
+    <td>integer; recommended</td>
+    <td>Timestamp when request originated at the beginning of the supply chain in Unix format (i.e., milliseconds since the epoch).  This value must be held as immutable throughout subsequent intermediaries.</td>
   </tr>
   <tr>
-    <td><code>digest</code></td>
+    <td><code>ds</code></td>
+    <td>string; recommended</td>
+    <td>Digital signature used to authenticate this origin of request computed by the publisher or its trusted agent from a digest string composed of a set of immutable attributes found in the bid request.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+  </tr>
+  <tr>
+    <td><code>dsmap</code></td>
     <td>string</td>
-    <td>The full transaction digest string that was signed to produce the digital signature. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.
-NOTE:  This is only intended for debugging purposes as needed. It is not intended for normal Production traffic due to the bandwidth impact.</td>
+    <td>An ordered list of identifiers that indicates the attributes used to create digest.  This map provides the essential instructions for recreating the digest from the bid request, which is a necessary step in validating the digital signature in the <code>ds</code> attribute.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
   </tr>
   <tr>
     <td><code>cert</code></td>
     <td>string; recommended</td>
-    <td>File name of the certificate (i.e., the public key) used to generate the digital signature in <code>ds</code> attribute. Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+    <td>File name of the certificate (i.e., the public key) used to generate the digital signature in the <code>ds</code> attribute.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.</td>
+  </tr>
+  <tr>
+    <td><code>digest</code></td>
+    <td>string</td>
+    <td>The full digest string that was signed to produce the digital signature.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.<br/>
+NOTE:  This is only intended for debugging purposes as needed. It is not intended for normal Production traffic due to the bandwidth impact.</td>
   </tr>
   <tr>
     <td><code>pchain</code></td>
     <td>string</td>
-    <td>Payment ID chain string containing embedded syntax described in the TAG Payment ID Protocol. NOTE that the authentication features in this Source object combined with the “ads.txt” specification may lead to the future deprecation of this attribute.</td>
+    <td>Payment ID chain string containing embedded syntax described in the TAG Payment ID Protocol.<br/>
+NOTE that the authentication features in this Source object combined with the “ads.txt” specification may lead to the future deprecation of this attribute.</td>
   </tr>
   <tr>
     <td><code>ext</code></td>
@@ -938,11 +949,11 @@ Digital signatures must be produced either by the publisher or a trusted agent t
 
 The entire bid request cannot be signed since there are legitimate use cases for portions of the request to be altered by intermediaries (e.g., new data to enrich the inventory, reducing precision of IP addresses or location information based on privacy policies, etc.).  Instead, specific attributes in the request are chosen that are material to inventory authentication and which should be immutable by any intermediary (e.g., the publisher’s site domain or application bundle).  These attributes are assembled into a *digest* string in a simple, but very specific manner.
 
-In addition, the digest must contain an element to tie the digital signature to this and only this transaction in order to avoid replay attacks.  Therefore, the complete string to be digitally signed is of the form “tid:digest”, where “tid” is the transaction ID matching the `Source.tid` attribute and “digest” is the aforementioned *digest* string.  This overall string is referred to as the *transaction digest*.
+In addition, the digest must contain an element to tie the digital signature to this and only this transaction in order to avoid replay attacks.  Therefore, the digest must include the transaction ID (i.e., the `Source.tid` attribute) and/or at least the request origination timestamp (i.e., the `Source.ts` attribute).
 
-On each impression request, the publisher composes the transaction digest and uses it along with their private key to generate a digital signature string.  This signature is then made available to the exchange or more generally to the first supply chain entity for placement in the `Source.ds` attribute.  The `Source` object must also contain the name of the publisher’s public key located in their ads.txt directory and the version of the digest structure used to create the string that was signed.
+On each impression request, the publisher composes the digest and uses it along with their private key to generate a digital signature string.  This signature is then made available to the exchange or more generally to the first supply chain entity for placement in the `Source.ds` attribute.  The `Source` object must also contain the name of the publisher’s public key located in their ads.txt directory (i.e., the `Source.cert` attribute) and a map of the digest structure used to create the string that was signed (i.e., the `Source.dsmap` attribute).
 
-With this information, a buyer or downstream intermediary wishing to authenticate the request can recreate the transaction digest from fields in the bid request as prescribed by the digest version and validate it against the digital signature using the public key.
+With this information, a buyer or downstream intermediary wishing to authenticate the request can recreate the digest from fields in the bid request as prescribed by the digest map and validate it against the digital signature using the public key.
 
 Any intermediary receiving a bid request with this attribute is obligated to include it along with all of the material attributes comprising this signature unaltered in all downstream bid requests.  Failure to do so will render this unit of inventory unable to be authenticated and subject to rejection by buyers.
 
@@ -1188,8 +1199,11 @@ The following is an example of Layer-3 of a bid request with a single item offer
          "at": 2,
          "cur": [ "USD", "EUR" ],
          "source": {
-            "ds": "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
             "tid": "FEDCBA9876543210",
+            "ts": 1541796182157,
+            "ds": "AE23865DF890100BECCD76579DD4769DBBA9812CEE8ED90BF",
+            "dsmap": "...",
+            "cert": "ads-cert.1.txt",
             "pchain": "..."
          },
          "package": 0,
