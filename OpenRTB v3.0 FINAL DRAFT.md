@@ -514,8 +514,8 @@ This object represents a unit of goods being offered for sale either on the open
   </tr>
   <tr>
     <td><code>dt</code></td>
-    <td>string</td>
-    <td>Date/time when the item is expected to be fulfilled (e.g. when a DOOH impression will be displayed) using the W3C-defined ISO-8601 format.</td>
+    <td>integer</td>
+    <td>Timestamp when the item is expected to be fulfilled (e.g. when a DOOH impression will be displayed) in Unix format (i.e., milliseconds since the epoch).</td>
   </tr>
   <tr>
     <td><code>dlvy</code></td>
