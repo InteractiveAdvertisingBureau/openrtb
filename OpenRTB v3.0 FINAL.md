@@ -485,7 +485,7 @@ This object represents a unit of goods being offered for sale either on the open
   <tr>
     <td><code>id</code></td>
     <td>string; required</td>
-    <td>A unique identifier for this item within the context of the offer (typically starts with 1 and increments).</td>
+    <td>A unique identifier for this item within the context of the offer (typically starts with “1” and increments).</td>
   </tr>
   <tr>
     <td><code>qty</code></td>
