@@ -901,7 +901,7 @@ The following events are defined within this specification.  Additional events m
 
 ### Event:  Pending <a name="event_pending"></a>
 
-A pending notice indicates that a bid has been selected as the winner within the scope of an OpenRTB compliant supply chain.  In a simple supply chain comprising an exchange as the sole decision maker, this is synonymous with winning the auction.  For a complex supply chain, this event is initiated by the exchange closest to the publisher who is not conveying its results via OpenRTB .  However, since there may still be upstream decisioning that is not OpenRTB compliant (e.g., header bidding), this event cannot always be equated to a win.  The exchange conveys this event by invoking the URL provided by the demand source in the `bid.purl` attribute.
+A pending notice indicates that a bid has been selected as the winner within the scope of an OpenRTB compliant supply chain.  In a simple supply chain comprising an exchange as the sole decision maker, this is synonymous with winning the auction.  For a complex supply chain, this event is initiated by the exchange closest to the publisher who is not conveying its results via OpenRTB.  However, since there may still be upstream decisioning that is not OpenRTB compliant (e.g., header bidding), this event cannot always be equated to a win.  The exchange conveys this event by invoking the URL provided by the demand source in the `bid.purl` attribute.
 
 **NOTE:**  This event should be interpreted for guidance only (i.e., the bid has passed all OpenRTB compliant gates in the supply chain).  It is never an indication of any form of fulfilment or billing.
 
