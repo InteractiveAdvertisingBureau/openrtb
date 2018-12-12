@@ -1,15 +1,9 @@
 ![IAB Tech Lab](https://drive.google.com/uc?id=10yoBoG5uRETSXRrnJPUDuONujvADrSG1)
 
-# **OpenRTB 3.0 Beta**
+# **OpenRTB 3.0 FINAL**
 ### Including ads.cert beta
 
-BETA DRAFTS
-
-July 24, 2018
-
-
-#### Beta Launch
-OpenRTB 3.0 and ads.cert beta will have a 60-day public comment period, running through September 24, 2018. Beta testing by the IAB Tech Lab OpenRTB Working Group will be ongoing. Industry members are encouraged to actively participate throughout the beta period, and to get involved with the OpenRTB Working Group. The group will evaluate and incorporate the feedback received, as well as real world insights from beta testing, to produce final specs that will be ready for full industry adoption by the end of the year. 
+November 15, 2018
 
 
 #### More information on OpenRTB
