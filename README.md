@@ -1,22 +1,18 @@
 ![IAB Tech Lab](https://drive.google.com/uc?id=10yoBoG5uRETSXRrnJPUDuONujvADrSG1)
 
 # **OpenRTB 3.0 FINAL**
-### Including ads.cert beta
-
 November 15, 2018
 
 
-#### More information on OpenRTB
+#### About OpenRTB
 https://iabtechlab.com/openrtb  
 
-#### OpenMedia
+#### About OpenMedia
 https://iabtechlab.com/openmedia 
 
-#### AdCOM
+#### AdCOM: Advertising Common Object Model
 https://github.com/InteractiveAdvertisingBureau/AdCOM
 
-#### OpenRTB 
-https://github.com/InteractiveAdvertisingBureau/openrtb
 
 #### Contact
 For more information, or to get involved, please email openmedia@iabtechlab.com.
@@ -31,6 +27,8 @@ Learn more about IAB Tech Lab here: [https://www.iabtechlab.com/](https://www.ia
 #### Contributors and Technical Governance
 
 OpenRTB Working Group members provide contributions to this repository. Participants in the OpenRTB Working group must be members of IAB Tech Lab. Technical Governance and code commits for the project are provided by the IAB Tech Lab OpenRTB Commit Group. 
+
+Learn more about how to submit changes in our working group: [So, You'd Like to Propose a Change...](http://iabtechlab.com/blog/so-youd-like-to-propose-a-change-to-openrtb-adcom/)
 
 ### License
 OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attribution 3.0 License.   To view a copy of this license, visit creativecommons.org/licenses/by/3.0/ or write to Creative Commons, 171 Second Street, Suite 300, San Francisco, CA 94105, USA.
