@@ -111,7 +111,7 @@ Examples:
   }
   "source": {
     "ext": {
-      "supplychain": {
+      "schain": {
         "complete": 1,
         "nodes": [
           {
@@ -139,7 +139,7 @@ Sample resale of BidRequest1 (BidRequest2, seller = "reseller.com"):
   }
   "source": {
     "ext": {
-      "supplychain": {
+      "schain": {
         "complete": 1,
         "nodes": [
           {
@@ -192,7 +192,7 @@ Sample resale of BidRequest3 by advertising system that does support SupplyChain
   }
   "source": {
     "ext": {
-      "supplychain": {
+      "schain": {
         "complete": 0,
         "nodes": [
           {
