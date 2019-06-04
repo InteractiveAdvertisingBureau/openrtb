@@ -103,12 +103,12 @@ Examples:
 
 ```
 "bidrequest" : {
-  "id": "BidRequest1"
+  "id": "BidRequest1",
   "app": {
     "publisher": {
       "id": "00001"
     }
-  }
+  },
   "source": {
     "ext": {
       "supplychain": {
@@ -131,12 +131,12 @@ Sample resale of BidRequest1 (BidRequest2, seller = "reseller.com"):
 
 ```
 "bidrequest" : {
-  "id": "BidRequest2"
+  "id": "BidRequest2",
   "app": {
     "publisher": {
       "id": "aaaaa"
     }
-  }
+  },
   "source": {
     "ext": {
       "supplychain": {
@@ -144,7 +144,7 @@ Sample resale of BidRequest1 (BidRequest2, seller = "reseller.com"):
         "nodes": [
           {
             "asi":"directseller.com",
-            "pid":"00001"
+            "pid":"00001",
             "rid":"BidRequest1"
           },
           {
@@ -166,12 +166,12 @@ Sample originating bid request from advertising system that doesn't support Supp
 
 ```
 "bidrequest" : {
-  "id": "BidRequest3"
+  "id": "BidRequest3",
   "app": {
     "publisher": {
       "id": "00001"
     }
-  }
+  },
   "source": {
     "ext": {
     }
@@ -184,12 +184,12 @@ Sample resale of BidRequest3 by advertising system that does support SupplyChain
 
 ```
 "bidrequest" : {
-  "id": "BidRequest4"
+  "id": "BidRequest4",
   "app": {
     "publisher": {
       "id": "aaaaa"
     }
-  }
+  },
   "source": {
     "ext": {
       "supplychain": {
