@@ -79,12 +79,12 @@ This object is associated with a SupplyChain object as an array of nodes. These 
   <tr>
    <td>name</td>
    <td>String; optional</td>
-   <td>The business name of the entity represented by this node. This value is optional and should NOT be included if it exists in the advertising system’s sellers.txt file.</td>
+   <td>The business name of the entity represented by this node. This value is optional and should NOT be included if it exists in the advertising system’s sellers.json file.</td>
   </tr>
   <tr>
    <td>domain</td>
    <td>String; optional</td>
-   <td>The business domain name of the entity represented by this node. This value is optional and should NOT be included if it exists in the advertising system’s sellers.txt file. Note: This is just the domain, not a full URL.</td>
+   <td>The business domain name of the entity represented by this node. This value is optional and should NOT be included if it exists in the advertising system’s sellers.json file. Note: This is just the domain, not a full URL.</td>
   </tr>
 </table>
 
