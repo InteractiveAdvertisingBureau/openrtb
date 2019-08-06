@@ -106,8 +106,8 @@ This section describes the underlying model of the ecosystem to which RTB transa
 The following points define the guiding principles underlying the OpenRTB specification, some of its basic rules, and its evolution.
 
 * OpenRTB is backwards compatible within minor and patch versions (e.g. 1.x to 1.y or 1.x.a to 1.x.b).  No breaking changes may be made within a minor revision (e.g., no removal of attributes or objects, name or type changes, or redefinition of semantics).  New objects and attributes may be added and enumerated lists may be extended and thus implementers must accept these types of changes without breakage within major version numbers.
-* * For example, a demand source should only check the major version number when deciding whether it can process a bid request; it may consider itself to have an "OpenRTB 3.0" implementation but must tolerate new fields or enumerated list values it is not expecting, such as from a newer version (e.g. OpenRTB 3.1). 
-* * Likewise, exchanges should only consider the major version number when deciding what to transmit to demand sources: they may freely transmit new fields or enumerated list values (such as from a newer version, e.g. OpenRTB 3.1) and must tolerate bid responses with new fields and enumerated list values it is not expecting. 
+  * For example, a demand source should only check the major version number when deciding whether it can process a bid request; it may consider itself to have an "OpenRTB 3.0" implementation but must tolerate new fields or enumerated list values it is not expecting, such as from a newer version (e.g. OpenRTB 3.1). 
+  * Likewise, exchanges should only consider the major version number when deciding what to transmit to demand sources: they may freely transmit new fields or enumerated list values (such as from a newer version, e.g. OpenRTB 3.1) and must tolerate bid responses with new fields and enumerated list values it is not expecting. 
 
 * Object and attribute names have been made intentionally compact while still trying to balance readability.  The reason for this is that these names may be transmitted in plain text extremely frequently.
 
