@@ -69,8 +69,8 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
   - [Bid Response](#bidresponse)
 - [Appendix A:  Additional Resources](#appendixa_additionalresources)
 - [Appendix B:  Change Log/Versioning History](#appendixb_changelog)
-- [Appendix C:  Versioning Policy](#versioning)
-- [Appendix D:  Errata](#errata)
+- [Appendix C:  Errata](#appendixc_errata)
+- [Appendix C:  Versioning Policy](#appendixd_versioning)
 
 
 # OVERVIEW <a name="overview"></a>
@@ -201,7 +201,7 @@ Calls returning content (e.g., a bid response) should return HTTP code 200.  Cal
 
 #### Version Headers <a name="versionheaders"></a>
 
-The OpenRTB version must be passed in the header of a bid request with a custom header parameter. This will allow bidders to recognize the version of the message contained before attempting to parse the request. See [Versioning Policy](#versioning) and [OpenRTB Principles](#openrtb_principles) for more regarding versioning.
+The OpenRTB version must be passed in the header of a bid request with a custom header parameter. This will allow bidders to recognize the version of the message contained before attempting to parse the request. See [Versioning Policy](#appendixd_versioning) and [OpenRTB Principles](#openrtb_principles) for more regarding versioning.
 
 `x-openrtb-version: 3.0`
 
