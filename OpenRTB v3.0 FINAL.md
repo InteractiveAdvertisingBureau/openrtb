@@ -79,7 +79,7 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
 
 The mission of the OpenMedia project is to spur growth in programmatic marketplaces by providing open industry standards for communication between buyers of advertising and sellers of publisher inventory. There are several aspects to these standards including but not limited to the actual real-time bidding protocol, information taxonomies, offline configuration synchronization, and many more.
 
-## OpenRTB Executive Summary <a name="openrtb_execsummary"></a>
+## OpenRTB Executive Summary <a name="execsummary"></a>
 
 This document specifies a standard for the Real-Time Bidding (RTB) Interface. This protocol standard aims to simplify the connection between suppliers of publisher inventory (i.e., exchanges, networks working with publishers, and supply-side platforms) and competitive buyers of that inventory (i.e., bidders, demand side platforms, or networks working with advertisers).
 
