@@ -22,11 +22,10 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
 
 - [OVERVIEW](#overview)
   - [OpenMedia Mission](#openmediamission)
+  - [OpenRTB Executive Summary](#execsummary)
   - [History of OpenRTB](#historyofopenrtb)
-  - [Version History](#versionhistory)
-    - [OpenRTB Real-Time Bidding API](#openrtbrealtimebiddingapi)
-    - [OpenRTB Blocklist Branch](#openrtbblocklistbranch)
 - [ARCHITECTURE](#architecture)
+  - [OpenRTB Principles](#openrtbprinciples)
   - [Terminology](#terminology)
   - [Reference Model](#referencemodel)
   - [Protocol Layers](#protocollayers)
@@ -69,7 +68,9 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
   - [Bid Request](#bidrequest)
   - [Bid Response](#bidresponse)
 - [Appendix A:  Additional Resources](#appendixa_additionalresources)
-- [Appendix B:  Change Log](#appendixb_changelog)
+- [Appendix B:  Change Log/Versioning History](#appendixb_changelog)
+- [Appendix C:  Versioning Policy](#versioning)
+- [Appendix D:  Errata](#errata)
 
 
 # OVERVIEW <a name="overview"></a>
@@ -77,6 +78,8 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
 ## OpenMedia Mission <a name="openmediamission"></a>
 
 The mission of the OpenMedia project is to spur growth in programmatic marketplaces by providing open industry standards for communication between buyers of advertising and sellers of publisher inventory. There are several aspects to these standards including but not limited to the actual real-time bidding protocol, information taxonomies, offline configuration synchronization, and many more.
+
+## OpenRTB Executive Summary <a name="openrtb_execsummary"></a>
 
 This document specifies a standard for the Real-Time Bidding (RTB) Interface. This protocol standard aims to simplify the connection between suppliers of publisher inventory (i.e., exchanges, networks working with publishers, and supply-side platforms) and competitive buyers of that inventory (i.e., bidders, demand side platforms, or networks working with advertisers).
 
@@ -94,37 +97,23 @@ Due to very widespread adoption by the industry, OpenRTB was established as an I
 
 In the years since, programmatic advertising has become a dominant force in the industry. However, this has also led to an increasingly complex supply chain which may increase fraud rates and other risks. This is one of the key motivators driving OpenRTB v3.0.
 
-## Version History <a name="versionhistory"></a>
-
-### OpenRTB Real-Time Bidding API <a name="openrtbrealtimebiddingapi"></a>
-
-3.0	Complex supply chains, layered specification architecture, and digital signing for inventory authenticity.
-
-2.5	Support for header bidding, billing and loss notifications, Flex Ads, Payment ID, tactic ID, impression metrics, out-stream video, and many more minor enhancements.
-
-2.4	Support for Audio ad units and the largest set of minor to moderate enhancements in v2.x history.
-
-2.3	Support for Native ad units and multiple minor enhancements.
-
-2.2	New enhancements for private marketplace direct deals, video, mobile, and regulatory signals.
-
-2.1	Revisions for IQG compliance, minor enhancements, and corrections.
-
-2.0	Combines display, mobile, and video standards into a unified specification.
-
-1.0	Original Release of OpenRTB Mobile.
-
-### OpenRTB Blocklist Branch <a name="openrtbblocklistbranch"></a>
-
-1.2	Publisher Preferences API (proposed).
-
-1.1	Minor edits to include real-time exchange of creative attributes.
-
-1.0	Original Release of OpenRTB blocklist specifications.
-
 # ARCHITECTURE <a name="architecture"></a>
 
 This section describes the underlying model of the ecosystem to which RTB transactions apply and the overall organization of OpenRTB so that specification details have proper context.
+
+## OpenRTB Principles <a name="openrtb_principles"></a>
+
+The following points define the guiding principles underlying the OpenRTB specification, some of its basic rules, and its evolution.
+
+* OpenRTB is backwards compatible within minor and patch versions (e.g. 1.x to 1.y or 1.x.a to 1.x.b).  No breaking changes may be made within a minor revision (e.g., no removal of attributes or objects, name or type changes, or redefinition of semantics).  New objects and attributes may be added and enumerated lists may be extended and thus implementers must accept these types of changes without breakage within major version numbers.
+* * For example, a demand source should only check the major version number when deciding whether it can process a bid request; it may consider itself to have an "OpenRTB 3.0" implementation but must tolerate new fields or enumerated list values it is not expecting, such as from a newer version (e.g. OpenRTB 3.1). 
+* * Likewise, exchanges should only consider the major version number when deciding what to transmit to demand sources: they may freely transmit new fields or enumerated list values (such as from a newer version, e.g. OpenRTB 3.1) and must tolerate bid responses with new fields and enumerated list values it is not expecting. 
+
+* Object and attribute names have been made intentionally compact while still trying to balance readability.  The reason for this is that these names may be transmitted in plain text extremely frequently.
+
+* OpenRTB imposes no specific representation on its objects.  JSON is the default representation, but others may be used. See [Representation](#representation) below.
+
+* All OpenRTB objects may be extended as needed for vendor-specific applications.  Extension fields for OpenRTB object must always be placed within a subordinate “ext” object.  Most enumerated lists when indicated can also be extended to include vendor-specific codes typically starting at 500.
 
 ## Terminology <a name="terminology"></a>
 
@@ -212,7 +201,7 @@ Calls returning content (e.g., a bid response) should return HTTP code 200.  Cal
 
 #### Version Headers <a name="versionheaders"></a>
 
-The OpenRTB version must be passed in the header of a bid request with a custom header parameter. This will allow bidders to recognize the version of the message contained before attempting to parse the request. This version should be specified as <major>.<minor>.
+The OpenRTB version must be passed in the header of a bid request with a custom header parameter. This will allow bidders to recognize the version of the message contained before attempting to parse the request. See [Versioning Policy](#versioning) and [OpenRTB Principles](#openrtb_principles) for more regarding versioning.
 
 `x-openrtb-version: 3.0`
 
@@ -1315,8 +1304,54 @@ Apache Avro
 Protocol Buffers (Protobuf)  
 [github.com/google/protobuf](https://github.com/google/protobuf)
 
-# Appendix B:  Change Log <a name="appendixb_changelog"></a>
+# Appendix B:  Change Log/Version History <a name="appendixb_changelog"></a>
 
 This appendix serves as an index of specification changes from the current version to the previous.  These changes pertain only to the substance of the specification and not routine document formatting, information organization, or content without technical impact.
 
-Since OpenRTB v3.0 is a major revision, the change log will be omitted.
+## OpenRTB Real-Time Bidding API
+
+3.0	Complex supply chains, layered specification architecture, and digital signing for inventory authenticity.
+
+2.5	Support for header bidding, billing and loss notifications, Flex Ads, Payment ID, tactic ID, impression metrics, out-stream video, and many more minor enhancements.
+
+2.4	Support for Audio ad units and the largest set of minor to moderate enhancements in v2.x history.
+
+2.3	Support for Native ad units and multiple minor enhancements.
+
+2.2	New enhancements for private marketplace direct deals, video, mobile, and regulatory signals.
+
+2.1	Revisions for IQG compliance, minor enhancements, and corrections.
+
+2.0	Combines display, mobile, and video standards into a unified specification.
+
+1.0	Original Release of OpenRTB Mobile.
+
+### OpenRTB Blocklist Branch  (discontinued)
+
+1.2	Publisher Preferences API (proposed).
+
+1.1	Minor edits to include real-time exchange of creative attributes.
+
+1.0	Original Release of OpenRTB blocklist specifications.
+
+# Appendix C:  Errata <a name="appendixc_errata"></a>
+
+This appendix catalogues any error corrections which have been made to this document after its versioned release. The body of the document has been updated accordingly.
+
+Only minor fixes, such as clarifications or corrections to descriptions, may be treated as errata. Any change that materially affects the specification (such as a change in field names) requires a new release.
+
+Granular details of the changes can be seen by reviewing the commit history of the document.
+
+There are no errata for this version. 
+
+# Appendix D:  Versioning Policy <a name="appendixd_versioning"></a>
+
+OpenRTB follows a variant of [Semantic Versioning](https://semver.org/). OpenRTB's version number follows a pattern of "x.y.z" with the following rules:
+
+- Major version (x) increments for breaking changes and substantial improvements to the specification
+- Minor version (y) increments for a bundle of non-breaking, but still significant improvements
+- "Patch" version (z) increments for small, insignificant updates such as revising enumerated lists or non-breaking fixes to spec errors. Presence of a patch version is optional (i.e. on initial release).
+
+In general, only the major version number should be considered significant where there is a need for distinguishing versions; for example, when parsing an OpenRTB [version header](#versionheaders). See [OpenRTB Principles](#openrtb_principles).
+
+Errata, such as clarifications or corrections to descriptions not materially impacting the specification itself, are not considered to require the version number to be incremented.  See [Errata](#appendixc_errata).
