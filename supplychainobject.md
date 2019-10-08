@@ -444,7 +444,7 @@ This represents an sid of “123,B” on exampleexchange.com, which handles paym
 ```
 
 **Serialized Value**
-```1,0!exchange2.com,abcd,1,,,```
+```1.0,0!exchange2.com,abcd,1,,,```
 
 ### Single Hop - Chain Complete, encoded values
 
