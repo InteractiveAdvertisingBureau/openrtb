@@ -1375,6 +1375,6 @@ As of OpenRTB 3.0, OpenRTB's version number is only incremented on breaking chan
 
 The current version of the OpenRTB specification is updated approximately once a month if there are non-breaking improvements to be released such as new fields, objects, or values in enumerated lists. Errata, such as clarifications or corrections to descriptions not materially impacting the specification itself, are also addressed during monthly updates. See [Errata](#appendixc_errata). 
 
-Release branches are created for each monthly release and the history of these can be reviewed on GitHub. The default view for the repository will always be the most recent release, whereas ongoing development work occurs in the 'master' branch. 
+Release branches are created for each monthly release and the history of these can be reviewed on GitHub. The master branch for the repository will always reflect the most recent release, whereas ongoing development work occurs in the 'develop' branch. 
 
 This versioning policy is a break from historical practice for OpenRTB. In versions of OpenRTB prior to 3.0, major version numbers represent breaking changes and minor version numbers represent non-breaking changes. 
