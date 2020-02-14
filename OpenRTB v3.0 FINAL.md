@@ -477,7 +477,12 @@ This object represents a unit of goods being offered for sale either on the open
   <tr>
     <td><code>qty</code></td>
     <td>integer;<br/>default&nbsp;1</td>
-    <td>The number of instances (i.e., “quantity”) of this item being offered (e.g., multiple identical impressions in a digital out-of-home scenario).</td>
+    <td>The quantity of billable events which will be deemed to have occured if this item is purchased. In most cases, this represents impressions. For example, a single display of an ad on a DOOH placement may count as multiple impressions on the basis of expected viewership. In such a case, qty would be greater than 1. Only one of 'qty' or 'qtyflt' may be present.</td>
+  </tr>
+    <tr>
+    <td><code>qtyflt</code></td>
+    <td>float</td>
+    <td>The quantity of billable events which will be deemed to have occured if this item is purchased. This version of the fields exists for cases where the quantity is not expressed as a whole number. For example, a DOOH opportunity may be considered to be 14.2 impressions. Only one of 'qty' or 'qtyflt' may be present. </td>
   </tr>
   <tr>
     <td><code>seq</code></td>
@@ -846,6 +851,10 @@ The following table defines the standard substitution macros.  Note that OpenRTB
   <tr>
     <td><code>${OPENRTB_ITEM_ID}</code></td>
     <td>ID of the item just won; from <code>item.id</code> attribute.</td>
+  </tr>
+  <tr>
+    <td><code>${OPENRTB_ITEM_QTY}</code></td>
+    <td>Quantity of the item just won; from <code>item.qty</code> or <code>item.qtyflt</code> attribute.</td>
   </tr>
   <tr>
     <td><code>${OPENRTB_SEAT_ID}</code></td>
