@@ -2,7 +2,7 @@
 
 # OpenRTB Specification v3.0
 
-**November 2019**
+**February 2020**
 
 **About the IAB Technology Lab**
 
