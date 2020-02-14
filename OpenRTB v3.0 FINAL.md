@@ -406,7 +406,7 @@ For AdCOM v1.x, the objects allowed here all of which are optional are one of th
 
 This object carries data about the source of the transaction including the unique ID of the transaction itself, source authentication information, and the chain of custody.
 
-NOTE:  Attributes `ds`, `dsmap`, `cert`, and `digest` support digitally signed bid requests as defined by the [Ads.cert: Signed Bid Requests specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md).  As the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
+NOTE:  Attributes `ds`, `dsmap`, `cert`, and `digest` support digitally signed bid requests as defined by the [Ads.cert: Signed Bid Requests specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert:%20Signed%20Bid%20Requests%201.0%20BETA.md).  As the Ads.cert specification is still in its BETA state, these attributes should be considered to be in a similar state.
 
 <table>
   <tr>
@@ -948,7 +948,7 @@ Any intermediary receiving a bid request with this attribute is obligated to inc
 
 To put these concepts into practice, publishers or their trusted agents must know how to generate their public/private key pairs, how to sign transaction digest strings, and how to communicate this and related information to their immediate exchange partners.  Both publishers and those vendors wishing to authenticate requests must know the precise method of creating a digest string from bid request attributes and how to validate a signature given a public key.
 
-For these details, please refer to [ads.cert Beta Specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md).
+For these details, please refer to [ads.cert Beta Specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert:%20Signed%20Bid%20Requests%201.0%20BETA.md).
 
 ## Enumerations <a name="enumerations"></a>
 
@@ -1288,13 +1288,13 @@ OpenRTB v3.0 Specification
 [https://github.com/InteractiveAdvertisingBureau/openrtb](https://github.com/InteractiveAdvertisingBureau/openrtb)
 
 ads.cert Specification  
-[ads.cert beta specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert%201.0%20BETA.md)
+[ads.cert beta specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert:%20Signed%20Bid%20Requests%201.0%20BETA.md)
 
 ads.text Specification  
 [iabtechlab.com/ads-txt](https://iabtechlab.com/ads-txt)
 
 JavaScript Object Notation (JSON)  
-[www.json.org](www.json.org)
+[www.json.org](https://www.json.org/)
 
 Apache Avro  
 [Avro.apache.org](http://avro.apache.org)
