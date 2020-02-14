@@ -22,7 +22,7 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
   - [OpenMedia Mission](#openmediamission)
   - [OpenRTB Executive Summary](#execsummary)
   - [History of OpenRTB](#historyofopenrtb)
-- [GUIDANCE](#guidance)
+- [REGULATORY GUIDANCE](#guidance)
 - [ARCHITECTURE](#architecture)
   - [OpenRTB Principles](#openrtb_principles)
   - [Terminology](#terminology)
@@ -96,7 +96,7 @@ Due to very widespread adoption by the industry, OpenRTB was established as an I
 
 In the years since, programmatic advertising has become a dominant force in the industry. However, this has also led to an increasingly complex supply chain which may increase fraud rates and other risks. This is one of the key motivators driving OpenRTB v3.0.
 
-# GUIDANCE <a name="guidance"></a>
+# REGULATORY GUIDANCE <a name="guidance"></a>
 
 OpenRTB implementations will need to ensure compliance on every transaction with all applicable regional legislation.
 
@@ -1320,6 +1320,11 @@ This appendix serves as a brief summary of changes to the specification. These c
   </tr>
   <tr>
     <td>3.0</td>
+    <td>February 2020</td>
+    <td><b>Regulatory guidance:</b> A section has been added to call attention to the expectation that implementers comply with applicable laws or regulations.</td>
+  </tr>
+  <tr>
+    <td>3.0</td>
     <td>November 2019</td>
     <td><b>Versioning policy:</b> Elaborated on the versioning of this specification.</td>
   </tr>
@@ -1373,7 +1378,7 @@ Only minor fixes, such as clarifications or corrections to descriptions, may be 
 
 Granular details of the changes can be seen by reviewing the commit history of the document.
 
-There are no errata for this version. 
+**Link fixes, language improvements:** Some broken links have been fixed. Word choice has been improved in places for clarity. (2020/02/14).
 
 # Appendix D:  Versioning Policy <a name="appendixd_versioning"></a>
 
