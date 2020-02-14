@@ -22,6 +22,7 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
   - [OpenMedia Mission](#openmediamission)
   - [OpenRTB Executive Summary](#execsummary)
   - [History of OpenRTB](#historyofopenrtb)
+- [GUIDANCE](#guidance)
 - [ARCHITECTURE](#architecture)
   - [OpenRTB Principles](#openrtb_principles)
   - [Terminology](#terminology)
@@ -94,6 +95,10 @@ Following the release of the mobile specification, a video subcommittee was form
 Due to very widespread adoption by the industry, OpenRTB was established as an IAB standard in January 2012 with the release of version v2.1. Governance over the technical content of the specification remained with the OpenRTB community and its governance rules.
 
 In the years since, programmatic advertising has become a dominant force in the industry. However, this has also led to an increasingly complex supply chain which may increase fraud rates and other risks. This is one of the key motivators driving OpenRTB v3.0.
+
+# GUIDANCE <a name="guidance"></a>
+
+OpenRTB implementations will need to ensure compliance on every transaction with all applicable regional legislation.
 
 # ARCHITECTURE <a name="architecture"></a>
 
@@ -209,7 +214,8 @@ Additionally, it is recommended albeit optional that responses include an identi
 
 #### Transport Security <a name="transportsecurity"></a>
 
-As of OpenRTB v3.0, Transport Layer Security (TLS) is required for compliance and thus all connections over which the OpenRTB protocol operates must be HTTPS.  Legacy integrations that still use unsecured HTTP are will no longer be considered compliant.
+As of OpenRTB v3.0, HTTPS and Transport Layer Security (TLS) version 1.2+ are required for compliance and thus all connections over which the OpenRTB protocol operates must be HTTPS. Legacy integrations that still use unsecured HTTP are no longer considered compliant.
+
 
 ### Layer-2:  Format <a name="layer2_format"></a>
 
