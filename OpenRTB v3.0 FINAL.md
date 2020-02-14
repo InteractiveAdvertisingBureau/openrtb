@@ -346,7 +346,7 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
   <tr>
     <td><code>tmax</code></td>
     <td>integer</td>
-    <td>Maximum time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any <em>a priori</em> guidance from the exchange.  If an exchange acts as an intermediary, it should decrease the outbound <code>tmax</code> value from what it received to account for its latency and the additional internet hop.</td>
+    <td>Maximum time in milliseconds the exchange allows for bids to be received including Internet latency to avoid timeout. This value supersedes any general guidance from the exchange.  If an exchange acts as an intermediary, it should decrease the outbound <code>tmax</code> value from what it received to account for its latency and the additional internet hop.</td>
   </tr>
   <tr>
     <td><code>at</code></td>
@@ -571,7 +571,7 @@ This object constitutes a specific deal that was struck in advance between a sel
   <tr>
     <td><code>wseat</code></td>
     <td>string&nbsp;array</td>
-    <td>Whitelist of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange <em>a priori</em>.  Omission implies no restrictions.</td>
+    <td>Whitelist of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange beforehand.  Omission implies no restrictions.</td>
   </tr>
   <tr>
     <td><code>wadomain</code></td>
@@ -599,7 +599,7 @@ This object is associated with an item as an array of metrics. These metrics can
   <tr>
     <td><code>type</code></td>
     <td>string; required</td>
-    <td>Type of metric being presented using exchange curated string names which should be published to bidders <em>a priori</em>.</td>
+    <td>Type of metric being presented using exchange curated string names which should be published to bidders beforehand.</td>
   </tr>
   <tr>
     <td><code>value</code></td>
@@ -609,7 +609,7 @@ This object is associated with an item as an array of metrics. These metrics can
   <tr>
     <td><code>vendor</code></td>
     <td>string; recommended</td>
-    <td>Source of the value using exchange curated string names which should be published to bidders <em>a priori</em>.  If the exchange itself is the source versus a third party, “EXCHANGE” is recommended.</td>
+    <td>Source of the value using exchange curated string names which should be published to bidders beforehand.  If the exchange itself is the source versus a third party, “EXCHANGE” is recommended.</td>
   </tr>
   <tr>
     <td><code>ext</code></td>
@@ -746,7 +746,7 @@ A `Seatbid` object contains one or more `Bid` objects, each of which relates to 
   <tr>
     <td><code>tactic</code></td>
     <td>string</td>
-    <td>Tactic ID to enable buyers to label bids for reporting to the exchange the tactic through which their bid was submitted.  The specific usage and meaning of the tactic ID should be communicated between buyer and exchanges <em>a priori</em>.</td>
+    <td>Tactic ID to enable buyers to label bids for reporting to the exchange the tactic through which their bid was submitted.  The specific usage and meaning of the tactic ID should be communicated between buyer and exchanges beforehand.</td>
   </tr>
   <tr>
     <td><code>purl</code></td>
@@ -1029,7 +1029,7 @@ The following table lists the options for a bidder to signal the exchange as to 
   </tr>
   <tr>
     <td>500+</td>
-    <td>Exchange specific values; should be communicated with buyers a priori.</td>
+    <td>Exchange specific values; should be communicated with buyers beforehand.</td>
   </tr>
 </table>
 
@@ -1161,7 +1161,7 @@ The following table lists the options for an exchange to inform a bidder as to t
   </tr>
   <tr>
     <td>500+</td>
-    <td>Exchange specific values; should be communicated with buyers <em>a priori</em>.</td>
+    <td>Exchange specific values; should be communicated with buyers beforehand.</td>
   </tr>
 </table>
 
