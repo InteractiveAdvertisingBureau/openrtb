@@ -203,7 +203,7 @@ The OpenRTB version must be passed in the header of a bid request with a custom 
 
 `x-openrtb-version: 3.0`
 
-Additionally, it is recommended albeit optional that responses include an identically formatted HTTP header with the protocol version implemented by the responder.  It is assumed, however, that any response will be compatible with the version of the request and that version support is discussed *a priori* between the parties.
+Additionally, it is recommended albeit optional that responses include an identically formatted HTTP header with the protocol version implemented by the responder.  It is assumed, however, that any response will be compatible with the version of the request and that version support is discussed beforehand between the parties.
 
 **BEST PRACTICE:**  One of the simplest and most effective ways of improving connection performance is to enable HTTP Persistent Connections, also known as Keep-Alive.  This has a profound impact on overall performance by reducing connection management overhead as well as CPU utilization on both sides of the interface.
 
@@ -361,7 +361,7 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
   <tr>
     <td><code>seat</code></td>
     <td>string&nbsp;array</td>
-    <td>Restriction list of buyer seats for bidding on this item.  Knowledge of buyer’s customers and their seat IDs must be coordinated between parties <em>a priori</em>. Omission implies no restrictions.</td>
+    <td>Restriction list of buyer seats for bidding on this item.  Knowledge of buyer’s customers and their seat IDs must be coordinated between parties beforehand. Omission implies no restrictions.</td>
   </tr>
   <tr>
     <td><code>wseat</code></td>
@@ -540,7 +540,7 @@ For AdCOM v1.x, the objects allowed here are <code>Placement</code> and any obje
 
 ### Object:  Deal <a name="object_deal"></a>
 
-This object constitutes a specific deal that was struck *a priori* between a seller and a buyer.  Its presence indicates that this item is available under the terms of that deal.
+This object constitutes a specific deal that was struck in advance between a seller and a buyer.  Its presence indicates that this item is available under the terms of that deal.
 
 <table>
   <tr>
