@@ -9,6 +9,8 @@
 
 #### Notes
 
+See [digitrust.md](digitrust.md) for details.
+
 ### CA Senate Bill 568: Privacy: Internet: minors
 
 #### Issue: 
