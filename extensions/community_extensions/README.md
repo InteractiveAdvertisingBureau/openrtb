@@ -13,5 +13,8 @@ See [digitrust.md](digitrust.md) for details.
 
 ### CA Senate Bill 568: Privacy: Internet: minors
 
-#### Issue: 
-#### Notes: ??
+#### Issue: [#35](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/35)
+
+#### Notes
+
+See [ca-568.md](ca-568.md) for deatils.
