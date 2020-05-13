@@ -5,10 +5,11 @@
 
 ### Digitrust
 
-#### Issue #: 
-#### Notes: ??
+#### Issue: [#33](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/33)
+
+#### Notes
 
 ### CA Senate Bill 568: Privacy: Internet: minors
 
-#### Issue #: 
+#### Issue: 
 #### Notes: ??
