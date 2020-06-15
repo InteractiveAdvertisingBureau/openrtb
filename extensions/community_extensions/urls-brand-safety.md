@@ -30,7 +30,7 @@ Example Request
 {
  "content":{
   "ext":{
-   "urls": [ "https://www.puba.com/content1.html", "https://www.pubb.com/content2", "https://www.pubc.com/content3/abc" ]
+   "feedURLs": [ "https://www.puba.com/content1.html", "https://www.pubb.com/content2", "https://www.pubc.com/content3/abc" ]
   }
  }
 }
