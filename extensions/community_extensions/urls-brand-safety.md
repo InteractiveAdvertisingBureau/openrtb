@@ -16,7 +16,7 @@ Request Changes
   <th>Description</th>
  </tr>
  <tr>
-  <td>content.ext.feedURLs</td>
+  <td>content.ext.feedurls</td>
   <td>string array</td>
   <td>{ }</td>
   <td>An array of URLs of content that are _directly_ adjacent to the ad placement, for buy-side contextualization or review. For example, in a typical vertical feed, there would be 2 URLs provided as adjacent to the ad (above & below). In a 9-tile example, there would be 8 URLs provided. </br> 
@@ -30,7 +30,7 @@ Example Request
 {
  "content":{
   "ext":{
-   "feedURLs": [ "https://www.puba.com/content1.html", "https://www.pubb.com/content2", "https://www.pubc.com/content3/abc" ]
+   "feedurls": [ "https://www.puba.com/content1.html", "https://www.pubb.com/content2", "https://www.pubc.com/content3/abc" ]
   }
  }
 }
