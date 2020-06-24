@@ -1337,6 +1337,12 @@ This appendix serves as a brief summary of changes to the specification. These c
   </tr>
   <tr>
     <td>3.0</td>
+    <td>June 2020</td>
+    <td><b>No bid reasons:</b> Reasons associated with SupplyChain have been added. <br />
+    <b><b>DOOH improvements:</b> A field has been added to represent quantity of impressions as a float, since DOOH impressions may not be a whole number. A corresponding macro has been added too.</td>
+  </tr>
+  <tr>
+    <td>3.0</td>
     <td>February 2020</td>
     <td><b>Regulatory guidance:</b> A section has been added to call attention to the expectation that implementers comply with applicable laws or regulations.</td>
   </tr>
