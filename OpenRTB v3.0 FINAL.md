@@ -1042,6 +1042,14 @@ The following table lists the options for a bidder to signal the exchange as to 
     <td>15</td>
     <td>Insufficient Auction Time</td>
   </tr>
+    <tr>
+    <td>16</td>
+    <td>Incomplete SupplyChain</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>Blocked SupplyChain Node</td>
+  </tr>
   <tr>
     <td>500+</td>
     <td>Exchange specific values; should be communicated with buyers beforehand.</td>
