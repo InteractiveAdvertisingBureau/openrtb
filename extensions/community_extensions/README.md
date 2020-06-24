@@ -18,3 +18,11 @@ See [digitrust.md](digitrust.md) for details.
 #### Notes
 
 See [ca-568.md](ca-568.md) for deatils.
+
+### URLs for Brand Safety
+
+#### Issue: [#39](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/39)
+
+#### Notes
+
+See [urls-brand-safety.md](urls-brand-safety.md) for deatils.
