@@ -1,0 +1,324 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "openrtb-v2_0-schema-bid_request",
+	"description": "json schema for an openrtb v1.0 bid request (http://openrtb.googlecode.com/files/OpenRTB%20Mobile%20RTB%20API%20-%201.0.pdf)",
+	"type": "object",
+	"required": [ "id", "imp" ],
+	"not": {
+		"allOf": [
+			{
+				"required": [
+					"site"
+				]
+			},
+			{
+				"required": [
+					"app"
+				]
+			}
+		]
+	},
+	"properties": {
+		"id": {
+		    "$ref": "#/definitions/string_40"
+		},
+		"at": {
+			"type": "integer"
+		},
+		"tmax": {
+			"$ref": "#/definitions/positive_int"
+		},
+		"imp": {
+            "type": "array",
+		    "items": {
+				"$ref": "#/definitions/imp"
+			}
+		},
+		"site": {
+			"$ref": "#/definitions/site"
+		},
+		"app": {
+			"$ref": "#/definitions/app"
+		},
+		"device": {
+			"$ref": "#/definitions/device"
+		},
+		"user": {
+			"$ref": "#/definitions/user"
+		},
+		"restrictions": {
+			"$ref": "#/definitions/restrictions"
+		}
+	},
+    "definitions": {
+		"imp": {
+	        "type": "object",
+			"required": [ "impid" ],
+			"properties": {
+				"impid": {
+				    "$ref": "#/definitions/string_40"
+				},
+				"wseat": {
+				    "type": "array"
+				},
+				"h": {
+					"$ref": "#/definitions/positive_int"
+				},
+				"w": {
+					"$ref": "#/definitions/positive_int"
+				},
+				"pos": {
+					"$ref": "#/definitions/ad_position"
+				},
+				"instl": {
+					"$ref": "#/definitions/boolean_int"
+				},
+				"btype": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ad_type"
+					}
+				},
+				"battr": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/creative_attribute"
+					}
+				}
+			}
+		},
+		"site": {
+			"type": "object",
+			"properties": {
+				"sid": {
+					"$ref": "#/definitions/string_40"
+				},
+				"name": {
+					"$ref": "#/definitions/string_64"
+				},
+				"domain": {
+					"$ref": "#/definitions/string_64"
+				},
+				"pid": {
+					"$ref": "#/definitions/string_40"
+				},
+				"pub": {
+					"$ref": "#/definitions/string_64"
+				},
+				"pdomain": {
+					"$ref": "#/definitions/string_64"
+				},
+				"cat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/content_category"
+					}
+				},
+				"keywords": {
+					"$ref": "#/definitions/string_256"
+				},
+				"page": {
+					"$ref": "#/definitions/string_256"
+				},
+				"ref": {
+					"$ref": "#/definitions/string_256"
+				},
+				"search": {
+					"$ref": "#/definitions/string_256"
+				}
+			}
+		},
+		"app": {
+			"type": "object",
+			"properties": {
+				"aid": {
+					"$ref": "#/definitions/string_40"
+				},
+				"name": {
+					"$ref": "#/definitions/string_64"
+				},
+				"domain": {
+					"$ref": "#/definitions/string_64"
+				},
+				"pid": {
+					"$ref": "#/definitions/string_40"
+				},
+				"pub": {
+					"$ref": "#/definitions/string_64"
+				},
+				"pdomain": {
+					"$ref": "#/definitions/string_64"
+				},
+				"cat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/content_category"
+					}
+				},
+				"keywords": {
+					"$ref": "#/definitions/string_256"
+				},
+				"ver": {
+					"$ref": "#/definitions/string_16"
+				},
+				"bundle": {
+					"$ref": "#/definitions/string_64"
+				},
+				"paid": {
+					"$ref": "#/definitions/boolean_int"
+				}
+			}
+		},
+		"device": {
+			"type": "object",
+			"properties": {
+				"did": {
+					"$ref": "#/definitions/string_42"
+				},
+				"dpid": {
+					"$ref": "#/definitions/string_42"
+				},
+				"ip": {
+					"type": "string",
+					"format": "ipv4"
+				},
+				"country": {
+					"$ref": "#/definitions/country"
+				},
+				"carrier": {
+					"$ref": "#/definitions/string_64"
+				},
+				"ua": {
+					"$ref": "#/definitions/string_256"
+				},
+				"make": {
+					"$ref": "#/definitions/string_32"
+				},
+				"model": {
+					"$ref": "#/definitions/string_32"
+				},
+				"os": {
+					"$ref": "#/definitions/string_32"
+				},
+				"osv": {
+					"$ref": "#/definitions/string_32"
+				},
+				"js": {
+					"$ref": "#/definitions/boolean_int"
+				},
+				"loc": {
+					"$ref": "#/definitions/string_16"
+				}
+			}
+		},
+		"user": {
+			"type": "object",
+			"properties": {
+				"uid": {
+					"$ref": "#/definitions/string_40"
+				},
+				"yob": {
+					"type": "integer",
+					"minimum": 1000,
+					"maximum": 9999
+				},
+				"gender": {
+					"type": "string",
+					"enum": [
+						"M", "F", "O"
+					]
+				},
+				"zip": {
+					"$ref": "#/definitions/string_16"
+				},
+				"country": {
+					"$ref": "#/definitions/country"
+				},
+				"keywords": {
+					"$ref": "#/definitions/string_256"
+				}
+			}
+		},
+		"restrictions": {
+			"type": "object",
+			"properties": {
+				"bcat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/content_category"
+					}
+				},
+				"badv": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		},
+
+
+		"content_category": {
+			"type": "string",
+			"enum": [
+				"IAB1", "IAB2", "IAB3", "IAB4", "IAB5", "IAB6", "IAB7", "IAB8", "IAB9", "IAB10", "IAB11", "IAB12", "IAB13",
+				"IAB14", "IAB15", "IAB16", "IAB17", "IAB18", "IAB19", "IAB20", "IAB21", "IAB22", "IAB23", "IAB24", "IAB25", "IAB26"
+			]
+		},
+		"ad_type": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 3
+		},
+		"creative_attribute": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 14
+		},
+		"ad_position": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 3
+		},
+
+		
+		"boolean_int": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1
+		},
+		"positive_int": {
+			"type": "integer",
+			"minimum": 0
+		},
+		"country": {
+			"type": "string",
+			"minLength": 3,
+			"maxLength": 4
+		},
+		"string_16": {
+		    "type": "string",
+		    "maxLength": 16
+		},
+		"string_32": {
+		    "type": "string",
+		    "maxLength": 32
+		},
+		"string_40": {
+		    "type": "string",
+		    "maxLength": 40
+		},
+		"string_42": {
+		    "type": "string",
+		    "maxLength": 42
+		},
+		"string_64": {
+		    "type": "string",
+		    "maxLength": 64
+		},
+		"string_256": {
+		    "type": "string",
+		    "maxLength": 256
+		}
+	}
+}

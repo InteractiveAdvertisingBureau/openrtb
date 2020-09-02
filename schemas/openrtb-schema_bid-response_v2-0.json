@@ -1,0 +1,122 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "openrtb-v2_0-schema-bid_response",
+	"description": "json schema for an openrtb v2.0 bid response (http://www.iab.net/media/file/OpenRTB_API_Specification_Version2.0_FINAL.PDF)",
+	"type": "object",
+	"required": [ "id", "seatbid" ],
+	"additionalProperties": false,
+	"properties": {
+		"id": {
+		    "type": "string"
+		},
+		"seatbid": {
+            "type": "array",
+		    "items": {
+				"$ref": "#/definitions/seatbid"
+			}
+		},
+		"bidid": {
+			"type": "string"
+		},
+		"cur": {
+			"$ref": "#/definitions/currency"
+		},
+		"customdata": {
+			"type": "string"
+		},
+		"ext": {
+			"type": "object"
+		}
+	},
+    "definitions": {
+		"seatbid": {
+	        "type": "object",
+			"required": [ "bid" ],
+			"additionalProperties": false,
+			"properties": {
+				"bid": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/bid"
+					}
+				},
+				"seat": {
+					"type": "string"
+				},
+				"group": {
+					"$ref": "#/definitions/boolean_int"
+				}
+			}
+		},
+		"bid": {
+	        "type": "object",
+			"required": [ "id", "impid", "price" ],
+			"additionalProperties": false,
+			"properties": {
+				"id": {
+				    "type": "string"
+				},
+				"impid": {
+				    "type": "string"
+				},
+				"price": {
+				    "type": "number",
+				    "minimum": 0
+				},
+				"adid": {
+				    "type": "string"
+				},
+				"nurl": {
+				    "type": "string"
+				},
+				"adm": {
+				    "type": "string"
+				},
+				"adomain": {
+					"type": "array",
+					"items": {
+					    "type": "string"
+					}
+				},
+				"iurl": {
+				    "type": "string"
+				},
+				"cid": {
+				    "type": "string"
+				},
+				"crid": {
+				    "type": "string"
+				},
+				"attr": {
+					"type": "array",
+					"items": {
+					    "$ref": "#/definitions/creative_attribute"
+					}
+				},
+				"ext": {
+				    "type": "object"
+				}
+			}
+		},
+
+
+		"creative_attribute": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 16
+		},
+
+		
+		"boolean_int": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1
+		},
+		"currency": {
+		    "type": "string",
+		    "minLength": 3,
+		    "maxLength": 3,
+		    "pattern": "[a-zA-Z]{3}"
+		}
+	}	
+}
