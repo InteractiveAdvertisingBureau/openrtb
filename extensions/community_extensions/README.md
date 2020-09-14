@@ -26,3 +26,11 @@ See [ca-568.md](ca-568.md) for deatils.
 #### Notes
 
 See [urls-brand-safety.md](urls-brand-safety.md) for deatils.
+
+### SKAdNetwork Support
+
+#### Issue: [#43](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/43)
+
+#### Notes
+
+See [skadnetwork.md](skadnetwork.md) for deatils.
