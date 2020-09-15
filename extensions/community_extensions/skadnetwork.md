@@ -1,6 +1,6 @@
 # SKAdNetwork
 
-Sponsors: MoPub, Fyber, Unity
+Sponsors: MoPub, Fyber
 
 ## Overview
 
