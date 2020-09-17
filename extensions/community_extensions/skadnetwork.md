@@ -801,7 +801,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>skadnhash</code>
       </td>
       <td>
-        A hash of the full list of SKAdNetworkItem entries. Hash table will be provided outside the bidstream for DSPs to consume. See <a href="#skadnetwork-ids-hash">SKAdNetwork IDs Hash</a> for more details.
+        A hash of the full list of SKAdNetworkItem entries. Hash table will be provided outside the bidstream for DSPs to consume. See <a href="#generating-the-skadnetwork-standard-hash">SKAdNetwork IDs Hash</a> for more details.
       </td>
       <td>
         string
@@ -829,7 +829,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
 
 #### Example for `skadnhash`
 
-Used for intermediary SSP to SSP/DSP to DSP connections where a full list SKAdNetwork IDs is required. Provided in a compact hash format. See <a href="#skadnetwork-ids-hash">SKAdNetwork IDs Hash</a> for more details.
+Used for intermediary SSP to SSP/DSP to DSP connections where a full list SKAdNetwork IDs is required. Provided in a compact hash format. See <a href="#generating-the-skadnetwork-standard-hash">SKAdNetwork IDs Hash</a> for more details.
 
 ```
 {
