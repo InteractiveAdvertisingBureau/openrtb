@@ -12,8 +12,9 @@ The following are the updates provided in this document
    * Bid Request extension (`BidRequest.imp.ext.skadn`)
    * Bid Response extension (`BidResponse.seatbid.bid.ext.skadn`)
 2. A [Device extension][11] (`BidRequest.device.ext`) to support IDFV and authorization status
-3. Guidance for app developers to help [manage their Info.plists][12] and work with various SDKs.
-4. A [request for feedback][13] on what we are considering for the future - more efficient options to communicate large lists (over 10) of SKAdNetwork IDs.
+3. [IABTL managed SKAdNetwork list][15]
+4. Guidance for app developers to help [manage their Info.plists][12] and work with various SDKs.
+5. A [request for feedback][13] on what we are considering for the future - more efficient options to communicate large lists (over 10) of SKAdNetwork IDs.
    * Separate SSP managed SKAdNetwork ID lists + APIs for mapping, and standardized hash to be passed on the bid request or
    * Tech Lab managed "common list" for SKAdNetwork IDs with universal assigned range ID values per SKAdNetwork to be passed on the bid request
 
@@ -22,6 +23,16 @@ The following are the updates provided in this document
 ### Participant responsibilities
 
 The responsibilities of each participant when using the SKAdNetwork specifications are as follows.
+
+#### IABTL responsibilities are to:
+1. Organize SKAdNetwork IDs as well as define an automated self-serve registration process
+    - Not validate any input data
+2. Perform releases in batches at “x” cadence to ensure as many partners publishers have the most up-to-date lists
+    - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
+3. Assign a permanent ID for each registered `SKAdNetwork ID`
+    - Each registrant may have more than one `SKAdNetwork ID`. In this scenario, each `SKAdNetwork ID` will be assigned its own unique IABTL ID
+4. Provide a tool for publishers to build their `info.plist` files and express IABTL signaling from various URLs and / or raw skadnetwork ID
+
 
 #### SSP/SDK responsibilities are to:
 
@@ -33,12 +44,14 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 1. Provide SKAdNetwork IDs to each supply partner
 2. Support OpenRTB extension objects: `BidRequest.imp.ext.skadn` & `BidResponse.imp.ext.skadn`
-3. Return all necessary signed parameters to SSP/SDK to facilitate ad signatures and receive install validation postbacks at endpoint established during SKAdNetwork registration with Apple
+3. Determine at runtime if their entity is in the bid stream either by the included raw list and / or within the IABTL max list, or excluded from said list
+4. Return all necessary signed parameters to SSP/SDK to facilitate ad signatures and receive install validation postbacks at endpoint established during SKAdNetwork registration with Apple
 
 #### Publishers/source app’s responsibilities are to:
 
 1. Add the ad network’s ID to its Info.plist
 2. Update Info.plist with new entries added to the SSP/SDK publicly hosted lists when publishing new app versions to the App Store
+3. Supply the raw `skadnetids`, IABTL `max` and / or `exlc` to the SSP / SDK on the device at runtime
 
 ### Regulatory Guidance
 
@@ -288,6 +301,23 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
     </tr>
     <tr>
       <td>
+        <code>skadnetlist</code>
+      </td>
+      <td>
+        object containing the IABTL list definition
+      </td>
+      <td>
+        object
+      </td>
+      <td class="text-monospace">
+        “skadnetlist”:{
+          “max”:306,
+          “excl”:[2,8,10,55]
+        }
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>ext</code>
       </td>
       <td>
@@ -302,6 +332,76 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
     </tr>
   </tbody>
 </table>
+
+#### Object: `BidRequest.imp.ext.skadn.skadnetlist`
+
+IABTL skadnetwork object list attributes. 
+
+<table>
+  <thead>
+    <tr>
+      <td>
+        <strong>Attribute</strong>
+      </td>
+      <td>
+        <strong>Description</strong>
+      </td>
+      <td>
+        <strong>Type</strong>
+      </td>
+      <td>
+        <strong>Example</strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>max</code>
+      </td>
+      <td>
+        IABTL list containing the max entry ID of SKAdNetwork ID. 
+        Format will be:
+        “max entity ID” where 306 in the example on the right will be all SKAdNetwork IDs entry number 306 and below. 
+      </td>
+      <td>
+        integer
+      </td>
+      <td class="text-monospace">
+        “max”:306
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>excl</code>
+      </td>
+      <td>
+        Comma separated list of IABTL registration IDs to be excluded from IABTL shared list
+      </td>
+      <td>
+        integer array
+      </td>
+      <td class="text-monospace">
+        `“excl”: [44,14,18]`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>ext</code>
+      </td>
+      <td>
+        Placeholder for exchange-specific extensions to OpenRTB.
+      </td>
+      <td>
+        object
+      </td>
+      <td class="text-monospace">
+        “ext”:{}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 #### Example
 
@@ -321,6 +421,10 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
               "sourceapp": "880047117",
               "timestamp": "1594406341",
               "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg=="
+              “skadnetlist”:{
+                  “max”:306,
+                  “excl”:[2,8,10,55]
+                }
             }
           }
         }
@@ -329,6 +433,52 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
   ]
 }
 ```
+
+
+
+## IABTL managed SKAdnetwork ID list
+
+The IABTL managed list of SKAdNetwork IDs is to address the communition large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
+* IABTL SKAdNetwork ID List is used to transmit a range of IDs supported by an IAB Tech Lab SKAdNetwork ID List up to the max ID. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. Primary use case is “intermediary” SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
+
+
+“IABTL SKAdNetwork ID List” is a common list of networks, DSPs, Advertisers and others who support Apple’s SKAdNetwork API. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. It can be used in addition to the distributed lists supplied by SSPs and Networks or in place of those.
+
+In the IABTL list model, the total list of SKAdNetworks on a device should be the union of the IABTL list and raw SKAdNetworks IDs supplied in the bid stream minus those in the exclude list
+
+
+### IABTL SKAdNetwork ID Format
+
+This list would use the same format as the [SKANetwork ID Lists for App Developers][9] with the possible addition of an "id" field for the JSON metadata that would autoincrement for each added SKAdNetwork ID. The details of how this list would be maintained (pull requests / submission, who would check and approve etc) are yet to be determined. We would like to first get feedback on the need for (and arguments against) such a centralized list.
+
+#### Example
+
+
+```
+{
+  "company_name": "SSP",
+  "company_address": "SSP, address, country",
+  "company_domain": "company.com",
+  "skadnetwork_ids": [
+    {
+      "id": 1,
+      "entity_name": "DSP1",
+      "entity_domain": "DSP1.com",
+      "skadnetwork_id": "4FZDC2EVR5.skadnetwork",
+      "creation_date": "2020-08-21T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "entity_domain": "MMP1.com",
+      "skadnetwork_id": "V72QYCH5UU.skadnetwork",
+      "creation_date": "2020-08-25T00:00:00Z"
+    }
+  ]
+}
+```
+
+
+
 
 ### SKAdNetwork Support Flow
 
@@ -678,427 +828,11 @@ https://domain.com/skadnetworks.xml
 https://domain.com/skadnetworks.json
 ```
 
-## Proposals for Large SKAdNetwork ID List Management
 
-Note: The below sections are still in development. The IAB Tech Lab is looking for additional comments on these proposals.
 
-These proposals attempt to tackle how to transmit large lists of SKAdNetwork IDs across more complex programmatic supply chains where the use of `skadnetids` is not feasible.
-* [SKAdNetwork Hash List Proposal][14]: Used to transmit a hash ID that can be tied back to a full list in a hash table via `skadnhash` and `hashdomain`. Primary use case is “intermediary” SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
-* [IABTL SKAdNetwork ID List Proposal][15]: Used to transmit a range of IDs supported by an IAB Tech Lab SKAdNetwork ID List via `skadnrng`. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. Primary use case is “intermediary” SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
 
-## SKAdNetwork Hash List Proposal
 
-Used to transmit a hash ID that can be tied back to a full list in a hash table. Primary use case is “intermediary” SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
 
-SSP/SDK retrieves a list of all SKAdNetwork IDs and generates a standardized hash of the values. These hashes would be identical across SSP/SDK networks. A standardized list can easily be generated from the client device, simplifying transmission for prebid or other use cases.
-
-### Participant responsibilities
-
-The responsibilities of each participant when using the SKAdNetwork specifications are as follows (in addition to the responsibilities at the beginning of this document).
-
-#### SSP/SDK responsibilities are to:
-
-4. (Optional) Assist intermediary buyers with accessing the full list SKAdNetwork IDs on the bid request, provided in a compact hash format `skadnhash` and a `hashdomain` where the full list of SKAdNetwork IDs for that list can be retrieved
-5. Provide an API (separate from the bid request) where buyers can access the mapping of SKAdNetwork IDs to `skadnhash`
-
-#### DSP/intermediary/buying entities responsibilities are to:
-
-4. (Optional) Pull in SKADNetwork hash tables from each SSP/SDK API separately, if ingesting `skadnhash` and `hashdomain` values
-
-### Generating the SKAdNetwork standard hash
-
-1. Pull all SKAdNetwork IDs from Info.plist
-2. String to lower (assumes Apple SKAdNetwork IDs are case insensitive, checking with Apple to confirm)
-3. Sort Ascending
-4. Dedupe
-5. Concatenate comma-separated (no whitespace)
-6. Use SHA256 function to hash IDs
-
-#### Example
-
-Grab list from Info.plist:
-```
-2U9PT9HC89.skadnetwork
-4FZDC2EVR5.skadnetwork
-7UG5ZH24HU.skadnetwork
-mlmmfzh3r3.skadnetwork
-T38B2KH725.skadnetwork
-W9Q455WK68.skadnetwork
-YCLNXRL5PM.skadnetwork
-```
-
-Process list:
-```
-2U9PT9HC89.skadnetwork,4FZDC2EVR5.skadnetwork,7UG5ZH24HU.skadnetwork,mlmmfzh3r3.skadnetwork,T38B2KH725.skadnetwork,W9Q455WK68.skadnetwork,YCLNXRL5PM.skadnetwork
-```
-
-Output using SHA256:
-```
-93f901d8b1cc722e48d6bbe46f2e4ce38fb851f857131fa429eaed2489453b52
-```
-
-Looking up the above hash in the lookup table (provided for static download/API from SSP) will yield the list:
-```
-2U9PT9HC89.skadnetwork,4FZDC2EVR5.skadnetwork,7UG5ZH24HU.skadnetwork,mlmmfzh3r3.skadnetwork,T38B2KH725.skadnetwork,W9Q455WK68.skadnetwork,YCLNXRL5PM.skadnetwork
-```
-
-### Retrieving the SKAdNetwork Hash List
-
-SSP/SDKs make their own separate list of hashes for each app version available to DSPs through two methods:
-
-#### Method 1
-
-List of hashes may be retrieved from API request calls from the SSP/SDK. API has the option for buying entities to only query data relevant to them. SSP/SDK to make API documentation available for their own platform.
-
-API Endpoint:
-domain.com/skadnetwork?hash=HASHID
-
-File Format: JSON
-Recommended Data Format:
-
-```
-{"hash": "key1", "skadnetwork_ids":["id1", "id2"]}
-```
-
-#### Method 2
-
-List of hashes may be pulled from a static file hosted at the SSP/SDKs designated location. SSPs/SDKs should use a standard file format for listing the hashes in the static file, as described below
-
-File Format: Text File
-Data Format:
-
-```
-{"hash": "key1", "skadnetwork_ids":["id1", "id2"]}
-{"hash": "key2", "skadnetwork_ids":["id1", "id3"]}
-```
-
-#### Best Practices
-
-It is recommended that the list of hashes are updated with new app versions data at least once per hour. It is recommended that buying entities refresh their data at minimum every 12 hours and at maximum every 1 hour.
-
-### Bid request
-
-#### Object: `BidRequest.imp.ext.skadn`
-
-If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` we would include a new object in the bid request that provides the necessary information to create a signature. Object would only be present if both the SSP SDK version and the OS version (iOS 14.0+) support SKAdNetwork.
-
-<table>
-  <thead>
-    <tr>
-      <td>
-        <strong>Attribute</strong>
-      </td>
-      <td>
-        <strong>Description</strong>
-      </td>
-      <td>
-        <strong>Type</strong>
-      </td>
-      <td>
-        <strong>Example</strong>
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>skadnhash</code>
-      </td>
-      <td>
-        A hash of the full list of SKAdNetworkItem entries. Hash table will be provided outside the bidstream for DSPs to consume. See <a href="#generating-the-skadnetwork-standard-hash">SKAdNetwork IDs Hash</a> for more details.
-      </td>
-      <td>
-        string
-      </td>
-      <td class="text-monospace">
-        "93f901d8b1cc722e48d6bbe46f2e4ce38fb851f857131fa429eaed2489453b52"
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>hashdomain</code>
-      </td>
-      <td>
-        The domain of the entity where the hash list can be retrieved. Should be sent whenever <code>skadnhash</code> is present in the bid request, so DSPs can identify where to look up the corresponding hash list.
-      </td>
-      <td>
-        string
-      </td>
-      <td class="text-monospace">
-        "example.com"
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-#### Example for `skadnhash`
-
-Used for intermediary SSP to SSP/DSP to DSP connections where a full list SKAdNetwork IDs is required. Provided in a compact hash format. See <a href="#generating-the-skadnetwork-standard-hash">SKAdNetwork IDs Hash</a> for more details.
-
-```
-{
-  "imp": [
-    {
-      "ext": {
-        "skadn": {
-          "version": "2.0",
-          "sourceapp": "880047117",
-          "skadnhash": "93f901d8b1cc722e48d6bbe46f2e4ce38fb851f857131fa429eaed2489453b52",
-          "hashdomain": "example.com"
-        }
-      }
-    }
-  ]
-}
-```
-
-
-## IABTL SKAdNetwork ID List Proposal
-
-“IABTL SKAdNetwork ID List” is a common list of networks, DSPs, Advertisers and others who support Apple’s SKAdNetwork API. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. It can be used in addition to the distributed lists supplied by SSPs and Networks or in place of those.
-
-In the IABTL list model, the total list of SKAdNetworks on a device should be the union of the IABTL list and raw SKAdNetworks IDs supplied in the bid stream minus those in the exclude list
-
-### Participant responsibilities
-
-The responsibilities of each participant when using the SKAdNetwork specifications are as follows (in addition to the responsibilities at the beginning of this document).
-
-#### IABTL responsibilities are to:
-1. Organize SKAdNetwork IDs as well as define an automated self-serve registration process
-    - Not validate any input data
-2. Perform releases in batches at “x” cadence to ensure as many partners publishers have the most up-to-date lists
-    - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
-3. Assign a permanent ID for each registred `SKAdNework ID`
-    - Each registrant may have more than `SKAdNetwork ID`. In this scenario, each `SKAdNetwork ID` will be assigned it's own unique IABTL ID
-4. Provide a tool for publishers to build their `info.plist` files and express IABTL signaling from various URLs and / or raw skadnetwork ID
-
-
-
-#### SSP/SDK responsibilities are to:
-
-1. (Optional) Assist intermediary buyers with accessing the range of IABTL supported SKAdNetwork IDs on the bid request, provided in a compact range format `skadnrng` where the full list of support SKAdNetwork IDs for that list can be retrieved
-2. Provide publishers an API to pass along raw `SKAdNewtwork IDs`, IABTL list max and exclusion IDs 
-3. Pass along list version, excluded entities (i.e. they do not need to map real-time against the IABTL list) and raw SKAdNetwork IDs to buyers
-
-#### DSP/intermediary/buying entities responsibilities are to:
-
-1. (Optional) Pull in the latest IABTL SKADNetwork List if ingesting the `skadnrng` value to understand which values in the range are useful for the DSP
-2. (Optional) Determine at runtime if their entity is in the bid stream either by the included raw list and / or within the IABTL max list, or excluded from said list
-
-#### Pulblisher responsibilities are:
-1. Use the IABTL list, exchanges lists or any intermediary list for full coverage at app build time
-2. Supply the raw `skadnetids`, IABTL `max` and / or `exlc` to the SSP / SDK on the device at runtime
-
-
-### IABTL SKAdNetwork ID Format
-
-This list would use the same format as the [SKANetwork ID Lists for App Developers][9] with the possible addition of an "id" field for the JSON metadata that would autoincrement for each added SKAdNetwork ID. The details of how this list would be maintained (pull requests / submission, who would check and approve etc) are yet to be determined. We would like to first get feedback on the need for (and arguments against) such a centralized list.
-
-#### Example
-
-
-```
-{
-  "company_name": "SSP",
-  "company_address": "SSP, address, country",
-  "company_domain": "company.com",
-  "skadnetwork_ids": [
-    {
-      "id": 1,
-      "entity_name": "DSP1",
-      "entity_domain": "DSP1.com",
-      "skadnetwork_id": "4FZDC2EVR5.skadnetwork",
-      "creation_date": "2020-08-21T00:00:00Z"
-    },
-    {
-      "id": 2,
-      "entity_domain": "MMP1.com",
-      "skadnetwork_id": "V72QYCH5UU.skadnetwork",
-      "creation_date": "2020-08-25T00:00:00Z"
-    }
-  ]
-}
-```
-
-
-### IABTL Bid Request Object
-
-#### Object: `BidRequest.imp.ext.skadn`
-
-IABTL list object.
-
-<table>
-  <thead>
-    <tr>
-      <td>
-        <strong>Attribute</strong>
-      </td>
-      <td>
-        <strong>Description</strong>
-      </td>
-      <td>
-        <strong>Type</strong>
-      </td>
-      <td>
-        <strong>Example</strong>
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>skadnetlist</code>
-      </td>
-      <td>
-        object containing the IABTL list definition
-      </td>
-      <td>
-        object
-      </td>
-      <td class="text-monospace">
-        “skadnetlist”:{
-          “max”:306,
-          “excl”:[2,8,10,55]
-        }
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-#### Object: `BidRequest.imp.ext.skadn.skadnetlist`
-
-IABTL skadnetwork object list attributes. 
-
-<table>
-  <thead>
-    <tr>
-      <td>
-        <strong>Attribute</strong>
-      </td>
-      <td>
-        <strong>Description</strong>
-      </td>
-      <td>
-        <strong>Type</strong>
-      </td>
-      <td>
-        <strong>Example</strong>
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>max</code>
-      </td>
-      <td>
-        IABTL list containing the max entry ID of SKAdNetwork ID. 
-        Format will be:
-        “max entity ID” where 306 in the example on the right will be all SKAdNetwork IDs entry number 306 and below. 
-      </td>
-      <td>
-        integer
-      </td>
-      <td class="text-monospace">
-        “max”:306
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>excl</code>
-      </td>
-      <td>
-        Comma separated list of IABTL registration IDs to be excluded from IABTL shared list
-      </td>
-      <td>
-        integer array
-      </td>
-      <td class="text-monospace">
-        “excl”: [44,14,18]
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>ext</code>
-      </td>
-      <td>
-        Placeholder for exchange-specific extensions to OpenRTB.
-      </td>
-      <td>
-        object
-      </td>
-      <td class="text-monospace">
-        “ext”:{}
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-### Generating the SKAdNetwork range
-
-The SDK would be responsible for pulling the SKAdNetwork IDs listed on each app’s info.plist IDs and mapping them back to their corresponding "id" value from the IABTL List in order to generate the range.
-
-### Bid request
-
-#### Object: `BidRequest.imp.ext.skadn`
-
-If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` we would include a new object in the bid request that provides the necessary information to create a signature. Object would only be present if both the SSP SDK version and the OS version (iOS 14.0+) support SKAdNetwork.
-
-<table>
-  <thead>
-    <tr>
-      <td>
-        <strong>Attribute</strong>
-      </td>
-      <td>
-        <strong>Description</strong>
-      </td>
-      <td>
-        <strong>Type</strong>
-      </td>
-      <td>
-        <strong>Example</strong>
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>skadnrng</code>
-      </td>
-      <td>
-        A range of the full list of SKAdNetworkItem entries as defined by an IABTL SKAdNetwork ID List.
-      </td>
-      <td>
-        string
-      </td>
-      <td class="text-monospace">
-        Placeholder
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-#### Example
-
-Used for intermediary SSP to SSP/DSP to DSP connections where support for the IAB Tech Lab’s SKAdNetwork ID List is required. Provided in a compact range format.
-
-```
-{
-  "imp": [
-    {
-      "ext": {
-        "skadn": {
-          "version": "2.0",
-          "sourceapp": "880047117",
-          "skadnrng": "Placeholder for structure"
-        }
-      }
-    }
-  ]
-}
-```
 
 [1]: https://developer.apple.com/documentation/storekit/skadnetwork
 [2]: https://developer.apple.com/documentation/storekit/skadnetwork/configuring_the_participating_apps
@@ -1113,5 +847,4 @@ Used for intermediary SSP to SSP/DSP to DSP connections where support for the IA
 [11]: #device-extension
 [12]: #skadnetwork-id-lists-for-app-developers
 [13]: #proposals-for-large-skadnetwork-id-list-management
-[14]: #skadnetwork-hash-list-proposal
-[15]: #iabtl-skadnetwork-id-list-proposal
+[15]: #IABTL-managed-SKAdnetwork-ID-list
