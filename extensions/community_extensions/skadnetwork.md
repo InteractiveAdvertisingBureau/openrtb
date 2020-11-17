@@ -541,7 +541,7 @@ DSPs may also want to understand what is the status of a user on iOS 14+. The `a
 
 ## IABTL managed SKAdnetwork ID list
 
-The IABTL managed list of SKAdNetwork IDs is to address the communition large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
+The IABTL managed list of SKAdNetwork IDs is to address the communication large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
 * IABTL SKAdNetwork ID List is used to transmit a range of IDs supported by an IAB Tech Lab SKAdNetwork ID List up to the max ID. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. Primary use case is “intermediary" SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
 
 
