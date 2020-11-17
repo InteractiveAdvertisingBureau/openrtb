@@ -1,6 +1,6 @@
 # SKAdNetwork
 
-Sponsors: MoPub, Fyber, Mangite (formerly Rubicon Project) 
+Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project) 
 
 
 ## Overview
@@ -51,7 +51,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 1. Add the ad network’s ID to its Info.plist
 2. Update Info.plist with new entries added to the SSP/SDK publicly hosted lists when publishing new app versions to the App Store
-3. Supply the raw `skadnetids`, IABTL `max` and / or `exlc` to the SSP / SDK on the device at runtime
+3. Supply the raw `skadnetids`, IABTL `max` and / or `excl` to the SSP / SDK on the device at runtime
 
 ### Regulatory Guidance
 
