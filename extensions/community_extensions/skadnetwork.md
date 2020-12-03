@@ -44,7 +44,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 1. Provide SKAdNetwork IDs to each supply partner
 2. Support OpenRTB extension objects: `BidRequest.imp.ext.skadn` & `BidResponse.imp.ext.skadn`
-3. Determine at runtime if their entity is in the bid stream either by the included raw list and / or within the IABTL max list, or excluded from said list
+3. Determine at runtime if their entity is eligible for attribution postbacks
 4. Return all necessary signed parameters to SSP/SDK to facilitate ad signatures and receive install validation postbacks at endpoint established during SKAdNetwork registration with Apple
 
 #### Publishers/source app’s responsibilities are to:
@@ -114,7 +114,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>skadnetids</code>
       </td>
       <td>
-        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist that are relevant to the DSP. Recommended that this list not exceed 10.
+        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist that are relevant to the bid request. Recommended that this list not exceed 10. Note: `skadnetids` will eventually be deprecated in favor of `BidRequest.imp.ext.skadn.skadnetlist.nonlistskadnetids`.
       </td>
       <td>
         array
@@ -202,13 +202,27 @@ IABTL skadnetwork object list attributes.
         <code>excl</code>
       </td>
       <td>
-        Comma separated list of IABTL registration IDs to be excluded from IABTL shared list
+        Comma separated list of integer IABTL registration IDs to be excluded from IABTL shared list. 
       </td>
       <td>
-        integer array
+        array of integers
       </td>
       <td class="text-monospace">
         “excl": [44,14,18]
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>nonlistskadnetids</code>
+      </td>
+      <td>
+        Comma separated list of string SKAdNetwork IDs not included in the IABTL shared list. The intention of nonlistskadnetids is to be the permanent home for raw SKAdNetwork IDs, migrating away from `BidRequest.imp.ext.skadn.skadnetids`. Recommended that this list not exceed 10.
+      </td>
+      <td>
+        array of string
+      </td>
+      <td class="text-monospace">
+        "skadnetids": ["cDkw7geQsH.skadnetwork", "qyJfv329m4.skadnetwork"]
       </td>
     </tr>
     <tr>
@@ -541,7 +555,7 @@ DSPs may also want to understand what is the status of a user on iOS 14+. The `a
 
 ## IABTL managed SKAdnetwork ID list
 
-The IABTL managed list of SKAdNetwork IDs is to address the communication large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
+The IABTL managed list of SKAdNetwork IDs is to address the communication of large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
 * IABTL SKAdNetwork ID List is used to transmit a range of IDs supported by an IAB Tech Lab SKAdNetwork ID List up to the max ID. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. Primary use case is “intermediary" SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
 
 
