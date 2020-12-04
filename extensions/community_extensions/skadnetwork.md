@@ -222,7 +222,7 @@ IABTL skadnetwork object list attributes.
         array of string
       </td>
       <td class="text-monospace">
-        "skadnetids": ["cDkw7geQsH.skadnetwork", "qyJfv329m4.skadnetwork"]
+        "addl": ["cDkw7geQsH.skadnetwork", "qyJfv329m4.skadnetwork"]
       </td>
     </tr>
     <tr>
