@@ -26,12 +26,12 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 #### IABTL responsibilities are to:
 1. Organize SKAdNetwork IDs as well as define an automated self-serve registration process
-    - Not validate any input data
-2. Perform releases in batches at “x" cadence to ensure as many partners publishers have the most up-to-date lists
+    - Will not validate the ID with Apple, but will verify that the domain matches the domain of the verified email address of the submitter. Will also provide an offline/non-autmoated process in case the email domain is different.
+2. Perform releases in batches at "x" cadence to ensure as many partners publishers have the most up-to-date lists
     - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
 3. Assign a permanent ID for each registered `SKAdNetwork ID`
     - Each registrant may have more than one `SKAdNetwork ID`. In this scenario, each `SKAdNetwork ID` will be assigned its own unique IABTL ID
-4. Provide a tool for publishers to build their `info.plist` files and express IABTL signaling from various URLs and / or raw skadnetwork ID
+4. Provide a tool for publishers to build their `Info.plist` files and express IABTL signaling from various URLs and / or raw SKAdNetwork ID
 
 
 #### SSP/SDK responsibilities are to:
@@ -44,7 +44,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 1. Provide SKAdNetwork IDs to each supply partner
 2. Support OpenRTB extension objects: `BidRequest.imp.ext.skadn` & `BidResponse.imp.ext.skadn`
-3. Determine at runtime if their entity is eligible for attribution postbacks
+3. Determine if their entity is eligible for attribution postbacks
 4. Return all necessary signed parameters to SSP/SDK to facilitate ad signatures and receive install validation postbacks at endpoint established during SKAdNetwork registration with Apple
 
 #### Publishers/source app’s responsibilities are to:
@@ -114,7 +114,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>skadnetids</code>
       </td>
       <td>
-        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist that are relevant to the bid request. Recommended that this list not exceed 10. Note: `skadnetids` will eventually be deprecated in favor of `BidRequest.imp.ext.skadn.skadnetlist.nonlistskadnetids`.
+        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist that are relevant to the bid request. Recommended that this list not exceed 10. Note: It is preferred to use `BidRequest.imp.ext.skadn.skadnetlist.addl` to express raw SKAdNetwork IDs.
       </td>
       <td>
         array
@@ -134,8 +134,8 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         object
       </td>
       <td class="text-monospace">
-        “skadnetlist":{
-          “max":306,
+        "skadnetlist":{
+          "max":306,
           "excl":[2,8,10,55]
         }
       </td>
@@ -188,13 +188,13 @@ IABTL skadnetwork object list attributes.
       <td>
         IABTL list containing the max entry ID of SKAdNetwork ID. 
         Format will be:
-        “max entity ID" where 306 in the example on the right will be all SKAdNetwork IDs entry number 306 and below. 
+        "max entity ID" where 306 in the example on the right will be all SKAdNetwork IDs entry number 306 and below. 
       </td>
       <td>
         integer
       </td>
       <td class="text-monospace">
-        “max":306
+        "max":306
       </td>
     </tr>
     <tr>
@@ -208,15 +208,15 @@ IABTL skadnetwork object list attributes.
         array of integers
       </td>
       <td class="text-monospace">
-        “excl": [44,14,18]
+        "excl": [44,14,18]
       </td>
     </tr>
     <tr>
       <td>
-        <code>nonlistskadnetids</code>
+        <code>addl</code>
       </td>
       <td>
-        Comma separated list of string SKAdNetwork IDs not included in the IABTL shared list. The intention of nonlistskadnetids is to be the permanent home for raw SKAdNetwork IDs, migrating away from `BidRequest.imp.ext.skadn.skadnetids`. Recommended that this list not exceed 10.
+        Comma separated list of string SKAdNetwork IDs not included in the IABTL shared list. The intention of addl is to be the permanent home for raw SKAdNetwork IDs, migrating away from `BidRequest.imp.ext.skadn.skadnetids`. Recommended that this list not exceed 10.
       </td>
       <td>
         array of string
@@ -236,7 +236,7 @@ IABTL skadnetwork object list attributes.
         object
       </td>
       <td class="text-monospace">
-        “ext":{}
+        "ext":{}
       </td>
     </tr>
   </tbody>
@@ -259,9 +259,9 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
             "cDkw7geQsH.skadnetwork",
             "qyJfv329m4.skadnetwork"
           ],
-          “skadnetlist":{
-              “max":306,
-              “excl":[2,8,10,55]
+          "skadnetlist":{
+              "max":306,
+              "excl":[2,8,10,55]
           }
         }
       }
@@ -556,10 +556,10 @@ DSPs may also want to understand what is the status of a user on iOS 14+. The `a
 ## IABTL managed SKAdnetwork ID list
 
 The IABTL managed list of SKAdNetwork IDs is to address the communication of large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
-* IABTL SKAdNetwork ID List is used to transmit a range of IDs supported by an IAB Tech Lab SKAdNetwork ID List up to the max ID. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. Primary use case is “intermediary" SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
+* IABTL SKAdNetwork ID List is used to transmit a range of IDs supported by an IAB Tech Lab SKAdNetwork ID List up to the max ID. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. Primary use case is "intermediary" SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
 
 
-“IABTL SKAdNetwork ID List" is a common list of networks, DSPs, Advertisers and others who support Apple’s SKAdNetwork API. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. It can be used in addition to the distributed lists supplied by SSPs and Networks or in place of those.
+"IABTL SKAdNetwork ID List" is a common list of networks, DSPs, Advertisers and others who support Apple’s SKAdNetwork API. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. It can be used in addition to the distributed lists supplied by SSPs and Networks or in place of those.
 
 In the IABTL list model, the total list of SKAdNetworks on a device should be the union of the IABTL list and raw SKAdNetworks IDs supplied in the bid stream minus those in the exclude list
 
