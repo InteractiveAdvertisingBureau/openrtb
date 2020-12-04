@@ -114,7 +114,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>skadnetids</code>
       </td>
       <td>
-        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist that are relevant to the bid request. Recommended that this list not exceed 10. Note: It is preferred to use `BidRequest.imp.ext.skadn.skadnetlist.addl` to express raw SKAdNetwork IDs.
+        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist that are relevant to the bid request. Recommended that this list not exceed 10. </br></br><strong>Note</strong>:<code>BidRequest.imp.ext.skadn.skadnetlist.addl</code> is the preferred method to express raw SKAdNetwork IDs.
       </td>
       <td>
         array
@@ -216,7 +216,7 @@ IABTL skadnetwork object list attributes.
         <code>addl</code>
       </td>
       <td>
-        Comma separated list of string SKAdNetwork IDs not included in the IABTL shared list. The intention of addl is to be the permanent home for raw SKAdNetwork IDs, migrating away from `BidRequest.imp.ext.skadn.skadnetids`. Recommended that this list not exceed 10.
+        Comma separated list of string SKAdNetwork IDs not included in the IABTL shared list. The intention of addl is to be the permanent home for raw SKAdNetwork IDs, migrating away from <code>BidRequest.imp.ext.skadn.skadnetids</code>. Recommended that this list not exceed 10.
       </td>
       <td>
         array of string
