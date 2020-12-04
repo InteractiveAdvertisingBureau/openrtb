@@ -219,7 +219,7 @@ IABTL skadnetwork object list attributes.
         Comma separated list of string SKAdNetwork IDs not included in the IABTL shared list. The intention of addl is to be the permanent home for raw SKAdNetwork IDs, migrating away from <code>BidRequest.imp.ext.skadn.skadnetids</code>. Recommended that this list not exceed 10.
       </td>
       <td>
-        array of string
+        array of strings
       </td>
       <td class="text-monospace">
         "addl": ["cDkw7geQsH.skadnetwork", "qyJfv329m4.skadnetwork"]
