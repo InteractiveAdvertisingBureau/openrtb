@@ -23,7 +23,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 #### IABTL responsibilities are to:
 1. Organize SKAdNetwork IDs as well as define an automated self-serve registration process
-    - Will not validate the ID with Apple, but will verify that the domain matches the domain of the verified email address of the submitter. Will also provide an offline/non-autmoated process in case the email domain is different.
+    - Will not validate the ID with Apple, but will verify that the domain matches the domain of the verified email address of the submitter. Will also provide an offline/non-automated process in case the email domain is different.
 2. Perform releases in batches at "x" cadence to ensure as many partners publishers have the most up-to-date lists
     - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
 3. Assign a permanent ID for each registered `SKAdNetwork ID`
