@@ -14,9 +14,6 @@ The following are the updates provided in this document
 2. A [Device extension][11] (`BidRequest.device.ext`) to support IDFV and authorization status
 3. [IABTL managed SKAdNetwork list][15]
 4. Guidance for app developers to help [manage their Info.plists][12] and work with various SDKs.
-5. A [request for feedback][13] on what we are considering for the future - more efficient options to communicate large lists (over 10) of SKAdNetwork IDs.
-   * Separate SSP managed SKAdNetwork ID lists + APIs for mapping, and standardized hash to be passed on the bid request or
-   * Tech Lab managed "common list" for SKAdNetwork IDs with universal assigned range ID values per SKAdNetwork to be passed on the bid request
 
 ## SKAdNetwork Extension
 
