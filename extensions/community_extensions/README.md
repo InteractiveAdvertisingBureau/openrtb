@@ -34,3 +34,11 @@ See [urls-brand-safety.md](urls-brand-safety.md) for deatils.
 #### Notes
 
 See [skadnetwork.md](skadnetwork.md) for deatils.
+
+### Trust.id
+
+#### Issue: [#50](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/50)
+
+#### Notes
+
+See [trustid.md](trustid.md) for deatils.
