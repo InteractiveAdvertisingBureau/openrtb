@@ -1,5 +1,9 @@
 <h1>Cross-platform campaign identification : Trust.id</H1>
 
+Sponsors: Smart Adserver, Xandr
+
+<h2>Overview</h2>
+
 By using <i>Trust.id</i>, <strong>Advertisers and Publishers will soon get more transparency and tracking for their programmatic buying and selling</strong>.
 
 Several advertising associations, representing all stakeholders involved in the buying process, including <strong>Edipub</strong>, stand together to make sure to find consensual solutions, to meet compliance and to define best practices, in responses to transparency requirements.
