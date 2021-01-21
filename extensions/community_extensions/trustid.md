@@ -34,7 +34,7 @@ Trust.id = Advertiser ID + Advertiser brand + Advertiser product code + Customer
 See below the description of each piece from the genuine specification :
 
 - <strong>Advertiser ID</strong> : It will be the [GLN](https://en.wikipedia.org/wiki/Global_Location_Number) (global location number) which is an existing international ID used to identify a company (advertiser).
-The registry of GLNs is managed by [GEPIR](https://gepir.gs1.org/) (Global Electronic Party Information Registry) which allows identification of a company thanks to its GLN.<br><br>Example of request :<br>![Search](https://github.com/InteractiveAdvertisingBureau/openrtb/new/master/extensions/community_extensions/assets/trustid_gln_search.png)<br><br>Result :<br>![Result](https://github.com/InteractiveAdvertisingBureau/openrtb/new/master/extensions/community_extensions/assets/trustid_gln_result.png)
+The registry of GLNs is managed by [GEPIR](https://gepir.gs1.org/) (Global Electronic Party Information Registry) which allows identification of a company thanks to its GLN.<br><br>Example of request :<br>![Search](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/assets/trustid_gln_search.png)<br><br>Result :<br>![Result](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/assets/trustid_gln_result.png)
 
 - <strong>Advertiser brand, Advertiser product code and Customer Product Estimate</strong> are defined at the advertiser's discretion.
 
