@@ -265,7 +265,7 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
     {
       "ext": {
         "skadn": {
-          "version": "2.0",
+          "versions": ["2.0", "2.1"],
           "sourceapp": "880047117",
           "skadnetlist":{
               "max":306,
