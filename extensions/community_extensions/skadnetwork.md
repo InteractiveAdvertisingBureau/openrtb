@@ -24,6 +24,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 #### IABTL responsibilities are to:
 1. Organize SKAdNetwork IDs as well as define an automated self-serve registration process
     - Will not validate the ID with Apple, but will verify that the domain matches the domain of the verified email address of the submitter. Will also provide an offline/non-automated process in case the email domain is different.
+    - IABTL will lowercase all received SKAdNetwork IDs upon appending to the master list
 2. Perform releases in batches at "x" cadence to ensure as many partners publishers have the most up-to-date lists
     - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
 3. Assign a permanent ID for each registered `SKAdNetwork ID`
@@ -46,7 +47,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 #### Publishers/source app’s responsibilities are to:
 
-1. Add the ad network’s ID to its Info.plist
+1. Add the ad network’s ID to its Info.plist in all lower case characters
 2. Update Info.plist with new entries added to the SSP/SDK publicly hosted lists when publishing new app versions to the App Store
 3. Supply the raw `skadnetids`, IABTL `max` and / or `excl` to the SSP / SDK on the device at runtime
 
@@ -103,7 +104,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         array of strings
       </td>
       <td>
-        "version": ["2.0", "2.1"]
+        "versions": ["2.0", "2.1"]
       </td>
     </tr>
     <tr>
@@ -609,6 +610,10 @@ This list would use the same format as the [SKANetwork ID Lists for App Develope
 ## SKAdNetwork ID Lists for App Developers
 
 SKAdNetwork ID Lists is a list of SKAdNetwork IDs published by a hosting company (e.g. SSP/SDK). App developers who work with the hosting company should use this file when generating a consolidated list of SKAdNetwork IDs to include in their app’s Info.plist file. For convenience, the SKAdNetwork IDs are provided in both XML and JSON formats. See each format for details and use cases.
+
+<div style="background-color: #f3ddde; color: #a94443; border: 1px solid #a94443;">
+<strong>Warning:</strong> SKAdNetwork IDs should be stored on the device in lowercase even if received in upper case or mixed case characters. Failure to do so can result postbacks to not occur, potentially causing a loss in revenue as advertiers shift spend away from inventory that does not result in any attribution.
+</div>
 
 ### URL Path
 
