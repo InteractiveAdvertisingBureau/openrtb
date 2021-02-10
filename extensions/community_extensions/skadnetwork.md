@@ -2,6 +2,7 @@
 
 Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project) 
 
+Document verison support: SKAdNetwork versions 2.0 and 2.1. Version 2.2+ are under consideration within the IAB TL working group.
 
 ## Overview
 
@@ -84,7 +85,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>version</code>
       </td>
       <td>
-        Version of skadnetwork supported. Always "2.0" or higher. Dependent on both the OS version and the SDK version.
+        Version of skadnetwork supported. Always "2.0" or higher. Dependent on both the OS version and the SDK version. </br></br><strong>Note</strong>: With the release of SKAdNetwork 2.1, this field is deprecated in favor of the `versions` to support an array of version numbers.
       </td>
       <td>
         string
@@ -98,7 +99,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>versions</code>
       </td>
       <td>
-        Array of strings containing the supported skadnetwork versions. Always "2.0" or higher. Dependent on both the OS version and the SDK version. Apple currently supports multiple SKAdNetwork versions as postbacks resulting in the eventual deprecation of the field "version", migrating to "versions".
+        Array of strings containing the supported skadnetwork versions. Always "2.0" or higher. Dependent on both the OS version and the SDK version.
       </td>
       <td>
         array of strings
@@ -612,7 +613,7 @@ This list would use the same format as the [SKANetwork ID Lists for App Develope
 SKAdNetwork ID Lists is a list of SKAdNetwork IDs published by a hosting company (e.g. SSP/SDK). App developers who work with the hosting company should use this file when generating a consolidated list of SKAdNetwork IDs to include in their app’s Info.plist file. For convenience, the SKAdNetwork IDs are provided in both XML and JSON formats. See each format for details and use cases.
 
 <div style="background-color: #f3ddde; color: #a94443; border: 1px solid #a94443;">
-<strong>Warning:</strong> SKAdNetwork IDs should be stored on the device in lowercase even if received in upper case or mixed case characters. Failure to do so can result postbacks to not occur, potentially causing a loss in revenue as advertiers shift spend away from inventory that does not result in any attribution.
+<strong>Warning:</strong> SKAdNetwork IDs should be stored on the device (in info.plist) as lowercase even if received in upper case or mixed case characters. Failure to do so can result in postbacks to not occur, potentially causing a loss in revenue as advertiers shift spend away from inventory that does not result in any attribution.
 </div>
 
 ### URL Path
