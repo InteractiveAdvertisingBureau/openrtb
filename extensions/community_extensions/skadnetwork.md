@@ -2,6 +2,7 @@
 
 Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project) 
 
+Document verison support: SKAdNetwork versions 2.0 and 2.1. Version 2.2+ are under consideration within the IAB TL working group.
 
 ## Overview
 
@@ -24,6 +25,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 #### IABTL responsibilities are to:
 1. Organize SKAdNetwork IDs as well as define an automated self-serve registration process
     - Will not validate the ID with Apple, but will verify that the domain matches the domain of the verified email address of the submitter. Will also provide an offline/non-automated process in case the email domain is different.
+    - IABTL will lowercase all received SKAdNetwork IDs upon appending to the master list
 2. Perform releases in batches at "x" cadence to ensure as many partners publishers have the most up-to-date lists
     - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
 3. Assign a permanent ID for each registered `SKAdNetwork ID`
@@ -46,7 +48,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 #### Publishers/source app’s responsibilities are to:
 
-1. Add the ad network’s ID to its Info.plist
+1. Add the ad network’s ID to its Info.plist in all lower case characters
 2. Update Info.plist with new entries added to the SSP/SDK publicly hosted lists when publishing new app versions to the App Store
 3. Supply the raw `skadnetids`, IABTL `max` and / or `excl` to the SSP / SDK on the device at runtime
 
@@ -83,13 +85,27 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>version</code>
       </td>
       <td>
-        Version of skadnetwork supported. Always "2.0" or higher. Dependent on both the OS version and the SDK version.
+        Version of skadnetwork supported. Always "2.0" or higher. Dependent on both the OS version and the SDK version. </br></br><strong>Note</strong>: With the release of SKAdNetwork 2.1, this field is deprecated in favor of the `versions` to support an array of version numbers.
       </td>
       <td>
         string
       </td>
       <td>
         "version": "2.0"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>versions</code>
+      </td>
+      <td>
+        Array of strings containing the supported skadnetwork versions. Always "2.0" or higher. Dependent on both the OS version and the SDK version.
+      </td>
+      <td>
+        array of strings
+      </td>
+      <td>
+        "versions": ["2.0", "2.1"]
       </td>
     </tr>
     <tr>
@@ -111,13 +127,13 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>skadnetids</code>
       </td>
       <td>
-        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist that are relevant to the bid request. Recommended that this list not exceed 10. </br></br><strong>Note</strong>:<code>BidRequest.imp.ext.skadn.skadnetlist.addl</code> is the preferred method to express raw SKAdNetwork IDs.
+        A subset of SKAdNetworkItem entries in the publisher app’s Info.plist, <strong>expressed as lowercase strings</strong>, that are relevant to the bid request. Recommended that this list not exceed 10. </br></br><strong>Note</strong>:<code>BidRequest.imp.ext.skadn.skadnetlist.addl</code> is the preferred method to express raw SKAdNetwork IDs.
       </td>
       <td>
-        array
+        array of strings
       </td>
       <td>
-        "skadnetids": ["cDkw7geQsH.skadnetwork", "qyJfv329m4.skadnetwork"]
+        "skadnetids": ["cdkw7geqsh.skadnetwork", "qyjfv329m4.skadnetwork"]
       </td>
     </tr>
     <tr>
@@ -213,13 +229,13 @@ IABTL skadnetwork object list attributes.
         <code>addl</code>
       </td>
       <td>
-        Comma separated list of string SKAdNetwork IDs not included in the IABTL shared list. The intention of addl is to be the permanent home for raw SKAdNetwork IDs, migrating away from <code>BidRequest.imp.ext.skadn.skadnetids</code>. Recommended that this list not exceed 10.
+        Comma separated list of string SKAdNetwork IDs, <strong>expressed as lowercase strings</strong>, not included in the IABTL shared list. The intention of addl is to be the permanent home for raw SKAdNetwork IDs, migrating away from <code>BidRequest.imp.ext.skadn.skadnetids</code>. Recommended that this list not exceed 10.
       </td>
       <td>
         array of strings
       </td>
       <td class="text-monospace">
-        "addl": ["cDkw7geQsH.skadnetwork", "qyJfv329m4.skadnetwork"]
+        "addl": ["cdkw7geqsh.skadnetwork", "qyjfv329m4.skadnetwork"]
       </td>
     </tr>
     <tr>
@@ -250,15 +266,15 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
     {
       "ext": {
         "skadn": {
-          "version": "2.0",
+          "versions": ["2.0", "2.1"],
           "sourceapp": "880047117",
-          "skadnetids": [
-            "cDkw7geQsH.skadnetwork",
-            "qyJfv329m4.skadnetwork"
-          ],
           "skadnetlist":{
               "max":306,
-              "excl":[2,8,10,55]
+              "excl":[2,8,10,55],
+              "addl": [
+                "cdkw7geqsh.skadnetwork",
+                "qyJfv329m4.skadnetwork"
+              ]
           }
         }
       }
@@ -316,7 +332,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
         string
       </td>
       <td>
-        "network": "cDkw7geQsH.skadnetwork"
+        "network": "cdkw7geqsh.skadnetwork"
       </td>
     </tr>
     <tr>
@@ -433,7 +449,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
           "ext": {
             "skadn": {
               "version": "2.0",
-              "network": "cDkw7geQsH.skadnetwork",
+              "network": "cdkw7geqsh.skadnetwork",
               "campaign": "45",
               "itunesitem": "123456789",
               "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
@@ -578,13 +594,13 @@ This list would use the same format as the [SKANetwork ID Lists for App Develope
       "id": 1,
       "entity_name": "DSP1",
       "entity_domain": "DSP1.com",
-      "skadnetwork_id": "4FZDC2EVR5.skadnetwork",
+      "skadnetwork_id": "4fzdc2evr5.skadnetwork",
       "creation_date": "2020-08-21T00:00:00Z"
     },
     {
       "id": 2,
       "entity_domain": "MMP1.com",
-      "skadnetwork_id": "V72QYCH5UU.skadnetwork",
+      "skadnetwork_id": "v72qych5uu.skadnetwork",
       "creation_date": "2020-08-25T00:00:00Z"
     }
   ]
@@ -595,6 +611,10 @@ This list would use the same format as the [SKANetwork ID Lists for App Develope
 ## SKAdNetwork ID Lists for App Developers
 
 SKAdNetwork ID Lists is a list of SKAdNetwork IDs published by a hosting company (e.g. SSP/SDK). App developers who work with the hosting company should use this file when generating a consolidated list of SKAdNetwork IDs to include in their app’s Info.plist file. For convenience, the SKAdNetwork IDs are provided in both XML and JSON formats. See each format for details and use cases.
+
+<div style="background-color: #f3ddde; color: #a94443; border: 1px solid #a94443;">
+<strong>Warning:</strong> SKAdNetwork IDs should be stored on the device (in info.plist) as lowercase even if received in upper case or mixed case characters. Failure to do so can result in postbacks to not occur, potentially causing a loss in revenue as advertiers shift spend away from inventory that does not result in any attribution.
+</div>
 
 ### URL Path
 
@@ -628,7 +648,7 @@ Please refer to [Apple documentation][2] for details.
     <array>
         <dict>
             <key>SKAdNetworkIdentifier</key>
-            <string>4DZT52R2T5.skadnetwork</string>
+            <string>4dzt52r2t5.skadnetwork</string>
         </dict>
         <dict>
             <key>SKAdNetworkIdentifier</key>
@@ -722,7 +742,7 @@ All data in the file is serialized using JSON (JavaScript Object Notation)
         object array (required)
       </td>
       <td>
-        [{ "entity_name": "DSP1", "entity_domain": "DSP1.com", "skadnetwork_id": "4FZDC2EVR5.skadnetwork", "creation_date": "2020-08-21T00:00:00Z" }]
+        [{ "entity_name": "DSP1", "entity_domain": "DSP1.com", "skadnetwork_id": "4fzdc2evr5.skadnetwork", "creation_date": "2020-08-21T00:00:00Z" }]
       </td>
     </tr>
   </tbody>
@@ -787,7 +807,7 @@ All data in the file is serialized using JSON (JavaScript Object Notation)
         string (required)
       </td>
       <td>
-        4GWI8V3KWU.skadnetwork
+        4gwi8v3kwu.skadnetwork
       </td>
     </tr>
     <tr>
@@ -818,13 +838,13 @@ All data in the file is serialized using JSON (JavaScript Object Notation)
     {
       "entity_name": "DSP1",
       "entity_domain": "DSP1.com",
-      "skadnetwork_id": "4FZDC2EVR5.skadnetwork",
+      "skadnetwork_id": "4fzdc2evr5.skadnetwork",
       "creation_date": "2020-08-21T00:00:00Z"
     },
     {
       "entity_name": "MMP1",
       "entity_domain": "MMP1.com",
-      "skadnetwork_id": "V72QYCH5UU.skadnetwork",
+      "skadnetwork_id": "v72qych5uu.skadnetwork",
       "creation_date": "2020-08-25T00:00:00Z"
     }
   ]
