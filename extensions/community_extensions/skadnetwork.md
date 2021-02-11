@@ -586,9 +586,9 @@ This list would use the same format as the [SKANetwork ID Lists for App Develope
 
 ```
 {
-  "company_name": "SSP",
-  "company_address": "SSP, address, country",
-  "company_domain": "company.com",
+  "company_name": "IAB Tech Lab",
+  "company_address": "116 East 27th Street, 7th Floor, New York, New York 10016",
+  "company_domain": "iabtechlab.com",
   "skadnetwork_ids": [
     {
       "id": 1,
