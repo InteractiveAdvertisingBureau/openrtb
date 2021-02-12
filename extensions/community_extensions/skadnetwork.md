@@ -402,7 +402,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
         string
       </td>
       <td>
-        "timestamp": "1594406341"
+        "timestamp": "1594406341232"
       </td>
     </tr>
     <tr>
@@ -454,7 +454,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
               "itunesitem": "123456789",
               "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
               "sourceapp": "880047117",
-              "timestamp": "1594406341",
+              "timestamp": "1594406341232",
               "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg=="
             }
           }
