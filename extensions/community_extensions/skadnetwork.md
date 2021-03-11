@@ -30,7 +30,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
     - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
 3. Assign a permanent ID for each registered `SKAdNetwork ID`
     - Each registrant may have more than one `SKAdNetwork ID`. In this scenario, each `SKAdNetwork ID` will be assigned its own unique IABTL ID
-4. Provide a tool for publishers to build their `Info.plist` files and express IABTL signaling from various URLs and / or raw SKAdNetwork ID
+4. Provide a tool for publishers to build their `Info.plist` files and express IABTL signaling from various URLs and / or raw SKAdNetwork ID (Tool not ready yet)
 
 
 #### SSP/SDK responsibilities are to:
@@ -41,15 +41,15 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 #### DSP/intermediary/buying entities responsibilities are to:
 
-1. Provide SKAdNetwork IDs to each supply partner
+1. Provide SKAdNetwork IDs to each supply partner and register on the IAB Tech Lab list at https://tools.iabtechlab.com/skadnetwork
 2. Support OpenRTB extension objects: `BidRequest.imp.ext.skadn` & `BidResponse.imp.ext.skadn`
 3. Determine if their entity is eligible for attribution postbacks
 4. Return all necessary signed parameters to SSP/SDK to facilitate ad signatures and receive install validation postbacks at endpoint established during SKAdNetwork registration with Apple
 
 #### Publishers/source app’s responsibilities are to:
 
-1. Add the ad network’s ID to its Info.plist in all lower case characters
-2. Update Info.plist with new entries added to the SSP/SDK publicly hosted lists when publishing new app versions to the App Store
+1. Add the ad network’s ID to its Info.plist in all lower case characters. 
+2. Update Info.plist with new entries added to the IAB Tech Lab / SSP / SDK publicly hosted lists when publishing new app versions to the App Store
 3. Supply the raw `skadnetids`, IABTL `max` and / or `excl` to the SSP / SDK on the device at runtime
 
 ### Regulatory Guidance
@@ -747,7 +747,7 @@ DSPs may also want to understand what is the status of a user on iOS 14+. The `a
 
 ## IABTL managed SKAdnetwork ID list
 
-The IABTL managed list of SKAdNetwork IDs is to address the communication of large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
+The IABTL managed list of SKAdNetwork IDs is available at https://tools.iabtechlab.com/skadnetwork, and is intended to address the communication of large lists across complex programmatic supply chains where the use of `skadnetids` is not feasible.
 * IABTL SKAdNetwork ID List is used to transmit a range of IDs supported by an IAB Tech Lab SKAdNetwork ID List up to the max ID. This list would serve a similar purpose that the TCF 2.0 [Global Vendor List][8] serves to identify common IDs in a compact range. Primary use case is "intermediary" SSP to SSP to DSP integrations where sending a subset of IDs is not feasible.
 
 
