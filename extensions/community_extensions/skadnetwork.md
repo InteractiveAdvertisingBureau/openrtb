@@ -1,6 +1,6 @@
 # SKAdNetwork
 
-Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project) 
+Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project)
 
 Document verison support: SKAdNetwork versions 2.0 and 2.1. Version 2.2+ are under consideration within the IAB TL working group.
 
@@ -56,7 +56,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 OpenRTB implementations will need to ensure compliance on every transaction with all applicable regional legislation.
 
-### Bid request
+### Bid Request
 
 #### Object: `BidRequest.imp.ext.skadn`
 
@@ -85,7 +85,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>version</code>
       </td>
       <td>
-        Version of skadnetwork supported. Always "2.0" or higher. Dependent on both the OS version and the SDK version. </br></br><strong>Note</strong>: With the release of SKAdNetwork 2.1, this field is deprecated in favor of the `versions` to support an array of version numbers.
+        Version of skadnetwork supported. Always "2.0" or higher. Dependent on both the OS version and the SDK version. </br></br><strong>Note</strong>: With the release of SKAdNetwork 2.1, this field is deprecated in favor of the <code>BidRequest.imp.ext.skadn.versions</code> to support an array of version numbers.
       </td>
       <td>
         string
@@ -105,7 +105,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         array of strings
       </td>
       <td>
-        "versions": ["2.0", "2.1"]
+        "versions": ["2.0", "2.1", "2.2"]
       </td>
     </tr>
     <tr>
@@ -141,13 +141,13 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
         <code>skadnetlist</code>
       </td>
       <td>
-        object containing the IABTL list definition
+        Object containing the IABTL list definition
       </td>
       <td>
         object
       </td>
       <td class="text-monospace">
-        "skadnetlist":{
+        "skadnetlist": {
           "max":306,
           "excl":[2,8,10,55]
         }
@@ -174,7 +174,7 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
 
 #### Object: `BidRequest.imp.ext.skadn.skadnetlist`
 
-IABTL skadnetwork object list attributes. 
+IABTL skadnetwork object list attributes.
 
 <table>
   <thead>
@@ -199,9 +199,9 @@ IABTL skadnetwork object list attributes.
         <code>max</code>
       </td>
       <td>
-        IABTL list containing the max entry ID of SKAdNetwork ID. 
+        IABTL list containing the max entry ID of SKAdNetwork ID.
         Format will be:
-        "max entity ID" where 306 in the example on the right will be all SKAdNetwork IDs entry number 306 and below. 
+        "max entity ID" where 306 in the example on the right will be all SKAdNetwork IDs entry number 306 and below.
       </td>
       <td>
         integer
@@ -215,7 +215,7 @@ IABTL skadnetwork object list attributes.
         <code>excl</code>
       </td>
       <td>
-        Comma separated list of integer IABTL registration IDs to be excluded from IABTL shared list. 
+        Comma separated list of integer IABTL registration IDs to be excluded from IABTL shared list.
       </td>
       <td>
         array of integers
@@ -266,7 +266,7 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
     {
       "ext": {
         "skadn": {
-          "versions": ["2.0", "2.1"],
+          "versions": ["2.0", "2.1", "2.2"],
           "sourceapp": "880047117",
           "skadnetlist":{
               "max":306,
@@ -283,9 +283,11 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
 }
 ```
 
-### Bid response
+### Bid Response
 
 If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP could choose to add the following object to their bid response. Please refer to Apple’s documentation for submitting the [correctly formatted values][4]. If the object is present in the response, then SSP would submit the click data and signature to [loadProduct()][7] for attribution.
+
+**Note:** Due to breaking changes introduced by Apple in SKAdNetwork v2.2 to support [View Through Attribution and fidelity-type][14], several structural changes to the bid response were required to support multiple fidelity types.
 
 #### Object: `BidResponse.seatbid.bid.ext.skadn`
 
@@ -365,10 +367,33 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
     </tr>
     <tr>
       <td>
+        <code>fidelities</code>
+      </td>
+      <td>
+        Supports multiple fidelity types introduced in SKAdNetwork v2.2
+      </td>
+      <td>
+        object array
+      </td>
+      <td>
+        "fidelities": [
+          {
+             "fidelity": 0,
+             "signature": "MEQCIEQlmZRNfYzK…",
+             "nonce": "473b1a16…",
+             "timestamp": "1594406341"
+          }
+        ]
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>nonce</code>
       </td>
       <td>
         An id unique to each ad response. Refer to Apple’s documentation for the <a href="https://developer.apple.com/documentation/storekit/skstoreproductparameteradnetworknonce">proper UUID format requirements</a>
+        </br></br>
+        <strong>Note</strong>: With the release of SKAdNetwork v2.2, this field is deprecated in favor of the <code>BidResponse.seatbid.bid.ext.skadn.fidelities.nonce</code> to support multiple fidelity-types.
       </td>
       <td>
         string
@@ -389,6 +414,107 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
       </td>
       <td>
         "sourceapp": "880047117"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>timestamp</code>
+      </td>
+      <td>
+        Unix time in millis string used at the time of signature
+        </br></br>
+        <strong>Note</strong>: With the release of SKAdNetwork 2.2, this field is deprecated in favor of the <code>BidResponse.seatbid.bid.ext.skadn.fidelities.timestamp</code> to support multiple fidelity-types.
+      </td>
+      <td>
+        string
+      </td>
+      <td>
+        "timestamp": "1594406341"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>signature</code>
+      </td>
+      <td>
+        SKAdNetwork signature as specified by Apple
+        </br></br>
+        <strong>Note</strong>: With the release of SKAdNetwork 2.2, this field is deprecated in favor of the <code>BidResponse.seatbid.bid.ext.skadn.fidelities.signature</code> to support multiple fidelity-types.
+      </td>
+      <td>
+        string
+      </td>
+      <td>
+        "signature": "MEQCIEQlmZRNfYzK…"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>ext</code>
+      </td>
+      <td>
+        Placeholder for exchange-specific extensions to OpenRTB.
+      </td>
+      <td>
+        object
+      </td>
+      <td>
+        "ext": {}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Object: `BidResponse.seatbid.bid.ext.skadn.fidelities`
+
+Fields that should have different values for the different fidelity types (e.g. `fidelity`, `nonce`, `signature`) are wrapped into an array of objects.
+
+**Note:** Adding `timestamp` to this list allows bidders to parallelize the cryptography portions of creating their bid response when supporting multiple fidelities. The same timestamp can be used across fidelities if desired but this move provides bidders with greater implementation flexiblity.
+
+<table>
+  <thead>
+    <tr>
+      <td>
+        <strong>Attribute</strong>
+      </td>
+      <td>
+        <strong>Description</strong>
+      </td>
+      <td>
+        <strong>Type</strong>
+      </td>
+      <td>
+        <strong>Example</strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>fidelity</code>
+      </td>
+      <td>
+        The fidelity-type of the attribution to track
+      </td>
+      <td>
+        integer
+      </td>
+      <td>
+        "fidelity": 0
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>nonce</code>
+      </td>
+      <td>
+        An id unique to each ad response. Refer to Apple’s documentation for the <a href="https://developer.apple.com/documentation/storekit/skstoreproductparameteradnetworknonce">proper UUID format requirements</a>
+      </td>
+      <td>
+        string
+      </td>
+      <td>
+        "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7"
       </td>
     </tr>
     <tr>
@@ -437,8 +563,48 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
 </table>
 
 
+**Note:** Apple also introduced `adtype`, `addescription`, and `adpurchasername` for fidelity-type 0 in v2.2. Until more clarity is provided by Apple about their use, these APIs have been intentionally omitted from the SKAdNetwork Extension.
 
-#### Example
+
+#### Example v2.2
+
+```
+{
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "ext": {
+            "skadn": {
+              "version": "2.2",
+              "network": "cdkw7geqsh.skadnetwork",
+              "campaign": "45",
+              "itunesitem": "123456789",
+              "sourceapp": "880047117",
+              "fidelities": [
+                {
+                  "fidelity": 0,
+                  "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg==",
+                  "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
+                  "timestamp": "1594406341",
+                },
+                {
+                  "fidelity": 1,
+                  "signature": "GRlMDktMmE5Zi00ZGMzLWE0ZDEtNTQ0YzQwMmU5MDk1IiwKICAgICAgICAgICAgICAgICAgInRpbWVzdGTk0NDA2MzQyIg==",
+                  "nonce": "e650de09-2a9f-4dc3-a4d1-544c402e9095",
+                  "timestamp": "1594406342"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Example v2.0
 
 ```
 {
@@ -465,7 +631,20 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
 }
 ```
 
+### Loss Reason Code
 
+Bid responses that contain invalid or malformed SKAdNetwork extensions may be rejected. This rejection can be communicated in loss notifications (lurl) using [Loss Reason Code][16] `214`.
+
+<table>
+  <tr>
+    <td><strong>Value</strong></td>
+    <td><strong>Definition</strong></td>
+  </tr>
+  <tr>
+    <td>214</td>
+    <td>Creative Filtered - Invalid SKAdNetwork</td>
+  </tr>
+</table>
 
 ### SKAdNetwork Support Flow
 
@@ -862,10 +1041,20 @@ https://domain.com/skadnetworks.xml
 https://domain.com/skadnetworks.json
 ```
 
+## Changelog
 
-
-
-
+* **[03/01/2021]**
+    * Updated for v2.2
+    * Added `fidelities` object array to support multiple fidelity types in the Bid Response.
+    * `signature`, `nonce` and `timestamp` moved to `fidelities` and deprecated root `skadn` versions of the values.
+    * Added `fidelity` within `fidelities`
+    * Removed Version Compatibility since IABTL approved of that proposal.
+* **[02/01/2021]**
+    * Updated for v2.1
+    * Added `versions` for Bid Requests and deprecated `version`
+    * Add guidance for lowercasing values based on Apple clarifications
+* **[11/02/2020]**
+    * Added `skadnetlist`
 
 
 [1]: https://developer.apple.com/documentation/storekit/skadnetwork
@@ -881,4 +1070,6 @@ https://domain.com/skadnetworks.json
 [11]: #device-extension
 [12]: #skadnetwork-id-lists-for-app-developers
 [13]: #proposals-for-large-skadnetwork-id-list-management
+[14]: https://developer.apple.com/documentation/storekit/skadnetwork/generating_the_signature_to_validate_view-through_ads
 [15]: #IABTL-managed-SKAdnetwork-ID-list
+[16]: https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/OpenRTB%20v3.0%20FINAL.md#list--loss-reason-codes-
