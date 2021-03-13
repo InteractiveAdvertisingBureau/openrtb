@@ -1055,6 +1055,9 @@ https://domain.com/skadnetworks.json
     * Add guidance for lowercasing values based on Apple clarifications
 * **[11/02/2020]**
     * Added `skadnetlist`
+* **[09/16/2020]**
+    * Original release for public comment
+   
 
 
 [1]: https://developer.apple.com/documentation/storekit/skadnetwork
