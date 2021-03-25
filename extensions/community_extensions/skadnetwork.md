@@ -439,6 +439,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
       <td>
         SKAdNetwork signature as specified by Apple
         </br></br>
+        <strong>Note</strong>: Apple requires that both the ad network nonce and ad network identifier be lowercase when signing for either fidelity type (impressions or clicks), as per SKAdNetwork specifications.
         <strong>Note</strong>: With the release of SKAdNetwork 2.2, this field is deprecated in favor of the <code>BidResponse.seatbid.bid.ext.skadn.fidelities.signature</code> to support multiple fidelity-types.
       </td>
       <td>
