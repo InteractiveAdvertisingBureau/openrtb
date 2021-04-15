@@ -1406,6 +1406,7 @@ Only minor fixes, such as clarifications or corrections to descriptions, may be 
 Granular details of the changes can be seen by reviewing the commit history of the document.
 
 **Link fixes, language improvements:** Some broken links have been fixed. Word choice has been improved in places for clarity. (2020/02/14).
+**Loss Reason Codes:** Code 206 from OpenRTB 2.x was missing and added back to 3.0. Codes 206 to 212 incremented one value to stay consistent with their 2.x version. (2021/04/15).
 
 # Appendix D:  Versioning Policy <a name="appendixd_versioning"></a>
 
