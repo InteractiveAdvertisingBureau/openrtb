@@ -110,7 +110,7 @@ The following points define the guiding principles underlying the OpenRTB specif
 
 * OpenRTB is a living specification. New objects and attributes may be added and enumerated lists may be extended at any time and thus implementers must accept these types of changes without breakage within a version number. See [Appendix D: Versioning Policy](#appendixd_versioning)
   * For example, a demand source with an "OpenRTB 3.0" implementation but must tolerate new fields or enumerated list values it is not expecting, such as from a newer release of OpenRTB 3.0.
-  * Likewise, supply sources should freely transmit new fields or enumerated list values (such as from a newer release) and must tolerate bid responses with new fields and enumerated list values it is not expecting. 
+  * Likewise, supply sources should freely transmit new fields or enumerated list values (such as from a newer release) and must tolerate bid responses with new fields and enumerated list values it is not expecting.
 
 * Object and attribute names have been made intentionally compact while still trying to balance readability.  The reason for this is that these names may be transmitted in plain text extremely frequently.
 
@@ -227,7 +227,7 @@ Optionally, an exchange may also offer binary representations (e.g., compressed 
 
 The bid request specifies the representation as a mime type using the Content-Type HTTP header. The mime type for the standard JSON representation is `application/json` as shown.  The format of the bid response must be the same as the bid request.
 
-`Content-Type: application/json`	
+`Content-Type: application/json`
 
 If alternative binary representations are used, the exchange or SSP should specify the Content-Type appropriately. For example:  `avro/binary` or `application/x-protobuf`.  If the content-type is missing, the bidder should assume the type is `application/json`, unless a different default has been selected by an exchange.
 
@@ -1156,30 +1156,34 @@ The following table lists the options for an exchange to inform a bidder as to t
   </tr>
   <tr>
     <td>206</td>
-    <td>Creative Filtered - Not Secure</td>
+    <td>Creative Filtered - App Bundle Exclusions</td>
   </tr>
   <tr>
     <td>207</td>
-    <td>Creative Filtered - Language Exclusions</td>
+    <td>Creative Filtered - Not Secure</td>
   </tr>
   <tr>
     <td>208</td>
-    <td>Creative Filtered - Category Exclusions</td>
+    <td>Creative Filtered - Language Exclusions</td>
   </tr>
   <tr>
     <td>209</td>
-    <td>Creative Filtered - Creative Attribute Exclusions</td>
+    <td>Creative Filtered - Category Exclusions</td>
   </tr>
   <tr>
     <td>210</td>
-    <td>Creative Filtered - Ad Type Exclusions</td>
+    <td>Creative Filtered - Creative Attribute Exclusions</td>
   </tr>
   <tr>
     <td>211</td>
-    <td>Creative Filtered - Animation Too Long</td>
+    <td>Creative Filtered - Ad Type Exclusions</td>
   </tr>
   <tr>
     <td>212</td>
+    <td>Creative Filtered - Animation Too Long</td>
+  </tr>
+  <tr>
+    <td>213</td>
     <td>Creative Filtered - Not Allowed in Deal</td>
   </tr>
   <tr>
@@ -1298,31 +1302,31 @@ For illustration purposes, this example shows both the `mid` parameter to refere
 
 # Appendix A:  Additional Resources <a name="appendixa_additionalresources"></a>
 
-Interactive Advertising Bureau Technology Laboratory (IAB Tech Lab)  
+Interactive Advertising Bureau Technology Laboratory (IAB Tech Lab)
 [www.iabtechlab.com](https://www.iabtechlab.com)
 
-Creative Commons / Attribution License  
+Creative Commons / Attribution License
 [creativecommons.org/licenses/by/3.0](https://creativecommons.org/licenses/by/3.0)
 
-AdCOM Project on Github  
+AdCOM Project on Github
 [https://github.com/InteractiveAdvertisingBureau/AdCOM](https://github.com/InteractiveAdvertisingBureau/AdCOM)
 
-OpenRTB v3.0 Specification  
+OpenRTB v3.0 Specification
 [https://github.com/InteractiveAdvertisingBureau/openrtb](https://github.com/InteractiveAdvertisingBureau/openrtb)
 
-ads.cert Specification  
+ads.cert Specification
 [ads.cert beta specification](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/ads.cert:%20Signed%20Bid%20Requests%201.0%20BETA.md)
 
-ads.text Specification  
+ads.text Specification
 [iabtechlab.com/ads-txt](https://iabtechlab.com/ads-txt)
 
-JavaScript Object Notation (JSON)  
+JavaScript Object Notation (JSON)
 [www.json.org](https://www.json.org/)
 
-Apache Avro  
+Apache Avro
 [Avro.apache.org](http://avro.apache.org)
 
-Protocol Buffers (Protobuf)  
+Protocol Buffers (Protobuf)
 [github.com/google/protobuf](https://github.com/google/protobuf)
 
 # Appendix B:  Change Log <a name="appendixb_changelog"></a>
@@ -1370,27 +1374,27 @@ This appendix serves as a brief summary of changes to the specification. These c
     <td>2.3</td>
     <td>N/A</td>
     <td>Support for Native ad units and multiple minor enhancements.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>2.2</td>
     <td>N/A</td>
     <td>New enhancements for private marketplace direct deals, video, mobile, and regulatory signals.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>2.1</td>
     <td>N/A</td>
     <td>Revisions for IQG compliance, minor enhancements, and corrections.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>2.0</td>
     <td>N/A</td>
     <td>Combines display, mobile, and video standards into a unified specification.</td>
-  </tr> 
+  </tr>
   <tr>
     <td>1.0</td>
     <td>N/A</td>
     <td>Original release of OpenRTB Mobile.</td>
-  </tr> 
+  </tr>
 </table>
 
 # Appendix C:  Errata <a name="appendixc_errata"></a>
@@ -1405,10 +1409,10 @@ Granular details of the changes can be seen by reviewing the commit history of t
 
 # Appendix D:  Versioning Policy <a name="appendixd_versioning"></a>
 
-As of OpenRTB 3.0, OpenRTB's version number is only incremented on breaking changes. In other words, OpenRTB 3.1 should be considered a distinct version from OpenRTB 3.0 when there is a need for distinguishing versions. For example, a demand source might regard the [version header](#versionheaders) when parsing a bid request received from a supply source. See [OpenRTB Principles](#openrtb_principles). 
+As of OpenRTB 3.0, OpenRTB's version number is only incremented on breaking changes. In other words, OpenRTB 3.1 should be considered a distinct version from OpenRTB 3.0 when there is a need for distinguishing versions. For example, a demand source might regard the [version header](#versionheaders) when parsing a bid request received from a supply source. See [OpenRTB Principles](#openrtb_principles).
 
-The current version of the OpenRTB specification is updated approximately once a month if there are non-breaking improvements to be released such as new fields, objects, or values in enumerated lists. Errata, such as clarifications or corrections to descriptions not materially impacting the specification itself, are also addressed during monthly updates. See [Errata](#appendixc_errata). 
+The current version of the OpenRTB specification is updated approximately once a month if there are non-breaking improvements to be released such as new fields, objects, or values in enumerated lists. Errata, such as clarifications or corrections to descriptions not materially impacting the specification itself, are also addressed during monthly updates. See [Errata](#appendixc_errata).
 
-Release branches are created for each monthly release and the history of these can be reviewed on GitHub. The master branch for the repository will always reflect the most recent release, whereas ongoing development work occurs in the 'develop' branch. 
+Release branches are created for each monthly release and the history of these can be reviewed on GitHub. The master branch for the repository will always reflect the most recent release, whereas ongoing development work occurs in the 'develop' branch.
 
-This versioning policy is a break from historical practice for OpenRTB. In versions of OpenRTB prior to 3.0, major version numbers represent breaking changes and minor version numbers represent non-breaking changes. 
+This versioning policy is a break from historical practice for OpenRTB. In versions of OpenRTB prior to 3.0, major version numbers represent breaking changes and minor version numbers represent non-breaking changes.
