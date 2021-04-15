@@ -264,7 +264,7 @@ This appendix outlines the methodology defining a well-structured string contain
 
 If the receiving advertising system is handling a tag-based request and forming an outbound OpenRTB request to another adverting system then the following procedure is specified.  First it should parse the SupplyChain data received as described below, create and fill the SupplyChain object with the data received.  Finally the advertising system should append its own information to the array in the object.
 
-If the receiving advertising system is handling a tag-based request and forming an outbound tag-based request to another advertising system then the following procedure is specified:  It should append a node for itself to the pre-existing string, without altering any preceding information in the received string.
+If the receiving advertising system is handling a tag-based request and forming an outbound tag-based request to another advertising system then the following procedure is specified:  It should form a spec compliant string for itself then append it to the received string. It should not alter the received string.
 
 If the receiving advertising system is handling an OpenRTB request and forming an outbound tag-based request to another advertising system then the following procedure is specified:  It should parse and serialize the data within the received SupplyChain object and serialize as specified below. It should form a spec compliant string for itself then append it to the prior string.
 
