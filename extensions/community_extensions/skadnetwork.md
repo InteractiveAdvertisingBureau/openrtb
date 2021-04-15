@@ -586,7 +586,7 @@ Fields that should have different values for the different fidelity types (e.g. 
                   "fidelity": 0,
                   "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg==",
                   "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
-                  "timestamp": "1594406341",
+                  "timestamp": "1594406341"
                 },
                 {
                   "fidelity": 1,
