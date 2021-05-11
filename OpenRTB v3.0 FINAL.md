@@ -372,7 +372,7 @@ The `Request` object contains a globally unique bid request ID. This `id` attrib
   <tr>
     <td><code>wseat</code></td>
     <td>integer;<br/>default&nbsp;1</td>
-    <td>Flag that determines the restriction interpretation of the <code>seat</code> array, where 0 = block list, 1 = whitelist.</td>
+    <td>Flag that determines the restriction interpretation of the <code>seat</code> array, where 0 = block list, 1 = allow list.</td>
   </tr>
   <tr>
     <td><code>cdata</code></td>
@@ -582,7 +582,7 @@ This object constitutes a specific deal that was struck in advance between a sel
   <tr>
     <td><code>wseat</code></td>
     <td>string&nbsp;array</td>
-    <td>Whitelist of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange beforehand.  Omission implies no restrictions.</td>
+    <td>Allow list of buyer seats allowed to bid on this deal.  IDs of seats and the buyer’s customers to which they refer must be coordinated between bidders and the exchange beforehand.  Omission implies no restrictions.</td>
   </tr>
   <tr>
     <td><code>wadomain</code></td>
