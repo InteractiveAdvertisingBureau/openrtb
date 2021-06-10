@@ -66,8 +66,8 @@ The following example illustrates the usage of the new field in `BidRequest.user
           "segtax": 3
         },
         "segment": [
-          { "id": 1001 }, 
-          { "id": 1002 }
+          { "id": "1001" },
+          { "id": "1002" }
         ]
       }
     }
