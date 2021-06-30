@@ -1,21 +1,21 @@
-<h1>Cross-platform campaign identification : Trust.id</H1>
+<h1>Cross-platform campaign identification : SCID (Shared Campaign Identifier)</H1>
 
 Sponsors: Smart Adserver, Xandr
 
 <h2>Overview</h2>
 
-By using <i>Trust.id</i>, <strong>Advertisers and Publishers will soon get more transparency and tracking for their programmatic buying and selling</strong>.
+By using <i>SCID</i>, <strong>advertisers and Publishers will soon get more transparency and tracking for their programmatic buying and selling</strong>.
 
 Several advertising associations, representing all stakeholders involved in the buying process, including <strong>Edipub</strong>, stand together to make sure to find consensual solutions, to meet compliance and to define best practices, in responses to transparency requirements.
-<strong>Trust.Id: A worldwide approach for a shared need</strong>.
+<strong>SCID: A worldwide approach for a shared need</strong>.
 
 <h3>Problem statement</h3>
 What is wrong, what transparency is lacking, why can’t publishers or advertisers track campaigns effectively now?
 
 <h2>Definition</h2>
-<strong>Trust.id</strong> is a key enabling identification and tracking throughout a campaign lifecycle. The goal is to keep following a campaign, provide more transparency, and bring the links in the programmatic chain closer during the reporting operations.
+<strong>SCID</strong> is a key enabling identification and tracking throughout a campaign lifecycle. The goal is to keep following a campaign, provide more transparency, and bring the links in the programmatic chain closer during the reporting operations.
 <br><br>
-The trading desk is used to working with many DSPs. This unique and dedicated <strong>Trust.id</strong> field helps to efficiently track the campaign, regardless of the DSPs and SSPs used.
+The trading desk is used to working with many DSPs. This unique and dedicated <strong>SCID</strong> field helps to efficiently track the campaign, regardless of the DSPs and SSPs used.
 
 <h2>Who is involved?</h2>
 
@@ -28,7 +28,7 @@ The trading desk is used to working with many DSPs. This unique and dedicated <s
 <h2>The genuine specification</h2>
 
 ```
-Trust.id = Advertiser ID + Advertiser brand + Advertiser product code + Customer Product Estimate + Ext (optional) 
+SCID = Advertiser ID + Advertiser brand + Advertiser product code + Customer Product Estimate + Ext (optional) 
 ```
 
 See below the description of each piece from the genuine specification :
@@ -46,26 +46,26 @@ The trading desk Publicis has a campaign with Nestlé for the Olympics Games in 
 - <strong>Advertiser Product</strong> = OG2020
 - <strong>Customer Product Estimate</strong> = Publicis
 
-At the end, the Trust.Id is <strong>0050000000951+Nestlé+OG2020+Publicis</strong>
+At the end, the SCID is <strong>0050000000951+Nestlé+OG2020+Publicis</strong>
 
-<h2>How Trust.id works</h2>
+<h2>How SCID works</h2>
 
 
-1. The advertiser sends a media brief with its own information (brand, product, targeting etc...) to the trading desk. <strong>This brief must contain enough data to generate Trust.id</strong>. 
+1. The advertiser sends a media brief with its own information (brand, product, targeting etc...) to the trading desk. <strong>This brief must contain enough data to generate SCID</strong>. 
 
-2. With the advertiser’s brief, the trading desk sets and gives the input to the campaign within the DSPs. During the setup, <strong>the trading desk ensures to set correctly Trust.id</strong>.
+2. With the advertiser’s brief, the trading desk sets and gives the input to the campaign within the DSPs. During the setup, <strong>the trading desk ensures to set correctly SCID</strong>.
 
 3. DSPs deliver the campaign.
 
-4. <strong>Trust.id</strong> is carried within the Bid response. Campaign is tracked by SSPs and the publishers, thanks to Trust.id <strong>received in the bid response</strong>.
+4. <strong>SCID</strong> is carried within the Bid response. Campaign is tracked by SSPs and the publishers, thanks to SCID <strong>received in the bid response</strong>.
 
-5. During and/or at the end of the campaign display, **all the intermediaries in the programmatic chain** can compare the data with Trust.id.<br>
+5. During and/or at the end of the campaign display, **all the intermediaries in the programmatic chain** can compare the data with SCID.<br>
 
 Below is the brief media from an advertiser to a trading desk :
 
 <table>
 <tr>
-<th>Trust ID</th>
+<th>SCID</th>
 <th>Creative ID</th>
 </tr>
 <tr>
@@ -82,14 +82,14 @@ Below is the brief media from an advertiser to a trading desk :
 </tr>
 </table>
 
-The trading desk puts the unique Trust.id (<strong>3015619200106+Booking+MTEL+CPExxx</strong>) within the DSP to identify and track the campaign with the 3 creatives (<strong>Creative Id 1, Creative Id 2, Creative Id 3</strong>).
+The trading desk puts the unique SCID (<strong>3015619200106+Booking+MTEL+CPExxx</strong>) within the DSP to identify and track the campaign with the 3 creatives (<strong>Creative Id 1, Creative Id 2, Creative Id 3</strong>).
 
-<h2>Trust.id support flow</h2>
+<h2>SCID support flow</h2>
 
 
-Following the OpenRTB protocol, <code>BidResponse.seatbid.bid.cid</code> was first evaluated as a potential way to communicate the trust.id in the bid response. However, this one is used in many ways by the DSPs:
+Following the OpenRTB protocol, <code>BidResponse.seatbid.bid.cid</code> was first evaluated as a potential way to communicate the SCID in the bid response. However, this one is used in many ways by the DSPs:
 
-- DSP generates automatically <code>cid</code> for each new campaign (a technical ID, vs trust.Id who is a business ID).
+- DSP generates automatically <code>cid</code> for each new campaign (a technical ID vs <strong>SCID</strong> who is a business ID).
 
 - DSP sends other data via this field (ex: buyer info)
 
@@ -97,7 +97,7 @@ Following the OpenRTB protocol, <code>BidResponse.seatbid.bid.cid</code> was fir
 
 - DSP does not use/support this field at all.
 
-As we can see above, <code>cid</code> is used for many different reasons or is not used at all. **That’s why we need to create a new field in order to track** <strong>Trust.id</strong>. This new field will help to get an official process and will avoid custom and costly developments on the SSP and DSP.
+As we can see above, <code>cid</code> is used for many different reasons or is not used at all. **That’s why we need to create a new field in order to track** <strong>SCID</strong>. This new field will help to get an official process and will avoid custom and costly developments on the SSP and DSP.
 
 <h2>Request change</h2>
 
@@ -113,10 +113,10 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
 <th>Example</th>
 </tr>
 <tr>
-<td><code>trustid</code></td>
-<td>Unique key enabling to identify and track a campaign during its lifecycle regardless of the SSP and DSP used. <br><br><strong>Note</strong> : <code>trustid</code> contains the AdvertiserID (Global location number) + Advertiser brand + Advertiser product code + Customer Product Estimate + Ext (optional)</td>
+<td><code>SCID</code></td>
+<td>Unique key enabling to identify and track a campaign during its lifecycle regardless of the SSP and DSP used. <br><br><strong>Note</strong> : <code>SCID</code> contains the AdvertiserID (Global location number) + Advertiser brand + Advertiser product code + Customer Product Estimate + Ext (optional)</td>
 <td>string</td>
-<td>"trustid": "3015619200106+Booking+MTEL+CPExxx"</td>
+<td>"SCID": "3015619200106+Booking+MTEL+CPExxx"</td>
 </tr>
 </table>
 
@@ -141,7 +141,7 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
                     "cid": "campaign111",
                     "crid": "creative112",
                     "ext": {
-                        "trustid": "3015619200106+Booking+MTEL+CPExxx"
+                        "SCID": "3015619200106+Booking+MTEL+CPExxx"
                     }
                 ]
             }
@@ -149,4 +149,3 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
     }
 }
 ```
-
