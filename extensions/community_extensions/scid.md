@@ -113,10 +113,10 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
 <th>Example</th>
 </tr>
 <tr>
-<td><code>SCID</code></td>
-<td>Unique key enabling to identify and track a campaign during its lifecycle regardless of the SSP and DSP used. <br><br><strong>Note</strong> : <code>SCID</code> contains the AdvertiserID (Global location number) + Advertiser brand + Advertiser product code + Customer Product Estimate + Ext (optional)</td>
+<td><code>scid</code></td>
+<td>Unique key enabling to identify and track a campaign during its lifecycle regardless of the SSP and DSP used. <br><br><strong>Note</strong> : <code>scid</code> contains the AdvertiserID (Global location number) + Advertiser brand + Advertiser product code + Customer Product Estimate + Ext (optional)</td>
 <td>string</td>
-<td>"SCID": "3015619200106+Booking+MTEL+CPExxx"</td>
+<td>"scid": "3015619200106+Booking+MTEL+CPExxx"</td>
 </tr>
 </table>
 
@@ -141,7 +141,7 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
                     "cid": "campaign111",
                     "crid": "creative112",
                     "ext": {
-                        "SCID": "3015619200106+Booking+MTEL+CPExxx"
+                        "scid": "3015619200106+Booking+MTEL+CPExxx"
                     }
                 ]
             }
