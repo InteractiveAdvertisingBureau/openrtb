@@ -4,13 +4,13 @@ Sponsors: Smart Adserver, Xandr
 
 <h2>Overview</h2>
 
-By using <i>SCID</i>, <strong>advertisers and Publishers will soon get more transparency and tracking for their programmatic buying and selling</strong>.
+By using <i>SCID</i>, <strong>Advertisers and Publishers will get more transparency and tracking for their programmatic buying and selling</strong>.
 
 Several advertising associations, representing all stakeholders involved in the buying process, including <strong>Edipub</strong>, stand together to make sure to find consensual solutions, to meet compliance and to define best practices, in responses to transparency requirements.
 <strong>SCID: A worldwide approach for a shared need</strong>.
 
 <h3>Problem statement</h3>
-What is wrong, what transparency is lacking, why can’t publishers or advertisers track campaigns effectively now?
+Lack of transparency in campaigns,where publishers or advertisers cannot track campaigns effectively.
 
 <h2>Definition</h2>
 <strong>SCID</strong> is a key enabling identification and tracking throughout a campaign lifecycle. The goal is to keep following a campaign, provide more transparency, and bring the links in the programmatic chain closer during the reporting operations.
