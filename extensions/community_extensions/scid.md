@@ -101,7 +101,7 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
 
 <h2>Request change</h2>
 
-<H3>Bid response : </H3>
+<H3>Bid response :</H3>
 
 #### Object: `BidResponse.seatbid.bid.ext`
 
