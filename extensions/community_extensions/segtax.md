@@ -105,7 +105,7 @@ The aim of this process is to provide flexibility and quick turnaround on approv
         <strong>501</strong>
       </td>
       <td>
-        <strong>Iris video taxonomy. More info - <a href="https://blog.iris.tv/video-programming-playbook-metadata-taxonomy">https://blog.iris.tv/video-programming-playbook-metadata-taxonomy</a> </strong>
+        Iris video taxonomy. More info - <a href="https://blog.iris.tv/video-programming-playbook-metadata-taxonomy">https://blog.iris.tv/video-programming-playbook-metadata-taxonomy</a>
       </td>
     </tr>
   </thead>
