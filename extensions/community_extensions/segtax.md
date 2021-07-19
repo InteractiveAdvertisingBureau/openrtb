@@ -81,13 +81,14 @@ The following example illustrates the usage of the new field in `BidRequest.user
 
 The aim of this process is to provide flexibility and quick turnaround on approvals without red tape (i.e., no dependency on IAB Tech Lab schedules or public comment periods):
 
-* This document is the official definition of the enumeration.
+* This document is the official definition of the enumeration for vendor specific taxonomies.
+* The values for vendor specific taxonomies should be 500+ - as defined in [this AdCOM list](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/master/AdCOM%20v1.0%20FINAL.md#list_categorytaxonomies) and should not already exist in the table below.
 * Pull requests (PRs) can be submitted by anyone on an ongoing basis.
 * The approvers are amit@iabtechlab.com and/or ben@iabtechlab.com.
 * The PR submitter must notify the approvers of the PR submission.
 * The approvers will review for ID conflicts, and otherwise will approve the PR on the spot (i.e., no need for a formal Working Group review).
 
-#### Enumeration
+#### Enumeration of Vendor Specific Taxonomies
 
 <table>
   <thead>
@@ -97,6 +98,14 @@ The aim of this process is to provide flexibility and quick turnaround on approv
       </td>
       <td>
         <strong>Description</strong>
+      </td>
+    </tr>
+<tr>
+      <td>
+        <strong>501</strong>
+      </td>
+      <td>
+        <strong>Iris video taxonomy. More info - <a href="https://blog.iris.tv/video-programming-playbook-metadata-taxonomy">https://blog.iris.tv/video-programming-playbook-metadata-taxonomy</a> </strong>
       </td>
     </tr>
   </thead>
