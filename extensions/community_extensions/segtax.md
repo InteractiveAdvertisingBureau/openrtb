@@ -1,6 +1,6 @@
 # Segment Taxonomies
 
-Sponsors: CafeMedia, Magnite (formerly Rubicon Project), PubMatic
+Sponsors: CafeMedia, Magnite (formerly Rubicon Project), PubMatic, Audigent
 
 ## Overview
 
