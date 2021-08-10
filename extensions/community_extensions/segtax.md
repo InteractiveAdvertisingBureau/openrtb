@@ -253,7 +253,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
         <strong>103012</strong>
       </td>
       <td>
-        Audigent Test Taxonomy 1
+        Audigent Campaign Taxonomy 1
       </td>
     </tr>
   <tr>
@@ -261,7 +261,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
         <strong>103013</strong>
       </td>
       <td>
-        Audigent Test Taxonomy 2
+        Audigent Campaign Taxonomy 2
       </td>
     </tr>
   <tr>
@@ -269,7 +269,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
         <strong>103014</strong>
       </td>
       <td>
-        Audigent Test Taxonomy 3
+        Audigent Campaign Taxonomy 3
       </td>
     </tr>
   </tbody>
