@@ -99,7 +99,7 @@ Following the OpenRTB protocol, <code>BidResponse.seatbid.bid.cid</code> was fir
 
 As we can see above, <code>cid</code> is used for many different reasons or is not used at all. **That’s why we need to create a new field in order to track** <strong>SCID</strong>. This new field will help to get an official process and will avoid custom and costly developments on the SSP and DSP.
 
-<h2>Response change</h2>
+<h2>Extension details</h2>
 
 <H3>Bid response : </H3>
 
@@ -122,7 +122,7 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
 
 
 
-<H3>Example response</H3>
+<H3>Example bid response</H3>
 
 ```javascript
 {
