@@ -1,6 +1,6 @@
 # Segment Taxonomies
 
-Sponsors: CafeMedia, Magnite (formerly Rubicon Project), PubMatic
+Sponsors: CafeMedia, Magnite (formerly Rubicon Project), PubMatic, Audigent
 
 ## Overview
 
@@ -150,6 +150,126 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       </td>
       <td>
         Iris video taxonomy. More info - <a href="https://blog.iris.tv/video-programming-playbook-metadata-taxonomy">https://blog.iris.tv/video-programming-playbook-metadata-taxonomy</a>
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103000</strong>
+      </td>
+      <td>
+        Audigent Warner Music Group Artists Taxonomy 1.0
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103001</strong>
+      </td>
+      <td>
+        Audigent Bands in Town Artists Taxonomy 1.0
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103002</strong>
+      </td>
+      <td>
+        Audigent Fandom Interests & Audiences Taxonomy 1.0
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103003</strong>
+      </td>
+      <td>
+        Audigent Big Machine Label Group Artists Taxonomy 1.0
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103004</strong>
+      </td>
+      <td>
+        Audigent Music Festival Partner Taxonomy 1.0
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103005</strong>
+      </td>
+      <td>
+        Audigent Fashion & Apparel Taxonomy 1.0
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103006</strong>
+      </td>
+      <td>
+        Audigent Private Audience Taxonomy 1
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103007</strong>
+      </td>
+      <td>
+        Audigent Private Audience Taxonomy 2
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103008</strong>
+      </td>
+      <td>
+        Audigent Private Audience Taxonomy 3
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103009</strong>
+      </td>
+      <td>
+        Audigent Private Contextual Taxonomy 1
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103010</strong>
+      </td>
+      <td>
+        Audigent Private Contextual Taxonomy 2
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103011</strong>
+      </td>
+      <td>
+        Audigent Private Contextual Taxonomy 3
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103012</strong>
+      </td>
+      <td>
+        Audigent Campaign Taxonomy 1
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103013</strong>
+      </td>
+      <td>
+        Audigent Campaign Taxonomy 2
+      </td>
+    </tr>
+  <tr>
+      <td>
+        <strong>103014</strong>
+      </td>
+      <td>
+        Audigent Campaign Taxonomy 3
       </td>
     </tr>
   </tbody>
