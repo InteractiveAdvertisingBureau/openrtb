@@ -1187,10 +1187,6 @@ The following table lists the options for an exchange to inform a bidder as to t
     <td>Creative Filtered - Not Allowed in Deal</td>
   </tr>
   <tr>
-    <td>214</td>
-    <td>Creative Filtered - Invalid SKAdNetwork</td>
-  </tr>
-  <tr>
     <td>500+</td>
     <td>Exchange specific values; should be communicated with buyers beforehand.</td>
   </tr>
