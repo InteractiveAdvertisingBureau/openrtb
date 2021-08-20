@@ -2,7 +2,7 @@
 
 # OpenRTB Specification v3.0
 
-**June 2020**
+**August 2021**
 
 **About the IAB Technology Lab**
 
@@ -1345,9 +1345,14 @@ This appendix serves as a brief summary of changes to the specification. These c
   </tr>
   <tr>
     <td>3.0</td>
+    <td>August 2021</td>
+    <td><b>New loss reason:</b> Added loss reason code 214 for Invalid SKAdNetwork.<br />
+  </tr>
+  <tr>
+    <td>3.0</td>
     <td>June 2020</td>
     <td><b>No bid reasons:</b> Reasons associated with SupplyChain have been added. <br />
-    <b><b>DOOH improvements:</b> A field has been added to represent quantity of impressions as a float, since DOOH impressions may not be a whole number. A corresponding macro has been added too.</td>
+    <b>DOOH improvements:</b> A field has been added to represent quantity of impressions as a float, since DOOH impressions may not be a whole number. A corresponding macro has been added too.</td>
   </tr>
   <tr>
     <td>3.0</td>
