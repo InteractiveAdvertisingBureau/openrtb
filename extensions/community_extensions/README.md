@@ -35,10 +35,10 @@ See [urls-brand-safety.md](urls-brand-safety.md) for deatils.
 
 See [skadnetwork.md](skadnetwork.md) for deatils.
 
-### Trust.id
+### SCID.id
 
 #### Issue: [#50](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/50)
 
 #### Notes
 
-See [trustid.md](trustid.md) for deatils.
+See [SCID.md](SCID.md) for deatils.
