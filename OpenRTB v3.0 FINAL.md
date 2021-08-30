@@ -1191,6 +1191,10 @@ The following table lists the options for an exchange to inform a bidder as to t
     <td>Creative Filtered - Invalid SKAdNetwork</td>
   </tr>
   <tr>
+    <td>215</td>
+    <td>Creative Filtered - App Bundle Exclusions</td>
+  </tr>
+  <tr>
     <td>500+</td>
     <td>Exchange specific values; should be communicated with buyers beforehand.</td>
   </tr>
@@ -1342,6 +1346,12 @@ This appendix serves as a brief summary of changes to the specification. These c
     <td><strong>Version</strong></td>
     <td><strong>Release</strong></td>
     <td><strong>Changes</strong></td>
+  </tr>
+  <tr>
+    <td>3.0</td>
+    <td>September 2021</td>
+    <td><b>Clarified loss reason:</b> Loss Reason Code 206 was renamed from Bundle to Store ID to keep the intent of this loss reason consistent across OpenRTB 2.x and 3.x. See [IAB Tech Lab OTT/CTV Store Assigned App Identification Guidelines](https://iabtechlab.com/wp-content/uploads/2020/08/IAB-Tech-Lab-OTT-store-assigned-App-Identification-Guidelines-2020.pdf) for more details.<br />
+    <td><b>New loss reason:</b> Added loss reason code 215 for App Bundle Exclusions as part of the Loss Reason 206 clarification.<br />
   </tr>
   <tr>
     <td>3.0</td>
