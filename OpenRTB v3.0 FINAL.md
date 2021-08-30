@@ -1156,7 +1156,7 @@ The following table lists the options for an exchange to inform a bidder as to t
   </tr>
   <tr>
     <td>206</td>
-    <td>Creative Filtered - App Bundle Exclusions</td>
+    <td>Creative Filtered - App Store ID Exclusions</td>
   </tr>
   <tr>
     <td>207</td>
