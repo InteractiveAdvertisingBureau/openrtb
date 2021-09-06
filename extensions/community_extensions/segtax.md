@@ -1,6 +1,6 @@
 # Segment Taxonomies
 
-Sponsors: CafeMedia, Magnite (formerly Rubicon Project), PubMatic, Audigent
+Sponsors: CafeMedia, Magnite (formerly Rubicon Project), PubMatic, Audigent, Permutive
 
 ## Overview
 
@@ -90,7 +90,7 @@ The aim of this process is to provide flexibility and quick turnaround on approv
 
 #### Enumeration of Taxonomies
 
-##### Standard Taxonomies 
+##### Standard Taxonomies
 Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/master/AdCOM%20v1.0%20FINAL.md#list_categorytaxonomies](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/master/AdCOM%20v1.0%20FINAL.md#list_categorytaxonomies).
 
 
@@ -131,7 +131,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
 </table>
 
 
-##### Approved Vendor specific Taxonomies 
+##### Approved Vendor specific Taxonomies
 <table>
   <thead>
     <tr>
@@ -149,6 +149,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>
         Iris video taxonomy. More info - <a href="https://blog.iris.tv/video-programming-playbook-metadata-taxonomy">https://blog.iris.tv/video-programming-playbook-metadata-taxonomy</a>
       </td>
+    </tr>
+    <tr>
+      <td>1000-2000</td>
+      <td>Permutive Private Audience Taxonomies</td>
     </tr>
   <tr>
       <td>103000</td>
