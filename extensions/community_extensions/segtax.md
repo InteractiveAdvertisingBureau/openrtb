@@ -131,7 +131,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
 </table>
 
 
-##### Approved Vendor specific Taxonomies
+##### Approved Vendor specific Taxonomies 
 <table>
   <thead>
     <tr>
