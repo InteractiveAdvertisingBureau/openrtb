@@ -152,7 +152,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     </tr>
     <tr>
       <td>1000</td>
-      <td>Permutive Private Audience Taxonomies</td>
+      <td>Permutive Public Audience Taxonomies</td>
     </tr>
     <tr>
       <td>1001-2000</td>
