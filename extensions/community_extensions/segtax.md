@@ -150,6 +150,9 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
         Iris video taxonomy. More info - <a href="https://blog.iris.tv/video-programming-playbook-metadata-taxonomy">https://blog.iris.tv/video-programming-playbook-metadata-taxonomy</a>
       </td>
     </tr>
+      <tr>
+      	<td>502</td><td>JW Player video content taxonomy</td>
+      </tr>
   <tr>
       <td>103000</td>
       <td>
