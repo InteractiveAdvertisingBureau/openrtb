@@ -2,6 +2,14 @@
 
 Sponsors: Smart Adserver, Xandr
 
+<h2>Version History</h2>
+
+| Date | Version | Comments |
+| :-- | :-- | :-- |
+| Sept 2021 | 1.0 | Added use of alternatives to GLN as Advertiser ID  |
+| June 2021 | 1.0 | Trust.id name changes to SCID (Shared Campaign Identifier)  |
+
+
 <h2>Overview</h2>
 
 By using <i>SCID</i>, <strong>Advertisers and Publishers will get more transparency and tracking for their programmatic buying and selling</strong>.
@@ -33,20 +41,21 @@ SCID = Advertiser ID + Advertiser brand + Advertiser product code + Customer Pro
 
 See below the description of each piece from the genuine specification :
 
-- <strong>Advertiser ID</strong> : It will be the [GLN](https://en.wikipedia.org/wiki/Global_Location_Number) (global location number) which is an existing international ID used to identify a company (advertiser).
-The registry of GLNs is managed by [GEPIR](https://gepir.gs1.org/) (Global Electronic Party Information Registry) which allows identification of a company thanks to its GLN.<br><br>Example of request :<br>![Search](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/assets/trustid_gln_search.png)<br><br>Result :<br>![Result](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/assets/trustid_gln_result.png)
+- <strong>Advertiser ID</strong> : It contains the acronym or name of the registry and the registration number which is an existing international ID used to identify a company (advertiser). For example, GLN-123 or SIRET-456. 
+<br>As an identifier, an advertiser can have a [GLN](https://en.wikipedia.org/wiki/Global_Location_Number) and/or a [DUNS](https://en.wikipedia.org/wiki/Data_Universal_Numbering_System) and/or a [SIRET](https://en.wikipedia.org/wiki/SIRET_code)/[SIREN](https://en.wikipedia.org/wiki/SIREN_code) or can use any other registry as long as this registration number is reputed unique.
+<br><br>Below is an example of a request using GLN. The registry of GLNs is managed by [GEPIR](https://gepir.gs1.org/) (Global Electronic Party Information Registry) which allows identification of a company thanks to its GLN :<br>![Search](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/assets/trustid_gln_search.png)<br><br>Result :<br>![Result](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/assets/trustid_gln_result.png)
 
 - <strong>Advertiser brand, Advertiser product code and Customer Product Estimate</strong> are defined at the advertiser's discretion.
 
 <h3>Example with a media brief from Nestlé</h3>
 
 The trading desk Publicis has a campaign with Nestlé for the Olympics Games in 2020 :
-- <strong>Advertiser ID</strong> = 0050000000951
+- <strong>Advertiser ID</strong> = GLN-0050000000951
 - <strong>Advertiser Brand</strong> = Nestlé <br><strong>Note</strong> : We do not use the adomain field in OpenRTB because a lot of different adomains are created and linked to the same brand. Allowing the buyer to put the advertiser brand from the media brief will help to give more transparency about the campaign.
 - <strong>Advertiser Product</strong> = OG2020
 - <strong>Customer Product Estimate</strong> = Publicis
 
-At the end, the SCID is <strong>0050000000951+Nestlé+OG2020+Publicis</strong>
+At the end, the SCID is <strong>GLN-0050000000951+Nestlé+OG2020+Publicis</strong>
 
 <h2>How SCID works</h2>
 
@@ -69,20 +78,20 @@ Below is the brief media from an advertiser to a trading desk :
 <th>Creative ID</th>
 </tr>
 <tr>
-<td>3015619200106+Booking+MTEL+CPExxx</td>
+<td>GLN-3015619200106+Booking+MTEL+CPExxx</td>
 <td>Creative Id 1</td>
 </tr>
 <tr>
-<td>3015619200106+Booking+MTEL+CPExxx</td>
+<td>GLN-3015619200106+Booking+MTEL+CPExxx</td>
 <td>Creative Id 2</td>
 </tr>
 <tr>
-<td>3015619200106+Booking+MTEL+CPExxx</td>
+<td>GLN-3015619200106+Booking+MTEL+CPExxx</td>
 <td>Creative Id 3</td>
 </tr>
 </table>
 
-The trading desk puts the unique SCID (<strong>3015619200106+Booking+MTEL+CPExxx</strong>) within the DSP to identify and track the campaign with the 3 creatives (<strong>Creative Id 1, Creative Id 2, Creative Id 3</strong>).
+The trading desk puts the unique SCID (<strong>GLN-3015619200106+Booking+MTEL+CPExxx</strong>) within the DSP to identify and track the campaign with the 3 creatives (<strong>Creative Id 1, Creative Id 2, Creative Id 3</strong>).
 
 <h2>SCID support flow</h2>
 
@@ -116,7 +125,7 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
 <td><code>SCID</code></td>
 <td>Unique key enabling to identify and track a campaign during its lifecycle regardless of the SSP and DSP used. <br><br><strong>Note</strong> : <code>scid</code> contains the AdvertiserID (Global location number) + Advertiser brand + Advertiser product code + Customer Product Estimate + Ext (optional)</td>
 <td>string</td>
-<td>"scid": "3015619200106+Booking+MTEL+CPExxx"</td>
+<td>"scid": "GLN-3015619200106+Booking+MTEL+CPExxx"</td>
 </tr>
 </table>
 
@@ -141,7 +150,7 @@ As we can see above, <code>cid</code> is used for many different reasons or is n
                     "cid": "campaign111",
                     "crid": "creative112",
                     "ext": {
-                        "scid": "3015619200106+Booking+MTEL+CPExxx"
+                        "scid": "GLN-3015619200106+Booking+MTEL+CPExxx"
                     }
                 ]
             }
