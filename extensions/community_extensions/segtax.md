@@ -154,6 +154,18 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       	<td>502</td><td>JW Player video content taxonomy</td>
       </tr>
   <tr>
+    <td>5000</td>
+    <td>Optable Data Collaboration Platform - Public Audiences</td>
+  </tr>
+  <tr>
+    <td>5001</td>
+    <td>Optable Data Collaboration Platform - Private Member Defined Audiences</td>
+  </tr>
+  <tr>
+    <td>5002</td>
+    <td>Optable Data Collaboration Platform - Test Audiences</td>
+  </tr>
+  <tr>
       <td>103000</td>
       <td>
         Audigent Warner Music Group Artists Taxonomy 1.0
