@@ -48,7 +48,7 @@ In practice, one or more layers of caching may be involved in steps 3-6 due to t
 
 This community extension addresses #2 -- how the content ID information is to be conveyed in bid requests, so that DSPs can request classifications from contextual vendors.
 
-It addresses passing a unique ID for a single piece of video/audio content. **It does not address passing categorizations of the content (“Comedy”, “Personal Finance”, etc.) according to some taxonomy. **For that, see [Segment Taxonomies community extension](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) and the IAB [Seller-defined Audience and Context Signalling](https://iabtechlab.com/wp-content/uploads/2021/03/IABTechLab_Taxonomy_and_Data_Transparency_Standards_to_Support_Seller-defined_Audience_and_Context_Signaling_2021-03.pdf) standard.
+It addresses passing a unique ID for a single piece of video/audio content. **It does not address passing categorizations of the content (“Comedy”, “Personal Finance”, etc.) according to some taxonomy.** For that, see [Segment Taxonomies community extension](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) and the IAB [Seller-defined Audience and Context Signalling](https://iabtechlab.com/wp-content/uploads/2021/03/IABTechLab_Taxonomy_and_Data_Transparency_Standards_to_Support_Seller-defined_Audience_and_Context_Signaling_2021-03.pdf) standard.
 
 This is an extension for OpenRTB 2.x that describes where SSPs/exchanges should place these vendor-specific content IDs that they receive from publishers. DSPs who wish to consume these IDs should look for these in this extension. Additionally, SSPs/exchanges could act as a vendor for content IDs if desired -- for example, if they also act as the content management platform for publishers.
 
@@ -78,7 +78,7 @@ In the “ext” object of the “data” object array of the “content’ obje
 </table>
 
 
-Specifically **not **used is the existing “id” field in the “content” object, as this is known to conflict with internal uses of this field by publishers and exchanges, and does not provide for a way to communicate the source of the ID.
+Specifically **not** used is the existing “id” field in the “content” object, as this is known to conflict with internal uses of this field by publishers and exchanges, and does not provide for a way to communicate the source of the ID.
 
 In practice, it is expected that a typical request will have only one content ID from one source, however there are theoretically cases for multiple IDs, or multiple ID sources, thus the array.
 
