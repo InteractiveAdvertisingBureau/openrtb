@@ -27,7 +27,7 @@ There are several companies/services which act as a clearinghouse or aggregator 
 The following diagram illustrates how this works.  The numbers indicate the essential flow/sequence from the perspective of the DSP. Data flow between publishers and the metadata aggregator is out of band from the RTB process.
 
 
-!(assets/extended-ids-diagram.png)
+![diagram](assets/extended-ids-diagram.png)
 
 
 In the RTB process, the sequence is as follows:
