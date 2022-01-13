@@ -118,7 +118,7 @@ It is not assumed that this string has any meaning whatsoever to exchanges and D
 
 ### Example - Content ID and Seller-Defined Context
 
-**NOTE: **Seller-Defined Context is out of scope of this extension, but this example is provided to show how this extension is aligned with, and can be used in tandem with seller-defined context.  See [Segment Taxonomies community extension](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) and the IAB [Seller-defined Audience and Context Signalling](https://iabtechlab.com/wp-content/uploads/2021/03/IABTechLab_Taxonomy_and_Data_Transparency_Standards_to_Support_Seller-defined_Audience_and_Context_Signaling_2021-03.pdf) standard.
+**NOTE:** Seller-Defined Context is out of scope of this extension, but this example is provided to show how this extension is aligned with, and can be used in tandem with seller-defined context.  See [Segment Taxonomies community extension](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/segtax.md) and the IAB [Seller-defined Audience and Context Signalling](https://iabtechlab.com/wp-content/uploads/2021/03/IABTechLab_Taxonomy_and_Data_Transparency_Standards_to_Support_Seller-defined_Audience_and_Context_Signaling_2021-03.pdf) standard.
 
 
 ```
