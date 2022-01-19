@@ -42,3 +42,11 @@ See [skadnetwork.md](skadnetwork.md) for deatils.
 #### Notes
 
 See [SCID.md](SCID.md) for deatils.
+
+### Extended Content IDs
+
+#### Issue: [#82](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/82)
+
+#### Notes
+
+See [extended-content-ids.md](extended-content-ids.md) for deatils.
