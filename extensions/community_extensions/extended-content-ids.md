@@ -22,9 +22,9 @@
 
 There is a market desire to target by video/audio content metadata or contextual classifications thereof. This requires some sort of scheme for identifying individual pieces of content, transmitting that in a bid request, and enabling lookup or classification of that piece of content’s metadata.
 
-There are several companies/services which act as a clearinghouse or aggregator of metadata from publishers. Examples include IRIS.TV and JWPlayer. These services ingest video content metadata from publishers ("*Content Data Platform*") and assign an ID for each piece of content that is unique within that aggregator. There are contextual data vendors, such as Oracle and comScore, who have access to this aggregated metadata and, if provided a content ID, can return classifications of the content based on what is available in that metadata. 
+There are several companies/services which act as a clearinghouse or aggregator of metadata from publishers ("*Content Data Platform*"). Examples include IRIS.TV and JWPlayer. These services ingest video content metadata from publishers and assign an ID for each piece of content that is unique within that content data platform. There are contextual data vendors, such as Oracle and comScore, who have access to this aggregated metadata and, if provided a content ID, can return classifications of the content based on what is available in that metadata. 
 
-The following diagram illustrates how this works.  The numbers indicate the essential flow/sequence from the perspective of the DSP. Data flow between publishers and the metadata aggregator is out of band from the RTB process.
+The following diagram illustrates how this works.  The numbers indicate the essential flow/sequence from the perspective of the DSP. Data flow between publishers and the content data platform is out of band from the RTB process.
 
 
 ![diagram](assets/extended-ids-diagram.png)
@@ -34,7 +34,7 @@ In the RTB process, the sequence is as follows:
 
 
 
-1. The publisher includes a content ID (and the source of that ID) in its request to the exchange for ad fill. This will be a content ID previously assigned by the metadata aggregator.
+1. The publisher includes a content ID (and the source of that ID) in its request to the exchange for ad fill. This will be a content ID previously assigned by the content data platform.
 2. The exchange includes this in the bid request to the DSP.
 3. The DSP queries its contextual vendor with this.
 4. The contextual vendor requests the metadata from the content data platform.
