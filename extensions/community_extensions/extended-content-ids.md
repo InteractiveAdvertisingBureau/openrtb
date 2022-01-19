@@ -22,7 +22,7 @@
 
 There is a market desire to target by video/audio content metadata or contextual classifications thereof. This requires some sort of scheme for identifying individual pieces of content, transmitting that in a bid request, and enabling lookup or classification of that piece of content’s metadata.
 
-There are several companies/services which act as a clearinghouse or aggregator of metadata from publishers. Examples include IRIS.TV and JWPlayer. These services ingest video content metadata from publishers and assign an ID for each piece of content that is unique within that aggregator. There are contextual data vendors, such as Oracle and comScore, who have access to this aggregated metadata and, if provided a content ID, can return classifications of the content based on what is available in that metadata. 
+There are several companies/services which act as a clearinghouse or aggregator of metadata from publishers. Examples include IRIS.TV and JWPlayer. These services ingest video content metadata from publishers ("*Content Data Platform*") and assign an ID for each piece of content that is unique within that aggregator. There are contextual data vendors, such as Oracle and comScore, who have access to this aggregated metadata and, if provided a content ID, can return classifications of the content based on what is available in that metadata. 
 
 The following diagram illustrates how this works.  The numbers indicate the essential flow/sequence from the perspective of the DSP. Data flow between publishers and the metadata aggregator is out of band from the RTB process.
 
@@ -37,8 +37,8 @@ In the RTB process, the sequence is as follows:
 1. The publisher includes a content ID (and the source of that ID) in its request to the exchange for ad fill. This will be a content ID previously assigned by the metadata aggregator.
 2. The exchange includes this in the bid request to the DSP.
 3. The DSP queries its contextual vendor with this.
-4. The contextual vendor requests the metadata from the metadata aggregator.
-5. The aggregator returns it.
+4. The contextual vendor requests the metadata from the content data platform.
+5. The content data platform returns it.
 6. The contextual vendor returns classifications to the DSP. These classifications are as agreed upon between the contextual vendor and DSP, and are based on transforming or classifying information from the metadata in some way. For example, the vendor could perform topic classification on a synopsis, or perform video/audio recognition on a content URL. 
 
 In practice, one or more layers of caching may be involved in steps 3-6 due to the real-time constraint of RTB.
@@ -80,7 +80,7 @@ In the “ext” object of the “data” object array of the “content’ obje
 
 Specifically **not** used is the existing “id” field in the “content” object, as this is known to conflict with internal uses of this field by publishers and exchanges, and does not provide for a way to communicate the source of the ID.
 
-In practice, it is expected that a typical request will have only one content ID from one source, however there are theoretically cases for multiple IDs, or multiple ID sources, thus the array.
+In practice, it is expected that a typical request will have only one content ID from one source, however there are theoretically cases for multiple IDs, or multiple ID sources, and thus an array is used.
 
 
 ### Identifying source
@@ -89,7 +89,7 @@ The “data” object itself contains a “name” string field which shall be u
 
 Providers/sources of content IDs shall decide on a root domain which they own and will consistently use to identify themselves. Typically, this should be the business or operational domain of the provider. If a publisher is passing its own content IDs which do not come from some metadata aggregator, it should likewise choose and consistently use a root domain that it owns as the way it identifies itself.
 
-It is not assumed that this string has any meaning whatsoever to exchanges and DSPs. They need only pass it onwards to contextual vendors, who are responsible for making their own arrangements to source metadata from the content ID sources that their DSP partners will observe.
+It is not assumed that the content ID string or name string (representing ID source) has any meaning whatsoever to exchanges and DSPs. They need only pass it onwards to contextual vendors, who are responsible for making their own arrangements to source metadata from the content ID sources that their DSP partners will observe. It is also possible that DSPs could make arrangements with content data platforms themselves instead of sending to contextual vendors.
 
 
 ### Example
@@ -104,7 +104,7 @@ It is not assumed that this string has any meaning whatsoever to exchanges and D
           "name": "iris.tv",
           "ext": {
             "cids": [
-              "123abc"
+              "iris_c73g5jq96mwso4d8"
             ]
           }
         }
@@ -130,16 +130,16 @@ It is not assumed that this string has any meaning whatsoever to exchanges and D
           "name": "iris.tv",
           "segment": [
             {
-              "id": "ic_3920"
+              "id": "ic_5784065"
             },
             {
-              "id": "ic_6392"
+              "id": "ic_5711828"
             }
           ],
           "ext": {
             "segtax": 501,
             "cids": [
-              "123abc"
+              "iris_c73g5jq96mwso4d8"
             ]
           }
         }
