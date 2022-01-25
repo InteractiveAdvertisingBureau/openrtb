@@ -153,6 +153,9 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <tr>
       	<td>502</td><td>JW Player video content taxonomy</td>
       </tr>
+      <tr>
+      	<td>600</td><td>Chromium Topics API taxonomy</td>
+      </tr>
   <tr>
       <td>103000</td>
       <td>
