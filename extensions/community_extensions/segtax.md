@@ -154,6 +154,22 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       	<td>502</td><td>JW Player video content taxonomy</td>
       </tr>
   <tr>
+    <td>503</td>
+    <td>Akamai Data Activation Platform (DAP) - Buyer Defined Audiences (BDA), Scrambled</td>
+  </tr>
+  <tr>
+    <td>504</td>
+    <td>Akamai Data Activation Platform (DAP) - Buyer Defined Audiences (BDA), Encrypted TRUSTX Spectrum Custom Audiences</td>
+  </tr>
+  <tr>
+    <td>505</td>
+    <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 1</td>
+  </tr>
+  <tr>
+    <td>506</td>
+    <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 2</td>
+  </tr>
+  <tr>
       <td>103000</td>
       <td>
         Audigent Warner Music Group Artists Taxonomy 1.0
