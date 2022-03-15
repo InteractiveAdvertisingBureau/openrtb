@@ -153,6 +153,12 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <tr>
       	<td>502</td><td>JW Player video content taxonomy</td>
       </tr>
+	          <tr>
+      	<td>543</td><td>CafeMedia Custom Audience Taxonomy</td>
+      </tr>
+	    	          <tr>
+      	<td>544</td><td>CafeMedia Custom Content Taxonomy</td>
+      </tr>
   <tr>
       <td>103000</td>
       <td>
