@@ -153,12 +153,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <tr>
       	<td>502</td><td>JW Player video content taxonomy</td>
       </tr>
-	          <tr>
-      	<td>543</td><td>CafeMedia Custom Audience Taxonomy</td>
-      </tr>
-	    	          <tr>
-      	<td>544</td><td>CafeMedia Custom Content Taxonomy</td>
-      </tr>
+	         
   <tr>
     <td>503</td>
     <td>Akamai Data Activation Platform (DAP) - Buyer Defined Audiences (BDA), Scrambled</td>
@@ -175,6 +170,12 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     <td>506</td>
     <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 2</td>
   </tr>
+	     <tr>
+      	<td>543</td><td>CafeMedia Custom Audience Taxonomy</td>
+      </tr>
+	    	          <tr>
+      	<td>544</td><td>CafeMedia Custom Content Taxonomy</td>
+      </tr>
   <tr>
     <td>5000</td>
     <td>Optable Data Collaboration Platform - Public Audiences</td>
