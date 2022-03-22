@@ -177,6 +177,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       	<td>544</td><td>CafeMedia Custom Content Taxonomy</td>
       </tr>
   <tr>
+    <td>800</td>
+    <td>NumberEight Audience Taxonomy</td>
+  </tr>
+  <tr>
     <td>5000</td>
     <td>Optable Data Collaboration Platform - Public Audiences</td>
   </tr>
