@@ -48,7 +48,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 #### Publishers/source app’s responsibilities are to:
 
-1. Add the ad network’s ID to its Info.plist in all lower case characters. 
+1. Add the ad network’s ID to its Info.plist in all lower case characters.
 2. Update Info.plist with new entries added to the IAB Tech Lab / SSP / SDK publicly hosted lists when publishing new app versions to the App Store
 3. Supply the raw `skadnetids`, IABTL `max` and / or `excl` to the SSP / SDK on the device at runtime
 
@@ -438,6 +438,8 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
       </td>
       <td>
         SKAdNetwork signature as specified by Apple
+        </br></br>
+        <strong>Note</strong>: Apple requires that both the ad network nonce and ad network identifier be lowercase when signing for either fidelity type (impressions or clicks), as per SKAdNetwork specifications.
         </br></br>
         <strong>Note</strong>: With the release of SKAdNetwork 2.2, this field is deprecated in favor of the <code>BidResponse.seatbid.bid.ext.skadn.fidelities.signature</code> to support multiple fidelity-types.
       </td>
@@ -1057,7 +1059,7 @@ https://domain.com/skadnetworks.json
     * Added `skadnetlist`
 * **[09/16/2020]**
     * Original release for public comment
-   
+
 
 
 [1]: https://developer.apple.com/documentation/storekit/skadnetwork

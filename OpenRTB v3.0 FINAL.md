@@ -1156,7 +1156,7 @@ The following table lists the options for an exchange to inform a bidder as to t
   </tr>
   <tr>
     <td>206</td>
-    <td>Creative Filtered - App Bundle Exclusions</td>
+    <td>Creative Filtered - App Store ID Exclusions</td>
   </tr>
   <tr>
     <td>207</td>
@@ -1189,6 +1189,10 @@ The following table lists the options for an exchange to inform a bidder as to t
   <tr>
     <td>214</td>
     <td>Creative Filtered - Invalid SKAdNetwork</td>
+  </tr>
+  <tr>
+    <td>215</td>
+    <td>Creative Filtered - App Bundle Exclusions</td>
   </tr>
   <tr>
     <td>500+</td>
@@ -1342,6 +1346,12 @@ This appendix serves as a brief summary of changes to the specification. These c
     <td><strong>Version</strong></td>
     <td><strong>Release</strong></td>
     <td><strong>Changes</strong></td>
+  </tr>
+  <tr>
+    <td>3.0</td>
+    <td>September 2021</td>
+    <td><b>Clarified loss reason:</b> Loss Reason Code 206 was renamed from Bundle to Store ID to keep the intent of this loss reason consistent across OpenRTB 2.x and 3.x.<br />
+    <td><b>New loss reason:</b> Added loss reason code 215 for App Bundle Exclusions as part of the Loss Reason 206 clarification.<br />
   </tr>
   <tr>
     <td>3.0</td>
