@@ -899,6 +899,10 @@ The following table defines the standard substitution macros.  Note that OpenRTB
     <td><code>${OPENRTB_LOSS}</code></td>
     <td>Loss reason codes (see <a href="#list_lossreasoncodes">List: Loss Reason Codes</a>).</td>
   </tr>
+  <tr>
+    <td><code>${OPENRTB_MIN_TO_WIN}</code></td>
+    <td>Minimum bid to win the exchange's auction, using the same currency and units as the bid.</td>
+  </tr>
 </table>
 
 
