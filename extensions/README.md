@@ -16,7 +16,7 @@ When individual companies want to solve a problem that isn't covered by the core
 
 #### How do I get a community extension formally adopted into the specs?
 1. Submit an issue and PR with the desired changes on the github repository for OpenRTB or AdCOM.
-2. Email us at openmedia@iabtechlab.com with any information not in the issue/PR, including any  adoption information for the community extension. 
+2. Email us at support@iabtechlab.com with any information not in the issue/PR, including any  adoption information for the community extension. 
 3. We will discuss in the Programmatic Supply Chain Working Group and (assuming you are a Tech Lab member) likely invite you to present.
 4. Once approved, the extension will be either moved to the [extensions/2.x_official_extensions](../extensions/2.x_official_extensions) folder or made a part of the 3.x specs (to be released with the next official version of the specs).
 
