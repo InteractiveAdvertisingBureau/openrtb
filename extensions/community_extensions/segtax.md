@@ -84,7 +84,7 @@ The aim of this process is to provide flexibility and quick turnaround on approv
 * This document is the official definition of the enumeration for vendor specific taxonomies.
 * The values for vendor specific taxonomies should be 500+
 * Pull requests (PRs) can be submitted by anyone on an ongoing basis.
-* The approvers are amit@iabtechlab.com and/or ben@iabtechlab.com and some other leaders on the Tech Lab Working Group if needed.
+* The approvers are jill@iabtechlab.com and/or ben@iabtechlab.com and some other leaders on the Tech Lab Working Group if needed.
 * The PR submitter must notify the approvers of the PR submission.
 * The approvers will review for ID conflicts, and otherwise will approve the PR on the spot (i.e., no need for a formal Working Group review).
 
