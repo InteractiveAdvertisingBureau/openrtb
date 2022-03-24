@@ -3,7 +3,7 @@
 
 ## Abstract
 
-As part of a broader effort to eliminate the ability to profit from invalid traffic, ad fraud, and counterfeit inventory in the open digital advertising ecosystem, the SupplyChain object enables buyers to see all parties who are selling or reselling a given bid request. This extension object can be used with OpenRTB 2.5 or OpenRTB 3.0.
+As part of a broader effort to eliminate the ability to profit from invalid traffic, ad fraud, and counterfeit inventory in the open digital advertising ecosystem, the SupplyChain object enables buyers to see all parties who are selling or reselling a given bid request. This extension object can be used with OpenRTB 2.5. It was officially added to the source object for OpenRTB 2.6 and 3.0.
 
 
 ## Introduction
@@ -25,7 +25,7 @@ A node contains two required properties; the advertising system identifier (asi)
 
 This object represents both the links in the supply chain as well as an indicator whether or not the supply chain is complete.
 
-The SupplyChain object should be included in the BidRequest.Source.ext.schain attribute in OpenRTB 2.5 or later. For OpenRTB 2.4 or prior, the BidRequest.ext.schain attribute should be used.
+The SupplyChain object should be included in the BidRequest.Source.schain attribute in OpenRTB 2.6 or later, and BidRequest.Source.ext.schain attribute in OpenRTB 2.5. For OpenRTB 2.4 or prior, the BidRequest.ext.schain attribute should be used.
 
 The SupplyChain object includes the following attributes:
 
