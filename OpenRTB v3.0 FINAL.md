@@ -2,11 +2,19 @@
 
 # OpenRTB Specification v3.0
 
-**August 2021**
+**March 2022**
 
 **About the IAB Technology Lab**
 
-The IAB Technology Laboratory (Tech Lab) is a non-profit research and development consortium that produces and provides standards, software, and services to drive growth of an effective and sustainable global digital media ecosystem. Comprised of digital publishers and ad technology firms, as well as marketers, agencies, and other companies with interests in the interactive marketing arena, IAB Tech Lab aims to enable brand and media growth via a transparent, safe, effective supply chain, simpler and more consistent measurement, and better advertising experiences for consumers, with a focus on mobile and TV/digital video channel enablement. The IAB Tech Lab portfolio includes the DigiTrust real-time standardized identity service designed to improve the digital experience for consumers, publishers, advertisers, and third-party platforms. Board members include AppNexus, ExtremeReach, Google, GroupM, Hearst Digital Media, Integral Ad Science, Index Exchange, LinkedIn, MediaMath, Microsoft, Moat, Pandora, PubMatic, Quantcast, Telaria, The Trade Desk, and Yahoo! Japan.  Established in 2014, the IAB Tech Lab is headquartered in New York City with an office in San Francisco and representation in Seattle and London.
+The IAB Technology Laboratory is a nonprofit research and development consortium charged
+with producing and helping companies implement global industry technical standards and
+solutions. The goal of the Tech Lab is to reduce friction associated with the digital advertising
+and marketing supply chain while contributing to the safe growth of an industry.
+The IAB Tech Lab spearheads the development of technical standards, creates and maintains a
+code library to assist in rapid, cost-effective implementation of IAB standards, and establishes a
+test platform for companies to evaluate the compatibility of their technology solutions with IAB
+standards, which for 18 years have been the foundation for interoperability and profitable growth
+in the digital advertising supply chain.
 
 Learn more about IAB Tech Lab at [www.iabtechlab.com](https://www.iabtechlab.com).
 
@@ -450,6 +458,11 @@ NOTE:  Attributes `ds`, `dsmap`, `cert`, and `digest` support digitally signed b
     <td>string</td>
     <td>The full digest string that was signed to produce the digital signature.  Refer to Section “<a href="#inventoryauthentication">Inventory Authentication</a>” for more details.<br/>
 NOTE:  This is only intended for debugging purposes as needed. It is not intended for normal Production traffic due to the bandwidth impact.</td>
+  </tr>
+  <tr>
+    <td><code>schain</code></td>
+    <td>object; recommended</td>
+    <td>This object represents both the links in the supply chain as well as an indicator whether or not the supply chain is complete. Details via the <a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">SupplyChain object</a>.</td>
   </tr>
   <tr>
     <td><code>pchain</code></td>
