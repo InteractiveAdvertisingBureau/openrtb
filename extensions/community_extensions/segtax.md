@@ -147,7 +147,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
 	<tr>
       <td>501</td>
       <td>
-        Iris video taxonomy. More info - <a href="https://blog.iris.tv/video-programming-playbook-metadata-taxonomy">https://blog.iris.tv/video-programming-playbook-metadata-taxonomy</a>
+        IRIS.TV-enabled Video context taxonomy - More info - <a href="support.iris.tv">https://support.iris.tv</a>
       </td>
     </tr>
       <tr>
