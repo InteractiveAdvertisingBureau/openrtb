@@ -1366,6 +1366,12 @@ This appendix serves as a brief summary of changes to the specification. These c
   </tr>
   <tr>
     <td>3.0</td>
+    <td>March 2022</td>
+    <td><b>Added</b> schain to the source object to sync with 2.6.<br />
+    <td><b>New macro:</b> OPENRTB_MIN_TO_WIN<br />
+  </tr>
+  <tr>
+    <td>3.0</td>
     <td>September 2021</td>
     <td><b>Clarified loss reason:</b> Loss Reason Code 206 was renamed from Bundle to Store ID to keep the intent of this loss reason consistent across OpenRTB 2.x and 3.x.<br />
     <td><b>New loss reason:</b> Added loss reason code 215 for App Bundle Exclusions as part of the Loss Reason 206 clarification.<br />
