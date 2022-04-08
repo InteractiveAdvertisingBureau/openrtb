@@ -50,3 +50,11 @@ See [SCID.md](SCID.md) for deatils.
 #### Notes
 
 See [extended-content-ids.md](extended-content-ids.md) for deatils.
+
+### Global Privacy Control (GPC)
+
+#### Issue: [#98](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/98)
+
+#### Notes
+
+See [the Global Privacy Control website](https://globalprivacycontrol.org/) for deatils on the specification and its current market support.
