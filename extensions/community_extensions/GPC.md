@@ -29,7 +29,7 @@ Example Request
 
 ```
 {
- "content":{
+ "regs":{
   "ext":{
    "gpc": 1
   }
