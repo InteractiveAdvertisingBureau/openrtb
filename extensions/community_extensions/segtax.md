@@ -12,7 +12,7 @@ This extension provides a means to qualify the Segment IDs in Data objects, spec
 
 ### Specification <a name="object"></a>
 
-#### Object: `Data.ext`
+#### Object: `Data.ext`https://docs.prebid.org/features/firstPartyData.html
 
 Per the OpenRTB 2.x API, the Data and Segment objects together allow additional data about the related object (e.g., User, Content) to be specified. The Data object can appear in several places in an OpenRTB 2.x request, and the same extension is supported in all cases.
 
@@ -122,6 +122,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     <tr>
     <td>6</td>
     <td><a href="https://iabtechlab.com/standards/content-taxonomy/">IAB Tech Lab Content Taxonomy 2.2</a></td>
+  </tr>
+ <tr>
+    <td>7</td>
+    <td><a href="https://iabtechlab.com/standards/content-taxonomy/">IAB Tech Lab Content Taxonomy 3.0</a></td>
   </tr>
 
   <tr>
