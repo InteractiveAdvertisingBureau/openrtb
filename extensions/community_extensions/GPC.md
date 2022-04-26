@@ -18,7 +18,7 @@ Request Changes
   <th>Description</th>
  </tr>
  <tr>
-  <td>content.ext.gpc</td>
+  <td>regs.ext.gpc</td>
   <td>integer</td>
   <td>1</td>
   <td>This value should exactly replicate the value in the Global Privacy Control signal setting that will be available at both the header and window level. Where GPC is set to 1 this should be set to 1 and where it is not present this property should not be present.</td>
