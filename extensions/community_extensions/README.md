@@ -17,7 +17,7 @@ See [digitrust.md](digitrust.md) for details.
 
 #### Notes
 
-See [ca-568.md](ca-568.md) for deatils.
+See [ca-568.md](ca-568.md) for details.
 
 ### URLs for Brand Safety
 
@@ -25,7 +25,7 @@ See [ca-568.md](ca-568.md) for deatils.
 
 #### Notes
 
-See [urls-brand-safety.md](urls-brand-safety.md) for deatils.
+See [urls-brand-safety.md](urls-brand-safety.md) for details.
 
 ### SKAdNetwork Support
 
@@ -33,7 +33,7 @@ See [urls-brand-safety.md](urls-brand-safety.md) for deatils.
 
 #### Notes
 
-See [skadnetwork.md](skadnetwork.md) for deatils.
+See [skadnetwork.md](skadnetwork.md) for details.
 
 ### SCID.id
 
@@ -41,7 +41,7 @@ See [skadnetwork.md](skadnetwork.md) for deatils.
 
 #### Notes
 
-See [SCID.md](SCID.md) for deatils.
+See [SCID.md](SCID.md) for details.
 
 ### Extended Content IDs
 
@@ -49,7 +49,7 @@ See [SCID.md](SCID.md) for deatils.
 
 #### Notes
 
-See [extended-content-ids.md](extended-content-ids.md) for deatils.
+See [extended-content-ids.md](extended-content-ids.md) for details.
 
 ### Global Privacy Control (GPC)
 
@@ -57,4 +57,4 @@ See [extended-content-ids.md](extended-content-ids.md) for deatils.
 
 #### Notes
 
-See [the Global Privacy Control website](https://globalprivacycontrol.org/) for deatils on the specification and its current market support.
+See [the Global Privacy Control website](https://globalprivacycontrol.org/) for details on the specification and its current market support.
