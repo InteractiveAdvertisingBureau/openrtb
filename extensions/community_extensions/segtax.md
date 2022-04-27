@@ -42,10 +42,10 @@ Per the OpenRTB 2.x API, the Data and Segment objects together allow additional 
         The ID for a taxonomy that is registered centrally, in a list maintained below.
       </td>
       <td>
-        integer
+        string
       </td>
       <td>
-        <code>3</code>
+        <code>"3"</code>
       </td>
     </tr>
   </tbody>
