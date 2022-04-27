@@ -63,7 +63,7 @@ The following example illustrates the usage of the new field in `BidRequest.user
       {
         "name": "a-data-provider.com",
         "ext": {
-          "segtax": 3
+          "segtax": "3"
         },
         "segment": [
           { "id": "1001" },
