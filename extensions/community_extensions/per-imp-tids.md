@@ -28,18 +28,15 @@ this bid request (e.g., potentially multiple exchanges).</td>
 
 ## How To Use This Field
 
-### If source.tid IS provided and imp.ext.tid is NOT
-It should be assumed that all items in the imp array belong to the same transaction (i.e. buyers should only expect 1 billing (impression) notification to be fired though there's an array of imp objects).
-
 ### If source.tid is NOT provided and imp.ext.tid IS
-The seller may either set the same imp.ext.tid across all items in the impression array (which is functionally equivalent to the above case).
+The seller may either set the same `imp.ext.tid` across all items in the impression array (which is functionally equivalent to using `source.tid`).
 
 OR
 
-The seller may set a different imp.ext.tid for some/all items in the impression array, which indicates that multiple transactions are being transmitted in this 1 bid request. In this case, buyers may expect more than 1 billing (impression) notification to be fired, if more than 1 of their bids is accepted, and creatives returned to the client device.
+The seller may set a different `imp.ext.tid` for some/all items in the impression array.
 
 ### If BOTH source.tid and imp.ext.tid are provided
-imp.ext.tid should override, with source.tid used as a fallback for any items in the impression array that don't specify a imp.ext.tid
+`imp.ext.tid` should override, with `source.tid` used as a fallback for any items in the impression array that don't specify a `imp.ext.tid`.
 
 
 ## Example Request
