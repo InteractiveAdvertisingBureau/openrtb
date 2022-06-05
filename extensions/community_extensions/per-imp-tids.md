@@ -2,7 +2,7 @@
 
 Issue: [#104](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/104)
 
-Sponsor: Index Exchange
+Sponsor: Index Exchange, Cafemedia
 
 ## Background
 
