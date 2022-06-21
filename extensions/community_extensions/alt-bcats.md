@@ -23,7 +23,7 @@ The taxonomy migration problem has already been solved in publisher content cate
     <td>site.ext.bcat.segtax</td>
     <td>integer</td>
     <td>6</td>
-    <td>A taxonomy in the segments taxonomy extension, enumerated in the [segtax extension](https://raw.githubusercontent.com/InteractiveAdvertisingBureau/openrtb/master/extensions/community_extensions/segtax.md)</td>
+    <td>A taxonomy enumerated in the [segtax extension](https://raw.githubusercontent.com/InteractiveAdvertisingBureau/openrtb/master/extensions/community_extensions/segtax.md)</td>
   </tr>
   <tr> 
     <td>site.ext.bcat.ltype</td>
