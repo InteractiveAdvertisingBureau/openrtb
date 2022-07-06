@@ -188,7 +188,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>1plusX - Custom Topics Taxonomy</td>
     </tr>
     <tr>
-      <td>528 - 540</td>
+      <td>528 - 539</td>
       <td>1plusX - Custom Taxonomies Reserved range</td>
     </tr>
     <!--  -->
