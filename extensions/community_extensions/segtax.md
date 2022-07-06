@@ -174,6 +174,24 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>506</td>
       <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 2</td>
     </tr>
+    <!-- 1plusX -->
+    <tr>
+      <td>525</td>
+      <td>1plusX - Taxonomies</td>
+    </tr>
+    <tr>
+      <td>526</td>
+      <td>1plusX - Custom Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>527</td>
+      <td>1plusX - Custom Topics Taxonomy</td>
+    </tr>
+    <tr>
+      <td>528 - 540</td>
+      <td>1plusX - Custom Taxonomies Reserved range</td>
+    </tr>
+    <!--  -->
     <tr>
       <td>543</td>
       <td>CafeMedia Custom Audience Taxonomy</td>
