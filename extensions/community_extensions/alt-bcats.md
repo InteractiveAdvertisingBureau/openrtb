@@ -1,5 +1,5 @@
 # Alternate BCAT Taxonomy Blocks
-Sponsor: Cafemedia
+Sponsor: Cafemedia, Mediavine
 
 ## Background
 
