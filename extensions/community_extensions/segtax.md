@@ -147,107 +147,128 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       </td>
     </tr>
   </thead>
-    <tbody>
-	<tr>
+  <tbody>
+    <tr>
       <td>501</td>
       <td>
         IRIS.TV-enabled Video context taxonomy - More info - <a href="support.iris.tv">https://support.iris.tv</a>
       </td>
     </tr>
-      <tr>
-      	<td>502</td><td>JW Player video content taxonomy</td>
-      </tr>
-	         
-  <tr>
-    <td>503</td>
-    <td>Akamai Data Activation Platform (DAP) - Buyer Defined Audiences (BDA), Scrambled</td>
-  </tr>
-  <tr>
-    <td>504</td>
-    <td>Akamai Data Activation Platform (DAP) - Buyer Defined Audiences (BDA), Encrypted TRUSTX Spectrum Custom Audiences</td>
-  </tr>
-  <tr>
-    <td>505</td>
-    <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 1</td>
-  </tr>
-  <tr>
-    <td>506</td>
-    <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 2</td>
-  </tr>
-	     <tr>
-      	<td>543</td><td>CafeMedia Custom Audience Taxonomy</td>
-      </tr>
-	    	          <tr>
-      	<td>544</td><td>CafeMedia Custom Content Taxonomy</td>
-      </tr>
-  <tr>
-      	<td>600</td><td>Chromium Topics API taxonomy</td>
-      </tr>
-	    <tr>
-    <td>800</td>
-    <td>NumberEight Audience Taxonomy</td>
-  </tr>
-  <tr>
-    <td>5000</td>
-    <td>Optable Data Collaboration Platform - Public Audiences</td>
-  </tr>
-  <tr>
-    <td>5001</td>
-    <td>Optable Data Collaboration Platform - Private Member Defined Audiences</td>
-  </tr>
-  <tr>
-    <td>5002</td>
-    <td>Optable Data Collaboration Platform - Test Audiences</td>
-  </tr>
-  <tr>
+    <tr>
+      <td>502</td>
+      <td>JW Player video content taxonomy</td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td>Akamai Data Activation Platform (DAP) - Buyer Defined Audiences (BDA), Scrambled</td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td>Akamai Data Activation Platform (DAP) - Buyer Defined Audiences (BDA), Encrypted TRUSTX Spectrum Custom Audiences</td>
+    </tr>
+    <tr>
+      <td>505</td>
+      <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 1</td>
+    </tr>
+    <tr>
+      <td>506</td>
+      <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 2</td>
+    </tr>
+    <!-- 1plusX -->
+    <tr>
+      <td>525</td>
+      <td>1plusX - Taxonomies</td>
+    </tr>
+    <tr>
+      <td>526</td>
+      <td>1plusX - Custom Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>527</td>
+      <td>1plusX - Custom Content Taxonomy</td>
+    </tr>
+    <tr>
+      <td>528 - 539</td>
+      <td>1plusX - Custom Taxonomies Reserved range</td>
+    </tr>
+    <!--  -->
+    <tr>
+      <td>543</td>
+      <td>CafeMedia Custom Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>544</td>
+      <td>CafeMedia Custom Content Taxonomy</td>
+    </tr>
+    <tr>
+      <td>600</td>
+      <td>Chromium Topics API taxonomy</td>
+    </tr>
+    <tr>
+      <td>800</td>
+      <td>NumberEight Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>5000</td>
+      <td>Optable Data Collaboration Platform - Public Audiences</td>
+    </tr>
+    <tr>
+      <td>5001</td>
+      <td>Optable Data Collaboration Platform - Private Member Defined Audiences</td>
+    </tr>
+    <tr>
+      <td>5002</td>
+      <td>Optable Data Collaboration Platform - Test Audiences</td>
+    </tr>
+    <tr>
       <td>103000</td>
       <td>
         Audigent Warner Music Group Artists Taxonomy 1.0
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103001</td>
       <td>
         Audigent Bands in Town Artists Taxonomy 1.0
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103002</td>
       <td>
         Audigent Fandom Interests & Audiences Taxonomy 1.0
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103003</td>
       <td>
         Audigent Big Machine Label Group Artists Taxonomy 1.0
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103004</td>
       <td>
         Audigent Music Festival Partner Taxonomy 1.0
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103005</td>
       <td>
         Audigent Fashion & Apparel Taxonomy 1.0
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103006-103008</td>
       <td>
         Audigent Private Audience Taxonomies
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103009-103011</td>
       <td>
         Audigent Private Contextual Taxonomies
       </td>
     </tr>
-  <tr>
+    <tr>
       <td>103012-103014</td>
       </td>
       <td>
