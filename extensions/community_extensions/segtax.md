@@ -205,6 +205,9 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>Chromium Topics API taxonomy</td>
     </tr>
     <tr>
+      <td>601-609</td><td>Held for future Chromium Topics API taxonomies</td>
+      </tr>
+	    <tr>
       <td>800</td>
       <td>NumberEight Audience Taxonomy</td>
     </tr>
