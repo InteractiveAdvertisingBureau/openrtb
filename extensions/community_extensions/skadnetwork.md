@@ -1076,7 +1076,7 @@ https://domain.com/skadnetworks.json
 ## Changelog
 
 * **[10/19/2022]**
-    * Added `productpage` for Bid Requests and 'productpageid' for Bid Responses to support Apple's Custom Product Page
+    * Added `productpage` for Bid Requests and `productpageid` for Bid Responses to support Apple's Custom Product Page
 * **[03/01/2021]**
     * Updated for v2.2
     * Added `fidelities` object array to support multiple fidelity types in the Bid Response.
