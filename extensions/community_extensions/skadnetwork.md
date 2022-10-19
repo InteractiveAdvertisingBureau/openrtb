@@ -282,7 +282,7 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
         "skadn": {
           "versions": ["2.0", "2.1", "2.2"],
           "sourceapp": "880047117",
-          "productpage":1,
+          "productpage": 1,
           "skadnetlist":{
               "max":306,
               "excl":[2,8,10,55],
@@ -612,7 +612,7 @@ Fields that should have different values for the different fidelity types (e.g. 
               "campaign": "45",
               "itunesitem": "123456789",
               "sourceapp": "880047117",
-              "productpageid":"45812c9b-c296-43d3-c6a0-c5a02f74bf6e",
+              "productpageid": "45812c9b-c296-43d3-c6a0-c5a02f74bf6e",
               "fidelities": [
                 {
                   "fidelity": 0,
