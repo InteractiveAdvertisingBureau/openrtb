@@ -1,6 +1,6 @@
 # SKAdNetwork
 
-Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project)
+Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project), PubMatic
 
 Document verison support: SKAdNetwork versions 2.0 and 2.1. Version 2.2+ are under consideration within the IAB TL working group.
 
