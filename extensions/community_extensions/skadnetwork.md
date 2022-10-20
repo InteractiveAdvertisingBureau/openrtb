@@ -391,7 +391,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
         string
       </td>
       <td>
-        "productpageid":"45812c9b-c296-43d3-c6a0-c5a02f74bf6e"
+        "productpageid": "45812c9b-c296-43d3-c6a0-c5a02f74bf6e"
       </td>
     </tr>
     <tr>
