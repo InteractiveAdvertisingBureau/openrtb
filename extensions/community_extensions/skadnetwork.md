@@ -1127,13 +1127,13 @@ https://domain.com/skadnetworks.json
 
 ## Changelog
 
-* **[10/19/2022]**
-    * Added `productpage` for Bid Requests and `productpageid` for Bid Responses to support Apple's Custom Product Page
 * **[11/16/2022]**
     * Updated for v4.0
     * Added `sourceidentifier` string to support SKAdNetwork 4.0 in the Bid Response.
     * Deprecated `campaign`, use `sourceidentifier` in 4.0
     * Added updated examples for 4.0 in Bid Request and Bid Response examples.
+* **[10/19/2022]**
+    * Added `productpage` for Bid Requests and `productpageid` for Bid Responses to support Apple's Custom Product Page
 * **[03/01/2021]**
     * Updated for v2.2
     * Added `fidelities` object array to support multiple fidelity types in the Bid Response.
