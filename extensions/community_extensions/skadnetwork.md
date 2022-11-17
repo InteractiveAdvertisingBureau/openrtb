@@ -1,6 +1,6 @@
 # SKAdNetwork
 
-Sponsors: MoPub, Chartboost, Digital Turbine (formerly Fyber), Magnite (formerly Rubicon Project)
+Sponsors: MoPub, Chartboost, PubMatic, Digital Turbine (formerly Fyber), Magnite (formerly Rubicon Project)
 
 Document verison support: SKAdNetwork versions 2.0 to 4.0. Support for newer versions will be brought up for consideration within the IAB TL Programmatic working group subcommittee.
 
@@ -155,6 +155,20 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
     </tr>
     <tr>
       <td>
+        <code>productpage</code>
+      </td>
+      <td>
+        Custom Product Page support. See Apple's <a href="https://developer.apple.com/app-store/custom-product-pages/">Custom Product Page</a> doc for details.
+      </td>
+      <td>
+        integer
+      </td>
+      <td class="text-monospace">
+        "productpage": 1
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>ext</code>
       </td>
       <td>
@@ -268,6 +282,7 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
         "skadn": {
           "versions": ["2.0", "2.1", "2.2", "3.0", "4.0"],
           "sourceapp": "880047117",
+          "productpage": 1,
           "skadnetlist":{
               "max":306,
               "excl":[2,8,10,55],
@@ -377,6 +392,20 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
       </td>
       <td>
         "itunesitem": "123456789"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>productpageid</code>
+      </td>
+      <td>
+        Custom Product Page ID (UUID)
+      </td>
+      <td>
+        string
+      </td>
+      <td>
+        "productpageid": "45812c9b-c296-43d3-c6a0-c5a02f74bf6e"
       </td>
     </tr>
     <tr>
@@ -635,6 +664,7 @@ Fields that should have different values for the different fidelity types (e.g. 
               "campaign": "45",
               "itunesitem": "123456789",
               "sourceapp": "880047117",
+              "productpageid": "45812c9b-c296-43d3-c6a0-c5a02f74bf6e",
               "fidelities": [
                 {
                   "fidelity": 0,
@@ -1097,6 +1127,8 @@ https://domain.com/skadnetworks.json
 
 ## Changelog
 
+* **[10/19/2022]**
+    * Added `productpage` for Bid Requests and `productpageid` for Bid Responses to support Apple's Custom Product Page
 * **[11/16/2022]**
     * Updated for v4.0
     * Added `sourceidentifier` string to support SKAdNetwork 4.0 in the Bid Response.

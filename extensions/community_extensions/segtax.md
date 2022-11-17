@@ -174,6 +174,14 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>506</td>
       <td>Akamai Data Activation Platform (DAP) - Custom Audiences, Reserved 2</td>
     </tr>
+    <tr>
+      <td>507</td>
+      <td>Magnite Custom Audiences</td>
+    </tr>
+    <tr>
+      <td>508</td>
+      <td>Magnite Standard Audiences</td>
+    </tr>	  
     <!-- 1plusX -->
     <tr>
       <td>525</td>
