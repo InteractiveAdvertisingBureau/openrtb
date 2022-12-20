@@ -50,3 +50,11 @@ See [SCID.md](SCID.md) for deatils.
 #### Notes
 
 See [extended-content-ids.md](extended-content-ids.md) for deatils.
+
+### Seat Non Bid Response
+
+#### Issue: [TBD](TBD)
+
+#### Notes
+
+See [seat-non-bid.md](seat-non-bid.md) for deatils.
