@@ -8,7 +8,7 @@ There’s an ongoing effort in the industry for exchanges to provide publishers 
 
 There is no location in the OpenRTB 2.x BidResponse object to convey these per-bidder scenarios to the publisher.
 
-OpenRTB 2.x defines one object object for seat specific responses. The `SeatBid` object and `Bid` sub-object constitute an offer to buy an impression and require at least one bid with a price. When no bid is placed, the `SeatBid` and `Bid` objects cannot be present in the BidResponse and thus cannot be extended with further information.
+OpenRTB 2.x defines one object for seat specific responses. The `SeatBid` object and `Bid` sub-object constitute an offer to buy an impression and require at least one bid with a price. When no bid is placed, the `SeatBid` and `Bid` objects cannot be present in the BidResponse and thus cannot be extended with further information.
 
 The Seat Non Bid is an extension of the OpenRTB 2.x BidResponse object which enables exchanges to specify a new seat specific response object to convey the reasons why an exchange was unable to solicit a bid. Publishers are able to act on this telemetry by automated analysis to optimize performance or to manually investigate bidding issues.
 
@@ -45,7 +45,7 @@ There are many reasons for a no bid scenario and it is understood not all would 
         object array
       </td>
       <td>
-        Optional array of seatnonbid objects.
+        Optional array of <code>SeatNonBid</code> objects.
       </td>
     </tr>
   </tbody>
@@ -76,7 +76,7 @@ There are many reasons for a no bid scenario and it is understood not all would 
         object array; required
       </td>
       <td>
-        Array of 1+ <code>NonBid</code> objects each related to an impression. Multiple nonbids may relate to the same
+        Array of 1+ <code>NonBid</code> objects each related to an impression. Multiple non bids may relate to the same
         impression.
       </td>
     </tr>
@@ -99,7 +99,7 @@ There are many reasons for a no bid scenario and it is understood not all would 
         object
       </td>
       <td>
-        Placeholder for bidder-specific extensions.
+        Placeholder for future extensions.
       </td>
     </tr>
   </tbody>
@@ -141,7 +141,7 @@ There are many reasons for a no bid scenario and it is understood not all would 
         integer; required
       </td>
       <td>
-        Reason for no bid. Refer to the Non Bid Status Codes list in this document.
+        Reason for non bid. Refer to the Non Bid Status Codes list in this document.
       </td>
     </tr>
     <tr>
@@ -152,7 +152,7 @@ There are many reasons for a no bid scenario and it is understood not all would 
         object
       </td>
       <td>
-        Placeholder for bidder-specific extensions.
+        Placeholder for future extensions.
       </td>
     </tr>
   </tbody>
@@ -328,8 +328,8 @@ Non Bid Status Code values are purposefully divided into the following ranges to
 <table>
   <thead>
     <tr>
-      <th>Range</th>
-      <th>Description</th>
+      <th>Range&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Interpretation</th>
       <th>Action</th>
     </tr>
