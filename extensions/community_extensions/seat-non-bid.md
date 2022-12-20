@@ -289,6 +289,10 @@ There are many reasons for a no bid scenario and it is understood not all would 
       <td>Response Rejected - Duplicate</td>
     </tr>
     <tr>
+      <td>303</td>
+      <td>Response Rejected - Category Mapping Invalid</td>
+    </tr>
+    <tr>
       <td>350</td>
       <td>Response Rejected - Invalid Creative</td>
     </tr>
