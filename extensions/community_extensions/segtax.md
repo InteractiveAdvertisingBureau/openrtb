@@ -208,6 +208,26 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>544</td>
       <td>CafeMedia Custom Content Taxonomy</td>
     </tr>
+    </tr>
+      <td>550</td>
+      <td>Sirdata - Public Audience Taxonomy</td>
+    </tr>
+    </tr>
+      <td>551</td>
+      <td>Sirdata - Public Content Taxonomy</td>
+    </tr>
+    </tr>
+      <td>552</td>
+      <td>Sirdata - Private Audience Taxonomy</td>
+    </tr>
+    </tr>
+      <td>553</td>
+      <td>Sirdata - Private Content Taxonomy</td>
+    </tr>
+    </tr>
+      <td>554-599</td>
+      <td>Sirdata - Held for coming Private Audience & Content Taxonomies</td>
+    </tr>
     <tr>
       <td>600</td>
       <td>Chromium Topics API taxonomy</td>
@@ -215,7 +235,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     <tr>
       <td>601-609</td><td>Held for future Chromium Topics API taxonomies</td>
       </tr>
-	    <tr>
+    <tr>
       <td>800</td>
       <td>NumberEight Audience Taxonomy</td>
     </tr>
