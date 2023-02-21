@@ -4,19 +4,21 @@ Sponsors: Xandr, Magnite, CafeMedia, Media&#46;net
 
 ## Overview
 
-There’s an ongoing effort in the industry for exchanges to provide publishers with insights into why bidders do not bid. Insights include reasons why the exchange did not send a bid request to the bidder, why the bidder did not respond with a bid, and why a bid was considered invalid. Publishers want to use this information to learn how to improve performance and increase efficiency.
+There’s an ongoing effort in the industry for exchanges to provide publishers with insights into why seats do not bid. Insights include reasons why the exchange did not request a bid from a seat, why a seat did not bid, and why a bid was considered invalid. Publishers want to use this information to learn how to improve performance and increase efficiency.
 
-There is no location in the OpenRTB 2.x BidResponse object to convey these per-bidder scenarios to the publisher.
+This proposal introduces an extension on the `BidResponse` object to enable each seat to provide a reason for not bidding, or for the exchange to provide a reason for not requesting a bid or rejecting a bid from a particular seat.
 
-OpenRTB 2.x defines one object for seat specific responses. The `SeatBid` object and `Bid` sub-object constitute an offer to buy an impression and require at least one bid with a price. When no bid is placed, the `SeatBid` and `Bid` objects cannot be present in the BidResponse and thus cannot be extended with further information.
+## Why Something New
 
-The Seat Non Bid is an extension of the OpenRTB 2.x BidResponse object which enables exchanges to specify a new seat specific response object to convey the reasons why an exchange was unable to solicit a bid. Publishers are able to act on this telemetry by automated analysis to optimize performance or to manually investigate bidding issues.
+The OpenRTB 2.x `BidResponse` object defines the `nbr` field to provide one reason for not bidding. There's no structure defined to convey granular information when some seats bid and others do not.
+
+The `Bid` object cannot be extended for non bid scenarios since it constitutes an offer to buy an impression and requires a price. Similarly, the `SeatBid` object cannot be extended as it requires at least one `Bid`.
 
 ## Considerations
 
-Exchanges and Publishers who do not wish to emit or act upon these insights may choose to  ignore this extension with no action required.
+Exchanges and publishers who do not wish to emit or act upon these insights may choose to ignore this extension. Exchanges may provide an option to publishers for  including this level of detail.
 
-There are many reasons for a no bid scenario and it is understood not all would be included in a standardized enumeration. Exchanges may use 500+ values to define their own reason codes as appropriate.
+There are many reasons for a non bid scenario and it is understood not all can be included in a standardized enumeration. Exchanges may use 500+ values to define their own reason codes as appropriate.
 
 ## Specification
 
@@ -157,6 +159,24 @@ There are many reasons for a no bid scenario and it is understood not all would 
     </tr>
   </tbody>
 </table>
+
+### Example Bid Response
+
+```
+{
+    "ext": {
+        "id": "1234567890",
+        "seatnonbid": {
+            "seat": "512",
+            "nonbid": {
+                "impid": "102",
+                "statuscode": 301
+            }
+        }
+    }
+}
+```
+
 
 ### List: Non Bid Status Codes
 
@@ -323,11 +343,14 @@ There are many reasons for a no bid scenario and it is understood not all would 
   </tbody>
 </table>
 
-If a bid was received with a `nbr` populated, set the status code to align with the `nbr` value. Exchanges are encouraged to provide as much detail as possible, but it is acceptable to use the general codes (0, 100, 200, 300) when details aren't known.
+## Non Bid Status Codes Guidance
 
-#### Guidance
+- Exchanges are encouraged to provide as much detail as possible, but it is acceptable to use the general codes (0, 100, 200, 300) when details aren't known.
 
-Non Bid Status Code values are purposefully divided into the following ranges to assist with higher level classification:
+- The values 1-17 intentionally overlap with the OpenRTB 3.0 [No-Bid Reason Codes](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/OpenRTB%20v3.0%20FINAL.md#list--no-bid-reason-codes-) such that seats which provide a `nbr` can  easily mapping to a `statuscode`. 
+
+
+Non Bid Status Code values are purposefully organized into the following ranges to assist with high level classification:
 
 <table>
   <thead>
@@ -349,7 +372,7 @@ Non Bid Status Code values are purposefully divided into the following ranges to
       <td>100-199</td>
       <td>Error</td>
       <td>Technical problem occurred during the auction.</td>
-      <td>Exchange and/or seat may need to investigate.</td>
+      <td>Seat may need investigation to determine root cause.</td>
     </tr>
     <tr>
       <td>200-299</td>
