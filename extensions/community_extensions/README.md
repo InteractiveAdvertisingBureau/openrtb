@@ -53,7 +53,7 @@ See [extended-content-ids.md](extended-content-ids.md) for deatils.
 
 ### Seat Non Bid Response
 
-#### Issue: [TBD](TBD)
+#### Issue: [#115](https://github.com/InteractiveAdvertisingBureau/openrtb/pull/115)
 
 #### Notes
 
