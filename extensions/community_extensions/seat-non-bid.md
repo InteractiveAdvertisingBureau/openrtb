@@ -22,6 +22,23 @@ There are many reasons for a non bid scenario and it is understood not all can b
 
 ## Specification
 
+### Example Bid Response
+
+```
+{
+    "id": "1234567890",
+    "ext": {
+        "seatnonbid": {
+            "seat": "512",
+            "nonbid": {
+                "impid": "102",
+                "statuscode": 301
+            }
+        }
+    }
+}
+```
+
 ### Object: BidResponse
 
 <table>
@@ -159,24 +176,6 @@ There are many reasons for a non bid scenario and it is understood not all can b
     </tr>
   </tbody>
 </table>
-
-### Example Bid Response
-
-```
-{
-    "ext": {
-        "id": "1234567890",
-        "seatnonbid": {
-            "seat": "512",
-            "nonbid": {
-                "impid": "102",
-                "statuscode": 301
-            }
-        }
-    }
-}
-```
-
 
 ### List: Non Bid Status Codes
 
