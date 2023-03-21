@@ -312,6 +312,10 @@ There are many reasons for a non bid scenario and it is understood not all can b
       <td>Response Rejected - Category Mapping Invalid</td>
     </tr>
     <tr>
+      <td>304</td>
+      <td>Response Rejected - Below Deal Floor</td>
+    </tr>
+    <tr>
       <td>350</td>
       <td>Response Rejected - Invalid Creative</td>
     </tr>
@@ -336,11 +340,21 @@ There are many reasons for a non bid scenario and it is understood not all can b
       <td>Response Rejected - Invalid Creative (Advertiser Exclusions)</td>
     </tr>
     <tr>
+      <td>356</td>
+      <td>Response Rejected - Invalid Creative (Advertiser Blocked)</td>
+    </tr>
+     <tr>
+      <td>357</td>
+      <td>Response Rejected - Invalid Creative (Category Exclusion)</td>
+    </tr>
+    <tr>
       <td>500+</td>
       <td>Vendor-specific codes.</td>
     </tr>
   </tbody>
 </table>
+
+*Advertiser Exclusions vs Advertiser Blocked*:  "Exclusion" refers to scenarios of competitive separation, while "Blocked" refers to publisher driven block lists.
 
 ## Non Bid Status Codes Guidance
 
