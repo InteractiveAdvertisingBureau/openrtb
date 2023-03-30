@@ -5,6 +5,11 @@
 **Goal**:
 The Global Placement ID (GPID) was an initiative in the Fall of 2021 led by the TradeDesk to solve the problem of inventory identification in an industry-wide way. It aims to give buyers a way to identify a given ad slot on a page across SSPs and header bidding integrations. 
 
+**Background**:
+It all starts with how publishers decide to label their ad slots: the places on their pages where ads can be served. In some ad servers like GAM, these things are called “ad units”. Most publishers use unique ad slot names, but some publishers utilize the same name for every ad slot on their page. e.g. “/homepage” might be the name for 5 different slots.
+
+It’s the case of ‘same ad slot names’ that Prebid Ad Slot and GPID are meant to address.
+
 
 ### Object: GPID <a name="object_gpid"></a>
 
