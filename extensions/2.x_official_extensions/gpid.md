@@ -76,11 +76,10 @@ For details on how publishers typically pass Div IDs to their respective SSPs an
 ### Example Request
 
 ```
-
 {
-  "imp": {
-   "ext": {
-   "gpid": "123456/example.com/homepage/image_top"
-   }
-     }
-        }
+	"imp": {
+		"ext": {
+			"gpid": "123456/example.com/homepage/image_top"
+		}
+	}
+}
