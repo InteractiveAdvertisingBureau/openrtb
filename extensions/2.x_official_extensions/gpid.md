@@ -56,6 +56,18 @@ Some publishers have unique and consistent GPIDs within ad unit codes. In these 
   </tr>
 </table>
 
+#### Example Request - Ad Unit Code only
+
+```
+{
+ "imp": {
+  "ext": {
+   "gpid": "123456/unique-placement-name"
+  }
+ }
+}
+```
+
 ### Using Ad Unit Codes and Div IDs as GPIDs
 
 For details on how publishers typically pass Div IDs to their respective SSPs and exchanges, see the [Prebid documentation](https://docs.prebid.org/features/pbAdSlot.html). 
@@ -73,7 +85,7 @@ For details on how publishers typically pass Div IDs to their respective SSPs an
   </tr>
 </table>
 
-### Example Request
+#### Example Request - Ad Unit Codes and Div IDs
 
 ```
 {
@@ -83,3 +95,4 @@ For details on how publishers typically pass Div IDs to their respective SSPs an
   }
  }
 }
+```
