@@ -34,8 +34,6 @@ While there is no single format for GPID syntax, it is important to keep GPIDs u
 
 <strong>IMPORTANT:</strong> If you choose to include additional information in a GPID, make sure that the placement portion can be easily identified and extracted in a consistent manner for all placements transacted.
 
-While there is no single format for GPID syntax, it is important to keep GPIDs unique, consistent in syntax, and informative, as placements are included in reporting and are used by sophisticated buyers for targeting.
-
 For ease of adoption, where applicable, a Google Ad Manager (GAM) or DoubleClick For Publishing (DFP) ad unit code alone can serve as an effective GPID.
 
 * If the ad unit code alone is sufficient to uniquely identify a placement, use it as a GPID
