@@ -58,11 +58,11 @@ Some publishers have unique and consistent GPIDs within ad unit codes. In these 
 
 ```
 {
- "imp": {
+ "imp": [{
   "ext": {
    "gpid": "123456/unique-placement-name"
   }
- }
+ }]
 }
 ```
 
@@ -87,10 +87,10 @@ For details on how publishers typically pass Div IDs to their respective SSPs an
 
 ```
 {
- "imp": {
+ "imp": [{
   "ext": {
    "gpid": "123456/example.com/homepage/image_top"
   }
- }
+ }]
 }
 ```
