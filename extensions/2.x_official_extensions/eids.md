@@ -92,19 +92,6 @@ This list identifies the user agent types a user identifier is from.
   </tr>
 </table>
 
-#### Approved vendor-specific codes
-<table>
-  <tr>
-    <td><strong>Value</strong></td>
-    <td><strong>Definition</strong></td>
-  </tr>
-  <tr>
-    <td>571187</td>
-    <td>A PAIR Id, which is an encrypted ID that can only be processed by one advertiser, usually created through cleanrooms.</td>
-  </tr>
-</table>
-
-
 Example Request
 
 ```
