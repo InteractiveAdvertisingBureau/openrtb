@@ -3,7 +3,8 @@
 **Sponsor**: The Trade Desk
 
 **Background**:
-Ad slots are places on pages where ads can be served. In some ad servers, these are called ad units. While most publishers use unique names for each ad slot on their page, many utilize the same name for every ad slot or use the same name for the all the ad units of the same size. This makes it very difficult to unique identify ad requests. 
+A global placement identifier (GPID) is a publisher-specified placement (tag) ID that is passed unchanged by all supply-side platforms (SSPs).
+In programmatic auctions, the OpenRTB TagId property of the Impression object traditionally contains an exchange-specific placement ID. No two exchanges share the same set of placement IDs. Now with header bidding, however, buyers can buy inventory from different sources, but the challenge is that they have no way of knowing which placement is being transacted in a given auction. The solution is to use GPIDs—a publisher specifies a GPID, exchanges propagate it, and buyers know exactly which placement is being transacted via all auctions for the impression.
 
 **Goal**:
 The Global Placement ID (GPID) was an initiative in the Fall of 2021 led by the TradeDesk which aims to give buyers a way to identify a given ad slot on a page across SSPs and header bidding integrations. 
