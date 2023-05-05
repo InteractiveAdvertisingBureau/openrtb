@@ -1,8 +1,8 @@
 # SKAdNetwork
 
-Sponsors: MoPub, Fyber, Magnite (formerly Rubicon Project)
+Sponsors: MoPub, Chartboost, PubMatic, Digital Turbine (formerly Fyber), Magnite (formerly Rubicon Project)
 
-Document verison support: SKAdNetwork versions 2.0 and 2.1. Version 2.2+ are under consideration within the IAB TL working group.
+Document verison support: SKAdNetwork versions 2.0 to 4.0. Support for newer versions will be brought up for consideration within the IAB TL Programmatic working group subcommittee.
 
 ## Overview
 
@@ -30,7 +30,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
     - List should be in both JSON and XML formats to allow publishers to build to the IABTL list as well as other lists
 3. Assign a permanent ID for each registered `SKAdNetwork ID`
     - Each registrant may have more than one `SKAdNetwork ID`. In this scenario, each `SKAdNetwork ID` will be assigned its own unique IABTL ID
-4. Provide a tool for publishers to build their `Info.plist` files and express IABTL signaling from various URLs and / or raw SKAdNetwork ID (Tool not ready yet)
+4. Provide a tool for publishers to build their `Info.plist` files and express IABTL signaling from various URLs and / or raw SKAdNetwork ID (Tool available at https://tools.iabtechlab.com/skadnetwork)
 
 
 #### SSP/SDK responsibilities are to:
@@ -50,7 +50,7 @@ The responsibilities of each participant when using the SKAdNetwork specificatio
 
 1. Add the ad network’s ID to its Info.plist in all lower case characters.
 2. Update Info.plist with new entries added to the IAB Tech Lab / SSP / SDK publicly hosted lists when publishing new app versions to the App Store
-3. Supply the raw `skadnetids`, IABTL `max` and / or `excl` to the SSP / SDK on the device at runtime
+3. Supply the supported `versions`, raw `skadnetids`, IABTL `max` and / or `excl` to the SSP / SDK on the device at runtime
 
 ### Regulatory Guidance
 
@@ -82,6 +82,20 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
   <tbody>
     <tr>
       <td>
+        <code>versions</code>
+      </td>
+      <td>
+        Array of strings containing the supported skadnetwork versions. Always "2.0" or higher. Dependent on both the OS version and the SDK version.
+      </td>
+      <td>
+        array of strings
+      </td>
+      <td>
+        "versions": ["2.0", "2.1", "2.2", "3.0", "4.0"]
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>version</code>
       </td>
       <td>
@@ -92,20 +106,6 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
       </td>
       <td>
         "version": "2.0"
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>versions</code>
-      </td>
-      <td>
-        Array of strings containing the supported skadnetwork versions. Always "2.0" or higher. Dependent on both the OS version and the SDK version.
-      </td>
-      <td>
-        array of strings
-      </td>
-      <td>
-        "versions": ["2.0", "2.1", "2.2"]
       </td>
     </tr>
     <tr>
@@ -146,11 +146,25 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
       <td>
         object
       </td>
-      <td class="text-monospace">
+      <td>
         "skadnetlist": {
           "max":306,
           "excl":[2,8,10,55]
         }
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>productpage</code>
+      </td>
+      <td>
+        Custom Product Page support. See Apple's <a href="https://developer.apple.com/app-store/custom-product-pages/">Custom Product Page</a> doc for details.
+      </td>
+      <td>
+        integer
+      </td>
+      <td class="text-monospace">
+        "productpage": 1
       </td>
     </tr>
     <tr>
@@ -206,7 +220,7 @@ IABTL skadnetwork object list attributes.
       <td>
         integer
       </td>
-      <td class="text-monospace">
+      <td>
         "max":306
       </td>
     </tr>
@@ -220,7 +234,7 @@ IABTL skadnetwork object list attributes.
       <td>
         array of integers
       </td>
-      <td class="text-monospace">
+      <td>
         "excl": [44,14,18]
       </td>
     </tr>
@@ -234,7 +248,7 @@ IABTL skadnetwork object list attributes.
       <td>
         array of strings
       </td>
-      <td class="text-monospace">
+      <td>
         "addl": ["cdkw7geqsh.skadnetwork", "qyjfv329m4.skadnetwork"]
       </td>
     </tr>
@@ -248,7 +262,7 @@ IABTL skadnetwork object list attributes.
       <td>
         object
       </td>
-      <td class="text-monospace">
+      <td>
         "ext":{}
       </td>
     </tr>
@@ -266,8 +280,9 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
     {
       "ext": {
         "skadn": {
-          "versions": ["2.0", "2.1", "2.2"],
+          "versions": ["2.0", "2.1", "2.2", "3.0", "4.0"],
           "sourceapp": "880047117",
+          "productpage": 1,
           "skadnetlist":{
               "max":306,
               "excl":[2,8,10,55],
@@ -320,7 +335,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
         string
       </td>
       <td>
-        "version": "2.0"
+        "version": "4.0"
       </td>
     </tr>
     <tr>
@@ -339,10 +354,24 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
     </tr>
     <tr>
       <td>
+        <code>sourceidentifier</code>
+      </td>
+      <td>
+        A four-digit integer that ad networks define to represent the ad campaign. Used in SKAdNetwork 4.0+, replaces Campaign ID `campaign`. DSPs must generate signatures in 4.0+ using the Source Identifier. Please refer to the <a href="https://developer.apple.com/documentation/storekit/skadnetwork/skadnetwork_release_notes/skadnetwork_4_release_notes" target="_blank">SKAdNetwork 4 release notes</a> for more details.
+      </td>
+      <td>
+        string
+      </td>
+      <td>
+        "sourceidentifier": "4321"
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>campaign</code>
       </td>
       <td>
-        Campaign ID compatible with Apple’s spec. As of 2.0, should be an integer between 1 and 100, expressed as a string
+        Campaign ID compatible with Apple’s spec. As of 2.0, should be an integer between 1 and 100, expressed as a string. </br></br><strong>Note</strong>: Used in SKAdNetwork 3.0 and below. Replaced by Source Identifier <code>sourceidentifier</code> in 4.0 and above
       </td>
       <td>
         string
@@ -363,6 +392,20 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
       </td>
       <td>
         "itunesitem": "123456789"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>productpageid</code>
+      </td>
+      <td>
+        Custom Product Page ID (UUID)
+      </td>
+      <td>
+        string
+      </td>
+      <td>
+        "productpageid": "45812c9b-c296-43d3-c6a0-c5a02f74bf6e"
       </td>
     </tr>
     <tr>
@@ -567,6 +610,44 @@ Fields that should have different values for the different fidelity types (e.g. 
 
 **Note:** Apple also introduced `adtype`, `addescription`, and `adpurchasername` for fidelity-type 0 in v2.2. Until more clarity is provided by Apple about their use, these APIs have been intentionally omitted from the SKAdNetwork Extension.
 
+#### Example v4.0
+
+```
+{
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "ext": {
+            "skadn": {
+              "version": "4.0",
+              "network": "cdkw7geqsh.skadnetwork",
+              "sourceidentifier": "4321",
+              "itunesitem": "123456789",
+              "sourceapp": "880047117",
+              "productpageid": "45812c9b-c296-43d3-c6a0-c5a02f74bf6e",
+              "fidelities": [
+                {
+                  "fidelity": 0,
+                  "signature": "TUVRQ0lFUWxtWlJOZll6S0JTRThRbmhMVElIWlpaV0NGZ1pwUnFSeEhzczY1S29GQWlBSmdKS2pkcldka0xVT0NDanVFeDJS==",
+                  "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
+                  "timestamp": "1594406341"
+                },
+                {
+                  "fidelity": 1,
+                  "signature": "VFVWUlEwbEZVV3h0V2xKT1psbDZTMEpUUlRoUmJtaE1WRWxJV2xwYVYwTkdaMXB3VW5GU2VFaHpjelkxUzI5R1FXbEJTbDBG==",
+                  "nonce": "e650de09-2a9f-4dc3-a4d1-544c402e9095",
+                  "timestamp": "1594406342"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
 #### Example v2.2
 
@@ -583,6 +664,7 @@ Fields that should have different values for the different fidelity types (e.g. 
               "campaign": "45",
               "itunesitem": "123456789",
               "sourceapp": "880047117",
+              "productpageid": "45812c9b-c296-43d3-c6a0-c5a02f74bf6e",
               "fidelities": [
                 {
                   "fidelity": 0,
@@ -706,7 +788,7 @@ DSPs may also want to understand what is the status of a user on iOS 14+. The `a
       <td>
         integer
       </td>
-      <td class="text-monospace">
+      <td>
         "atts": 3
       </td>
     </tr>
@@ -720,7 +802,7 @@ DSPs may also want to understand what is the status of a user on iOS 14+. The `a
       <td>
         string
       </td>
-      <td class="text-monospace">
+      <td>
         "ifv": "336F2BC0-245B-4242-8029-83762AB47B15"
       </td>
     </tr>
@@ -1045,6 +1127,13 @@ https://domain.com/skadnetworks.json
 
 ## Changelog
 
+* **[11/16/2022]**
+    * Updated for v4.0
+    * Added `sourceidentifier` string to support SKAdNetwork 4.0 in the Bid Response.
+    * Deprecated `campaign`, use `sourceidentifier` in 4.0
+    * Added updated examples for 4.0 in Bid Request and Bid Response examples.
+* **[10/19/2022]**
+    * Added `productpage` for Bid Requests and `productpageid` for Bid Responses to support Apple's Custom Product Page
 * **[03/01/2021]**
     * Updated for v2.2
     * Added `fidelities` object array to support multiple fidelity types in the Bid Response.
