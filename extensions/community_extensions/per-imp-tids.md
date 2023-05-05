@@ -48,20 +48,20 @@ The seller may set a different `imp.ext.tid` for some/all items in the impressio
       "id": 1,
       "banner": {
         "w": 300,
-        "h": 250,
-        "ext": {
-          "tid": "e8348715-9221-4483-8615-3471ec0fb77b"
-        }
+        "h": 250
+      },
+      "ext": {
+        "tid": "e8348715-9221-4483-8615-3471ec0fb77b"
       }
     },
     {
       "id": 2,
       "banner": {
         "w": 250,
-        "h": 250,
-        "ext": {
-          "tid": "678b925c-1abd-4651-abe2-806018eeffa9"
-        }
+        "h": 250
+      },
+      "ext": {
+        "tid": "678b925c-1abd-4651-abe2-806018eeffa9"
       }
     }
   ]
