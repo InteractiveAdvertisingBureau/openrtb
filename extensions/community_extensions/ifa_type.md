@@ -48,9 +48,9 @@ This extension provides a means to indicate the source of the ID passed in `devi
   </tbody>
 </table>
 
-### List:  Display Placement Types <a name="list_ifatypes"></a>
+### List:  IFA Types <a name="list_ifatypes"></a>
 
-The following table lists the general types of display placements; the locations where a native ad may be shown in relationship to the surrounding content.
+This list identifies the source type of the IFA.
 
 <table>
   <tr>
@@ -83,7 +83,10 @@ rida - Roku id<br />
 aaid - Android id<br />
 idfa - Apple id<br />
 afai - Amazon Fire id<br />
-msai - Microsoft id<br />
+msai - Microsoft id
+
+Implementers who wish to know this can infer it. When ifa_type = dpid, look to device information to then determine if it is a RIDA, IDFA, etc.
+
 ### Example
 ```
 "device": {
