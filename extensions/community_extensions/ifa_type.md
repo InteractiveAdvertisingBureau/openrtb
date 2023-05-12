@@ -4,6 +4,7 @@
 Basis Technologies<br />
 Global<br />
 Unruly<br />
+Index Exchange<br />
 
 ## Overview
 The `ifa_type` field was originally introduced by IAB Tech Lab in:<br />
