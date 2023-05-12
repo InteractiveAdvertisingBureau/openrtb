@@ -36,9 +36,9 @@ Example Request
 
 ```
 {
- "content":{
+ "app":{
   "ext":{
-   "feedurls": [ "https://www.puba.com/content1.html", "https://www.pubb.com/content2", "https://www.pubc.com/content3/abc" ]
+   "intrinsic": "1" ]
   }
  }
 }
