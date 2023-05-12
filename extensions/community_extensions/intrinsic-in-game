@@ -4,25 +4,33 @@ Sponsor: The Trade Desk
 
 **Background**
 
-The goal of this signal is to identify intrinsic in-game inventory in order for the DSP to segment this inventory accordingly.
+As intrinsic in-game inventory picks up momentum from both the supply side and the buy side, it's important for there to be a signal to accurately identify this nuanced inventory. The IAB recognized the lack of standards in the space recently by establishing specific<a href="https://www.iab.com/insights/iab-releases-intrinsic-in-game-iig-measurement-guidelines/"> measurement guidelines</a> in 2022 and this signal aims to further recognize this type of inventory as an established channel. 
 
-Request Changes
+**Goal**
+
+The goal of this signal is to have all SSP's correctly identify intrinsic in-game inventory in order for the DSP or other parties to segment this inventory accordingly.
+
+**Definition**
+
+Ad space that modifies the environment of a game, such as a billboard or skin.
+
+**Request Changes**
 
 <table>
  <tr>
-  <th>Content Object</th>
+  <th>App Object</th>
   <th>Type</th>
   <th>Example values</th>
   <th>Description</th>
  </tr>
  <tr>
-  <td>content.ext.feedurls</td>
-  <td>string array</td>
-  <td>{ }</td>
-  <td>An array of URLs of content that are _directly_ adjacent to the ad placement, for buy-side contextualization or review. For example, in a typical vertical feed, there would be 2 URLs provided as adjacent to the ad (above & below). In a 9-tile example, there would be 8 URLs provided. </br> 
-   Note : the URL to the main page (in which the feed and the ad appear) in the case of web content should be provided in the content.url field.</td>
+  <td>app.ext.intrinsic</td>
+  <td>integer</td>
+  <td>0,1</td>
+  <td>Indicates whether the inventory is intrinsic in-game, modifying the environment of the game, for instance through a billboard or skin.
+  </td>
  </tr>
-</table>
+g</table>
 
 Example Request
 
