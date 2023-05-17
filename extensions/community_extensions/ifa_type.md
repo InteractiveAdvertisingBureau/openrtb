@@ -7,6 +7,9 @@ Unruly<br />
 Index Exchange<br />
 Undertone<br />
 Pulsepoint<br />
+OpenX<br />
+Triplelift<br />
+
 
 ## Overview
 The `ifa_type` field was originally introduced by IAB Tech Lab in:<br />
