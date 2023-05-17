@@ -6,7 +6,7 @@ Sponsor: Magnite
 
 ## Objective
 
-The purpose of this field is to support propagating the Global Privacy Control signal that originates in the HTTP headers from a web client, in order for all participants to have access to the same information on the privacy state of a user in regard to applicable regulations.
+The purpose of this field is to support propagating the Global Privacy Control (GPC) signal that originates in the HTTP headers from a web client, in order for all participants to have access to the same information on the privacy state of a user in regard to applicable regulations.
 
 ## Request Changes
 
@@ -21,7 +21,7 @@ The purpose of this field is to support propagating the Global Privacy Control s
   <td>regs.ext.gpc</td>
   <td>string</td>
   <td>1</td>
-  <td>This value should exactly replicate the value in the Global Privacy Control signal setting received from the upstream request. Where that was an HTTP GET request, it is the contents of the `Sec-GPC` HTTP header. Where that was an OpenRTB request, it is the contents of the equivalent field.</td>
+  <td>This is to be populated the value of the `Sec-GPC` HTTP header from the user agent where the ad will be shown. Vendors with access to that header must populate this field with that value. Vendors receiving an OpenRTB request must populate this with the value of the same field from the request. No other usage of this field is valid. E.g., vendors are not to copy the GPC signal from the GPP string to this field.</td>
  </tr>
 </table>
 
