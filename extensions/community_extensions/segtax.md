@@ -207,6 +207,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>541</td>
       <td>Captify Custom Taxonomy</td>
     </tr>
+                <tr>
+      <td>542</td>
+      <td>Weborama Custom Taxonomy</td>
+    </tr>
     <!--  -->
     <tr>
       <td>543</td>
