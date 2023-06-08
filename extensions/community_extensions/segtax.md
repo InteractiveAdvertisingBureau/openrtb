@@ -199,6 +199,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>528 - 539</td>
       <td>1plusX - Custom Taxonomies Reserved range</td>
     </tr>
+        <tr>
+      <td>540</td>
+      <td>AirGrid Custom Taxonomy</td>
+    </tr>
     <!--  -->
     <tr>
       <td>543</td>
