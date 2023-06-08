@@ -203,14 +203,18 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>540</td>
       <td>AirGrid Custom Taxonomy</td>
     </tr>
+            <tr>
+      <td>541</td>
+      <td>Captify Custom Taxonomy</td>
+    </tr>
     <!--  -->
     <tr>
       <td>543</td>
-      <td>CafeMedia Custom Audience Taxonomy</td>
+      <td>Raptive Custom Audience Taxonomy</td>
     </tr>
     <tr>
       <td>544</td>
-      <td>CafeMedia Custom Content Taxonomy</td>
+      <td>Raptive Custom Content Taxonomy</td>
     </tr>
     </tr>
       <td>550</td>
