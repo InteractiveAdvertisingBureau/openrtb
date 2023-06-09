@@ -28,13 +28,13 @@ There are many reasons for a non bid scenario and it is understood not all can b
 {
     "id": "1234567890",
     "ext": {
-        "seatnonbid": {
+        "seatnonbid": [{
             "seat": "512",
-            "nonbid": {
+            "nonbid": [{
                 "impid": "102",
                 "statuscode": 301
-            }
-        }
+            }]
+        }]
     }
 }
 ```
