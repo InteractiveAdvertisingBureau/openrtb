@@ -233,7 +233,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>Chromium Topics API taxonomy</td>
     </tr>
     <tr>
-      <td>601-609</td><td>Held for future Chromium Topics API taxonomies</td>
+      <td>601</td><td><a href='https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v2.md'>Chromium Topics API Taxonomy V2 </a></td>
+      </tr>
+          <tr>
+      <td>602-609</td><td>Held for future Chromium Topics API taxonomies</td>
       </tr>
     <tr>
       <td>700</td>
