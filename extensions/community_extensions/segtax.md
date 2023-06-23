@@ -199,14 +199,26 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>528 - 539</td>
       <td>1plusX - Custom Taxonomies Reserved range</td>
     </tr>
+        <tr>
+      <td>540</td>
+      <td>AirGrid Custom Taxonomy</td>
+    </tr>
+            <tr>
+      <td>541</td>
+      <td>Captify Custom Taxonomy</td>
+    </tr>
+                <tr>
+      <td>542</td>
+      <td>Weborama Custom Taxonomy</td>
+    </tr>
     <!--  -->
     <tr>
       <td>543</td>
-      <td>CafeMedia Custom Audience Taxonomy</td>
+      <td>Raptive Custom Audience Taxonomy</td>
     </tr>
     <tr>
       <td>544</td>
-      <td>CafeMedia Custom Content Taxonomy</td>
+      <td>Raptive Custom Content Taxonomy</td>
     </tr>
     </tr>
       <td>550</td>
