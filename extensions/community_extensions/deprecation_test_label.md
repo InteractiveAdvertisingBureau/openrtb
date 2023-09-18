@@ -41,7 +41,7 @@ Privacy Sandbox Developer Support “chrome-testing” issues, Github
 [https://github.com/GoogleChromeLabs/privacy-sandbox-dev-support/labels/chrome-testing](https://github.com/GoogleChromeLabs/privacy-sandbox-dev-support/labels/chrome-testing)
 
 Chrome implementation Monorail issues  
-Sec-Cookie-Deprecation header access  
+`Sec-Cookie-Deprecation` header access  
 [https://bugs.chromium.org/p/chromium/issues/detail?id=1479071](https://bugs.chromium.org/p/chromium/issues/detail?id=1479071)  
 JS API  
 [https://bugs.chromium.org/p/chromium/issues/detail?id=1479119](https://bugs.chromium.org/p/chromium/issues/detail?id=1479119)
