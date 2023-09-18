@@ -43,7 +43,7 @@ Privacy Sandbox Developer Support “chrome-testing” issues, Github
 Chrome implementation Monorail issues  
 `Sec-Cookie-Deprecation` header access  
 [https://bugs.chromium.org/p/chromium/issues/detail?id=1479071](https://bugs.chromium.org/p/chromium/issues/detail?id=1479071)  
-JS API  
+Implement JS API for `navigator.cookieDeprecationLabel.getValue()`  
 [https://bugs.chromium.org/p/chromium/issues/detail?id=1479119](https://bugs.chromium.org/p/chromium/issues/detail?id=1479119)
 
 Chromium Dash Schedule (Chrome milestone releases)  
@@ -58,8 +58,8 @@ PSA: Third-party cookie deprecation for 1% of Chrome Stable starting Q1 2024 (bl
 Intent to Prototype: Third-Party Cookie Phaseout (blink-dev)  
 [https://groups.google.com/a/chromium.org/g/blink-dev/c/8mlWTOcEzcA/m/NZJSW0weAQAJ](https://groups.google.com/a/chromium.org/g/blink-dev/c/8mlWTOcEzcA/m/NZJSW0weAQAJ)
  
-Deprecate Third-Party Cookies (Chrome feature card)
+Deprecate Third-Party Cookies (Chrome feature card)  
 [https://chromestatus.com/feature/5133113939722240](https://chromestatus.com/feature/5133113939722240)
 
-UK Competition and Markets Authority (CMA) Test Guidelines
+UK Competition and Markets Authority (CMA) Test Guidelines  
 [https://www.gov.uk/cma-cases/investigation-into-googles-privacy-sandbox-browser-changes#industry-testing](https://www.gov.uk/cma-cases/investigation-into-googles-privacy-sandbox-browser-changes#industry-testing)
