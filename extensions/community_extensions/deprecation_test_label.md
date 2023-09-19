@@ -1,4 +1,4 @@
-### Extension to pass Chrome-facilitated cookie deprecation test label
+### Cookie Deprecation: Pass Chrome-facilitated cookie deprecation test label
 
 **Sponsor**: Epsilon
 
