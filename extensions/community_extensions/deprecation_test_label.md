@@ -49,6 +49,9 @@ Implement JS API for `navigator.cookieDeprecationLabel.getValue()`
 Chromium Dash Schedule (Chrome milestone releases)  
 [https://chromiumdash.appspot.com/schedule](https://chromiumdash.appspot.com/schedule)
 
+UK Competition and Markets Authority (CMA) Test Guidelines  
+[https://www.gov.uk/cma-cases/investigation-into-googles-privacy-sandbox-browser-changes#industry-testing](https://www.gov.uk/cma-cases/investigation-into-googles-privacy-sandbox-browser-changes#industry-testing)
+
 Privacy Sandbox enrollment and attestations model, GitHub  
 [https://github.com/privacysandbox/attestation/blob/main/README.md](https://github.com/privacysandbox/attestation/blob/main/README.md)
 
@@ -60,6 +63,3 @@ Intent to Prototype: Third-Party Cookie Phaseout (blink-dev)
  
 Deprecate Third-Party Cookies (Chrome feature card)  
 [https://chromestatus.com/feature/5133113939722240](https://chromestatus.com/feature/5133113939722240)
-
-UK Competition and Markets Authority (CMA) Test Guidelines  
-[https://www.gov.uk/cma-cases/investigation-into-googles-privacy-sandbox-browser-changes#industry-testing](https://www.gov.uk/cma-cases/investigation-into-googles-privacy-sandbox-browser-changes#industry-testing)
