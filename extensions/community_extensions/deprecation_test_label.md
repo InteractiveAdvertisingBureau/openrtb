@@ -18,7 +18,7 @@ Entities are encouraged to access the label and to share the value unmodified wi
   <tr>
     <td><code>chrometestlabel</code></td>
     <td>string</td>
-    <td>the label string as received from Chrome or an upstream partner</td>
+    <td>the label as received from Chrome or an upstream partner</td>
   </tr>
 </table>
 
