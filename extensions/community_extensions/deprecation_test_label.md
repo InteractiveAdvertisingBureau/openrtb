@@ -27,7 +27,7 @@ Entities are encouraged to access the label and to share the value unmodified wi
 **Notes**  
 No requirement to communicate label provenance, header versus API access.
 
-Google has not yet specified the labels’ format, but at this point it is presumed to be straightforward to interpret. Google intends to “make the opt-in testing mode labels available starting in Q4 2023.” This would likely be after Chrome M118 releases to stable in mid October, based on the recent completion for some of the implementation (see below). Unknown how far in advance they will label the Mode B (forced cookie suppression) browsers.
+Google has not yet specified the labels’ format, but at this point it is presumed to be straightforward to interpret. Google intends to “make the opt-in testing mode labels available starting in Q4 2023.” This would likely be after Chrome M118 releases to stable in mid October, based on the recent completion for some of the implementation (see below). Unknown how far in advance they will label the Mode B (forced cookie suppression) browsers. If you have opinions about how and how fatr in advance Chrome should label these test groups, you should weigh in on the Privacy Sandbox Developer Support “chrome-testing” issues. Link below. 
 
 Privacy Sandbox enrollment is _not_ required to access the labels.  
 
