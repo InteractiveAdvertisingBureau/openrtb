@@ -354,6 +354,25 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>A1Media Audience Taxonomy</td>
     </tr>
     <tr>
+      <td>1000</td>
+      <td>Anonymised Custom Audience</td>
+    </tr>
+    </tr>
+      <tr>
+      <td>1001</td>
+      <td>Anonymised Custom Audience Reserved 1</td>
+    </tr>
+    </tr>
+      <tr>
+      <td>1002</td>
+      <td>Anonymised Custom Audience Reserved 2</td>
+    </tr>
+    </tr>
+      <tr>
+      <td>1003</td>
+      <td>Anonymised Custom Audience Reserved 3</td>
+    </tr>
+    <tr>
       <td>5000</td>
       <td>Optable Data Collaboration Platform - Public Audiences</td>
     </tr>
