@@ -16,7 +16,7 @@ Entities are encouraged to access the label and to share the value unmodified wi
     <td><strong>Description</strong></td>
   </tr>
   <tr>
-    <td><code>chrometestlabel</code></td>
+    <td><code>cdep</code></td>
     <td>string</td>
     <td>the label as received from Chrome or an upstream partner</td>
   </tr>
