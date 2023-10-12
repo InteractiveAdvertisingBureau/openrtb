@@ -3,7 +3,7 @@
 **Sponsor**: Epsilon
 
 **Background**:  
-Google recently published [an update](https://developer.chrome.com/docs/privacy-sandbox/chrome-testing/) regarding the Chrome-facilitated cookie deprecation testing labels announced in May. Based on the description, Chrome will label ~10 percent of Chrome instances globally. A browser, if labeled, is either Mode A (opt-in testing) or Mode B (1%, forced cookie suppression). Two means are offered to access the label. One can read a request header after setting a special partitioned (CHIPS) cookie or client-side via a new `Navigator` script API promise.
+Google recently published [an update](https://developer.chrome.com/docs/privacy-sandbox/chrome-testing/) regarding the UK CMA-aligned Chrome cookie deprecation testing labels announced in May. Chrome intends to label 9.5% percent of Chrome Stable browsers globally. A browser instance, if labeled, is either Mode A (8.5%, opt-in testing beginning Q4 2023) or Mode B (1%, forced cookie deprecation beginning Q1 2024). Two means are offered to access the label. One can read a request header after setting a special partitioned (CHIPS) cookie or client-side via a new `Navigator` script API promise. 
 
 **Proposal**:  
 Entities are encouraged to access the label and to share the value unmodified with partners via the following `Device` extension.
@@ -27,9 +27,10 @@ Entities are encouraged to access the label and to share the value unmodified wi
 **Notes**  
 No requirement to communicate label provenance, header versus API access.
 
-Google has not yet specified the labels’ format, but at this point it is presumed to be straightforward to interpret. Google intends to “make the opt-in testing mode labels available starting in Q4 2023.” This would likely be after Chrome M118 releases to stable in mid October, based on the recent completion for some of the implementation (see below). Unknown how far in advance they will label the Mode B (forced cookie suppression) browsers. If you have opinions about how and how far in advance Chrome should label these test groups, the Chrome team has encouraged interested parties to weigh in on the Privacy Sandbox Developer Support “chrome-testing” issues. Link below. 
-
 Privacy Sandbox enrollment is _not_ required to access the labels.  
+
+If you have opinions or feedback about the test group labeling plans, the Chrome team has encouraged interested parties to weigh in on the Privacy Sandbox Developer Support “chrome-testing” issues. Link below. 
+
 
 <br/>
 
