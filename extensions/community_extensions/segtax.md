@@ -84,7 +84,7 @@ The aim of this process is to provide flexibility and quick turnaround on approv
 * This document is the official definition of the enumeration for vendor specific taxonomies.
 * The values for vendor specific taxonomies should be 500+
 * Pull requests (PRs) can be submitted by anyone on an ongoing basis.
-* The approvers are jill@iabtechlab.com and/or ben@iabtechlab.com and some other leaders on the Tech Lab Working Group if needed.
+* The approvers are jill@iabtechlab.com and/or hillary@iabtechlab.com and some other leaders on the Tech Lab Working Group if needed.
 * The PR submitter must notify the approvers of the PR submission.
 * The approvers will review for ID conflicts, and otherwise will approve the PR on the spot (i.e., no need for a formal Working Group review).
 
@@ -199,25 +199,178 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>528 - 539</td>
       <td>1plusX - Custom Taxonomies Reserved range</td>
     </tr>
+        <tr>
+      <td>540</td>
+      <td>AirGrid Custom Taxonomy</td>
+    </tr>
+            <tr>
+      <td>541</td>
+      <td>Captify Custom Taxonomy</td>
+    </tr>
+                <tr>
+      <td>542</td>
+      <td>Weborama Custom Taxonomy</td>
+    </tr>
     <!--  -->
     <tr>
       <td>543</td>
-      <td>CafeMedia Custom Audience Taxonomy</td>
+      <td>Raptive Custom Audience Taxonomy</td>
     </tr>
     <tr>
       <td>544</td>
-      <td>CafeMedia Custom Content Taxonomy</td>
+      <td>Raptive Custom Content Taxonomy</td>
+    </tr>
+    <tr>
+      <td>550</td>
+      <td>Sirdata - Public Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>551</td>
+      <td>Sirdata - Public Content Taxonomy</td>
+    </tr>
+    <tr>
+      <td>552</td>
+      <td>Sirdata - Private Audience Taxonomy (Equativ)</td>
+    </tr>
+    <tr>
+      <td>553</td>
+      <td>Sirdata - Private Content Taxonomy (Equativ)</td>
+    </tr>
+    <tr>
+      <td>554</td>
+      <td>Sirdata - Private Audience Taxonomy (DV360)</td>
+    </tr>
+    <tr>
+      <td>555</td>
+      <td>Sirdata - Private Content Taxonomy (DV360)</td>
+    </tr>
+    <tr>
+      <td>556</td>
+      <td>Sirdata - Private Audience Taxonomy (Index Exchange)</td>
+    </tr>
+    <tr>
+      <td>557</td>
+      <td>Sirdata - Private Content Taxonomy (Index Exchange)</td>
+    </tr>
+    <tr>
+      <td>558</td>
+      <td>Sirdata - Private Audience Taxonomy (Pubmatic)</td>
+    </tr>
+    <tr>
+      <td>559</td>
+      <td>Sirdata - Private Content Taxonomy (Pubmatic)</td>
+    </tr>
+    <tr>
+      <td>560</td>
+      <td>Sirdata - Private Audience Taxonomy (Magnite)</td>
+    </tr>
+    <tr>
+      <td>561</td>
+      <td>Sirdata - Private Content Taxonomy (Magnite)</td>
+    </tr>
+    <tr>
+      <td>562</td>
+      <td>Sirdata - Private Audience Taxonomy (Teads)</td>
+    </tr>
+    <tr>
+      <td>563</td>
+      <td>Sirdata - Private Content Taxonomy (Teads)</td>
+    </tr>
+    <tr>
+      <td>564</td>
+      <td>Sirdata - Private Audience Taxonomy (Yahoo!)</td>
+    </tr>
+    <tr>
+      <td>565</td>
+      <td>Sirdata - Private Content Taxonomy (Yahoo!)</td>
+    </tr>
+    <tr>
+      <td>566</td>
+      <td>Sirdata - Private Audience Taxonomy (Xandr)</td>
+    </tr>
+    <tr>
+      <td>567</td>
+      <td>Sirdata - Private Content Taxonomy (Xandr)</td>
+    </tr>
+    <tr>
+      <td>568</td>
+      <td>Sirdata - Private Audience Taxonomy (Criteo)</td>
+    </tr>
+    <tr>
+      <td>569</td>
+      <td>Sirdata - Private Content Taxonomy (Criteo)</td>
+    </tr>
+    <tr>
+      <td>570</td>
+      <td>Sirdata - Private Audience Taxonomy (Proxistore)</td>
+    </tr>
+    <tr>
+      <td>571</td>
+      <td>Sirdata - Private Content Taxonomy (Proxistore)</td>
+    </tr>
+    <tr>
+      <td>572</td>
+      <td>Sirdata - Private Audience Taxonomy (Mediasquare)</td>
+    </tr>
+    <tr>
+      <td>573</td>
+      <td>Sirdata - Private Content Taxonomy (Mediasquare)</td>
+    </tr>
+    <tr>
+      <td>574</td>
+      <td>Sirdata - Private Audience Taxonomy (E-novate)</td>
+    </tr>
+    <tr>
+      <td>575</td>
+      <td>Sirdata - Private Content Taxonomy (E-novate)</td>
+    </tr>
+    <tr>
+      <td>576-599</td>
+      <td>Sirdata - Held for coming Private Audience & Content Taxonomies</td>
     </tr>
     <tr>
       <td>600</td>
       <td>Chromium Topics API taxonomy</td>
     </tr>
     <tr>
-      <td>601-609</td><td>Held for future Chromium Topics API taxonomies</td>
+      <td>601</td><td><a href='https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v2.md'>Chromium Topics API Taxonomy V2 </a></td>
       </tr>
-	    <tr>
+          <tr>
+      <td>602-609</td><td>Held for future Chromium Topics API taxonomies</td>
+      </tr>
+    <tr>
+      <td>700</td>
+      </td>
+      <td>
+        Groundtruth Taxonomies
+      </td>
+    </tr>
+    <tr>
       <td>800</td>
       <td>NumberEight Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>900</td>
+      <td>A1Media Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>1000</td>
+      <td>Anonymised Custom Audience</td>
+    </tr>
+    </tr>
+      <tr>
+      <td>1001</td>
+      <td>Anonymised Custom Audience Reserved 1</td>
+    </tr>
+    </tr>
+      <tr>
+      <td>1002</td>
+      <td>Anonymised Custom Audience Reserved 2</td>
+    </tr>
+    </tr>
+      <tr>
+      <td>1003</td>
+      <td>Anonymised Custom Audience Reserved 3</td>
     </tr>
     <tr>
       <td>5000</td>

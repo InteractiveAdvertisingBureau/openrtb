@@ -753,13 +753,13 @@ Presents an [SKOverlay][17] StoreKit Ad during an ad experience using the `SKOve
               "fidelities": [
                 {
                   "fidelity": 0,
-                  "signature": "TUVRQ0lFUWxtWlJOZll6S0JTRThRbmhMVElIWlpaV0NGZ1pwUnFSeEhzczY1S29GQWlBSmdKS2pkcldka0xVT0NDanVFeDJS==",
+                  "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg==",
                   "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
                   "timestamp": "1594406341"
                 },
                 {
                   "fidelity": 1,
-                  "signature": "VFVWUlEwbEZVV3h0V2xKT1psbDZTMEpUUlRoUmJtaE1WRWxJV2xwYVYwTkdaMXB3VW5GU2VFaHpjelkxUzI5R1FXbEJTbDBG==",
+                  "signature": "GRlMDktMmE5Zi00ZGMzLWE0ZDEtNTQ0YzQwMmU5MDk1IiwKICAgICAgICAgICAgICAgICAgInRpbWVzdGTk0NDA2MzQyIg==",
                   "nonce": "e650de09-2a9f-4dc3-a4d1-544c402e9095",
                   "timestamp": "1594406342"
                 }
