@@ -169,6 +169,20 @@ If a DSP has at least one SKAdNetworkItem in the publisher app’s `Info.plist` 
     </tr>
     <tr>
       <td>
+        <code>skoverlay</code>
+      </td>
+      <td>
+        <a href="https://developer.apple.com/documentation/storekit/skoverlay">SKOverlay</a> support. If set, SKOverlay is supported.
+      </td>
+      <td>
+        integer
+      </td>
+      <td>
+        "skoverlay": 1
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>ext</code>
       </td>
       <td>
@@ -290,7 +304,8 @@ Used for direct SSP to DSP connections where a DSP wants to only consume their o
                 "cdkw7geqsh.skadnetwork",
                 "qyJfv329m4.skadnetwork"
               ]
-          }
+          },
+          "skoverlay": 1
         }
       }
     }
@@ -495,6 +510,20 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
     </tr>
     <tr>
       <td>
+        <code>skoverlay</code>
+      </td>
+      <td>
+        <a href="https://developer.apple.com/documentation/storekit/skoverlay">SKOverlay</a> support.
+      </td>
+      <td>
+        object
+      </td>
+      <td>
+        "skoverlay": {"delay": 5, "endcarddelay": 0, "dismissible": 0, "pos": 1}
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>ext</code>
       </td>
       <td>
@@ -610,6 +639,101 @@ Fields that should have different values for the different fidelity types (e.g. 
 
 **Note:** Apple also introduced `adtype`, `addescription`, and `adpurchasername` for fidelity-type 0 in v2.2. Until more clarity is provided by Apple about their use, these APIs have been intentionally omitted from the SKAdNetwork Extension.
 
+#### Object: `BidResponse.seatbid.bid.ext.skadn.skoverlay`
+
+Presents an [SKOverlay][17] StoreKit Ad during an ad experience using the `SKOverlay.AppConfiguration` Storekit API.
+
+<table>
+  <thead>
+    <tr>
+      <td>
+        <strong>Attribute</strong>
+      </td>
+      <td>
+        <strong>Description</strong>
+      </td>
+      <td>
+        <strong>Type</strong>
+      </td>
+      <td>
+        <strong>Example</strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>delay</code>
+      </td>
+      <td>
+        Delay before presenting the SKOverlay in seconds. If set to 0, the overlay will be shown immediately. If this field is not set, the overlay will not be shown.
+      </td>
+      <td>
+        integer
+      </td>
+      <td>
+        "delay": 0
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>endcarddelay</code>
+      </td>
+      <td>
+        Delay before presenting the SKOverlay on an endcard in seconds. If set to 0, the overlay will be shown immediately. If this field is not set, the overlay will not be shown.
+      </td>
+      <td>
+        integer
+      </td>
+      <td>
+        "endcarddelay": 0
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>dismissible</code>
+      </td>
+      <td>
+        Whether the overlay can be dismissed by the user, where 0 = no, 1 = yes
+      </td>
+      <td>
+        integer
+      </td>
+      <td>
+        "dismissible": 0
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>pos</code>
+      </td>
+      <td>
+        Position of the Overlay. 0 = bottom, 1 = bottomRaised
+      </td>
+      <td>
+        integer
+      </td>
+      <td>
+        "pos": 1
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>ext</code>
+      </td>
+      <td>
+        Placeholder for exchange-specific extensions to OpenRTB.
+      </td>
+      <td>
+        object
+      </td>
+      <td>
+        "ext": {}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 #### Example v4.0
 
 ```
@@ -639,7 +763,13 @@ Fields that should have different values for the different fidelity types (e.g. 
                   "nonce": "e650de09-2a9f-4dc3-a4d1-544c402e9095",
                   "timestamp": "1594406342"
                 }
-              ]
+              ],
+              "skoverlay":{
+                "delay": 5,
+                "endcarddelay": 0,
+                "dismissible": 1,
+                "pos": 1
+              }
             }
           }
         }
@@ -1127,6 +1257,8 @@ https://domain.com/skadnetworks.json
 
 ## Changelog
 
+* **[11/11/2023]**
+    * Added support for SKOverlay in the Bid Request and Bid Response.
 * **[11/16/2022]**
     * Updated for v4.0
     * Added `sourceidentifier` string to support SKAdNetwork 4.0 in the Bid Response.
@@ -1167,3 +1299,4 @@ https://domain.com/skadnetworks.json
 [14]: https://developer.apple.com/documentation/storekit/skadnetwork/generating_the_signature_to_validate_view-through_ads
 [15]: #IABTL-managed-SKAdnetwork-ID-list
 [16]: https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/OpenRTB%20v3.0%20FINAL.md#list--loss-reason-codes-
+[17]: https://developer.apple.com/documentation/storekit/skoverlay
