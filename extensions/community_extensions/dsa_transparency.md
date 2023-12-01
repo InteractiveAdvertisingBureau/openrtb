@@ -44,17 +44,27 @@
 <tr>
 <td><code>dsainfo</code></td>
 <td>integer</td>
-<td>Flag to indicate if DSA information should be made available. This will signal if the bid request belongs to an Online Platform/VLOP, such that a buyer should respond with DSA Transparency information based on the pubrender value.&nbsp;0 = Not required&nbsp;1 = Supported, bid responses with or without DSA object will be accepted2 = Required, bid responses without DSA object will not be accepted3 = Required, bid responses without DSA object will not be accepted, Publisher is an Online Platform</td>
+<td>Flag to indicate if DSA information should be made available. This will signal if the bid request belongs to an Online Platform/VLOP, such that a buyer should respond with DSA Transparency information based on the pubrender value.
+    <p><code>0</code> = Not required</p>
+    <p><code>1</code> = Supported, bid responses with or without DSA object will be accepted</p>
+    <p><code>2</code> = Required, bid responses without DSA object will not be accepted</p>
+    <p><code>3</code> = Required, bid responses without DSA object will not be accepted, Publisher is an Online Platform</p></td>
 </tr>
 <tr>
 <td><code>pubrender</code></td>
 <td>integer</td>
-<td>Flag to indicate if the publisher will render the DSA Transparency info. This will signal if the publisher is able to and intends to render the icon and display the DSA transparency info to the end user.&nbsp;0 = Publisher can&rsquo;t render1 = Publisher could render depending on adrender&nbsp;2 = Publisher will render</td>
+<td>Flag to indicate if the publisher will render the DSA Transparency info. This will signal if the publisher is able to and intends to render the icon and display the DSA transparency info to the end user.
+    <p><code>0</code> = Publisher can't render</p>
+    <p><code>1</code> = Publisher could render depending on adrender</p>
+    <p><code>2</code> = Publisher will render</p></td>
 </tr>
 <tr>
 <td><code>datatopub</code></td>
 <td>integer</td>
-<td>Independent of pubrender, the publisher may need the transparency data for audit purposes.&nbsp;0 = do not send transparency data1 = optional to send transparency data2 = send transparency data</td>
+<td>Independent of pubrender, the publisher may need the transparency data for audit purposes.
+    <p><code>0</code> = do not send transparency data</p>
+    <p><code>1</code> = optional to send transparency data</p>
+    <p><code>2</code> = send transparency data</p></td>
 </tr>
 <tr>
 <td><code>transparency</code></td>
@@ -154,12 +164,12 @@
 <tr>
 <td><code>behalf</code></td>
 <td>string</td>
-<td>Advertiser Transparency: Free UNICODE text string with a name of whose behalf the ad is displayed.Maximum 100 characters.</td>
+<td>Advertiser Transparency: Free UNICODE text string with a name of whose behalf the ad is displayed. Maximum 100 characters.</td>
 </tr>
 <tr>
 <td><code>paid</code></td>
 <td>string</td>
-<td>Advertiser Transparency: Free UNICODE text string of who paid for the ad. Must always be included even if it&rsquo;s the same as what is listed in the behalf attribute.Maximum 100 characters</td>
+<td>Advertiser Transparency: Free UNICODE text string of who paid for the ad. Must always be included even if it's the same as what is listed in the behalf attribute. Maximum 100 characters</td>
 </tr>
 <tr>
 <td><code>transparency</code></td>
@@ -169,7 +179,9 @@
 <tr>
 <td><code>adrender</code></td>
 <td>integer</td>
-<td>Flag to indicate that buyer/advertiser will render their own DSA transparency information inside the creative.&nbsp;0 = buyer/advertiser will not render1 = buyer/advertiser will render</td>
+<td>Flag to indicate that buyer/advertiser will render their own DSA transparency information inside the creative.
+    <p><code>0</code> = buyer/advertiser will not render</p>
+    <p><code>1</code> = buyer/advertiser will render</p></td>
 </tr>
 </tbody>
 </table>
