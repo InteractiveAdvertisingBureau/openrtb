@@ -91,7 +91,7 @@
 <tr>
 <td><code>params</code></td>
 <td>array of integer</td>
-<td>Array for platform or sell-side use of any user parameters (using <a href="https://docs.google.com/document/d/13xeczBylX3Wc_XnXoWkxdwBQKtg23lYAhuWKrayqB9E/edit?pli=1#bookmark=id.vnuapwyy9oac" target="_blank" rel="noopener">the list provided by DSA Transparency Taskforce</a>). <em>Note; See definition and list of possible </em><a href="https://docs.google.com/document/d/13xeczBylX3Wc_XnXoWkxdwBQKtg23lYAhuWKrayqB9E/edit?pli=1#bookmark=id.vnuapwyy9oac" target="_blank" rel="noopener"><em>user parameters as listed here</em></a><em>, applied consistently in both bid request and/or bid response.</em></td>
+<td>Array for platform or sell-side use of any user parameters (using <a href="#user_parameters" target="_blank" rel="noopener">the list provided by DSA Transparency Taskforce</a>). <em>Note; See definition and list of possible </em><a href="#user_parameters" target="_blank" rel="noopener"><em>user parameters as listed here</em></a><em>, applied consistently in both bid request and/or bid response.</em></td>
 </tr>
 </tbody>
 </table>
@@ -203,7 +203,7 @@
 <tr>
 <td><code>params</code></td>
 <td>array of integer</td>
-<td>Array of buy-side applied user parameter targeting (using <a href="https://docs.google.com/document/d/13xeczBylX3Wc_XnXoWkxdwBQKtg23lYAhuWKrayqB9E/edit?pli=1#bookmark=id.vnuapwyy9oac" target="_blank" rel="noopener">the list provided by DSA Transparency Taskforce</a>). Include support for multiple vendors who may add their own user-targeting parameters.</td>
+<td>Array of buy-side applied user parameter targeting (using <a href="#user_parameters" target="_blank" rel="noopener">the list provided by DSA Transparency Taskforce</a>). Include support for multiple vendors who may add their own user-targeting parameters.</td>
 </tr>
 </tbody>
 </table>
@@ -239,7 +239,7 @@
 }
 ```
 
-<h3>List of User Parameters</h3>
+<h3><a id="user_parameters">List of User Parameters</a></h3>
 <p>The definitions below are not meant to be consumer-facing messages.</p>
 <div>
 <table>
@@ -335,7 +335,7 @@
 </tr>
 <tr>
 <td><code>${DSAPARAMS}</code></td>
-<td>Any combination of the integer values representing the <a href="https://docs.google.com/document/d/13xeczBylX3Wc_XnXoWkxdwBQKtg23lYAhuWKrayqB9E/edit?pli=1#heading=h.1u7tmlhzl7zo" target="_blank" rel="noopener">user parameters</a>. When multiple values are included, they should be separated by an underscore &ldquo;_&rdquo;.&nbsp;
+<td>Any combination of the integer values representing the user parameters. When multiple values are included, they should be separated by an underscore &ldquo;_&rdquo;.&nbsp;
 <p>Example:&nbsp;1_2_3</td>
 <td>Populated based on the combination of information from the bid request and bid response user parameters.&nbsp;</td>
 </tr>
