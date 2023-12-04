@@ -110,7 +110,7 @@
    		 "dsa": [{
             "dsainfo": 3, 
    		    "pubrender": 0,
-   		    "dsatopub": 2,
+   		    "datatopub": 2,
             "transparency": [{
                 "domain": "platform1domain.com",
                 "params":[1]},
