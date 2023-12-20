@@ -1,5 +1,5 @@
 <h1>DSA Transparency</h1>
-<b>Public comment open through December 14th, 2023. Email support@iabtechlab.com to submit comments.</b> 
+<b>Public comment open through December 31st, 2023. Email support@iabtechlab.com to submit comments.</b> 
 
 <h2>Introduction</h2>
 <p>The Digital Services Act (DSA) was adopted in October 2022, and the date of applicability for Platform companies is 16 February 2024.&nbsp; Along with the Digital Markets Act (DMA), the DSA is intended to improve the confidence of both private consumers and business users of Online Platforms in the products and services they access via those platforms, as well as the advertising they are exposed to on them, and to ensure a level playing field between platforms.&nbsp; The DSA lays down transparency obligations in relation to advertising; these obligations apply to Online Platforms, &ldquo;Very Large Online Platforms&rdquo; (VLOPs), and &ldquo;Very Large Online Search Engines&rdquo; (VLOSEs) as defined by the Digital Services Act.&nbsp;&nbsp;</p>
