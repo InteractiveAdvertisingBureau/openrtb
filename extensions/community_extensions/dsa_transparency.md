@@ -103,34 +103,33 @@
     "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
     "at": 1,
     "cur": [
-   	 "USD"
+        "USD"
     ],
     "regs": {
-   	 "ext": [{
-   		 "dsa": [{
-            "dsainfo": 3, 
-   		    "pubrender": 0,
-   		    "datatopub": 2,
-            "transparency": [{
-                "domain": "platform1domain.com",
-                "params":[1]},
-                {"domain": "SSP2domain.com",
-                "params":[1,2]
-             }]
+        "ext": [{
+            "dsa": [{
+                "dsainfo": 3, 
+                "pubrender": 0,
+                "datatopub": 2,
+                "transparency": [{
+                    "domain": "platform1domain.com",
+                    "params": [1]},
+                    {"domain": "SSP2domain.com",
+                    "params": [1,2]
+                    }]
             }]
         }]
-        },
+    },
     "imp": [{
-   	 "id": "1"
+        "id": "1"
     }],
     "site": {
-   	 "id": "102855"
+        "id": "102855"
     },
     "user": {
-   	 "id": "55816b39711f9b5acf3b90e313ed29e51665623f",
+        "id": "55816b39711f9b5acf3b90e313ed29e51665623f"
     }
 }
-
 
 ```
 
