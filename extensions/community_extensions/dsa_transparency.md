@@ -1,5 +1,5 @@
 <h1>DSA Transparency</h1>
-<b>Public comment open through December 31st, 2023. Email support@iabtechlab.com to submit comments.</b> 
+This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.com/working-groups/global-privacy-working-group/">Global Privacy Working Group</a>. IAB Tech Lab and <a href="https://iabeurope.eu">IAB Europe</a> will continue partnership to steward this solution. IAB Tech Lab will maintain the technical specifications. IAB Europe will provide policy guidance, such as implementation guidelines.
 
 <h2>Introduction</h2>
 <p>The Digital Services Act (DSA) was adopted in October 2022, and the date of applicability for Platform companies is 16 February 2024.&nbsp; Along with the Digital Markets Act (DMA), the DSA is intended to improve the confidence of both private consumers and business users of Online Platforms in the products and services they access via those platforms, as well as the advertising they are exposed to on them, and to ensure a level playing field between platforms.&nbsp; The DSA lays down transparency obligations in relation to advertising; these obligations apply to Online Platforms, &ldquo;Very Large Online Platforms&rdquo; (VLOPs), and &ldquo;Very Large Online Search Engines&rdquo; (VLOSEs) as defined by the Digital Services Act.&nbsp;&nbsp;</p>
@@ -42,7 +42,7 @@
 <td><strong>Description</strong></td>
 </tr>
 <tr>
-<td><code>dsainfo</code></td>
+<td><code>required</code></td>
 <td>integer</td>
 <td>Flag to indicate if DSA information should be made available. This will signal if the bid request belongs to an Online Platform/VLOP, such that a buyer should respond with DSA Transparency information based on the pubrender value.
     <p><code>0</code> = Not required</p>
@@ -53,7 +53,7 @@
 <tr>
 <td><code>pubrender</code></td>
 <td>integer</td>
-<td>Flag to indicate if the publisher will render the DSA Transparency info. This will signal if the publisher is able to and intends to render the icon and display the DSA transparency info to the end user.
+<td>Flag to indicate if the publisher will render the DSA Transparency info. This will signal if the publisher is able to and intends to render an icon or other appropriate user-facing symbol and display the DSA transparency info to the end user.
     <p><code>0</code> = Publisher can't render</p>
     <p><code>1</code> = Publisher could render depending on adrender</p>
     <p><code>2</code> = Publisher will render</p></td>
@@ -107,8 +107,8 @@
     ],
     "regs": {
         "ext": [{
-            "dsa": [{
-                "dsainfo": 3, 
+            "dsa": {
+                "required": 3, 
                 "pubrender": 0,
                 "datatopub": 2,
                 "transparency": [{
@@ -117,7 +117,7 @@
                     {"domain": "SSP2domain.com",
                     "params": [1,2]
                     }]
-            }]
+            }
         }]
     },
     "imp": [{
@@ -223,7 +223,7 @@
    			 "advertiserdomain.com"
    		 ],
    		 "ext": [{
-   			 "dsa": [{
+   			 "dsa": {
    				 "behalf": "Advertiser",
    				 "paid": "Advertiser",
    				 "transparency": {
@@ -231,7 +231,7 @@
    					 "params": [1,2]
    				 },
    				 "adrender": 1
-   			 }]
+   			 }
    		 }]
    	 }]
     }]
@@ -281,9 +281,9 @@
 <td><strong>Representation in URL</strong></td>
 </tr>
 <tr>
-<td><code>dsainfo</code></td>
-<td><code>DSAINFO</code></td>
-<td><code>&amp;dsainfo=${DSAINFO}</code></td>
+<td><code>dsarequired</code></td>
+<td><code>DSAREQUIRED</code></td>
+<td><code>&amp;dsarequired=${DSAREQUIRED}</code></td>
 </tr>
 <tr>
 <td><code>dsabehalf</code></td>
@@ -300,6 +300,21 @@
 <td><code>DSAPARAMS</code></td>
 <td><code>&amp;dsaparams=${DSAPARAMS}</code></td>
 </tr>
+<tr>
+<td><code>dsatransparency</code></td>
+<td><code>DSATRANSPARENCY</code></td>
+<td><code>&amp;dsatransparency=${DSATRANSPARENCY}</code></td>
+</tr>
+<tr>
+<td><code>dsapubrender</code></td>
+<td><code>DSAPUBRENDER</code></td>
+<td><code>&amp;dsapubrender=${DSAPUBRENDER}</code></td>
+</tr>
+<tr>
+<td><code>dsadatatopubs</code></td>
+<td><code>DSADATATOPUBS</code></td>
+<td><code>&amp;dsadatatopubs=${DSADATATOPUBS}</code></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -313,7 +328,7 @@
 <td><strong>Definition</strong></td>
 </tr>
 <tr>
-<td><code>${DSAINFO}</code></td>
+<td><code>${DSAREQUIRED}</code></td>
 <td><p>0 = Not required 
     <p>1 = Supported, bid responses with or without DSA object will be accepted</p> 
     <p>2 = Required, bid responses without DSA object will not be accepted</p> 
@@ -337,6 +352,26 @@
 <td>Any combination of the integer values representing the user parameters. When multiple values are included, they should be separated by an underscore &ldquo;_&rdquo;.&nbsp;
 <p>Example:&nbsp;1_2_3</td>
 <td>Populated based on the combination of information from the bid request and bid response user parameters.&nbsp;</td>
+</tr>
+<tr>
+<td><code>${DSATRANSPARENCY}</code></td>
+<td>Composed of the two items from the transparency object; the domain string and the params array. These two items are separated by a tilde “~”. Values in the params array are separated by an underscore “_”. Multiple transparency objects are separated by two tildes “~~”.
+<p>Example:&nbsp;&dsatransparency=platform1domain.com~1~~SSP2domain.com~1_2</td>
+<td>Populated based on the transparency object from the bid request and the bid response. &nbsp;</td>
+</tr>
+<tr>
+<td><code>${DSAPUBRENDER}</code></td>
+<td><p>0 = Publisher can’t render</p>
+    <p>1 = Publisher could render depending on adrender</p>
+    <p>2 = Publisher will render</p></td>
+<td>Signals if the publisher is able to and intends to render an icon or other appropriate user-facing symbol and display the DSA transparency info to the end user. </td>
+</tr>
+<tr>
+<td><code>${DSADATATOPUBS}</code></td>
+<td><p>0 = do not send transparency data </p>
+    <p>1 = optional to send transparency data</p>
+    <p>2 = send transparency data</p></td>
+<td>Independent of pubrender, the publisher may need the transparency data for audit purposes. </td>
 </tr>
 </tbody>
 </table>
