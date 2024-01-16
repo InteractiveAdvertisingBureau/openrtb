@@ -106,7 +106,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
         "USD"
     ],
     "regs": {
-        "ext": [{
+        "ext": {
             "dsa": {
                 "required": 3, 
                 "pubrender": 0,
@@ -118,7 +118,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
                     "params": [1,2]
                     }]
             }
-        }]
+        }
     },
     "imp": [{
         "id": "1"
@@ -222,7 +222,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
    		 "adomain": [
    			 "advertiserdomain.com"
    		 ],
-   		 "ext": [{
+   		 "ext": {
    			 "dsa": {
    				 "behalf": "Advertiser",
    				 "paid": "Advertiser",
@@ -232,7 +232,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
    				 },
    				 "adrender": 1
    			 }
-   		 }]
+   		 }
    	 }]
     }]
 }
