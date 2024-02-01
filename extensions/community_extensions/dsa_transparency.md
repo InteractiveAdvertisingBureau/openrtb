@@ -42,7 +42,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
 <td><strong>Description</strong></td>
 </tr>
 <tr>
-<td><code>required</code></td>
+<td><code>dsarequired</code></td>
 <td>integer</td>
 <td>Flag to indicate if DSA information should be made available. This will signal if the bid request belongs to an Online Platform/VLOP, such that a buyer should respond with DSA Transparency information based on the pubrender value.
     <p><code>0</code> = Not required</p>
@@ -89,7 +89,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
 <td>Domain of the entity that applied user parameters&nbsp;</td>
 </tr>
 <tr>
-<td><code>params</code></td>
+<td><code>dsaparams</code></td>
 <td>array of integer</td>
 <td>Array for platform or sell-side use of any user parameters (using <a href="#user_parameters" target="_blank" rel="noopener">the list provided by DSA Transparency Taskforce</a>). <em>Note; See definition and list of possible </em><a href="#user_parameters" target="_blank" rel="noopener"><em>user parameters as listed here</em></a><em>, applied consistently in both bid request and/or bid response.</em></td>
 </tr>
@@ -108,14 +108,14 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
     "regs": {
         "ext": {
             "dsa": {
-                "required": 3, 
+                "dsarequired": 3, 
                 "pubrender": 0,
                 "datatopub": 2,
                 "transparency": [{
                     "domain": "platform1domain.com",
-                    "params": [1]},
+                    "dsaparams": [1]},
                     {"domain": "SSP2domain.com",
-                    "params": [1,2]
+                    "dsaparams": [1,2]
                     }]
             }
         }
@@ -200,7 +200,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
 <td>Domain of the entity that applied user parameters&nbsp;</td>
 </tr>
 <tr>
-<td><code>params</code></td>
+<td><code>dsaparams</code></td>
 <td>array of integer</td>
 <td>Array of buy-side applied user parameter targeting (using <a href="#user_parameters" target="_blank" rel="noopener">the list provided by DSA Transparency Taskforce</a>). Include support for multiple vendors who may add their own user-targeting parameters.</td>
 </tr>
@@ -226,10 +226,10 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
    			 "dsa": {
    				 "behalf": "Advertiser",
    				 "paid": "Advertiser",
-   				 "transparency": {
+   				 "transparency": [{
    					 "domain": “dsp1domain.com”,
-   					 "params": [1,2]
-   				 },
+   					 "dsaparams": [1,2]
+   				 }],
    				 "adrender": 1
    			 }
    		 }
@@ -376,4 +376,25 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
 </tbody>
 </table>
 </div>
+
+Changelog
+<table>
+<tbody>
+<tr>
+<td><strong>Date</strong></td>
+<td><strong>Comments</strong></td>
+</tr>
+<tr>
+<td>January 26, 2024</td>
+<td>Updates to attributes to avoid reserved words:
+    <li>Update of the <code>required</code> attribute name to <code>dsarequired</code></li>
+    <li>Update of the <code>params</code> attribute name to <code>dsaparams</code></li>
+</td>
+</tr>
+<tr>
+<td>January 16, 2024</td>
+<td>Original publish</td>
+</tr>
+</tbody>
+</table>
 
