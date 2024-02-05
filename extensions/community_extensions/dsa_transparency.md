@@ -2,7 +2,7 @@
 This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.com/working-groups/global-privacy-working-group/">Global Privacy Working Group</a>. IAB Tech Lab and <a href="https://iabeurope.eu">IAB Europe</a> will continue partnership to steward this solution. IAB Tech Lab will maintain the technical specifications. IAB Europe will provide policy guidance, such as implementation guidelines.
 
 <h2>Introduction</h2>
-<p>The Digital Services Act (DSA) was adopted in October 2022, and the date of applicability for Platform companies is 16 February 2024.&nbsp; Along with the Digital Markets Act (DMA), the DSA is intended to improve the confidence of both private consumers and business users of Online Platforms in the products and services they access via those platforms, as well as the advertising they are exposed to on them, and to ensure a level playing field between platforms.&nbsp; The DSA lays down transparency obligations in relation to advertising; these obligations apply to Online Platforms, &ldquo;Very Large Online Platforms&rdquo; (VLOPs), and &ldquo;Very Large Online Search Engines&rdquo; (VLOSEs) as defined by the Digital Services Act.&nbsp;&nbsp;</p>
+<p>The Digital Services Act (DSA) was adopted in October 2022, and the date of applicability for Platform companies is 16 February 2024.&nbsp; Along with the Digital Markets Act (DMA), the DSA is intended to improve the confidence of both private consumers and business users of Online Platforms in the products and services they access via those platforms, as well as the advertising they are exposed to on them, and to ensure a level playing field between platforms.&nbsp; The DSA lays down transparency obligations concerning advertising; these obligations apply to Online Platforms, &ldquo;Very Large Online Platforms&rdquo; (VLOPs), and &ldquo;Very Large Online Search Engines&rdquo; (VLOSEs) as defined by the Digital Services Act.&nbsp;&nbsp;</p>
 <p>Article 26 of the DSA requires Online Platforms to ensure that users have real-time access to certain elements of information about any ad shown to them on an Online Platform:</p>
 <ul>
 <li>That the ad is indeed an ad;</li>
@@ -11,7 +11,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
 <li>Information about the &ldquo;main parameters&rdquo; used to select the ad presented to the end-user;</li>
 <li>Where applicable, information about any means users may have at their disposal to change those main parameters.&nbsp;&nbsp;</li>
 </ul>
-<p>Although the legal obligation to provide the user-facing information disclosures applies to Online Platforms, it is clear that in many advertising scenarios, those platforms will need to rely on third-party vendors for the data that will be required to populate the disclosures.&nbsp; To ensure that the third parties are equipped to provide this support, this technical specification standardizes the collection, compilation and transport of the data, leaving Online Platforms free to decide how they wish to make the user-facing disclosures, including if they want to delegate the disclosures to another party.&nbsp;&nbsp;</p>
+<p>Although the legal obligation to provide user-facing information disclosures applies to Online Platforms, it is clear that in many advertising scenarios, those platforms will need to rely on third-party vendors for the data that will be required to populate the disclosures.&nbsp; To ensure that the third parties are equipped to provide this support, this technical specification standardizes the collection, compilation and transport of the data, leaving Online Platforms free to decide how they wish to make the user-facing disclosures, including if they want to delegate the disclosures to another party.&nbsp;&nbsp;</p>
 <p>This technical specification provides data formats and transport for the advertising industry to implement relevant DSA transparency information. This solution should be applicable across most relevant use cases including; programmatic and non-programmatic media buys, channels including desktop web, mobile (web/app), video, CTV.</p>
 <h2>Object Specification for OpenRTB 2.X</h2>
 <h3>Bid Request</h3>
@@ -258,7 +258,7 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
 <tr>
 <td>2</td>
 <td>Basic advertising</td>
-<td>Use of real-time information about the context in which the ad will be shown, to show the ad, including information about the content and the device, such as: device type and capabilities, user agent, URL, IP address, non-precise geolocation data. Additionally, use of basic cross-context information not based on user behavior or user characteristics, for uses such as frequency capping, sequencing, brand safety, anti-fraud.</td>
+<td>Use of real-time information about the device, such as: device type and capabilities, user agent, IP address, non-precise geolocation data. Additionally, use of basic cross-context information not based on user behavior or user characteristics, for uses such as frequency capping, sequencing, anti-fraud.</td>
 <td>TCF Purpose 2</td>
 </tr>
 <tr>
@@ -267,6 +267,12 @@ This specification is stewarded by IAB Tech Lab's <a href="https://iabtechlab.co
 <td>The precise real-time geolocation of the user, i.e. GPS coordinates within 500 meter radius precision.</td>
 <td>TCF Special Feature 1</td>
 </tr>
+<tr>
+<td>4</td>
+<td>Contextual information</td>
+<td>The context in which the ad will be shown including information about the content, the slot, and the URL.</td>
+<td>N/A</td>
+</tr>    
 </tbody>
 </table>
 </div>
