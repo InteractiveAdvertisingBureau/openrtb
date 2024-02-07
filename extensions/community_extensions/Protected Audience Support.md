@@ -28,13 +28,6 @@ Note that this only indicates that the interest group auction is supported, not 
     0 = no, 1 = yes
     </td>
   </tr>
-  <tr>
-    <td><code>ext</code></td>
-    <td>object</td>
-    <td>Placeholder for vendor specific extensions to this object.</td>
-     </td>
-     </td>
-  </tr>
 </table>
 
 
@@ -64,13 +57,6 @@ Information to signal participation in a potential interest group auction for a 
     <td>array; required</td>
     <td>One or more `InterestGroupAuctionSeller` objects. Required and mutually exclusive with `igb`.</td>
  </tr>	
-  <tr>
-    <td><code>ext</code></td>
-    <td>object</td>
-    <td>Placeholder for bidder-specific extensions to OpenRTB.</td>
-     </td>
-     </td>
-  </tr>
 </table>
 
 ## Object: InterestGroupAuctionBuyer 
@@ -114,13 +100,6 @@ Information for an interest group auction buyer.
     <td>object</td>
     <td>The buyer’s priority signals, an object mapping string keys to Javascript numbers. If specified, the seller will add to its auction config <code>perBuyerPrioritySignals</code>code> attribute map, keyed by the interest group buyer origin. See https://github.com/WICG/turtledove/blob/main/FLEDGE.md#35-filtering-and-prioritizing-interest-groups </td>
   </tr>
-  <tr>
-    <td><code>ext</code></td>
-    <td>object</td>
-    <td>Placeholder for bidder-specific extensions to OpenRTB.</td>
-     </td>
-     </td>
-  </tr>
 </table>
 
 
@@ -142,12 +121,5 @@ Information for an interest group auction component seller. Component seller auc
     <td><code>config</code></td>
     <td>object; required</td>
     <td>Auction config for a component seller</td>
-  </tr>
-  <tr>
-    <td><code>ext</code></td>
-    <td>object</td>
-    <td>Placeholder for bidder-specific extensions to OpenRTB.</td>
-     </td>
-     </td>
   </tr>
 </table>
