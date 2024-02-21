@@ -35,7 +35,7 @@ Note that this only indicates that the interest group auction is supported, not 
 Extensions to Object: Bid to respond to Protected Audience/Interest Group Auctions
 
 ## Object: InterestGroupAuctionIntent
-Information to signal participation in a potential interest group auction for a given ad slot. Must include at least one buyer (`igb`) or at least one seller (`iqs`) object, but not both.
+Information to signal participation in a potential interest group auction for a given ad slot. Must include at least one buyer (`igb`) or at least one seller (`igs`) object, but not both.
 
 <table>
   <tr>
