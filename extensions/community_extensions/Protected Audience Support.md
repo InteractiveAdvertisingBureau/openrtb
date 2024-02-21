@@ -2,7 +2,7 @@
 
 ## Object: InterestGroupAuctionSupport 
 
-This object allows sellers to signal interest group auction support for an Imp. 
+This ext to Object: Imp allows sellers to signal interest group auction support for an Impression. 
 
 <table>
   <tr>
@@ -32,6 +32,7 @@ Note that this only indicates that the interest group auction is supported, not 
 
 
 # Bid Response Values
+Extensions to Object: Bid to respond to Protected Audience/Interest Group Auctions
 
 ## Object: InterestGroupAuctionIntent
 Information to signal participation in a potential interest group auction for a given ad slot. Must include at least one buyer (`igb`) or at least one seller (`iqs`) object, but not both.
@@ -103,7 +104,7 @@ Information for an interest group auction buyer.
 </table>
 
 
-  ## Object: InterestGroupAuctionSeller
+## Object: InterestGroupAuctionSeller
 Information for an interest group auction component seller. Component seller auction configuration should be submitted to the top-level seller on-page library for inclusion in the interest group auction.
 
 <table>
@@ -123,3 +124,139 @@ Information for an interest group auction component seller. Component seller auc
     <td>Auction config for a component seller</td>
   </tr>
 </table>
+
+
+# Implementation Guidance
+
+## Bid Request 
+
+### Signaling Interest Group Auction Support 
+
+Following extends the basic banner example to advertise interest group auction support.
+
+```javascript
+{
+  "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22",
+  "at": 1,
+  "cur": [
+    "USD"
+  ],
+  "imp": [
+    {
+      "id": "1",
+      "bidfloor": 0.03,
+      "banner": {
+        "h": 250,
+        "w": 300,
+        "pos": 0
+      },
+      "ext": {
+         "ig":{
+            "ae": 1
+         }
+      }
+   }],
+  "site": {
+    "id": "102855",
+    "cat": [
+      "IAB3-1"
+    ],
+    "domain": "www.example.com",
+    "page": "http://www.example.com/1234.html",
+    "publisher": {
+      "id": "8953",
+      "name": "example.com",
+      "cat": [
+        "IAB3-1"
+      ],
+      "domain": "example.com"
+    },
+    "user": {
+      "id": "55816b39711f9b5acf3b90e313ed29e51665623f"
+    }
+  }
+}
+```
+
+
+## Bid Response
+
+### Bid Placed with Interest Group Auction Intent
+	
+Following extends the Ad Served On Win Notice example to demonstrate a bidder placing a bid into the standard OpenRTB auction and also signaling intent for one IG owner/buyer to participate in potential on-device auction.
+
+
+```javascript
+{
+  "id": "1234567890",
+  "bidid": "abc1123",
+  "cur": "USD",
+  "seatbid": [
+    {
+      "seat": "512",
+      "bid": [
+        {
+          "id": "1",
+          "impid": "102",
+          "price": 9.43,
+          "nurl": "http://adserver.com/winnotice?impid=102",
+          "iurl": "http://adserver.com/pathtosampleimage",
+          "adomain": [
+            "advertiserdomain.com"
+          ],
+          "cid": "campaign111",
+          "crid": "creative112",
+          "attr": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            12
+          ]
+        }
+      ]
+    }
+  ],
+ "ext": {
+      "igi":[ 
+    {
+      "impid": "1",
+      "igb":[
+        {   	 
+          "origin": "https://paapi.dsp.com"
+         }
+      }
+   }],
+        }   	 
+      ]
+    }
+  ]
+}
+```
+
+### No Bid with Interest Group Auction Intent
+
+Following is an example where a bidder places no bid in the standard OpenRTB auction, but does signal intent to participate in potential on-device IG auction.
+
+```javascript
+{
+  "id": "1234567890", 
+  "seatbid": [],
+ "ext": {
+  "igi":[ 
+     {
+      "impid": "1",
+      "igb":[
+         {   	 
+           "origin": "https://paapi.dsp.com"
+         }   	 
+      ]
+    }
+  }]
+}
+```
+
+
