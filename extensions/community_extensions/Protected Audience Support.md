@@ -300,7 +300,7 @@ Following extends the Ad Served On Win Notice example to demonstrate a seller pl
   ],
   "ext": {
     "igi":[{
-      "igb":[{
+      "igs":[{
         "impid": "1",
         "config": {
           "key": "value"
