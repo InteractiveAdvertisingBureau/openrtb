@@ -6,8 +6,8 @@ This ext to Object: Imp allows sellers to signal interest group auction support 
 
 <table>
   <tr>
-    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
-    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
     <td><strong>Description</strong></td>
   </tr>
   <tr>
@@ -39,8 +39,8 @@ Information to signal participation in a potential interest group auction for a 
 
 <table>
   <tr>
-    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
-    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
     <td><strong>Description</strong></td>
   </tr>
   <tr>
@@ -66,8 +66,8 @@ Information for an interest group auction buyer.
 
 <table>
   <tr>
-    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
-    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
     <td><strong>Description</strong></td>
   </tr>
   <tr>
@@ -109,8 +109,8 @@ Information for an interest group auction component seller. Component seller auc
 
 <table>
   <tr>
-    <td><strong>Attribute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
-    <td><strong>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
     <td><strong>Description</strong></td>
   </tr>
 <tr>
