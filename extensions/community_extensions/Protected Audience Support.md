@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td><code>ae</code></td>
-    <td>integer;<br>default 0</td>
+    <td>integer;<br>default 1</td>
     <td>Interest Group auction environment support for this impression:<br>
         0 = Interest Group auction not supported<br>
         1 = on-device-orchestrated Interest Group auction<br>
