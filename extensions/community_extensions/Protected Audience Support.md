@@ -1,6 +1,7 @@
 # Bid Request Values
 
 ## Object: InterestGroupAuctionSupport 
+BidRequest.imp.ext.igs
 
 This ext to Object: Imp allows sellers to signal interest group auction support for an Impression. 
 
@@ -12,7 +13,7 @@ This ext to Object: Imp allows sellers to signal interest group auction support 
   </tr>
   <tr>
     <td><code>ae</code></td>
-    <td>integer;<br>default 1</td>
+    <td>integer;<br>default 0</td>
     <td>Interest Group auction environment support for this impression: <br>
 1 = on-device orchestrated auction<br>
 2 = server-orchestrated auction<br>
@@ -35,6 +36,7 @@ Note that this only indicates that the interest group auction is supported, not 
 Extensions to Object: Bid to respond to Protected Audience/Interest Group Auctions
 
 ## Object: InterestGroupAuctionIntent
+BidResponse.ext.igi
 Information to signal participation in a potential interest group auction for a given ad slot. Must include at least one buyer (`igb`) or at least one seller (`igs`) object, but not both.
 
 <table>
@@ -61,7 +63,7 @@ Information to signal participation in a potential interest group auction for a 
 </table>
 
 ## Object: InterestGroupAuctionBuyer 
-
+BidResponse.ext.igi.igb
 Information for an interest group auction buyer.
 
 <table>
@@ -105,6 +107,8 @@ Information for an interest group auction buyer.
 
 
 ## Object: InterestGroupAuctionSeller
+BidResponse.ext.igi.igs
+
 Information for an interest group auction component seller. Component seller auction configuration should be submitted to the top-level seller on-page library for inclusion in the interest group auction.
 
 <table>
