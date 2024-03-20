@@ -122,7 +122,7 @@ Component seller auction configuration should be submitted to the top-level sell
   </tr>
 <tr>
     <td><code>impid</code></td>
-    <td>string; required</td>
+    <td>string; optional</td>
     <td>ID of the <code>Imp</code> object in the related bid request. Used to link Interest Group seller information to the specific ad slot.</td>
   </tr>
 <tr>
