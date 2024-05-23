@@ -316,6 +316,10 @@ There are many reasons for a non bid scenario and it is understood not all can b
       <td>Response Rejected - Below Deal Floor</td>
     </tr>
     <tr>
+      <td>305</td>
+      <td>Response Rejected - Privacy</td>
+    </tr>
+    <tr>
       <td>350</td>
       <td>Response Rejected - Invalid Creative</td>
     </tr>
