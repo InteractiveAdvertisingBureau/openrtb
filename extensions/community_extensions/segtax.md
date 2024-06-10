@@ -448,5 +448,11 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
         Audigent Campaign Taxonomies
       </td>
     </tr>
+    <tr>
+      <td>103015</td>
+      <td>
+        Rayn Persona Taxonomy
+      </td>
+    </tr>
   </tbody>
 </table>
