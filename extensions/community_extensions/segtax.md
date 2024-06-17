@@ -20,32 +20,32 @@ Per the OpenRTB 2.x API, the Data and Segment objects together allow additional 
   <thead>
     <tr>
       <td>
-        <strong>Attribute</strong>
+	<strong>Attribute</strong>
       </td>
       <td>
-        <strong>Description</strong>
+	<strong>Description</strong>
       </td>
       <td>
-        <strong>Type</strong>
+	<strong>Type</strong>
       </td>
       <td>
-        <strong>Example</strong>
+	<strong>Example</strong>
       </td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <code>segtax</code>
+	<code>segtax</code>
       </td>
       <td>
-        The ID for a taxonomy that is registered centrally, in a list maintained below.
+	The ID for a taxonomy that is registered centrally, in a list maintained below.
       </td>
       <td>
-        integer
+	integer
       </td>
       <td>
-        <code>3</code>
+	<code>3</code>
       </td>
     </tr>
   </tbody>
@@ -61,14 +61,14 @@ The following example illustrates the usage of the new field in `BidRequest.user
   "user": {
     "data": [
       {
-        "name": "a-data-provider.com",
-        "ext": {
-          "segtax": 3
-        },
-        "segment": [
-          { "id": "1001" },
-          { "id": "1002" }
-        ]
+	"name": "a-data-provider.com",
+	"ext": {
+	  "segtax": 3
+	},
+	"segment": [
+	  { "id": "1001" },
+	  { "id": "1002" }
+	]
       }
     }
   }
@@ -90,7 +90,7 @@ The aim of this process is to provide flexibility and quick turnaround on approv
 
 #### Enumeration of Taxonomies
 
-##### Standard Taxonomies 
+##### Standard Taxonomies
 Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/master/AdCOM%20v1.0%20FINAL.md#list_categorytaxonomies](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/master/AdCOM%20v1.0%20FINAL.md#list_categorytaxonomies).
 
 
@@ -135,15 +135,15 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
 </table>
 
 
-##### Approved Vendor specific Taxonomies 
+##### Approved Vendor specific Taxonomies
 <table>
   <thead>
     <tr>
       <td>
-        <strong>Value</strong>
+	<strong>Value</strong>
       </td>
       <td>
-        <strong>Description</strong>
+	<strong>Description</strong>
       </td>
     </tr>
   </thead>
@@ -151,7 +151,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     <tr>
       <td>501</td>
       <td>
-        IRIS.TV-enabled Video context taxonomy - More info - <a href="support.iris.tv">https://support.iris.tv</a>
+	IRIS.TV-enabled Video context taxonomy - More info - <a href="support.iris.tv">https://support.iris.tv</a>
       </td>
     </tr>
     <tr>
@@ -181,7 +181,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     <tr>
       <td>508</td>
       <td>Magnite Standard Audiences</td>
-    </tr>	  
+    </tr>
     <!-- 1plusX -->
     <tr>
       <td>525</td>
@@ -199,15 +199,15 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>528 - 539</td>
       <td>1plusX - Custom Taxonomies Reserved range</td>
     </tr>
-        <tr>
+	<tr>
       <td>540</td>
       <td>AirGrid Custom Taxonomy</td>
     </tr>
-            <tr>
+	    <tr>
       <td>541</td>
       <td>Captify Custom Taxonomy</td>
     </tr>
-                <tr>
+		<tr>
       <td>542</td>
       <td>Weborama Custom Taxonomy</td>
     </tr>
@@ -335,14 +335,14 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     <tr>
       <td>601</td><td><a href='https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v2.md'>Chromium Topics API Taxonomy V2 </a></td>
       </tr>
-          <tr>
+	  <tr>
       <td>602-609</td><td>Held for future Chromium Topics API taxonomies</td>
       </tr>
     <tr>
       <td>700</td>
       </td>
       <td>
-        Groundtruth Taxonomies
+	Groundtruth Taxonomies
       </td>
     </tr>
     <tr>
@@ -371,7 +371,7 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <tr>
       <td>1003</td>
       <td>Anonymised Custom Audience Reserved 3</td>
-    </tr> 
+    </tr>
       <tr>
       <td>2000</td>
       <td>Start.io Custom Audiences </td>
@@ -380,6 +380,26 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <tr>
       <td>2001</td>
       <td>Start.io Standard Audiences</td>
+      </tr>
+    </tr>
+      <tr>
+      <td>3001</td>
+      <td>Outbrain Audiences - Demographics</td>
+    </tr>
+    </tr>
+      <tr>
+      <td>3002</td>
+      <td>Outbrain Audiences - Interests</td>
+      </tr>
+     </tr>
+      <tr>
+      <td>3003</td>
+      <td>Outbrain Audiences - Household Income</td>
+      </tr>
+    </tr>
+      <tr>
+      <td>3003-3010</td>
+      <td>Outbrain Audiences - Reserved</td>
     </tr>
     <tr>
       <td>5000</td>
@@ -396,62 +416,62 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
     <tr>
       <td>103000</td>
       <td>
-        Audigent Warner Music Group Artists Taxonomy 1.0
+	Audigent Warner Music Group Artists Taxonomy 1.0
       </td>
     </tr>
     <tr>
       <td>103001</td>
       <td>
-        Audigent Bands in Town Artists Taxonomy 1.0
+	Audigent Bands in Town Artists Taxonomy 1.0
       </td>
     </tr>
     <tr>
       <td>103002</td>
       <td>
-        Audigent Fandom Interests & Audiences Taxonomy 1.0
+	Audigent Fandom Interests & Audiences Taxonomy 1.0
       </td>
     </tr>
     <tr>
       <td>103003</td>
       <td>
-        Audigent Big Machine Label Group Artists Taxonomy 1.0
+	Audigent Big Machine Label Group Artists Taxonomy 1.0
       </td>
     </tr>
     <tr>
       <td>103004</td>
       <td>
-        Audigent Music Festival Partner Taxonomy 1.0
+	Audigent Music Festival Partner Taxonomy 1.0
       </td>
     </tr>
     <tr>
       <td>103005</td>
       <td>
-        Audigent Fashion & Apparel Taxonomy 1.0
+	Audigent Fashion & Apparel Taxonomy 1.0
       </td>
     </tr>
     <tr>
       <td>103006-103008</td>
       <td>
-        Audigent Private Audience Taxonomies
+	Audigent Private Audience Taxonomies
       </td>
     </tr>
     <tr>
       <td>103009-103011</td>
       <td>
-        Audigent Private Contextual Taxonomies
+	Audigent Private Contextual Taxonomies
       </td>
     </tr>
     <tr>
       <td>103012-103014</td>
       </td>
       <td>
-        Audigent Campaign Taxonomies
+	Audigent Campaign Taxonomies
       </td>
     </tr>
     <tr>
       <td>103015</td>
       <td>
-        Rayn Persona Taxonomy
+	Rayn Persona Taxonomy
       </td>
     </tr>
   </tbody>
