@@ -383,17 +383,17 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       </tr>
     </tr>
       <tr>
-      <td>3001</td>
+      <td>3000</td>
       <td>Outbrain Audiences - Demographics</td>
     </tr>
     </tr>
       <tr>
-      <td>3002</td>
+      <td>3001</td>
       <td>Outbrain Audiences - Interests</td>
       </tr>
      </tr>
       <tr>
-      <td>3003</td>
+      <td>3002</td>
       <td>Outbrain Audiences - Household Income</td>
       </tr>
     </tr>
