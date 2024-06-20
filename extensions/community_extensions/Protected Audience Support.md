@@ -31,6 +31,15 @@
     1 = yes, the buyer is allowed
     </td>
   </tr>
+<tr>
+    <td><code>pbsmap</code></td>
+    <td>integer;<br>default 0</td>
+    <td>Indicates whether the seller can provide <code>igb.pbs</code> in <code>Object: InterestGroupAuctionBuyerSignals</code></br>
+    where <br>
+	0 = no; igb.pbs value is passthrough (DEFAULT)<br>
+	1 = yes; igb.pbs will be provided in the structure indicated by the <code>buyer</code> attribute.
+    </td>
+  </tr>
 </table>
 
 
@@ -106,6 +115,16 @@ Must include at least one buyer (`igb`, in the bid response from the buyer to th
     <td>object</td>
     <td>The buyer’s priority signals, an object mapping string keys to Javascript numbers. If specified, the seller will add to its auction config <code>perBuyerPrioritySignals</code> attribute map, keyed by the Interest Group buyer origin. See https://github.com/WICG/turtledove/blob/main/FLEDGE.md#35-filtering-and-prioritizing-interest-groups </td>
   </tr>
+  <tr>
+    <td><code>pbsmap</code></td>
+    <td>integer;<br>default 0</td>
+    <td>Indicates whether the buyer has opted into receiving <code>igb.pbs</code> in <code>Object: InterestGroupAuctionBuyerSignals</code></br>
+    where <br>
+	0 = no; igb.pbs value is passthrough (DEFAULT)<br>
+	1 = yes; igb.pbs can be provided in InterestGroupAuctionBuyerSignals.buyer<br><br>
+ The buyer agrees to receive <code>igb.pbs</code> in this format whether the seller provides it in <code>auctionConfig.perBuyerSignals</code> or via <code>directFromSellerSignals.perBuyerSignals</code>. 
+    </td>
+  </tr>
 </table>
 
 
@@ -129,6 +148,45 @@ Component seller auction configuration should be submitted to the top-level sell
     <td><code>config</code></td>
     <td>object; required</td>
     <td>Auction config for a component seller</td>
+  </tr>
+</table>
+
+## Object: InterestGroupAuctionBuyerSignals
+<table>
+  <tr>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Description</strong></td>
+  </tr>
+<tr>
+    <td><code>buyer</code></td>
+    <td>Any JSON serializable value</td>
+    <td>Value from the buyer, <code>OpenRTB BidResponse.ext.igi[].igb[].pbs.</code></td>
+  </tr>
+<tr>
+    <td><code>requestnamespace</code></td>
+    <td>object</td>
+    <td>Namespace of the expected structure of the bid request. See Namespacing section in Implementation Guidance for additional details </td>
+  </tr>
+</table>
+
+## Object: Request Namespace
+<table>
+  <tr>
+    <td><strong>Attribute</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Description</strong></td>
+  </tr>
+<tr>
+    <td><code>ortb2</code></td>
+    <td>OpenRTB BidRequest</td>
+    <td>A sparse OpenRTB BidRequest. If an ORTB object is present in both auctionSignals and this location, the fields in perBuyerSignals take precedence.
+</td>
+  </tr>
+<tr>
+    <td><code>ext</code></td>
+    <td>string</td>
+    <td>Any programmatic bid request <b>not</b> structured as an OpenRTB request</td>
   </tr>
 </table>
 
@@ -308,5 +366,66 @@ Following extends the Ad Served On Win Notice example to demonstrate a seller pl
       }]
     }]
   }
+}
+```
+
+### Namespacing
+#### Namespacing in auctionSignals
+The auctionSignals metadata may originate from diverse sources, so this map should be ‘namespaced’ by the providing entity. Where an entity is using OpenRTB objects, it should provide them in an attribute named ortb2. For example:
+
+```json
+{
+   ...
+   "auctionSignals": {
+      "prebid": {
+         "ortb2": {
+            "sparse OpenRTB Request"
+         }
+      },
+      "seller": {
+         "ortb2": {
+            ...
+         }
+      }
+    "other entities providing metadata, as needed"
+   }
+   ...
+}
+```
+
+#### Namespacing in perBuyerSignals
+Early PAAPI auction provisioning practice was for buyers to supply their <code>perBuyerSignals</code> to seller partners as a passthrough value in <code>BidResponse.ext.igbid[].igbuyer[].buyerdata</code> or some other means. The seller places this in the buyer’s key in <code>auctionConfig.perBuyerSignals</code> and Protected Audience then provides the value as the <code>perBuyerSignals</code> parameter to <code>generateBid</code>. This does not afford a clean way for the seller to provide signals to a specific buyer, such as Deals.
+
+To accommodate this, the community extensions support a more open <code>perBuyerSignals</code> handling. In an OpenRTB BidRequest sellers can signal their ability to provide and in the BidResponse buyers may opt in to receive an <code>InterestGroupAuctionBuyerSignals</code> object in the interest group auction. 
+
+If buyer "https://dsp.example"’s igb.pbsmap is missing or 0, then the seller/SSP provides perBuyerSignals as:
+
+```
+"perBuyerSignals": {
+"https://dsp.example": ... // BidResponse.ext.igi[].igb[].pbs
+}
+```
+
+If the buyer opts into perBuyerSignals namespacing by returning pbsmap = 1, then the seller/SSP provides perBuyerSignalls as:
+
+```
+"perBuyerSignals": {
+"https://dsp.example": {
+        "buyer": …  // BidResponse.ext.igi[].igb[].pbs,
+        "seller": {
+           "ortb2":{
+                /* sparse ORTB value */
+           }
+        }
+     }
+}
+
+{
+   "buyer": ...,   /* buyer’s pbs value as provided to the seller/publisher in BidResponse.ext.igi[].igb[].pbs */ 
+   "seller": {
+      "ortb2": {
+         ...       /* buyer-specific BidRequest object values */ 
+      } 
+   }
 }
 ```
