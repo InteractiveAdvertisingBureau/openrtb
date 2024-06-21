@@ -170,22 +170,28 @@ Component seller auction configuration should be submitted to the top-level sell
   </tr>
 </table>
 
-## Object: Request Namespace
+## List: Request Namespace
 <table>
   <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
+    <td><strong>Value</strong></td>
+    <td><strong>Definition</strong></td>
     <td><strong>Description</strong></td>
   </tr>
 <tr>
+    <td><code>1</code></td>
     <td><code>ortb2</code></td>
     <td>OpenRTB BidRequest</td>
-    <td>A sparse OpenRTB BidRequest. If an ORTB object is present in both auctionSignals and this location, the fields in perBuyerSignals take precedence.
-</td>
+    <td>A sparse OpenRTB BidRequest. If an ORTB object is present in both auctionSignals and this location, the fields in perBuyerSignals take precedence. </td>
   </tr>
 <tr>
-    <td><code>ext</code></td>
-    <td>string</td>
+    <td><code>2</code></td>
+    <td><code>Prebid</code></td>
+    <td>Prebid BidRequest</td>
+    <td>A sparse PreBid Bid Request. WHAT DO I PUT HERE</td>
+  </tr>
+<tr>
+    <td><code>500+</code></td>
+    <td>other</td>
     <td>Any programmatic bid request <b>not</b> structured as an OpenRTB request</td>
   </tr>
 </table>
