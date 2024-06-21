@@ -151,6 +151,9 @@ Component seller auction configuration should be submitted to the top-level sell
   </tr>
 </table>
 
+# Non-OpenRTB Signaling
+If and only if the buyer opts into perBuyerSignals namespacing by returning pbsmap = 1 in <code>Object: InterestGroupAuctionBuyer</code>, then the seller provides perBuyerSignals in an structure object expected to be understood by implementers <i>a priori</i>. See Implementation Guidance (LINK) for additional detail.
+
 ## Object: InterestGroupAuctionBuyerSignals
 <table>
   <tr>
@@ -164,38 +167,12 @@ Component seller auction configuration should be submitted to the top-level sell
     <td>Value from the buyer, <code>OpenRTB BidResponse.ext.igi[].igb[].pbs.</code></td>
   </tr>
 <tr>
-    <td><code>requestnamespace</code></td>
+    <td><code>seller</code></td>
     <td>object</td>
-    <td>Namespace of the expected structure of the bid request. See Namespacing section in Implementation Guidance for additional details </td>
+    <td>If an ORTB object is present in both auctionSignals and this location, the fields in perBuyerSignals take precedence.
+</td>
   </tr>
 </table>
-
-## List: Request Namespace
-<table>
-  <tr>
-    <td><strong>Value</strong></td>
-    <td><strong>Definition</strong></td>
-    <td><strong>Description</strong></td>
-  </tr>
-<tr>
-    <td><code>1</code></td>
-    <td><code>ortb2</code></td>
-    <td>OpenRTB BidRequest</td>
-    <td>A sparse OpenRTB BidRequest. If an ORTB object is present in both auctionSignals and this location, the fields in perBuyerSignals take precedence. </td>
-  </tr>
-<tr>
-    <td><code>2</code></td>
-    <td><code>Prebid</code></td>
-    <td>Prebid BidRequest</td>
-    <td>A sparse PreBid Bid Request. WHAT DO I PUT HERE</td>
-  </tr>
-<tr>
-    <td><code>500+</code></td>
-    <td>other</td>
-    <td>Any programmatic bid request <b>not</b> structured as an OpenRTB request</td>
-  </tr>
-</table>
-
 
 # Implementation Guidance
 
@@ -376,16 +353,18 @@ Following extends the Ad Served On Win Notice example to demonstrate a seller pl
 ```
 
 ### Namespacing
+Where participants in the auction are using the OpenRTB object model, the <code>seller</code> atrribute should <b>always</b> always have a sub-attribute called .ortb2.
+
 #### Namespacing in auctionSignals
 The auctionSignals metadata may originate from diverse sources, so this map should be ‘namespaced’ by the providing entity. Where an entity is using OpenRTB objects, it should provide them in an attribute named ortb2. For example:
 
-```json
+```jsonc
 {
    ...
    "auctionSignals": {
       "prebid": {
          "ortb2": {
-            "sparse OpenRTB Request"
+            ... // sparse OpenRTB Bid Request attributes
          }
       },
       "seller": {
@@ -393,7 +372,6 @@ The auctionSignals metadata may originate from diverse sources, so this map shou
             ...
          }
       }
-    "other entities providing metadata, as needed"
    }
    ...
 }
@@ -414,23 +392,23 @@ If buyer "https://dsp.example"’s igb.pbsmap is missing or 0, then the seller/S
 
 If the buyer opts into perBuyerSignals namespacing by returning pbsmap = 1, then the seller/SSP provides perBuyerSignalls as:
 
-```
+```jsonc
 "perBuyerSignals": {
 "https://dsp.example": {
         "buyer": …  // BidResponse.ext.igi[].igb[].pbs,
         "seller": {
            "ortb2":{
-                /* sparse ORTB value */
+               // sparse ORTB value
            }
         }
      }
 }
 
 {
-   "buyer": ...,   /* buyer’s pbs value as provided to the seller/publisher in BidResponse.ext.igi[].igb[].pbs */ 
+   "buyer": ...,   // buyer’s pbs value as provided to the seller/publisher in BidResponse.ext.igi[].igb[].pbs 
    "seller": {
       "ortb2": {
-         ...       /* buyer-specific BidRequest object values */ 
+         ...       // buyer-specific BidRequest object values
       } 
    }
 }
