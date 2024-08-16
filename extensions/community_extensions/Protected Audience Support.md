@@ -38,8 +38,8 @@
 
 ## Object: InterestGroupAuctionIntent
 
-`BidResponse.ext.igi`: This extension to "Object: Bid" allows buyers and sellers to provide necessary signals in order to operate an Interest Group auction for a given ad slot. </br>
-Must include at least one buyer (`igb`, in the bid response from the buyer to the seller) or at least one seller (`igs`, from the seller to the publisher) object, but not both.
+`BidResponse.ext.igi`: This extension to "Object: BidResponse" allows buyers and sellers to provide necessary signals in order to operate an Interest Group auction for a given ad slot. </br>
+Must include at least a buyer object (`igb`, in the bid response from the buyer to the seller) or seller object (`igs`, from the seller to the publisher), but not both.
 
 <table>
   <tr>
@@ -76,7 +76,7 @@ Must include at least one buyer (`igb`, in the bid response from the buyer to th
     <td><strong>Description</strong></td>
   </tr>
   <tr>
-    <td><code>origin </code></td>
+    <td><code>origin</code></td>
     <td>string; required</td>
     <td>Origin of the Interest Group buyer to participate in the IG auction. See https://developer.mozilla.org/en-US/docs/Glossary/Origin.</td>
   </tr>
@@ -132,6 +132,35 @@ Component seller auction configuration should be submitted to the top-level sell
   </tr>
 </table>
 
+# Non-OpenRTB Signaling
+The objects coming from sellers or publishers are expected to be ‘namespaced.’ If OpenRTB is reused it is under the "ortb2" key.
+
+<b>NOTES:</b> 
+* If the publisher shares some vendor info that would be namespaced within the pub's windowHostname key, e.g. "prebid.org" or "vendor.com".
+* If sellers are using directFromSellerSignals to communicate this information, they should follow the same naming convention.
+* If ortb2 namespace is used, it is expected that the structured request matches OpenRTB object model and definitions. All deviations should be done as extensions and negotiated apriori between the parties wanting to send/receive non-standard signals.  
+
+## Object: InterestGroupAuctionBuyerSignals
+Early PAAPI auction provisioning practice was for buyers to supply their perBuyerSignals to seller partners as a passthrough value <code>BidResponse.ext.igbid[].igbuyer[].buyerdata</code> or some other means. The seller places this in the buyer’s key in <code>auctionConfig.perBuyerSignals</code> and PA then provides the value as the perBuyerSignals parameter to generateBid.  This does not afford a clean way for the seller to provide signals to a specific buyer, such as Deals.
+
+To accommodate this, the community extensions support a more open perBuyerSignals handling. In an OpenRTB BidRequest sellers can signal their ability to provide and in the BidResponse buyers may opt in to receive an InterestGroupAuctionBuyerSignals object in the interest group auction. 
+
+This object is a dictionary with support for some combination of the following enteries: 
+
+ ```javascript
+{
+   let signalsFromMyOrigin        = perBuyerSignals[browserSignals.interestGroupOwner]; 
+   let signalsFromComponentSeller = perBuyerSignals[browserSignals.seller];
+   let signalsFromTopLevelSeller  = perBuyerSignals[browserSignals.topLevelSeller];
+   let signalsFromPublisher       = perBuyerSignals[browserSignals.topWindowHostname];
+}
+```
+
+The presence and placement of these entries determine the role of the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origin</a> listed. 
+
+While the entities listed above and their associated <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origins</a> are defined values established and recognized by the PA APIs, others may be included based on specific agreement between partners that have been negotiated <i>a priori</i>. In that case, the canonical domain of the parties should be used. 
+
+See Namespacing section of implementation guidance for additional detail https://github.com/hillslatt/examplefork/edit/hillslatt-ig-support-ext/extensions/community_extensions/Protected%20Audience%20Support.md?pr=%2FInteractiveAdvertisingBureau%2Fopenrtb%2Fpull%2F175#namespacing
 
 # Implementation Guidance
 
@@ -184,7 +213,6 @@ Following extends the basic banner example to advertise Interest Group auction s
   }
 }
 ```
-
 
 ## Bid Response
 
@@ -308,5 +336,98 @@ Following extends the Ad Served On Win Notice example to demonstrate a seller pl
       }]
     }]
   }
+}
+```
+
+### Namespacing
+Where participants in the auction are using the OpenRTB object model, the <code>seller</code> atrribute should <b>always</b> always have a sub-attribute called .ortb2.
+
+#### Namespacing in auctionSignals
+The auctionSignals metadata may originate from diverse sources, so this map should be ‘namespaced’ by the providing entity. Where an entity is using OpenRTB objects, it should provide them in an attribute named ortb2. For example:
+
+```jsonc
+{
+   ...
+   "auctionSignals": {
+      "prebid": {
+         "ortb2": {
+            ... // sparse OpenRTB Bid Request attributes
+         }
+      },
+      "seller": {
+         "ortb2": {
+            ...
+         }
+      }
+   }
+   ...
+}
+```
+
+### Name Spaced Multi-seller Auction 
+```javascript
+{
+  'seller': 'https://www.example-toplevelseller.com',
+  'componentAuctions': [
+   {
+     "seller": "https://www.example-ssp.com",
+     "interestGroupBuyers": ["https://www.example-dsp.com"],
+     "perBuyerSignals": {
+       "https://www.example-dsp.com": {
+         "https://www.example-toplevelseller.com": {}, /* top-level seller’s origin      */
+         "https://www.example-ssp.com": {              /* seller’s origin                */
+            "ortb2":{
+               "imp":[
+                  "pmp":{
+                     "deals":[...]
+                  }
+               ]
+            }
+         },
+         "https://www.example-dsp.com": igi.igb[].pbs, /* buyer’s origin                 */
+         "www.example-publisher.com": {},              /* publisher host without scheme  */
+       }
+     },
+     ...
+   },
+   ...
+   ]
+}
+```
+
+**Within generateBid**
+generateBid(interestGroup, auctionSignals, perBuyerSignals, trustedBiddingSignals, browserSignals, directFromSellerSignals) 
+```javascript
+{
+   let signalsFromMyOrigin        = perBuyerSignals[browserSignals.interestGroupOwner]; 
+   let signalsFromComponentSeller = perBuyerSignals[browserSignals.seller];
+   let signalsFromTopLevelSeller  = perBuyerSignals[browserSignals.topLevelSeller];
+   let signalsFromPublisher       = perBuyerSignals[browserSignals.topWindowHostname];
+}
+```
+
+### Name Spaced Single-seller Auction  
+```javascript
+ {
+  'seller': 'https://www.example-seller.com',
+  "interestGroupBuyers": ["https://www.example-dsp.com"],
+  "perBuyerSignals": {
+    "https://www.example-dsp.com": {
+      "https://www.example-seller.com": {},         /* single-seller’s origin         */
+      "https://www.example-dsp.com": igi.igb[].pbs, /* buyer’s origin                 */
+      "www.example-publisher.com": {},              /* publisher host without scheme  */
+    }
+  },
+  ...
+}
+```
+
+**Within generateBid**
+```javascript
+generateBid(interestGroup, auctionSignals, perBuyerSignals, trustedBiddingSignals, browserSignals, directFromSellerSignals) 
+{
+   let signalsFromMyOrigin        = perBuyerSignals[browserSignals.interestGroupOwner]; 
+   let signalsFromSingleSeller    = perBuyerSignals[browserSignals.seller];
+   let signalsFromPublisher       = perBuyerSignals[browserSignals.topWindowHostname];
 }
 ```
