@@ -141,26 +141,26 @@ The objects coming from sellers or publishers are expected to be ‘namespaced.�
 * If ortb2 namespace is used, it is expected that the structured request matches OpenRTB object model and definitions. All deviations should be done as extensions and negotiated apriori between the parties wanting to send/receive non-standard signals.  
 
 ## Object: InterestGroupAuctionBuyerSignals
-<table>
-  <tr>
-    <td><strong>Attribute</strong></td>
-    <td><strong>Type</strong></td>
-    <td><strong>Description</strong></td>
-  </tr>
-<tr>
-    <td><code>buyer</code></td>
-    <td>Any JSON serializable value</td>
-    <td>Canonical domain of the Interest Group owner as listed in <code>Object: InterestGroupAuctionIntent.igb.</code></td>
-  </tr>
-<tr>
-    <td><code>seller</code></td>
-    <td>object</td>
-    <td>Canonical domain of the Interest Group seller as listed in <code>Object: InterestGroupAuctionIntent.igs</code>
+Early PAAPI auction provisioning practice was for buyers to supply their perBuyerSignals to seller partners as a passthrough value <code>BidResponse.ext.igbid[].igbuyer[].buyerdata</code> or some other means. The seller places this in the buyer’s key in <code>auctionConfig.perBuyerSignals</code> and PA then provides the value as the perBuyerSignals parameter to generateBid.  This does not afford a clean way for the seller to provide signals to a specific buyer, such as Deals.
 
-If an ORTB object is present in both auctionSignals and this location, the fields in perBuyerSignals take precedence.
-</td>
-  </tr>
-</table>
+To accommodate this, the community extensions support a more open perBuyerSignals handling. In an OpenRTB BidRequest sellers can signal their ability to provide and in the BidResponse buyers may opt in to receive an InterestGroupAuctionBuyerSignals object in the interest group auction. 
+
+This object is a dictionary with support for some combination of the following enteries: 
+
+ ```javascript
+{
+   let signalsFromMyOrigin        = perBuyerSignals[browserSignals.interestGroupOwner]; 
+   let signalsFromComponentSeller = perBuyerSignals[browserSignals.seller];
+   let signalsFromTopLevelSeller  = perBuyerSignals[browserSignals.topLevelSeller];
+   let signalsFromPublisher       = perBuyerSignals[browserSignals.topWindowHostname];
+}
+```
+
+The presence and placement of these entries determine the role of the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origin</a> listed. 
+
+While the entities listed above and their associated <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">Origins</a> are defined values established and recognized by the PA APIs, others may be included based on specific agreement between partners that have been negotiated <i>a priori</i>. In that case, the canonical domain of the parties should be used. 
+
+See Namespacing section of implementation guidance for additional detail https://github.com/hillslatt/examplefork/edit/hillslatt-ig-support-ext/extensions/community_extensions/Protected%20Audience%20Support.md?pr=%2FInteractiveAdvertisingBureau%2Fopenrtb%2Fpull%2F175#namespacing
 
 # Implementation Guidance
 
