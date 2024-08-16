@@ -39,7 +39,7 @@
 ## Object: InterestGroupAuctionIntent
 
 `BidResponse.ext.igi`: This extension to "Object: BidResponse" allows buyers and sellers to provide necessary signals in order to operate an Interest Group auction for a given ad slot. </br>
-Must include at least one buyer (`igb`, in the bid response from the buyer to the seller) or at least one seller (`igs`, from the seller to the publisher) object, but not both.
+Must include at least a buyer object (`igb`, in the bid response from the buyer to the seller) or seller object (`igs`, from the seller to the publisher) object, but not both.
 
 <table>
   <tr>
