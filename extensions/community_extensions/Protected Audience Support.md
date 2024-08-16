@@ -76,7 +76,7 @@ Must include at least a buyer object (`igb`, in the bid response from the buyer 
     <td><strong>Description</strong></td>
   </tr>
   <tr>
-    <td><code>origin </code></td>
+    <td><code>origin</code></td>
     <td>string; required</td>
     <td>Origin of the Interest Group buyer to participate in the IG auction. See https://developer.mozilla.org/en-US/docs/Glossary/Origin.</td>
   </tr>
