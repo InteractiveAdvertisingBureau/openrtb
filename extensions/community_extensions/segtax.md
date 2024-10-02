@@ -346,6 +346,21 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       </td>
     </tr>
     <tr>
+      <td>708</td>
+      </td>
+      <td>Symitri Custom Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>709</td>
+      </td>
+      <td>Symitri Standard Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>710-712</td>
+      </td>
+      <td>Symitri Reserved Audience Taxonomy</td>
+    </tr>
+    <tr>
       <td>800</td>
       <td>NumberEight Audience Taxonomy</td>
     </tr>
