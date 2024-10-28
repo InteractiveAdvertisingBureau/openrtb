@@ -429,6 +429,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>Optable Data Collaboration Platform - Test Audiences</td>
     </tr>
     <tr>
+      <td>6000-6010</td>
+      <td>Permutive Standard Audiences</td>
+    </tr>
+    <tr>
       <td>103000</td>
       <td>
 	Audigent Warner Music Group Artists Taxonomy 1.0
