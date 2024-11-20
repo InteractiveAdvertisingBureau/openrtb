@@ -108,15 +108,15 @@ To prevent bloat in the ad request, the number of product ids and/or categories 
 
 ### Native Markup Request Object
 
-Requests for PLAs where the creative is provided by the publisher will typically only require the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type of 13</a>.
+It is assumed that some knowledge of the retailer product feed exists <i>a priori</i> to the bid request, but a mechanism is necessary to point to the Product Feed containing information about product being bid on is necessary. Requests for PLAs where the creative is provided by the publisher will require using a datatype of 500+ in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a>. 
 
-The ‘context’ attribute will have a value of ‘3’ (Product context such as product listings, details, recommendations, reviews, or similar.)
+The <code>context</code> attribute will have a value of ‘3’ (Product context such as product listings, details, recommendations, reviews, or similar.)
 
 ## Bid Response
 
 ### Native Markup Response Object
-PLAs will typically require the declaration of a product ID. Native data type 13 is provided for that purpose.
-The ‘link’ object is required in the native markup response object. When bidding with data type 13, it is acceptable to leave the ‘link.url’ field empty.
+PLAs will typically require the declaration of a product ID. 
+The <code>link</code> object is required in the  <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#57-object-link-response">Native Ads API Response Object</a> When bidding useing a Retailer's product feed using the 500+ enumeration in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a> , it is acceptable to leave the ‘link.url’ field empty.
 
 # Examples 
 
@@ -134,11 +134,13 @@ The ‘link’ object is required in the native markup response object. When bid
         "publisher": {
             "id": "seller123"
         },
-        "cat": ["IAB1"],
+        "cattax": "7",
+	"cat": ["1123"],
         "domain": "store.com",
         "page": "https://store.com/search"
     },
-    "bcat": ["IAB25-1", "IAB7-5"],
+    "cattax": "7",
+    "bcat": ["1000", "1001", "1002"],
     "imp": [{
 		    "id": "1",
             "tagid": "IYAwpstnsVuJQTpdnzJkhIWq",
@@ -153,7 +155,7 @@ The ‘link’ object is required in the native markup response object. When bid
                                 "id": 1,
                                 "required": 1,
 								"data":{
-									"type":13, 
+									"type":501, 
 									}
                             }
                         ],          
@@ -164,21 +166,6 @@ The ‘link’ object is required in the native markup response object. When bid
             "secure": 1
         }
     ],
-    "user": {
-        "buyeruid": "0d6c8a5f-55da-4808-82da-368c32f89d07-61672b41-5553"
-    },
-    "device": {
-        "devicetype": 2,
-        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.130 ADG/11.1.4616 Safari/537.36",
-        "geo": {
-            "city": "St. Louis",
-            "country": "USA",
-            "region": "MO",
-            "regionfips104": "US",
-            "metro": "609",
-            "zip": "63139"
-        }
-    },
     "tmax": 300,
     "at": 1
 }
@@ -201,7 +188,8 @@ The ‘link’ object is required in the native markup response object. When bid
                 "adomain": ["brand.com"],
                 "crid": "12345",
                 "cid": "67890",
-                "cat": ["IAB20"]
+		"cattax": "7",
+                "cat": ["1123"]
             }
         ],
         "seat": "12345"
