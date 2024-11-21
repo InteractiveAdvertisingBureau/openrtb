@@ -85,7 +85,7 @@ This object is associated with a SupplyChain object as an array of nodes. These 
   <tr>
    <td>rid</td>
    <td>String; optional</td>
-   <td>The OpenRTB RequestId of the request as issued by this seller.</td>
+   <td>The OpenRTB RequestId of the bid request as issued by the advertising system associated with this Supply Chain Node.</td>
   </tr>
   <tr>
    <td>name</td>
