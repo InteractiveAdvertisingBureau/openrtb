@@ -90,7 +90,7 @@ Presence of this object indicates that the bid request can only be responded to 
 
 
 # Implementation Guidance
-Bidding on PLAs (Product Listing Ads) differs from most ad placements in that the creative assets are provided by the publisher. The buyer need only provide a product ID to signal the product to be displayed. The Native spec has been leveraged for that use by adding a new data type ‘13’: Product ID.
+Bidding on PLAs (Product Listing Ads) differs from most ad placements in that the creative assets are provided by the publisher. The buyer need only provide a product ID to signal the product to be displayed. The native spec has been leveraged for this, we are currently suggesting data type '13': Product ID, although it is not an official update to the Native Spec at this time, we hope with adoption of this ext to promote it over time.
 
 ## Bid Request
 ### Prodfeed Object
