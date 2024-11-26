@@ -108,7 +108,7 @@ To prevent bloat in the ad request, the number of product ids and/or categories 
 
 ### Native Markup Request Object
 
-It is assumed that some knowledge of the retailer product feed exists <i>a priori</i> to the bid request, but a mechanism is necessary to point to the Product Feed containing information about product being bid on is necessary. Requests for PLAs where the creative is provided by the publisher will require using a datatype of 500+ in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a>. 
+It is assumed that some knowledge of the retailer product feed exists <i>a priori</i> to the bid request, but a mechanism is necessary to point to the Product Feed containing information about product being bid on is necessary. Requests for PLAs where the creative is provided by the publisher will require using a datatype of 13 in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a>. 
 
 The <code>context</code> attribute will have a value of ‘3’ (Product context such as product listings, details, recommendations, reviews, or similar.)
 
@@ -116,7 +116,7 @@ The <code>context</code> attribute will have a value of ‘3’ (Product context
 
 ### Native Markup Response Object
 PLAs will typically require the declaration of a product ID. 
-The <code>link</code> object is required in the  <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#57-object-link-response">Native Ads API Response Object</a> When bidding useing a Retailer's product feed using the 500+ enumeration in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a> , it is acceptable to leave the ‘link.url’ field empty.
+The <code>link</code> object is required in the  <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#57-object-link-response">Native Ads API Response Object</a> When bidding useing a Retailer's product feed using the Product Feed enumeration of 13, in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a> , it is acceptable to leave the ‘link.url’ field empty.
 
 # Examples 
 
@@ -155,7 +155,7 @@ The <code>link</code> object is required in the  <a href="https://github.com/Int
                                 "id": 1,
                                 "required": 1,
 								"data":{
-									"type":501, 
+									"type":13, 
 									}
                             }
                         ],          
