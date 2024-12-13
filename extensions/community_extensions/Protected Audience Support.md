@@ -109,7 +109,7 @@ Must include at least a buyer object (`igb`, in the bid response from the buyer 
 
   <tr>
     <td><code>begi</code></td>
-    <td>object</td>
+    <td>int</td>
     <td>The buyer’s experiment group ID, an integer between zero and 65535 (16 bits). If specified, the seller will add to its auction config <code>perBuyerExperimentGroupIds</code> attribute map, keyed by the Interest Group buyer origin. See https://github.com/WICG/turtledove/blob/main/FLEDGE.md#21-initiating-an-on-device-auction </td>
   </tr>
 </table>
