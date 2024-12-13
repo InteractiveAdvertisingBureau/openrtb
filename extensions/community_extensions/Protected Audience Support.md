@@ -108,9 +108,11 @@ Must include at least a buyer object (`igb`, in the bid response from the buyer 
   </tr>
 
   <tr>
-    <td><code>begi</code></td>
+    <td><code>begid</code></td>
     <td>int</td>
-    <td>The buyer’s experiment group ID, an integer between zero and 65535 (16 bits). If specified, the seller will add to its auction config <code>perBuyerExperimentGroupIds</code> attribute map, keyed by the Interest Group buyer origin. See https://github.com/WICG/turtledove/blob/main/FLEDGE.md#21-initiating-an-on-device-auction </td>
+    <td>The buyer’s experiment group ID, an integer between zero and 65535 (16 bits). If specified, the seller will add to its auction config <code>perBuyerExperimentGroupIds</code> attribute map, keyed by the Interest Group buyer origin. See https://github.com/WICG/turtledove/blob/main/FLEDGE.md#21-initiating-an-on-device-auction 
+    <b>NOTE:</b> Assuming the auction is not run in parallel, the seller will provide the value via the <code>perBuyerExperimentGroupIds</code> auction configuration, provided the seller does not start the auction in parallel with OpenRTB requests.
+    </td>
   </tr>
 </table>
 
