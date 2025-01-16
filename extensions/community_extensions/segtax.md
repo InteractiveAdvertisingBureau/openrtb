@@ -221,6 +221,14 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>Raptive Custom Content Taxonomy</td>
     </tr>
     <tr>
+      <td>545</td>
+      <td>Ad Generation Custom Audience Taxonomy</td>
+    </tr>
+    <tr>
+      <td>546</td>
+      <td>Ad Generation Custom Content Taxonomy</td>
+    </tr>
+    <tr>
       <td>550</td>
       <td>Sirdata - Public Audience Taxonomy</td>
     </tr>
