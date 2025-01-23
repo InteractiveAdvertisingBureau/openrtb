@@ -1,4 +1,4 @@
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 ### Extended Identifiers(eids)
 
@@ -8,26 +8,26 @@
 
 **Goal**:
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 The goal is to support a standard protocol for multiple third party identity provider to the ecosystem for 2.x.
 This is same object which is part of native user object in [oRTB 3.0 extended identifiers](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/master/AdCOM%20v1.0%20FINAL.md#object_eids)
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 **Requested Changes**:
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 Addition to **User Extension** Object
 
 
 ### Object:  Extended Identifiers <a name="object_eids"></a>
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 Extended identifiers support in the OpenRTB specification allows buyers to use audience data in real-time bidding.  The exchange should ensure that business agreements allow for the sending of this data.  Note, it is assumed that exchanges and DSPs will collaborate with the appropriate regulatory agencies and ID vendor(s) to ensure compliance.
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 <table>
   <tr>
@@ -52,11 +52,11 @@ Extended identifiers support in the OpenRTB specification allows buyers to use a
   </tr>
 </table>
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 ### Object:  Extended Identifier UIDs <a name="object_eid_uids"></a>
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 <table>
   <tr>
@@ -81,11 +81,11 @@ Extended identifiers support in the OpenRTB specification allows buyers to use a
   </tr>
 </table>
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB
 
 ### List:  Agent Types <a name="list_agenttypes"></a>
 
-# DEPRECATED Use [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
+# DEPRECATED as of OpenRTB 2.6 Use [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
 
 This list identifies the user agent types a user identifier is from.
 <table>
@@ -111,11 +111,11 @@ This list identifies the user agent types a user identifier is from.
   </tr>
 </table>
 
-# DEPRECATED Use [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
+# DEPRECATED as of OpenRTB 2.6 Use [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
 
 Example Request
 
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB and [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB and [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
 
 ```
 {
@@ -170,4 +170,4 @@ Example Request
   }
 }
 ```
-# DEPRECATED Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB and [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
+# DEPRECATED as of OpenRTB 2.6 Use [Object: EID](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-) in OpenRTB and [List: Agent Types](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--agent-types-) in AdCOM
