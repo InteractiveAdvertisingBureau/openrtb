@@ -1,9 +1,9 @@
 # Executive Summary
-The Retail Media Onsite, Product Listing Ads use case is one that aligns with concepts already enabled by OpenRTB and native creative. However, it does have a few nuances that need acknowledgment within the programmatic ecosystem before trading commences. 
+The Commerce Media Product Listing Ads use case is one that aligns with concepts already enabled by OpenRTB and native creative. However, it does have a few nuances that need acknowledgment within the programmatic ecosystem before trading commences. 
 
 We’d highlight the following:
-* The most critical component to the transaction is the understanding of a retailer-specific product feed. In the current use case: no creative is provided by the buyer - the creative is understood and surfaced by the retailer based feed-specific product codes provided in the bid response
-* Contextual requirements (allowed & blocked products and categories) are only understood through the feed
+* The most critical component to the transaction is the understanding of the product feed that is in use. In the current use case: no creative is provided by the buyer - the creative is understood and surfaced by the platform based on feed-specific product codes provided in the bid response.
+* Contextual requirements (allowed & blocked products and categories) are only understood through the feed.
 
 
 While the current use case fits best with Native creative type, this option remains creative agnostic, so as not to prevent future iterations. This solution focuses on the fact that the bid request cannot be responded to appropriately without the buyer understanding the product feed. Therefore, <code>prodfeed</code> is the central component to this solution.
@@ -11,7 +11,7 @@ While the current use case fits best with Native creative type, this option rema
 # Bid Request Object: Prodfeed
 In an effort to ensure bidders understand the requirements to participate in this auction as early as possible, AND to remain creative agnostic, we propose placing key details about the product feed in a new <code>prodfeed</code> object within <code>bidrequest</code>. 
 
-This gives a clear, high level signal that special treatment of the request is required, and may help future proof creative use cases beyond the native spec (for example audio creative in a grocery store limited to the retailer allowed products). Other similar fields already live in the top level ‘bidrequest’ object, such as <code>acat</code>, <code>bcat</code>. 
+This gives a clear, high level signal that special treatment of the request is required, and may help future proof creative use cases beyond the native spec (for example audio creative in a grocery store limited to the allowed products). Other similar fields already live in the top level ‘bidrequest’ object, such as <code>acat</code>, <code>bcat</code>. 
 
 <table>
   <tr>
@@ -98,17 +98,17 @@ At time of publication, no standard product feed specification exists, so attrib
 
 This creates a significant risk for very large bids. Best efforts should be made by implementers to minimize the number of products and/or product categories 
 
-It is assumed that some knowledge of the Retailers product feed and/or the product IDs within that feed are understood by the buying system. At the very least, the Product ID (SKU, GTIN, etc.) as signaled by the <code>prodid</code> attribute must be known so the buyer can return a bid. 
+It is assumed that some knowledge of the product feed and/or the product IDs within that feed are understood by the buying system. At the very least, the Product ID (SKU, GTIN, etc.) as signaled by the <code>prodid</code> attribute must be known so the buyer can return a bid. 
 
-It is strongly recommended that the buying system have some understanding of how specific products are categorized within a given Retailers product feed to enable support for<code>aprodcat</code> and <code>bprodcat</code> and avoid sending bids for all possible Product IDs. 
+It is strongly recommended that the buying system have some understanding of how specific products are categorized within a given product feed to enable support for<code>aprodcat</code> and <code>bprodcat</code> and avoid sending bids for all possible Product IDs. 
 
 Where possible, bids requests that allow an entire category of items to be bid on should avoid sending individual product ids (<code>aprod</code>) that are already in the category associated with `aprodcat` and not send any Product IDs already within that category individually. 
 
-To prevent bloat in the ad request, the number of product ids and/or categories should be reasonably constrained to the smallest possible number of values. For example, if a user is on a category section of a Retailers website, it is reasonable to send only the allowed product category (<code>aprodcat</code>) for the page where the user is.
+To prevent bloat in the ad request, the number of product ids and/or categories should be reasonably constrained to the smallest possible number of values. For example, if a user is on a category section of a retail or commerce website or application, it is reasonable to send only the allowed product category (<code>aprodcat</code>) for the page where the user is.
 
 ### Native Markup Request Object
 
-It is assumed that some knowledge of the retailer product feed exists <i>a priori</i> to the bid request, but a mechanism is necessary to point to the Product Feed containing information about product being bid on is necessary. Requests for PLAs where the creative is provided by the publisher will require using a datatype of 13 in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a>. 
+It is assumed that some knowledge of the product feed exists <i>a priori</i> to the bid request, but a mechanism is necessary to point to the Product Feed containing information about product being bid on is necessary. Requests for PLAs where the creative is provided by the publisher will require using a datatype of 13 in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a>. 
 
 The <code>context</code> attribute will have a value of ‘3’ (Product context such as product listings, details, recommendations, reviews, or similar.)
 
@@ -116,7 +116,7 @@ The <code>context</code> attribute will have a value of ‘3’ (Product context
 
 ### Native Markup Response Object
 PLAs will typically require the declaration of a product ID. 
-The <code>link</code> object is required in the  <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#57-object-link-response">Native Ads API Response Object</a> When bidding useing a Retailer's product feed using the Product Feed enumeration of 13, in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a> , it is acceptable to leave the ‘link.url’ field empty.
+The <code>link</code> object is required in the  <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#57-object-link-response">Native Ads API Response Object</a> When bidding useing a product feed using the Product Feed enumeration of 13, in the <a href="https://github.com/InteractiveAdvertisingBureau/Native-Ads/blob/develop/OpenRTB-Native-Ads-Specification-Final-1.2.md#74-data-asset-types">Native Ads API Data Asset Type Object</a> , it is acceptable to leave the ‘link.url’ field empty.
 
 # Examples 
 
