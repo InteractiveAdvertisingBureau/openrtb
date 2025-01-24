@@ -77,7 +77,7 @@ OpenRTB Specification the IAB Tech Lab is licensed under a Creative Commons Attr
 - [Appendix A:  Additional Resources](#appendixa_additionalresources)
 - [Appendix B:  Change Log](#appendixb_changelog)
 - [Appendix C:  Errata](#appendixc_errata)
-- [Appendix C:  Versioning Policy](#appendixd_versioning)
+- [Appendix D:  Versioning Policy](#appendixd_versioning)
 
 
 # OVERVIEW <a name="overview"></a>
