@@ -333,7 +333,47 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>Sirdata - Private Content Taxonomy (E-novate)</td>
     </tr>
     <tr>
-      <td>576-599</td>
+      <td>576</td>
+      <td>Sirdata - Private Audience Taxonomy (Triplelift)</td>
+    </tr>
+    <tr>
+      <td>577</td>
+      <td>Sirdata - Private Content Taxonomy (Triplelift)</td>
+    </tr>
+    <tr>
+      <td>578</td>
+      <td>Sirdata - Private Audience Taxonomy (Adform)</td>
+    </tr>
+    <tr>
+      <td>579</td>
+      <td>Sirdata - Private Content Taxonomy (Adform)</td>
+    </tr>
+    <tr>
+      <td>580</td>
+      <td>Sirdata - Private Audience Taxonomy (Unruly Media)</td>
+    </tr>
+    <tr>
+      <td>581</td>
+      <td>Sirdata - Private Content Taxonomy (Unruly Media)</td>
+    </tr>
+    <tr>
+      <td>582</td>
+      <td>Sirdata - Private Audience Taxonomy (Azerion / Improve Digital / Yield360)</td>
+    </tr>
+    <tr>
+      <td>583</td>
+      <td>Sirdata - Private Content Taxonomy (Azerion / Improve Digital / Yield360)</td>
+    </tr>
+    <tr>
+      <td>584</td>
+      <td>Sirdata - Private Audience Taxonomy (Smile Wanted)</td>
+    </tr>
+    <tr>
+      <td>585</td>
+      <td>Sirdata - Private Content Taxonomy (Smile Wanted)</td>
+    </tr>
+    <tr>
+      <td>586-599</td>
       <td>Sirdata - Held for coming Private Audience & Content Taxonomies</td>
     </tr>
     <tr>
