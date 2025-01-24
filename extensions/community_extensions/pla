@@ -125,7 +125,7 @@ The <code>link</code> object is required in the  <a href="https://github.com/Int
 {
 	"id": "13423",
 	"prodfeed": {
-		"domain": "retailer.com",
+		"domain": "store.com",
 		"bprod": ["sku1234", "sku1235"],
 		"aprdodcat": ["abc"]
 	},
