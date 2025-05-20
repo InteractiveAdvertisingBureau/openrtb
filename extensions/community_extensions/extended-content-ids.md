@@ -1,3 +1,5 @@
+# DEPRECATED as of OpenRTB 2.6-202504 Use `cids` [in Object: Data]([https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/develop/2.6.md#3221---object-data-)) in OpenRTB
+
 # Extended Content Identifiers
 
 2022-01-19
@@ -52,6 +54,7 @@ It addresses passing a unique ID for a single piece of video/audio content. **It
 
 This is an extension for OpenRTB 2.x that describes where SSPs/exchanges should place these vendor-specific content IDs that they receive from publishers. DSPs who wish to consume these IDs should look for these in this extension. Additionally, SSPs/exchanges could act as a vendor for content IDs if desired -- for example, if they also act as the content management platform for publishers.
 
+# DEPRECATED as of OpenRTB 2.6-202504 Use `cids` [in Object: Data]([https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/develop/2.6.md#3221---object-data-)) in OpenRTB
 
 ## Specification
 
@@ -82,6 +85,8 @@ Specifically **not** used is the existing “id” field in the “content” ob
 
 In practice, it is expected that a typical request will have only one content ID from one source, however there are theoretically cases for multiple IDs, or multiple ID sources, and thus an array is used.
 
+# DEPRECATED as of OpenRTB 2.6-202504 Use `cids` [in Object: Data]([https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/develop/2.6.md#3221---object-data-)) in OpenRTB
+
 
 ### Identifying source
 
@@ -91,6 +96,7 @@ Providers/sources of content IDs shall decide on a root domain which they own an
 
 It is not assumed that the content ID string or name string (representing ID source) has any meaning whatsoever to exchanges and DSPs. They need only pass it onwards to contextual vendors, who are responsible for making their own arrangements to source metadata from the content ID sources that their DSP partners will observe. It is also possible that DSPs could make arrangements with content data platforms themselves instead of sending to contextual vendors.
 
+# DEPRECATED as of OpenRTB 2.6-202504 Use `cids` [in Object: Data]([https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/main/2.6.md#3227---object-eid-](https://github.com/InteractiveAdvertisingBureau/openrtb2.x/blob/develop/2.6.md#3221---object-data-)) in OpenRTB
 
 ### Example
 
