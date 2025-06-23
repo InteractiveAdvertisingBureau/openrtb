@@ -1069,7 +1069,7 @@ The following table lists the options for a bidder to signal the exchange as to 
   </tr>
   <tr>
     <td>500+</td>
-    <td>Exchange specific values; should be communicated with buyers beforehand.</td>
+    <td>Buyer specific values; should be communicated with exchanges beforehand.</td>
   </tr>
 </table>
 
