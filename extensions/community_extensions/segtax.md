@@ -465,6 +465,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>Outbrain Audiences - Reserved</td>
     </tr>
     <tr>
+      <td>3333</td>
+      <td>Scope3 Agentic Execution Engine (AEE) Targeting Signals</td>
+    </tr>
+    <tr>
       <td>5000</td>
       <td>Optable Data Collaboration Platform - Public Audiences</td>
     </tr>
