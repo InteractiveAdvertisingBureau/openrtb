@@ -1,12 +1,12 @@
 # Apple AdAttributionKit (AAK)
 
 **Status:** Draft (Community Extension Proposal)  
-**Related:** OpenRTB 2.x / 3.x Extensions Mechanism  
+**Related:** OpenRTB 2.x  Extensions Mechanism  
 **Version:** 0.1 (Draft)
 
-Sponsors: TBD
+Sponsors: Liftoff, Dataseat, TBD
 
-Document verison support: [AdAttributionKit][1] versions 1.0. Support for newer versions will be brought up for consideration within the IAB TL Programmatic working group subcommittee.
+Document version support: [AdAttributionKit][1] versions 1.0. Support for newer versions will be brought up for consideration within the IAB TL Programmatic working group subcommittee.
 
 ## 1. Overview
 
@@ -44,7 +44,7 @@ The bidder may need to indicate that the ad is eligible for reengagement measure
 
 ## 4. Bid Request
 
-### Object: `BidRequest.imp.ext.adattributionkit`
+### Object: `BidRequest.imp[].ext.adattributionkit`
 
 When traffic is eligible for AdAttributionKit, SSPs should include a new `adattributionkit` object under `BidRequest.imp.ext`. This object informs DSPs that they can respond with AAK data for attribution.
 
@@ -86,9 +86,9 @@ The object is only present if both the SSP SDK version and the OS version (iOS 1
 
 ## 5. Bid Response
 
-### Object: `BidResponse.seatbid.bid.ext.adattributionkit`
+### Object: `BidResponse.seatbid[].bid[].ext.adattributionkit`
 
-If the bid request indicated AAK support, DSPs can return AAK attribution data using a custom extension field under `BidResponse.seatbid.bid.ext.adattributionkit`.
+If the bid request indicated AAK support, DSPs can return AAK attribution data using a custom extension field under `BidResponse.seatbid[].bid[].ext.adattributionkit`.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
@@ -97,22 +97,6 @@ If the bid request indicated AAK support, DSPs can return AAK attribution data u
 | itunesitem | string; required | The App Store ID of the advertised app. |
 | cpp | string; optional | The Custom Product Page ID (PPID) for the advertised app. |
 | reengagementurl | string; optional | The re-engagement URL for Custom Click attribution. Only supported on iOS 18+. |
-| ext | object; optional | Placeholder for exchange-specific extensions to OpenRTB. |
-| ext.skoverlay | object; optional | Object containing SKOverlay configuration parameters. |
-
-### Object: `ext.skoverlay`
-
-Configuration for SKOverlay presentation.
-
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| show | integer | Whether to show the SKOverlay. `1` = show, `0` = do not show. |
-| delay | integer | Delay in seconds before showing the overlay. |
-| companion_delay | integer | Delay in seconds for companion overlay. |
-| pos | integer | Position of the overlay. |
-| autoclose | integer | Auto-close delay in seconds. |
-| dismissible | integer | Whether the overlay is dismissible. `1` = dismissible, `0` = not dismissible. |
-| click_on_view | integer | Whether clicks on the view trigger the overlay. `1` = enabled, `0` = disabled. |
 
 ### Example Bid Response
 
@@ -128,18 +112,7 @@ Configuration for SKOverlay presentation.
               "version": "1.0",
               "itunesitem": "12345678",
               "cpp": "d7db643c-f84f-41d5-b2b3-fce30bf73640",
-              "reengagementurl": "https://app.com/re",
-              "ext": {
-                "skoverlay": {
-                  "show": 1,
-                  "delay": 5,
-                  "companion_delay": 3,
-                  "pos": 1,
-                  "autoclose": 3,
-                  "dismissible": 1,
-                  "click_on_view": 0
-                }
-              }
+              "reengagementurl": "https://app.com/re"
             }
           }
         }
