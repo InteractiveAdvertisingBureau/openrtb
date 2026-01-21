@@ -1,8 +1,8 @@
 # Apple AdAttributionKit (AAK)
 
-**Status:** Draft (Community Extension Proposal)  
-**Related:** OpenRTB 2.x  Extensions Mechanism  
-**Version:** 0.1 (Draft)
+**Status:** Draft (Community Extension Proposal)
+**Related:** OpenRTB 2.x Extensions Mechanism
+**Version:** 0.1
 
 Sponsors: Liftoff, Dataseat, TBD
 
@@ -10,11 +10,13 @@ Document version support: [AdAttributionKit][1] versions 1.0. Support for newer 
 
 ## 1. Overview
 
+AdAttributionKit (AAK) is Apple's privacy-preserving attribution framework introduced in iOS 17.4+ as the successor to SKAdNetwork. Like SKAdNetwork, it uses ad network identifiers (`.skadnetwork` suffix) to establish trust between publishers and advertisers while providing cryptographically signed attribution data.
+
 This proposal defines a standardized way in OpenRTB to:
 
 1. Signal **publisher eligibility constraints** (which ad networks are allowed/installed for AAK attribution in the publisher app).
 2. Allow bidders to return **AdAttributionKit attribution materials** (e.g., a signed impression payload) required for publisher-side registration.
-3. Support both **install** and **reengagement** flows (where applicable), aligned with AdAttributionKit conversion types.   
+3. Support both **install** and **reengagement** flows (where applicable), aligned with AdAttributionKit conversion types.
 
 > Note: Apple indicates AdAttributionKit supports **JWS formatted impressions and postbacks**. 
 
@@ -53,8 +55,8 @@ The object is only present if both the SSP SDK version and the OS version (iOS 1
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | version | string; required | Version of AdAttributionKit supported (e.g., "1.0"). Dependent on both the OS version and the SDK version. |
-| sourceapp | string; required | The App Store ID of the publisher's app. |
-| skadnetids | array of strings; required | A subset of `SKAdNetworkItem` entries in the publisher app's `Info.plist` that are relevant to the bid request. These are the AdNetwork IDs that the DSP can use for attribution. |
+| sourceapp | string; required | The iTunes item identifier (numeric App Store ID) of the publisher's app (e.g., "123456789"). |
+| skadnetids | array of strings; required | A subset of ad network identifiers from the publisher app's `Info.plist` `SKAdNetworkItems` array. AdAttributionKit reuses the same ad network IDs as SKAdNetwork (with `.skadnetwork` suffix). These identifiers indicate which ad networks the DSP can use for attribution. |
 | ext | object; optional | Placeholder for exchange-specific extensions to OpenRTB. |
 | ext.sko | integer; optional | Indicates whether SKOverlay is available. `1` = available, `0` = not available. |
 
@@ -139,25 +141,35 @@ Bid responses that contain invalid or malformed AdAttributionKit extensions may 
   </tr>
 </table>
 
-## 7.  AdAttributionKit Support Flow
+## 7. AdAttributionKit Support Flow
 
-1. SSP SDK retrieves the SKAdNetworkItems from the publisher app’s Info.plist
-2. SDK makes ad request to ad server including SKAdNetworkItems
-3. SSP determines from Info.plist which DSPs have AdAttributionKit capabilities. Bid request to eligible DSPs includes the imp.ext.adattributionkit object, defined above
+### 7.1 Bid Request Flow
+1. SSP SDK retrieves the `SKAdNetworkItems` from the publisher app's `Info.plist`
+2. SDK makes ad request to ad server including the ad network identifiers
+3. SSP determines from `Info.plist` which DSPs have AdAttributionKit capabilities. Bid request to eligible DSPs includes the `imp.ext.adattributionkit` object, defined above
 4. DSP responds, including `BidResponse.seatbid.bid.ext.adattributionkit` if the campaign requires AdAttributionKit support
 5. Ad response to SDK includes `adattributionkit` object
-6. If the impression is shown and the user clicks, SSP does
-- SDK creates AppImpression object with jwt ([doc][3])
-- SDK loads SKStoreProductViewController with the AppImpression object ([doc][4])
-- SDK uses the AppImpression object to SKOverlay.AppConfiguration ([doc][5])
-- SDK uses the AppImpression object to begin and end View-Though attribution (begin: [doc][6], end: [doc][7])
-- SDK uses the AppImpression object to call handleTap([reengagementURL:][8]) with reengagementurl for Custom Click attribution
 
-  If valid, Apple will consider the app for install/Reengagement attribution
+### 7.2 Attribution Registration (Publisher SDK)
+When the impression is shown, the SDK creates an `AppImpression` object using the JWT from the bid response ([Refer to Apple AdAttributionKit AppImpression][3]) and registers it using one of the following methods:
 
-7. Target app must register that user for AdAttributionKit attribution on app launch.
-8. (Optional). Target app can choose to provide an additional 6 bits of conversion value information.
-9. If AdAttributionKit determines that the DSP’s click led to the install, Apple will send a postback to the DSP’s registered endpoint with the ids of the source app, target app and campaign, and conversion value if provided by the target app.
+**Click Attribution:**
+- Load `SKStoreProductViewController` with the `AppImpression` object ([Refer to Apple SKStoreProductViewController][4])
+- Configure `SKOverlay.AppConfiguration` with the `AppImpression` object ([Refer to Apple SKOverlay.AppConfiguration][5])
+- Call `handleTap(reengagementURL:)` with the `reengagementurl` for Custom Click attribution (iOS 18+) ([Refer to Apple AppImpression][8])
+
+**View-Through Attribution:**
+- Call `beginView()` when the impression becomes visible ([Refer to Apple AppImpression][6])
+- Call `endView()` when the impression is no longer visible ([Refer to Apple AppImpression][7])
+
+If valid, Apple will consider the app for install or reengagement attribution based on the impression data.
+
+### 7.3 Conversion Registration (Advertiser App)
+1. Target app must register the user for AdAttributionKit attribution on app launch
+2. (Optional) Target app can provide an additional 6 bits of conversion value information
+
+### 7.4 Postback
+If AdAttributionKit determines that the attributed impression/click led to the install or reengagement, Apple will send a postback to the DSP's registered endpoint with the IDs of the source app, target app, campaign, and conversion value (if provided by the target app).
 
 ---
 
@@ -165,7 +177,7 @@ Bid responses that contain invalid or malformed AdAttributionKit extensions may 
 
 | Version | Date | Description |
 |---------|------|-------------|
-| 1.0 | TBD | Initial release |
+| 0.1 | 2025-01 | Initial draft for community review |
 
 
 [1]: https://developer.apple.com/documentation/AdAttributionKit
@@ -176,8 +188,3 @@ Bid responses that contain invalid or malformed AdAttributionKit extensions may 
 [6]: https://developer.apple.com/documentation/adattributionkit/appimpression/beginview%28%29
 [7]: https://developer.apple.com/documentation/adattributionkit/appimpression/endview%28%29
 [8]: https://developer.apple.com/documentation/adattributionkit/appimpression/handletap(reengagementurl:)
-[9]: https://github.com/InteractiveAdvertisingBureau/openrtb/blob/main/extensions/community_extensions/skadnetwork.md#iabtl-managed-skadnetwork-id-list
-
-[10]: https://developer.apple.com/documentation/uikit/uidevice/identifierforvendor
-[11]: https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/authorizationstatus
-[12]: https://github.com/InteractiveAdvertisingBureau/openrtb/blob/main/extensions/community_extensions/skadnetwork.md#skadnetwork-id-lists-for-app-developers
