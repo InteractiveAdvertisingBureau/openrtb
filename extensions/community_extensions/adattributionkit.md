@@ -10,7 +10,7 @@ Document version support: [AdAttributionKit][1] versions 1.0. Support for newer 
 
 ## 1. Overview
 
-AdAttributionKit (AAK) is Apple's privacy-preserving attribution framework introduced in iOS 17.4+ as the successor to SKAdNetwork. Like SKAdNetwork, it uses ad network identifiers (`.skadnetwork` suffix) to establish trust between publishers and advertisers while providing cryptographically signed attribution data.
+AdAttributionKit (AAK) is Apple's privacy-preserving attribution framework introduced in iOS 17.4+ as the successor to SKAdNetwork. Like SKAdNetwork, it uses ad network identifiers (`.adattributionkit` and `.skadnetwork` suffix) to establish trust between publishers and advertisers while providing cryptographically signed attribution data.
 
 This proposal defines a standardized way in OpenRTB to:
 
@@ -56,7 +56,7 @@ The object is only present if both the SSP SDK version and the OS version (iOS 1
 |-----------|------|-------------|
 | version | string; required | Version of AdAttributionKit supported (e.g., "1.0"). Dependent on both the OS version and the SDK version. |
 | sourceapp | string; required | The iTunes item identifier (numeric App Store ID) of the publisher's app (e.g., "123456789"). |
-| skadnetids | array of strings; required | A subset of ad network identifiers from the publisher app's `Info.plist` `SKAdNetworkItems` array. AdAttributionKit reuses the same ad network IDs as SKAdNetwork (with `.skadnetwork` suffix). These identifiers indicate which ad networks the DSP can use for attribution. |
+| skadnetids | array of strings; required | A subset of ad network identifiers from the publisher app's `Info.plist` `SKAdNetworkItems` array. AdAttributionKit reuses the same ad network IDs as SKAdNetwork (with `.adattributionkit` and `.skadnetwork` suffix). These identifiers indicate which ad networks the DSP can use for attribution. |
 | ext | object; optional | Placeholder for exchange-specific extensions to OpenRTB. |
 | ext.sko | integer; optional | Indicates whether SKOverlay is available. `1` = available, `0` = not available. |
 
@@ -144,7 +144,7 @@ Bid responses that contain invalid or malformed AdAttributionKit extensions may 
 ## 7. AdAttributionKit Support Flow
 
 ### 7.1 Bid Request Flow
-1. SSP SDK retrieves the `SKAdNetworkItems` from the publisher app's `Info.plist`
+1. SSP SDK retrieves the `SKAdNetworkItems` from the publisher app's `Info.plist`, which contains both `.adattributionkit` and `.skadnetwork` suffix
 2. SDK makes ad request to ad server including the ad network identifiers
 3. SSP determines from `Info.plist` which DSPs have AdAttributionKit capabilities. Bid request to eligible DSPs includes the `imp.ext.adattributionkit` object, defined above
 4. DSP responds, including `BidResponse.seatbid.bid.ext.adattributionkit` if the campaign requires AdAttributionKit support
@@ -177,7 +177,7 @@ If AdAttributionKit determines that the attributed impression/click led to the i
 
 | Version | Date | Description |
 |---------|------|-------------|
-| 0.1 | 2025-01 | Initial draft for community review |
+| 0.1 | 2026-01 | Initial draft for community review |
 
 
 [1]: https://developer.apple.com/documentation/AdAttributionKit
