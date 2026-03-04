@@ -58,3 +58,11 @@ See [extended-content-ids.md](extended-content-ids.md) for deatils.
 #### Notes
 
 See [seat-non-bid.md](seat-non-bid.md) for deatils.
+
+### Apple Ad Attribution Kit (AAK) Support
+
+#### Issue: [#43](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/209)
+
+#### Notes
+
+See [adattributionkit.md](adattributionkit.md) for deatils.
