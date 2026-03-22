@@ -11,7 +11,7 @@ Addition to **User Extension** Object
 ### Details
 
 Open Private Join & Activation (OPJA) is a protocol for enabling two parties to privately generate activation matches.
-OPJA uses advanced cryptographic techniques to keep private data securely encrypted throughout all steps of the process.
+OPJA uses advanced cryptographic techniques to keep private data securely encrypted throughout all steps of the bid process.
 Note, it is assumed that parties will collaborate with the appropriate regulatory agencies and vendor(s) to ensure compliance.
 
 A new field under `BidRequest->user->ext` is specified which is named `ojpa`. 
@@ -21,10 +21,10 @@ Below we describe each field within each match job object:
 
 | Key                 | Type             | Description                                 |
 | ------------------- | ---------------- | ------------------------------------------- |
-| name                | String           | The human readable name of the matching job |
+| name                | String           | A hostname uniquely identifying the matching system used |
 | matches             | Array of Objects | An array of objects containing encrypted matching labels |
-| matches[].id        | String           | The match transaction ID which is unique to each match job row |
-| matches[].el        | String           | The encrypted label which can be used to determine a match |
+| matches[].id        | String           | The alphanumeric match transaction ID which is unique to each match job row (maximum 16 characters) |
+| matches[].el        | String           | The base64 encoded encrypted label which can be used to determine a match (maximum 36 characters with padding) |
 
 Example Request
 
@@ -37,8 +37,8 @@ Example Request
           "name": "matching-system-operator.com",
           "matches": [
             {
-              "id": "0x1234",
-              "el": "0x45668"
+              "id": "0ujzPyRiIA",
+              "el": "YmFjb25zdHJpcHM="
             }
           ]
         }
