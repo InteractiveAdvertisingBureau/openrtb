@@ -58,3 +58,9 @@ See [extended-content-ids.md](extended-content-ids.md) for deatils.
 #### Notes
 
 See [seat-non-bid.md](seat-non-bid.md) for deatils.
+
+### Agentic Audiences
+
+#### Notes
+
+See [agentic-audiences.md](agentic-audiences.md) for details. Agentic Audiences (formerly UCP) defines how intelligent agents exchange embeddings—compact vector representations of identity, contextual, and reinforcement signals—in OpenRTB bid requests via `user.data` segment extensions.
