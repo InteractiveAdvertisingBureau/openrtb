@@ -296,6 +296,10 @@ There are many reasons for a non bid scenario and it is understood not all can b
       <td>Request Blocked - Privacy</td>
     </tr>
     <tr>
+      <td>205</td>
+      <td>Request Blocked - Unsupported Currency</td>
+    </tr>
+    <tr>
       <td>300</td>
       <td>Response Rejected - General</td>
     </tr>
