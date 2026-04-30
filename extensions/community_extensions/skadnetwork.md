@@ -439,7 +439,7 @@ If the bid request included the `BidRequest.imp.ext.skadn` object, then a DSP co
              "fidelity": 0,
              "signature": "MEQCIEQlmZRNfYzK…",
              "nonce": "473b1a16…",
-             "timestamp": "1594406341"
+             "timestamp": "1698696785356"
           }
         ]
       </td>
@@ -602,7 +602,7 @@ Fields that should have different values for the different fidelity types (e.g. 
         string
       </td>
       <td>
-        "timestamp": "1594406341"
+        "timestamp": "1594406341232"
       </td>
     </tr>
     <tr>
@@ -755,13 +755,13 @@ Presents an [SKOverlay][17] StoreKit Ad during an ad experience using the `SKOve
                   "fidelity": 0,
                   "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg==",
                   "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
-                  "timestamp": "1594406341"
+                  "timestamp": "1594406341232"
                 },
                 {
                   "fidelity": 1,
                   "signature": "GRlMDktMmE5Zi00ZGMzLWE0ZDEtNTQ0YzQwMmU5MDk1IiwKICAgICAgICAgICAgICAgICAgInRpbWVzdGTk0NDA2MzQyIg==",
                   "nonce": "e650de09-2a9f-4dc3-a4d1-544c402e9095",
-                  "timestamp": "1594406342"
+                  "timestamp": "1594406342786"
                 }
               ],
               "skoverlay":{
@@ -800,13 +800,13 @@ Presents an [SKOverlay][17] StoreKit Ad during an ad experience using the `SKOve
                   "fidelity": 0,
                   "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg==",
                   "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
-                  "timestamp": "1594406341"
+                  "timestamp": "1594406341232"
                 },
                 {
                   "fidelity": 1,
                   "signature": "GRlMDktMmE5Zi00ZGMzLWE0ZDEtNTQ0YzQwMmU5MDk1IiwKICAgICAgICAgICAgICAgICAgInRpbWVzdGTk0NDA2MzQyIg==",
                   "nonce": "e650de09-2a9f-4dc3-a4d1-544c402e9095",
-                  "timestamp": "1594406342"
+                  "timestamp": "1594406342786"
                 }
               ]
             }
