@@ -70,8 +70,9 @@ function floats32ToBase64(arr) {
   const view = new DataView(buffer);
   arr.forEach((x, i) => view.setFloat32(i * 4, x, true)); // little-endian
   const bytes = new Uint8Array(buffer);
-  let binary = "";
-  for (const b of bytes) binary += String.fromCharCode(b);
+  // apply() converts all bytes in one call, avoiding per-byte string re-allocations.
+  // For very large inputs, chunk into ~8192-byte blocks to stay within engine argument limits.
+  const binary = String.fromCharCode.apply(null, bytes);
   return btoa(binary);
 }
 
