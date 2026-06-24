@@ -55,7 +55,7 @@ The object is only present if both the SSP SDK version and the OS version (iOS 1
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | version | string; required | Version of AdAttributionKit supported (e.g., "1.0"). Dependent on both the OS version and the SDK version. |
-| sourceapp | string; required | The iTunes item identifier (numeric App Store ID) of the publisher's app (e.g., "123456789"). |
+| sourceapp | string; required | The App Store of the publisher's app (e.g., "123456789"). |
 | skadnetids | array of strings; required | A subset of ad network identifiers from the publisher app's `Info.plist` `SKAdNetworkItems` array. AdAttributionKit reuses the same ad network IDs as SKAdNetwork (with `.adattributionkit` and `.skadnetwork` suffix). These identifiers indicate which ad networks the DSP can use for attribution. |
 | ext | object; optional | Placeholder for exchange-specific extensions to OpenRTB. |
 | ext.sko | integer; optional | Indicates whether SKOverlay is available. `1` = available, `0` = not available. |
@@ -96,7 +96,7 @@ If the bid request indicated AAK support, DSPs can return AAK attribution data u
 |-----------|------|-------------|
 | jwt | string; required | Signed compact JWS object to be used on device for AAK implementation. This contains the signed attribution data. |
 | version | string; required | Version of AdAttributionKit (e.g., "1.0"). |
-| itunesitem | string; required | The App Store ID of the advertised app. |
+| appstoreid | string; required | The App Store ID of the advertised app. |
 | cpp | string; optional | The Custom Product Page ID (PPID) for the advertised app. |
 | reengagementurl | string; optional | The re-engagement URL for Custom Click attribution. Only supported on iOS 18+. |
 
@@ -112,7 +112,7 @@ If the bid request indicated AAK support, DSPs can return AAK attribution data u
             "adattributionkit": {
               "jwt": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImZha2Uua2V5In0.eyJpbXByZXNzaW9uLXR5cGUiOiJhcHAtaW1wcmVzc2lvbiIsImFkLW5ldHdvcmstaWRlbnRpZmllciI6Im15ZHNwLmFkYXR0cmlidXRpb25raXQiLCJwdWJsaXNoZXItaXRlbS1pZGVudGlmaWVyIjowLCJzb3VyY2UtaWRlbnRpZmllciI6MTIzNCwidGltZXN0YW1wIjoxNzAwMDAwMDAwfQ.signature",
               "version": "1.0",
-              "itunesitem": "12345678",
+              "appstoreid": "12345678",
               "cpp": "d7db643c-f84f-41d5-b2b3-fce30bf73640",
               "reengagementurl": "https://app.com/re"
             }
