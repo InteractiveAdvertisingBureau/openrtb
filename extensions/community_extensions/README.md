@@ -64,3 +64,11 @@ See [seat-non-bid.md](seat-non-bid.md) for deatils.
 #### Notes
 
 See [agentic-audiences.md](agentic-audiences.md) for details. Agentic Audiences (formerly UCP) defines how to convey vector embeddings—identity, contextual, and reinforcement signals—in `BidRequest.user.data` using the Data/Segment structure.
+
+### Apple Ad Attribution Kit (AAK) Support
+
+#### Issue: [#43](https://github.com/InteractiveAdvertisingBureau/openrtb/issues/209)
+
+#### Notes
+
+See [adattributionkit.md](adattributionkit.md) for deatils.
