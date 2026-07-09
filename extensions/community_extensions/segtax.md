@@ -182,6 +182,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>508</td>
       <td>Magnite Standard Audiences</td>
     </tr>
+    <tr>
+      <td>509</td>
+      <td>Panxo AI-Audience Taxonomy 1.0 - More info - <a href="https://specs.panxo.ai/taxonomy.html">https://specs.panxo.ai/taxonomy.html</a></td>
+    </tr>
 	<tr>
       <td>510</td>
   	<td>Titan Segments</td>
