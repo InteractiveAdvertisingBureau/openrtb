@@ -416,6 +416,21 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       </td>
       <td>Symitri Reserved Audience Taxonomy</td>
     </tr>
+	<tr>
+      <td>777</td>
+      </td>
+      <td>Mantis - Contextual Intelligence Taxonomy 1.0</td>
+    </tr>
+    <tr>
+      <td>778</td>
+      </td>
+      <td>Mantis - Brand Safety Signals Taxonomy 1.0</td>
+    </tr>
+    <tr>
+      <td>779-799</td>
+      </td>
+      <td>Mantis - Held for coming Private Audience & Content Taxonomies</td>
+    </tr>
     <tr>
       <td>800</td>
       <td>NumberEight Audience Taxonomy</td>
