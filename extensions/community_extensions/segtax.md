@@ -568,5 +568,11 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
 	Rayn Persona Taxonomy
       </td>
     </tr>
+    <tr>
+      <td>105000</td>
+      <td>
+	DOOH Asia Audience Taxonomy (digital out-of-home screen audience composition)
+      </td>
+    </tr>
   </tbody>
 </table>
