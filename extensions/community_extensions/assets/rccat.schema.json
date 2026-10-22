@@ -1,0 +1,152 @@
+{
+  "$id": "https://iabaustralia.com.au/schemas/rccat.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "v3, 22 October 2026, Option B: rccat carries content and time eligibility only. User-state eligibility (account, age, opt-out, register) is implied by the wagering deal, with legal bases and policy reference recorded in the deal terms or the Deals API.",
+  "title": "Restricted Category Eligibility (rccat): proposed OpenRTB community extension",
+  "description": "Seller-certified, impression-level content and time eligibility for restricted ad categories. First use case: Australian wagering advertising (Interactive Gambling Act 2001, Part 7C). Validates the imp.ext object. rccat carries no user IDs, user.id, eids, IFAs, age, login state, opt-out status or register status, and no per-person eligibility signal. User-state eligibility travels with the deal; user-state ineligibility is never signalled and shows only as the absence of a wagering deal. Use limit: receivers use rccat and deal presence only for the bid decision and compliance audit logs. They must not store either against user or device identifiers; use either for targeting, segmentation, frequency capping or measurement; infer restricted-user status from the presence or absence of a wagering deal or an attestation; or retain either beyond its purpose and the applicable retention period. bcat always wins over rccat.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "rccat": {
+      "description": "Restricted-category eligibility container at imp.ext.rccat. Impression level, because eligibility can change with user state, event phase and playout time.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elig"
+      ],
+      "properties": {
+        "elig": {
+          "description": "One entry per restricted category the seller has evaluated for this impression. No entry for a category means the seller hasn't attested eligibility for it; treat as not eligible.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "cattax",
+              "cat",
+              "eligible"
+            ],
+            "properties": {
+              "cattax": {
+                "description": "Taxonomy for cat, from AdCOM List: Category Taxonomies. 8 = Ad Product Taxonomy 2.0. 3 = Ad Product Taxonomy 1.0 for legacy partners. Content taxonomies aren't valid here: this describes the advertised product, not the content.",
+                "type": "integer",
+                "enum": [
+                  3,
+                  8
+                ]
+              },
+              "cat": {
+                "description": "Most specific advertised-product category IDs evaluated. An attestation covers the stated ID and its children, never its parents or siblings. In Ad Product Taxonomy 2.0: 1361 Gambling, 1362 Casinos, 1363 Contests, 1364 Give Aways, 1365 Lottery, 1366 Sports Betting, 1367 Virtual Betting. For Australian licensed wagering, attest on 1366; 1361 would also cover products that can't lawfully be offered.",
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                },
+                "examples": [
+                  [
+                    "1366"
+                  ]
+                ]
+              },
+              "eligible": {
+                "description": "1 = eligible on content and time grounds: the seller's controls for every basis listed have passed. 0 = blocked on content or time grounds that are the same for every viewer, such as a live sport window measured in the viewer's legal local time. Never used for user state, which travels with the deal.",
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "deal_only": {
+                "description": "Applies when eligible = 1. 1 = eligible only through the deal IDs in imp.pmp.deals; with no deal, treat as not eligible. 0 = eligible in any auction on this impression, including the open exchange. Use 0 only where the regime has no user-level rules, because user checks travel with the deal. Australian wagering is always 1.",
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ],
+                "default": 1
+              },
+              "basis": {
+                "description": "Content and time bases evaluated, as jurisdiction-regime-provision codes. Australian codes: au-iga-62r (live sport, 5:00 am to 8:30 pm), au-iga-62ra (live sport, 8:30 pm to 5:00 am), au-iga-62ua (BVOD and SVOD programs directed towards children) and au-iga-62ub (G, C or P programs at set times on BVOD and SVOD). See the Basis codes table in rccat.md. User-state bases such as au-iga-62p and au-iga-62q belong in the deal terms, not here.",
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z]{2}-[a-z0-9]+(-[a-z0-9]+)+$",
+                  "not": {
+                    "enum": [
+                      "au-iga-62p",
+                      "au-iga-62q"
+                    ]
+                  }
+                },
+                "examples": [
+                  [
+                    "au-iga-62r",
+                    "au-iga-62ra"
+                  ],
+                  [
+                    "au-iga-62r"
+                  ]
+                ]
+              },
+              "policy": {
+                "description": "Seller control-set or policy-version reference, for audit. Never identifies a user.",
+                "type": "string",
+                "maxLength": 64,
+                "examples": [
+                  "seller-wagering-policy-2027-01"
+                ]
+              },
+              "checked_at": {
+                "description": "UTC time the seller made this impression's eligibility decision. Never the date of an individual's age check or register lookup.",
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "rccat": {
+        "elig": [
+          {
+            "cattax": 8,
+            "cat": [
+              "1366"
+            ],
+            "eligible": 1,
+            "deal_only": 1,
+            "basis": [
+              "au-iga-62r",
+              "au-iga-62ra"
+            ],
+            "policy": "seller-wagering-policy-2027-01",
+            "checked_at": "2027-03-14T05:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "rccat": {
+        "elig": [
+          {
+            "cattax": 8,
+            "cat": [
+              "1366"
+            ],
+            "eligible": 0,
+            "basis": [
+              "au-iga-62r"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
