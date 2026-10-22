@@ -61,6 +61,12 @@ See [seat-non-bid.md](seat-non-bid.md) for deatils.
 
 ### Agentic Audiences
 
+Restricted-category eligibility (rccat)
+Issue: #240
+Notes
+
+See rccat.md for details.
+
 #### Notes
 
 See [agentic-audiences.md](agentic-audiences.md) for details. Agentic Audiences (formerly UCP) defines how to convey vector embeddings—identity, contextual, and reinforcement signals—in `BidRequest.user.data` using the Data/Segment structure.
