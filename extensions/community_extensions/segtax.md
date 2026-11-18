@@ -182,6 +182,10 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>508</td>
       <td>Magnite Standard Audiences</td>
     </tr>
+    <tr>
+      <td>509</td>
+      <td>Panxo AI-Audience Taxonomy 1.0 - More info - <a href="https://specs.panxo.ai/taxonomy.html">https://specs.panxo.ai/taxonomy.html</a></td>
+    </tr>
 	<tr>
       <td>510</td>
   	<td>Titan Segments</td>
@@ -412,6 +416,21 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       </td>
       <td>Symitri Reserved Audience Taxonomy</td>
     </tr>
+	<tr>
+      <td>777</td>
+      </td>
+      <td>Mantis - Contextual Intelligence Taxonomy 1.0</td>
+    </tr>
+    <tr>
+      <td>778</td>
+      </td>
+      <td>Mantis - Brand Safety Signals Taxonomy 1.0</td>
+    </tr>
+    <tr>
+      <td>779-799</td>
+      </td>
+      <td>Mantis - Held for coming Private Audience & Content Taxonomies</td>
+    </tr>
     <tr>
       <td>800</td>
       <td>NumberEight Audience Taxonomy</td>
@@ -547,6 +566,12 @@ Source : AdCOM [https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/maste
       <td>103015</td>
       <td>
 	Rayn Persona Taxonomy
+      </td>
+    </tr>
+    <tr>
+      <td>105000</td>
+      <td>
+	DOOH Asia Audience Taxonomy (digital out-of-home screen audience composition)
       </td>
     </tr>
   </tbody>

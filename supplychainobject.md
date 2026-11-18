@@ -1,31 +1,34 @@
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 # OpenRTB SupplyChain object
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## Abstract
 
 As part of a broader effort to eliminate the ability to profit from invalid traffic, ad fraud, and counterfeit inventory in the open digital advertising ecosystem, the SupplyChain object enables buyers to see all parties who are selling or reselling a given bid request. This extension object can be used with OpenRTB 2.5. It was officially added to the source object for OpenRTB 2.6 and 3.0.
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## Introduction
 
 Ads.txt has been extremely successful in allowing publishers and app makers to define who is authorized to sell a given set of impressions via the programmatic marketplace. Ads.txt does not however make any attempt at revealing or authorizing all parties that are part of the transacting of those impressions. This information can be important to buyers for a number of reasons including transparency of the supply chain, ensuring that all intermediaries are entities with which the buyer wants to transact and that inventory is purchased as directly as possible. The implementation should be as transparent as possible to buyers. It should enable them to easily understand who it is that is participating in the sale of any piece of inventory.
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## Implementation
 
 The SupplyChain object is composed primarily of a set of nodes where each node represents a specific entity that participates in the transacting of inventory. The entire chain of nodes from beginning to end represents all entities who are involved in the direct flow of payment for  inventory. Future versions of the specification may also include entities who are involved in the transaction but are not involved in payment.
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## Node Definition
 
 A node contains two required properties; the advertising system identifier (asi) and the seller ID (sid). The advertising system identifier is the domain name of the advertising system. The seller ID is used to identify the seller of the inventory; who the advertising system pays for this inventory. Both the advertising system identifier and the seller ID should be the same values that are provided in ads.txt files. It is invalid for a Seller ID to represent multiple entities. Every Seller ID must map to only a single entity that is paid for inventory transacted with that Seller ID. It is valid for a selling entity to have multiple Seller IDs within an advertising system. 
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## OpenRTB Object: SupplyChain
 
 This object represents both the links in the supply chain as well as an indicator whether or not the supply chain is complete.
 
 The SupplyChain object should be included in the BidRequest.Source.schain attribute in OpenRTB 2.6 or later, and BidRequest.Source.ext.schain attribute in OpenRTB 2.5. For OpenRTB 2.4 or prior, the BidRequest.ext.schain attribute should be used.
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 The SupplyChain object includes the following attributes:
 
@@ -58,7 +61,7 @@ The SupplyChain object includes the following attributes:
   </tr>
 </table>
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## OpenRTB Object: SupplyChainNode
 
 This object is associated with a SupplyChain object as an array of nodes. These nodes define the identity of an entity participating in the supply chain of a bid request. The SupplyChainNode object contains the following attributes:
@@ -121,7 +124,7 @@ Invalid examples:
 http://example.com
 https://example.com/about-us.html
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## Implementation Details
 
 It is invalid for a reseller to copy the SupplyChain object from the previous seller to their request for that inventory without also inserting their node into the chain. If a reseller doesn’t insert themselves in the chain, their bid request should not include the SupplyChain object.
@@ -132,10 +135,12 @@ If a seller is reselling inventory that has a SupplyChain object, the reseller s
 
 If this is the originating bid request for this inventory, the SupplyChain object should be created with the “complete” attribute set to 1 and their information being the only node in the “nodes” array.
 
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## Examples:
 
 ## Valid, complete SupplyChain objects
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Sample originating bid request. (BidRequest1, seller = “directseller.com”):
 
@@ -166,6 +171,8 @@ If this is the originating bid request for this inventory, the SupplyChain objec
   }
 }
 ```
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Sample resale of BidRequest1 (BidRequest2, seller = “reseller.com”):
 
@@ -202,7 +209,7 @@ If this is the originating bid request for this inventory, the SupplyChain objec
 }
 
 ```
-
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 ## Valid, incomplete SupplyChain objects
 
 ### Sample originating bid request from advertising system that doesn’t support SupplyChain object. (BidRequest3, seller = “directseller.com”):
@@ -221,6 +228,7 @@ If this is the originating bid request for this inventory, the SupplyChain objec
   }
 }
 ```
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Sample resale of BidRequest3 by advertising system that does support SupplyChain object. (BidRequest4, seller = “reseller.com”):
 
@@ -251,13 +259,20 @@ If this is the originating bid request for this inventory, the SupplyChain objec
   }
 }
 ```
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
+
 ## SupplyChain for Non-OpenRTB Requests
 As the documentation above provides guidance only for transactions made via OpenRTB protocol, this section describes a standard way to communicate SupplyChain information that via a tag rather than OpenRTB. This situation most commonly occurs when an advertising system provides a tag that can be inserted into an ad server, video player, SSAI vendor, etc. to initiate an ad request to an advertising system.
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 **Goals of the serialization:**
 * Support all properties of SupplyChain object
 * Minimize the need for URL encoding of the serialized data
 * Support forward compatibility for future changes to SupplyChain
+
+* # DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 **Usage Scenarios:**
 This appendix outlines the methodology defining a well-structured string containing SupplyChain data that can be received via industry standard ‘key value pairs’. 
@@ -267,6 +282,8 @@ If the receiving advertising system is handling a tag-based request and forming 
 If the receiving advertising system is handling a tag-based request and forming an outbound tag-based request to another advertising system then the following procedure is specified:  It should append a node for itself to the pre-existing string, without altering any preceding information in the received string.
 
 If the receiving advertising system is handling an OpenRTB request and forming an outbound tag-based request to another advertising system then the following procedure is specified:  It should parse and serialize the data within the received SupplyChain object and serialize as specified below. It should form a spec compliant string for itself then append it to the prior string.
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 **Receiving SupplyChain into an advertising system via tags or URLs**
 Advertising systems should support a parameter in their ad tags or VAST URLs to accept a string serialized SupplyChain. It is recommended that this parameter be “schain”.  
@@ -282,22 +299,31 @@ or a VAST URL format like:
 ```
 https://ads.exchange1.com/srv?pid=194&sz=v&plid=2842185&schain=[SUPPLYCHAIN GOES HERE]
 ```
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 **Sending SupplyChain to other tags or URLs**
 An advertising system may have a need to pass on a SupplyChain object to another ad tag or VAST URL. This may occur regardless of whether the SupplyChain information is received by the advertising system through OpenRTB or via a string serialized SupplyChain as described above. For this purpose, it is recommended that advertising systems support a macro (for example, $SCHAIN) to output a string serialized SupplyChain. The output of this macro must be a string serialized SupplyChain with the advertising system’s node appended.
 
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
+
 ### Serialization of an OpenRTB SupplyChain object into a URL parameter
 Suggested URL parameter: schain
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Format of serialization
 The serialization is composed of two items; the SupplyChainObject properties and the SupplyChainNode array. These two items are separated by a bang (“!”) character.
 
 ```{SupplyChainObject}!{SupplyChainNode array}```
 
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
+
 ### SupplyChainObject properties
 There are two properties in a SupplyChain object; version and complete. These two values must be included at the beginning of the serialized value and must be separated by a comma (“,”).
 
 ```ver,complete```
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Array of SupplyChainNode properties
 Following the SupplyChainObject properties, every node in the SupplyChain must be included. Properties of a SupplyChainNode object must be separated by a comma (“,”) and if there is more than one node, each must be separated by a bang (“!”) character. 
@@ -324,7 +350,11 @@ Example:
 
 This represents an sid of “123,B” on exampleexchange.com, which handles payments.
 
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
+
 ### Examples
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Single Hop - Chain Complete
 
@@ -350,6 +380,7 @@ This represents an sid of “123,B” on exampleexchange.com, which handles paym
 ``` 
 1.0,1!exchange1.com,1234,1,bid-request-1,publisher,publisher.com
 ``` 
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Single Hop - Chain Complete, optional fields missing
 
@@ -370,6 +401,8 @@ This represents an sid of “123,B” on exampleexchange.com, which handles paym
 
 **Serialized Value**
 ```1.0,1!exchange1.com,1234,1,,,```
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Multiple Hops - With all properties supplied
 
@@ -401,6 +434,8 @@ This represents an sid of “123,B” on exampleexchange.com, which handles paym
 **Serialized Value**
 ```1.0,1!exchange1.com,1234,1,bid-request-1,publisher,publisher.com!exchange2.com,abcd,1,bid-request2,intermediary,intermediary.com```
 
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
+
 ### Multiple Hops - Chain Complete, optional fields missing
 
 **SupplyChain**
@@ -426,6 +461,8 @@ This represents an sid of “123,B” on exampleexchange.com, which handles paym
 **Serialized Value**
 ```1.0,1!exchange1.com,1234,1,,,!exchange2.com,abcd,1,,,```
 
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
+
 ### Multiple Hops Expected - Chain Incomplete
 
 **SupplyChain**
@@ -445,6 +482,8 @@ This represents an sid of “123,B” on exampleexchange.com, which handles paym
 
 **Serialized Value**
 ```1.0,0!exchange2.com,abcd,1,,,```
+
+# DEPRECATED - USE VERSION 1.1 INSTEAD. [UPDATED IMPLEMENTATION GUIDANCE CAN BE FOUND HERE](https://github.com/InteractiveAdvertisingBureau/Supply-Chain-Validation/blob/main/Implementation%20Guidance.md)
 
 ### Single Hop - Chain Complete, encoded values
 
